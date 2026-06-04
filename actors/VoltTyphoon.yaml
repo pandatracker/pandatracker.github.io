@@ -1,0 +1,188 @@
+# ---- Identity ----
+name: Volt Typhoon
+aliases:
+- name: Vanguard Panda
+  vendor: CrowdStrike
+  source: https://attack.mitre.org/groups/G1017/
+- name: BRONZE SILHOUETTE
+  vendor: SecureWorks
+  source: https://attack.mitre.org/groups/G1017/
+- name: Insidious Taurus
+  vendor: Palo Alto Unit 42
+  source: https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/
+- name: UNC3236
+  vendor: Mandiant
+  source: https://attack.mitre.org/groups/G1017/
+- name: Voltzite
+  vendor: Dragos
+  source: https://attack.mitre.org/groups/G1017/
+- name: DEV-0391
+  vendor: Microsoft
+  source: https://attack.mitre.org/groups/G1017/
+
+# ---- Attribution ----
+actor_type: unknown
+affiliation: unknown
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Attributed by 2023 CISA advisory as a PRC
+  state-sponsored group. No specific PLA unit, MSS bureau, or contractor
+  firm has been publicly identified. 
+  
+  New Jersey Cybersecurity & Communications Integration Cell (NJCCIC) assessed the group
+  is "likely affiliated with the PLA or MSS." 
+  
+  No indictments have been unsealed.
+affiliation_confidence: high
+attribution_evidence:
+- type: government-advisory
+  title: "PRC State-Sponsored Cyber Actor Living off the Land to Evade Detection"
+  publisher: CISA / NSA / FBI / Five Eyes partners
+  date: 2023-05-24
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-144a
+- type: government-advisory
+  title: "PRC State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure"
+  publisher: CISA / NSA / FBI / DOE / EPA / TSA / Five Eyes
+  date: 2024-02-07
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
+- type: government-advisory
+  title: "Volt Typhoon"
+  publisher: NJCCIC
+  date: 2025-08-01
+  url: https://www.cyber.nj.gov/threat-landscape/nation-state-threat-analysis-reports/china-linked-cyber-operations-targeting-us-critical-infrastructure/volt-typhoon
+
+# ---- Timeline ----
+first_seen: 2021
+first_described: 2023-05
+last_seen: 2023
+
+# ---- Overview ----
+description: >
+  According to the publicly available information, Volt Typhoon is assessed to be  a PRC state-sponsored group focused on
+  pre-positioning within U.S. critical infrastructure for potential disruption or
+  destruction during a future geopolitical crisis. (CISA, 2024)
+  
+  Active since at least
+  mid-2021, the group has compromised organizations in communications,
+  energy, water, transportation, manufacturing, maritime, construction,
+  government, IT, and education, with focus on strategic locations, including Guam. (Microsoft, 2023)
+
+  Volt Typhoon's behavior is not consistent with traditional espionage.
+  CISA (2024) assessed the group is seeking to pre-position on IT networks for
+  lateral movement to OT assets, collecting ICS/SCADA documentation
+  including network diagrams and operations manuals.
+
+  According to Microsoft TI (2023), the group relies on living-off-the-land techniques — using native Windows tools, hands-on-keyboard activity,
+  and stolen valid credentials rather than deploying custom malware.
+  Traffic is routed through the KV Botnet, a network of compromised
+  end-of-life SOHO routers (primarily Cisco and NETGEAR) that makes
+  attack traffic appear to originate from legitimate U.S. IP addresses.
+  Initial access typically exploits vulnerabilities in internet-facing
+  Fortinet, Ivanti, NETGEAR, Citrix, and Cisco devices.
+
+  In January 2024, the FBI disrupted the KV Botnet via court-authorized
+  operation, removing malware from hundreds of SOHO routers.
+
+# ---- Key References ----
+assessment_basis:
+- title: "Volt Typhoon Targets US Critical Infrastructure with Living-off-the-Land Techniques"
+  publisher: Microsoft Threat Intelligence
+  date: 2023-05-24
+  url: https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/
+- title: "PRC State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure (AA24-038A)"
+  publisher: CISA / NSA / FBI / DOE / EPA / TSA / Five Eyes
+  date: 2024-02-07
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
+- title: "Routers Roasting On An Open Firewall: The KV-Botnet Investigation"
+  publisher: Black Lotus Labs / Lumen
+  date: 2023-12-13
+  url: https://blog.lumen.com/routers-roasting-on-an-open-firewall-the-kv-botnet-investigation/
+- title: "U.S. Government Disrupts Botnet"
+  publisher: U.S. Department of Justice
+  date: 2024-01-31
+  url: https://www.justice.gov/opa/pr/us-government-disrupts-botnet-peoples-republic-china-used-conceal-hacking-critical
+
+# ---- Targeting ----
+target_sectors:
+- telecommunications
+- energy
+- water-utilities
+- transportation
+- manufacturing
+- maritime
+- construction
+- government
+- technology
+- education
+- defense
+
+target_regions:
+- United States
+
+# ---- Campaigns ----
+campaigns:
+- name: U.S. Critical Infrastructure Pre-Positioning
+  year_published: null
+  description: >
+    Sustained campaign targeting critical infrastructure in Guam and
+    across the continental U.S. Compromised telecom companies, satellite
+    operators, utilities, water systems, and transportation hubs.
+    Initial access via Fortinet FortiGuard and other internet-facing
+    appliance vulnerabilities. CISA confirmed five-year persistence in
+    some environments and collection of ICS/SCADA documentation.
+    Microsoft and the U.S. government assessed the activity as
+    pre-positioning for potential disruption during a future crisis,
+    particularly regarding Taiwan scenarios.
+  targets:
+    sectors: [communications, energy, water-and-wastewater, transportation, government, maritime]
+    regions: [United States]
+  sources:
+  - url: https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/
+    title: "Volt Typhoon Targets US Critical Infrastructure"
+    publisher: Microsoft
+  - url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
+    title: "AA24-038A Joint Advisory"
+    publisher: CISA / NSA / FBI / Five Eyes
+
+- name: KV Botnet Operations
+  year_published: null
+  description: >
+    Construction and operation of the KV Botnet — a covert relay
+    network of compromised SOHO routers used to proxy attack traffic
+    and conceal origins. Black Lotus Labs documented the botnet in
+    December 2023. FBI disrupted it via court order in January 2024,
+    removing malware from hundreds of routers. Volt Typhoon rapidly
+    rebuilt the infrastructure. SecurityScorecard reported 30% of
+    Cisco RV320/325 devices compromised in 37 days.
+  targets:
+    sectors: [technology]
+    regions: [United States]
+  sources:
+  - url: https://blog.lumen.com/routers-roasting-on-an-open-firewall-the-kv-botnet-investigation/
+    title: "The KV-Botnet Investigation"
+    publisher: Black Lotus Labs / Lumen
+  - url: https://www.justice.gov/opa/pr/us-government-disrupts-botnet-peoples-republic-china-used-conceal-hacking-critical
+    title: "DOJ Botnet Disruption"
+    publisher: U.S. Department of Justice
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G1017
+  group_url: https://attack.mitre.org/groups/G1017/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-06
+  last_updated: 2026-03-06
+
+misp_uuid: f02679fa-5e85-4050-8eb5-c2677d93306f
+
+news_queries:
+  - "Volt Typhoon"
+  - "Vanguard Panda"
+  - "BRONZE SILHOUETTE"
+  - "Insidious Taurus"
+  - "UNC3236"

@@ -1,0 +1,264 @@
+# ---- Identity ----
+name: APT10
+aliases:
+- name: menuPass
+  vendor: FireEye/Mandiant
+  source: https://cloud.google.com/blog/topics/threat-intelligence/apt10-menupass-group
+- name: Stone Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/adversaries/stone-panda/
+- name: Red Apollo
+  vendor: PwC
+  source: https://www.pwc.co.uk/cyber-security/pdf/pwc-uk-operation-cloud-hopper-report-april-2017.pdf
+- name: Cicada
+  vendor: Symantec
+  source: https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/cicada-apt10-japan-espionage
+- name: POTASSIUM
+  vendor: Microsoft
+  source: https://www.justice.gov/opa/pr/two-chinese-hackers-associated-ministry-state-security-charged-global-computer-intrusion
+- name: HOGFISH
+  vendor: Accenture
+  source: http://web.archive.org/web/20220810112638/https:/www.accenture.com/t20180423T055005Z_w_/se-en/_acnmedia/PDF-76/Accenture-Hogfish-Threat-Analysis.pdf
+- name: BRONZE RIVERSIDE
+  vendor: SecureWorks/Sophos
+  source: https://www.sophos.com/en-us/research/bronze-starlight-ransomware-operations-use-hui-loader
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: MSS
+affiliation_unit: Tianjin State Security Bureau
+entity_name: Huaying Haitai Science and Technology Development Co., Ltd.
+associated_address: Tianjin, P.R. China
+coordinates: [39.08581542026265, 117.19955419121771]
+affiliation_detail: >
+  Associated to Huaying Haitai Science and Technology Development Company, based in Tianjin, China by both U.S. DOJ indictment (2018) and Intrusion Truth (2018).
+  According to the writings, operators acted in association with the Chinese Ministry of State Security's (MSS) Tianjin
+  State Security Bureau. 
+  
+  Two members were indicted: Zhu Hua (aliases: Afwar, CVNX,
+  Alayos, Godkiller) — a penetration tester who engaged in hacking and recruited members;
+  and Zhang Shilong (aliases: Baobeilong, Zhang Jianguo, Atreexp) — who developed and tested
+  malware. Both worked for Huaying Haitai in Tianjin.
+affiliation_confidence: high
+attribution_evidence:
+- type: indictment
+  title: "Two Chinese Hackers Associated With the Ministry of State Security Charged with Global Computer Intrusion Campaigns"
+  publisher: U.S. Department of Justice
+  date: 2018-12-20
+  url: https://www.justice.gov/opa/pr/two-chinese-hackers-associated-ministry-state-security-charged-global-computer-intrusion
+- type: indictment
+  title: "United States of America v. Zhu Hua and Zhang Shilong"
+  publisher: U.S. Department of Justice
+  date: 2018-12-17
+  url: https://nsarchive.gwu.edu/sites/default/files/documents/5691919/United-States-of-America-v-Zhu-Hua-and-Zhang.pdf
+- type: investigative-reporting
+  title: "APT10 was managed by the Tianjin bureau of the Chinese Ministry of State Security"
+  publisher: Intrusion Truth
+  date: 2018-08-15
+  url: https://intrusiontruth.wordpress.com/2018/08/15/apt10-was-managed-by-the-tianjin-bureau-of-the-chinese-ministry-of-state-security/
+- type: vendor-report
+  title: "Operation Cloud Hopper"
+  publisher: PwC UK / BAE Systems
+  date: 2017-04
+  url: https://www.pwc.co.uk/cyber-security/pdf/pwc-uk-operation-cloud-hopper-report-april-2017.pdf
+- type: vendor-report
+  title: "APT10 (MenuPass Group): New Tools, Global Campaign Latest Manifestation of Longstanding Threat"
+  publisher: FireEye/Mandiant
+  date: 2017-04-06
+  url: https://cloud.google.com/blog/topics/threat-intelligence/apt10-menupass-group
+- type: government-advisory
+  title: "EU Sanctions Against APT10 Members"
+  publisher: European Council
+  date: 2020-07-30
+  url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32020D1127
+
+# ---- Timeline ----
+first_seen: 2006                 # Per DOJ indictment: "from at least in or about 2006 through 2018"
+first_described: 2013             # FireEye's earliest public reporting (Siesta Campaign, 2014); Mandiant Poison Ivy report (2013) references menuPass
+last_seen: 2022                    # Symantec observed Cicada campaigns through at least February 2022; group continues to evolve
+
+# ---- Overview ----
+description: >
+  APT10 is a Chinese state-sponsored cyber espionage group affiliated with the MSS's Tianjin State Security Bureau, operating through the front company Huaying Haitai. 
+
+  Active since at least 2006, (U.S. DOJ, 2018) APT10 initially focused on the U.S. defense industrial base and Japanese organizations (FireEye/Mandiant, 2017) before expanding
+  its scope with Operation Cloud Hopper, a supply-chain campaign targeting managed IT service providers (MSPs) worldwide to gain access to their clients' networks. (PwC & BAE, 2017)
+  
+  This MSP compromise gave APT10 access to intellectual property across dozens of
+  industries in at least a dozen countries. The group has also conducted extensive direct targeting of
+  Japanese private and government organizations. (PwC & BAE, 2017) 
+
+  Two members (Zhu Hua and Zhang Shilong) were indicted by the DOJ in December 2018, and the group was sanctioned
+  by the EU in 2020. Despite these actions, APT10 appears to have continued operations, with Symantec (2022) documenting
+  global espionage campaigns as recently as 2022 using updated tooling including the SodaMaster backdoor, and Kaspersky (2022) associating APT10 with
+  2022 LODEINFO malware campaign targeting Japanese government orgs.
+
+# ---- Key References ----
+assessment_basis:
+- title: "APT10 (MenuPass Group): New Tools, Global Campaign Latest Manifestation of Longstanding Threat"
+  publisher: FireEye/Mandiant
+  date: 2017-04-06
+  url: https://cloud.google.com/blog/topics/threat-intelligence/apt10-menupass-group
+- title: "Operation Cloud Hopper"
+  publisher: PwC UK / BAE Systems
+  date: 2017-04
+  url: https://baesystemsai.blogspot.com/2017/04/apt10-operation-cloud-hopper_3.html
+- title: "United States of America v. Zhu Hua and Zhang Shilong"
+  publisher: U.S. Department of Justice
+  date: 2018-12-20
+  url: https://nsarchive.gwu.edu/sites/default/files/documents/5691919/United-States-of-America-v-Zhu-Hua-and-Zhang.pdf
+- title: "Cicada: Chinese APT Group Widens Targeting in Recent Espionage Activity"
+  publisher: Symantec
+  date: 2022-04
+  url: https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/cicada-apt10-china-ngo-government-attacks
+- title: "APT10: Tracking down LODEINFO 2022"
+  publisher: Kaspersky
+  date: 2021-03
+  url: https://securelist.com/apt10-tracking-down-lodeinfo-2022-part-i/107742/
+- title: "MITRE ATT&CK - menuPass (G0045)"
+  publisher: MITRE
+  date: 2017-05
+  url: https://attack.mitre.org/groups/G0045/
+
+# ---- Targeting ----
+target_sectors:
+- government
+- defense
+- aerospace
+- healthcare
+- technology
+- telecommunications
+- finance
+- energy
+- manufacturing
+- maritime
+- education
+- legal
+- NGOs
+- oil-and-gas
+  # MSP targeting provided indirect access to virtually all sectors
+
+target_regions:
+- Japan                          # Primary and consistent target throughout APT10's history
+- United States
+- United Kingdom
+- South Korea
+- Canada
+- France
+- Norway
+- Finland
+- Sweden
+- Switzerland
+- India
+- Brazil
+- South Africa
+- Australia
+- Thailand
+- United Arab Emirates
+- Turkey
+- Hong Kong
+- Israel
+- Italy
+- Montenegro
+  # Global reach via MSP compromise; DOJ indictment references "at least a dozen countries"
+
+# ---- Campaigns ----
+campaigns:
+- name: Operation Cloud Hopper (MSP targeting)
+  year_published: null
+  description: >
+    APT10's most significant campaign, targeting managed IT service providers (MSPs) worldwide
+    as a supply-chain attack vector to reach their clients' networks. PwC and BAE Systems jointly
+    reported the campaign in April 2017. APT10 compromised MSPs by exploiting their trusted
+    network access and legitimate credentials (often with domain admin privileges) to "hop"
+    into client networks across dozens of industries. Victims included major global MSPs
+    (including HPE, IBM, and others per Reuters reporting), with affected organizations in
+    the UK, US, Japan, India, Canada, Brazil, France, Norway, Finland, Switzerland, South Africa,
+    and Australia. The UK NCSC issued an advisory urging organizations to demand evidence from
+    their MSPs. A 2019 Reuters investigation revealed the campaign was significantly larger
+    than initially reported, with HPE fighting the attackers for at least five years.
+  targets:
+    sectors: [technology, government, defense, healthcare, finance, energy, manufacturing]
+    regions: [United States, United Kingdom, Japan, India, Canada, Brazil, Europe, Australia, South Africa]
+  sources:
+  - url: https://web.archive.org/web/20220224041316/https:/www.pwc.co.uk/cyber-security/pdf/cloud-hopper-report-final-v4.pdf
+    title: "Operation Cloud Hopper"
+    publisher: PwC UK / BAE Systems
+  - url: https://www.justice.gov/opa/pr/two-chinese-hackers-associated-ministry-state-security-charged-global-computer-intrusion
+    title: "Two Chinese Hackers Associated With the Ministry of State Security Charged"
+    publisher: U.S. Department of Justice
+
+- name: Japanese organizations targeting campaign
+  year_published: null
+  description: >
+    APT10 has maintained a persistent focus on Japanese organizations throughout its operational
+    history. This includes targeting of Japanese academic and industrial entities (documented
+    by Palo Alto Unit 42 in 2017), Japanese corporations with the UPPERCUT/ANEL and SNUGRIDE
+    backdoors (FireEye 2018), and Japanese firms and their subsidiaries in 17 locations
+    exploiting the Zerologon vulnerability (Symantec 2020). APT10's Japanese targeting has
+    used dedicated malware families (ChChes) and C2 domains spoofing legitimate Japanese
+    organizations.
+  targets:
+    sectors: [government, defense, aerospace, healthcare, technology, maritime, education]
+    regions: [Japan]
+  sources:
+  - url: http://researchcenter.paloaltonetworks.com/2017/02/unit42-menupass-returns-new-malware-new-attacks-japanese-academics-organizations/
+    title: "menuPass Returns with New Malware and New Attacks Against Japanese Academics and Organizations"
+    publisher: Palo Alto Networks Unit 42
+  - url: https://www.fireeye.com/blog/threat-research/2018/09/apt10-targeting-japanese-corporations-using-updated-ttps.html
+    title: "APT10 Targeting Japanese Corporations Using Updated TTPs"
+    publisher: FireEye
+
+- name: U.S. government and Navy data theft (DOJ Indictment)
+  year_published: null
+  description: >
+    Per the DOJ indictment, APT10 conducted intrusions against at least 45 technology companies
+    and U.S. government agencies over 12 years, stealing intellectual property, confidential
+    business data, and personally identifiable information (PII) of more than 100,000 U.S.
+    Navy personnel including social security numbers, dates of birth, and salary information.
+    Targeted industries included aviation, satellite technology, pharmaceutical, computer
+    processor, automotive, oil and gas exploration, and manufacturing. The group also
+    compromised NASA, JPL, and the U.S. Attorney's Office in SDNY.
+  targets:
+    sectors: [government, defense, aerospace, healthcare, technology, maritime, education]
+    regions: [Japan]
+  sources:
+  - url: https://nsarchive.gwu.edu/sites/default/files/documents/5691919/United-States-of-America-v-Zhu-Hua-and-Zhang.pdf
+    title: "United States of America v. Zhu Hua and Zhang Shilong"
+    publisher: U.S. Department of Justice
+
+- name: Global espionage expansion (Cicada 2021-2022)
+  year_published: null
+  description: >
+    Symantec documented APT10/Cicada targeting government, legal, religious, and NGO entities
+    across the U.S., Canada, Hong Kong, Turkey, Israel, India, Montenegro, and Italy. The group
+    exploited unpatched Microsoft Exchange Server vulnerabilities for initial access and deployed
+    the SodaMaster backdoor and a custom loader via VLC Media Player DLL side-loading. Attackers
+    maintained persistence on some networks for up to nine months. This campaign represented a
+    significant broadening of APT10's target scope beyond its traditional Japanese focus.
+  targets:
+    sectors: [government, legal, NGOs, education, telecommunications]
+    regions: [United States, Canada, Hong Kong, Turkey, Israel, India, Italy, Montenegro]
+  sources:
+  - url: https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/cicada-apt10-china-ngo-government-attacks
+    title: "Cicada: Chinese APT Group Widens Targeting in Recent Espionage Activity"
+    publisher: Symantec
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0045
+  group_url: https://attack.mitre.org/groups/G0045/
+
+# ---- Meta ----
+meta:
+  created: 2025-02-28
+  last_updated: 2025-02-28
+    
+# ---- MISP GALAXY ----
+misp_uuid: 56b37b05-72e7-4a89-ba8a-61ce45269a8c
+
+news_queries:
+  - "Stone Panda hack"
+  - "menuPass hack"
+  - "APT 10 Chinese hacking"
+  - "APT10 espionage"

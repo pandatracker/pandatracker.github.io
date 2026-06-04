@@ -1,0 +1,234 @@
+# ---- Identity ----
+name: Mustang Panda
+aliases:
+- name: TA416
+  vendor: Proofpoint
+  source: https://attack.mitre.org/groups/G0129/
+- name: RedDelta
+  vendor: Recorded Future / Insikt Group
+  source: https://attack.mitre.org/groups/G0129/
+- name: BRONZE PRESIDENT
+  vendor: SecureWorks
+  source: https://attack.mitre.org/groups/G0129/
+- name: Stately Taurus
+  vendor: Palo Alto Unit 42
+  source: https://attack.mitre.org/groups/G0129/
+- name: Earth Preta
+  vendor: Trend Micro
+  source: https://attack.mitre.org/groups/G0129/
+- name: Twill Typhoon
+  vendor: Microsoft
+  source: https://attack.mitre.org/groups/G0129/
+- name: Camaro Dragon
+  vendor: Check Point
+  source: https://attack.mitre.org/groups/G0129/
+- name: HoneyMyte
+  vendor: Kaspersky
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/mustang_panda
+- name: LUMINOUS MOTH
+  vendor: Kaspersky
+  source: https://attack.mitre.org/groups/G0129/
+- name: Red Lich
+  vendor: null
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/mustang_panda
+- name: TEMP.Hex
+  vendor: Mandiant
+
+
+# ---- Attribution ----
+actor_type: unknown
+affiliation: unknown
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Attributed to the PRC government by January 2025 U.S. DOJ court authorised operation, which
+  stated "the PRC government paid the Mustang Panda group to, among
+  other computer intrusion services, develop ... specific version of
+  PlugX." 
+  
+  No specific PLA unit, MSS bureau, or contractor has been
+  publicly named. No individuals have been indicted.
+affiliation_confidence: high
+attribution_evidence:
+- type: government-action
+  title: "DOJ/FBI International Operation to Delete PlugX Malware"
+  publisher: U.S. Department of Justice
+  date: 2025-01-14
+  url: https://www.justice.gov/archives/opa/pr/justice-department-and-fbi-conduct-international-operation-delete-malware-used-china-backed
+
+
+- type: vendor-report
+  title: "Meet CrowdStrike's Adversary of the Month: MUSTANG PANDA"
+  publisher: CrowdStrike
+  date: 2018-06-15
+  url: https://www.crowdstrike.com/en-us/blog/meet-crowdstrikes-adversary-of-the-month-for-june-mustang-panda/
+- type: vendor-report
+  title: "RedDelta Targeted Taiwan, Mongolia, and Southeast Asia with Adapted PlugX"
+  publisher: Recorded Future / Insikt Group
+  date: 2025-01-09
+  url: https://www.recordedfuture.com/research/reddelta-chinese-state-sponsored-group-targets-mongolia-taiwan-southeast-asia
+
+# ---- Timeline ----
+first_seen: 2012
+first_described: 2018-06
+last_seen: 2025
+
+# ---- Overview ----
+description: >
+  According to U.S. DOJ documents, Mustang Panda is Chinese state-aligned espionage group active since at least 2012. The group
+  targets government, diplomatic, NGO, religious, think tank, and
+  research organizations across the U.S., Europe, and Asia, with
+  particular focus on countries along China's periphery and entities
+  relevant to Chinese strategic interests.
+
+  The group frequently utilizes tool PlugX, a modular RAT shared across
+  Chinese groups since 2008 but deployed by Mustang Panda in customized
+  variants, including a USB-propagating version that targets
+  air-gapped networks. (Trend Micro, 2024)
+   
+  In January 2025, FBI/DOJ/French law
+  enforcement, together with the French cybersecurity company Sekoia.io, 
+  launched the operation to delete PlugX from computers worldwide. Approximately 4,258 U.S.
+  computers were cleaned.
+
+  Mustang Panda is highly reactive to geopolitical events: Vatican and
+  Catholic organizations during China-Vatican negotiations (2020); governments during the Ukraine invasion (2022); 
+  ASEAN-Australia Summit attendees (2024); Thailand military during the
+  Thailand-Cambodia border conflict (2025); and U.S. policy
+  organizations using Venezuela-themed lures (January 2026).
+
+# ---- Key References ----
+assessment_basis:
+- title: "Meet CrowdStrike's Adversary of the Month: MUSTANG PANDA"
+  publisher: CrowdStrike
+  date: 2018-06-15
+  url: https://www.crowdstrike.com/en-us/blog/meet-crowdstrikes-adversary-of-the-month-for-june-mustang-panda/
+
+- title: " Justice Department and FBI Conduct International Operation to Delete Malware Used by China-Backed Hackers"
+  publisher: U.S. Department of Justice
+  date: 2025-01-14
+  url: https://www.justice.gov/archives/opa/pr/justice-department-and-fbi-conduct-international-operation-delete-malware-used-china-backed
+
+- title: "Chinese State-Sponsored RedDelta Targeted Taiwan, Mongolia, and Southeast Asia with Adapted PlugX Infection Chain"
+  publisher: Recorded Future / Insikt Group
+  date: 2025-01-09
+  url: https://www.recordedfuture.com/research/reddelta-chinese-state-sponsored-group-targets-mongolia-taiwan-southeast-asia
+
+- title: "Earth Preta Campaign Uses DOPLUGS to Target Asia"
+  publisher: Trend Micro
+  date: 2024-02-20
+  url: https://www.trendmicro.com/en_gb/research/24/b/earth-preta-campaign-targets-asia-doplugs.html
+
+# ---- Targeting ----
+target_sectors:
+- government
+- diplomatic
+- military
+- NGOs
+- religious-organizations
+- think-tanks
+- telecommunications
+- education
+- research
+- maritime
+
+target_regions:
+- Myanmar
+- Vietnam
+- Mongolia
+- Pakistan
+- Philippines
+- Thailand
+- Taiwan
+- Hong Kong
+- United States
+- Germany
+- France
+- United Kingdom
+- Europe
+- Russia
+- Vatican
+
+# ---- Campaigns ----
+campaigns:
+- name: Vatican and Catholic Organization Targeting
+  year_published: 2020
+  description: >
+    Recorded Future documented RedDelta targeting the Vatican and
+    Catholic organizations during China-Vatican diplomatic
+    negotiations. PlugX delivered via tailored spear-phishing.
+  targets:
+    sectors: [religious-institutions, diplomatic]
+    regions: [Vatican]
+  sources:
+  - url: https://www.recordedfuture.com/research/reddelta-targets-catholic-organizations
+    title: "Chinese State-Sponsored Group RedDelta Targets the Vatican and Catholic Organizations"
+    publisher: Recorded Future / Insikt Group
+
+- name: European Government Targeting (Ukraine Escalation)
+  year_published: 2022
+  description: >
+    Proofpoint documented TA416 increasing operational tempo against
+    European governments as the Ukraine conflict escalated. Used
+    European Commission-themed lures and PlugX variants. Also
+    targeted European shipping companies in 2024.
+  targets:
+    sectors: [government, diplomatic, shipping]
+    regions: [Europe]
+  sources:
+  - url: 
+      https://www.proofpoint.com/us/blog/threat-insight/good-bad-and-web-bug-ta416-increases-operational-tempo-against-european
+    title: "TA416 Increases Operational Tempo"
+    publisher: Proofpoint
+
+- name: Thailand Military Targeting (SnakeDisk)
+  year_published: 2025
+  description: >
+    Geo-fenced SnakeDisk USB worm targeting Thai government and
+    military during Thailand-Cambodia border tensions. Payload
+    activated only on Thai IP addresses. Delivered Yokai backdoor.
+  targets:
+    sectors: [government, military]
+    regions: [Thailand]
+  sources:
+  - url: 
+      https://www.protoslabs.io/resources/deep-dive-analysis-into-mustang-pandas-thailand-focused-campaign----ttps-and-iocs
+    title: "Mustang Panda Thailand Campaign"
+    publisher: Protos Labs
+
+- name: U.S. Policy Organization Targeting (Venezuela Lures)
+  year_published: null
+  description: >
+    Reuters reported Mustang Panda using Venezuela-themed
+    spear-phishing to target U.S. government and policy
+    organizations following U.S. operations involving Venezuelan
+    President Maduro.
+  targets:
+    sectors: [government, think-tanks]
+    regions: [United States]
+  sources:
+  - url: https://www.reuters.com/business/media-telecom/chinese-linked-hackers-target-us-entities-with-venezuelan-themed-malware-2026-01-15/
+    title: "Chinese-linked group uses Venezuela-themed phishing to target US business"
+    publisher: Reuters 
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0129
+  group_url: https://attack.mitre.org/groups/G0129/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-06
+  last_updated: 2026-03-06
+
+misp_uuid: 78bf726c-a9e6-11e8-9e43-77249a2f7339
+
+news_queries:
+  - "Mustang Panda"
+  - "BRONZE PRESIDENT"
+  - "Stately Taurus"
+  - "Twill Typhoon"
+  - "Camaro Dragon"
+  - "TA416"

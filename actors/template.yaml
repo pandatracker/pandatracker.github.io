@@ -1,0 +1,88 @@
+# ---- Identity ----
+name:                         # Primary canonical name (e.g., APT41)
+aliases:
+  - name:                     # Alias name
+    vendor:                   # Vendor who coined it (null if community/unknown)
+    source:                   # URL to report or page establishing this alias
+
+# ---- Attribution ----
+actor_type:                   # state-associated | contractor | unknown
+affiliation:                  # MSS | PLA | PLA-unit | MPS | unknown
+affiliation_unit:             # Name or null
+entity_name:                  # Name or null
+  - 
+associated_address:           # Name or null
+coordinates: [x, y]           # [lat, long] or [null, null]
+affiliation_detail:           # Free text, e.g. "Linked to Chengdu 404 Network Technology"
+affiliation_confidence:       # high | likely | suspected
+attribution_evidence:         # What backs the affiliation claim. Only include those that are actually relevant to the attribution. Use Chicago citations - author, date.
+  - type:                     # indictment | vendor-report | government-advisory | leaked-docs | circumstantial
+    title:
+    publisher:
+    date:                     # YYYY-MM or YYYY-MM-DD
+    url:
+
+# ---- Timeline ----
+first_seen:                   # Earliest known activity (YYYY or YYYY-MM)
+first_described:              # When first publicly reported (YYYY or YYYY-MM)
+last_seen:                    # When was the group seen last (include source)
+
+# ---- Overview ----
+description: >                # 3-5 short paragraphs summary
+                              # Cover: who they target, how they operate,
+                              # what makes them notable, any known real-world impact
+                              # use Chicago citations - author, date. 
+
+# ---- Key References ----
+# The 3-7 foundational sources for this group. Quality over quantity.
+assessment_basis:
+  - title:
+    publisher:                # e.g., Mandiant, ESET, Microsoft, DOJ, CISA
+    date:                     # YYYY-MM or YYYY-MM-DD
+    url:
+    notes:                    # Optional: why this source matters
+
+# ---- Targeting ----
+# VALID SECTOR IDENTIFIERS — always use exactly these strings, no variations:
+#
+#   Core:        government, military, diplomatic, defense
+#   Tech:        technology, telecommunications, electronics, manufacturing,
+#                aerospace, managed-service-providers
+#   Economy:     finance, energy, oil-and-gas, healthcare, pharmaceuticals,
+#                biotechnology, construction, maritime, transportation,
+#                retail, hospitality, mining, gambling, gaming, cryptocurrency
+#   Knowledge:   education, research, media, legal, think-tanks
+#   Civil:       NGOs, political-dissidents, ethnic-minorities,
+#                religious-organizations
+#   Infra:       critical-infrastructure, water-utilities
+#
+target_sectors:
+
+target_regions:               # List of regions/countries targeted
+  #  - Europe
+  #  - Southeast Asia
+  #  - United States
+
+# ---- Campaigns ----
+# Major, well-attributed operations only.
+  - name:                     # Campaign/operation name (or descriptive label)
+    description: >            # 2-3 sentences: what happened, who was hit, how
+    targets:
+      sectors: []
+      regions: []
+    sources:
+      - url:
+        title:
+        publisher:
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id:                   # e.g., G0096
+  group_url:                  # e.g., https://attack.mitre.org/groups/G0096/
+
+# ---- Meta ----
+meta:
+  created: YYYY-MM-DD
+  last_updated: YYYY-MM-DD
+
+misp_uuid: #if available

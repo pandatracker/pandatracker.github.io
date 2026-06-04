@@ -1,0 +1,275 @@
+# ---- Identity ----
+name: APT40
+aliases:
+- name: Leviathan
+  vendor: Proofpoint
+  source: https://attack.mitre.org/groups/G0065/
+- name: Gingham Typhoon
+  vendor: Microsoft
+  source: https://learn.microsoft.com/en-us/microsoft-365/security/intelligence/microsoft-threat-actor-naming
+- name: Gadolinium
+  vendor: Microsoft
+  source: https://learn.microsoft.com/en-us/microsoft-365/security/intelligence/microsoft-threat-actor-naming
+- name: Kryptonite Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/adversaries/kryptonite-panda/
+- name: BRONZE MOHAWK
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/leviathan
+- name: TEMP.Periscope
+  vendor: FireEye / Mandiant
+  source: https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html
+- name: TEMP.Jumper
+  vendor: FireEye / Mandiant
+  source: https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html
+- name: MUDCARP
+  vendor: null
+  source: https://attack.mitre.org/groups/G0065/
+- name: FEVERDREAM
+  vendor: null
+  source: https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-200a
+- name: GreenCrash
+  vendor: null
+  source: https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-200a
+- name: Hellsing
+  vendor: null
+  source: https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-200a
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: MSS
+affiliation_unit: Hainan State Security Department
+entity_name:
+- Hainan Xiandun Technology Development Co., Ltd.
+associated_address: Haikou, Hainan province, P.R. China
+coordinates: [20.0442288688795, 110.1998908476742]
+affiliation_detail: >
+  On July 19, 2021, the DOJ unsealed a two-count indictment charging four
+  individuals: three HSSD intelligence officers — Ding Xiaoyang (丁晓阳),
+  Cheng Qingmin (程庆民), and Zhu Yunmin (朱允敏) — who coordinated,
+  facilitated, and managed hackers and linguists at Hainan Xiandun and other
+  MSS front companies; and Wu Shurong (吴淑荣), a hired hacker at Hainan
+  Xiandun who created malware and conducted intrusions.
+
+  The anonymous research collective IntrusionTruth published two reports in
+  January 2020 detailing the connections between Hainan Xiandun, APT40
+  activity, Ding Xiaoyang, and the Hainan MSS office — 18 months before the
+  DOJ indictment confirmed their findings.
+affiliation_confidence: high
+attribution_evidence:
+- type: indictment
+  title: "Four Chinese Nationals Working with the Ministry of State Security Charged with Global Computer Intrusion Campaign"
+  publisher: U.S. Department of Justice
+  date: 2021-07-19
+  url: https://www.justice.gov/opa/pr/four-chinese-nationals-working-ministry-state-security-charged-global-computer-intrusion
+- type: investigative-reporting
+  title: "APT40 is run by the Hainan department of the Chinese Ministry of State Security"
+  publisher: Intrusion Truth
+  date: 2020-01-16
+  url: https://intrusiontruth.wordpress.com/2020/01/16/apt40-is-run-by-the-hainan-department-of-the-chinese-ministry-of-state-security
+- type: government-advisory
+  title: "Tactics, Techniques, and Procedures of Indicted APT40 Actors Associated with China's MSS Hainan State Security Department (AA21-200A)"
+  publisher: CISA
+  date: 2021-07-19
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-200a
+- type: government-advisory
+  title: "PRC Ministry of State Security APT40 Tradecraft in Action (AA24-190A)"
+  publisher: CISA
+  date: 2024-07-08
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-190a
+- type: government-advisory
+  title: "Parliamentary Network Breached by the PRC"
+  publisher: New Zealand GCSB / NCSC
+  date: 2024-03-26
+  url: https://www.beehive.govt.nz/release/parliamentary-network-breached-prc
+- type: vendor-report
+  title: "APT40: Examining a China-Nexus Espionage Actor"
+  publisher: FireEye / Mandiant
+  date: 2019-03-04
+  url: https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html
+
+# ---- Timeline ----
+first_seen: 2009
+first_described: 2019-03
+last_seen: 2024
+
+# ---- Overview ----
+description: >
+  According to U.S. DOJ indictment (2021) and Intrusion Truth (2020) investigation series, APT40 is a Chinese state-sponsored cyber espionage group attributed to
+  the Ministry of State Security's Hainan State Security Department (HSSD),
+  operating from Haikou, Hainan Province since at least 2009. 
+
+  The group conducted operations through the front company Hainan Xiandun Technology
+  Development Company (海南仙盾). APT40's primary mission is the theft
+  of intellectual property, and government intelligence in
+  support of China's naval modernization, the Belt and Road Initiative, or high-tech R&D. (U.S. DOJ, 2021; FireEye, 2019)
+
+  According to the DOJ indictment, APT40 has targeted academia, aerospace, biomedical research, defense,
+  government, healthcare, manufacturing, maritime technology, and
+  transportation in 14 countries. Stolen information has included data on submersibles,
+  autonomous vehicles, chemical formulas, commercial aircraft servicing,
+  genetic-sequencing technology, and infectious-disease research. 
+
+  According to a 2024 CISA advisory, APT40 "possesses the capability to rapidly transform and adapt exploit proof-of-concept(s) (POCs) 
+  of new vulnerabilities and immediately utilize them against target networks",
+  often "within hours or days of public release."
+
+# ---- Key References ----
+assessment_basis:
+- title: "APT40: Examining a China-Nexus Espionage Actor"
+  publisher: FireEye / Mandiant
+  date: 2019-03-04
+  url: https://www.fireeye.com/blog/threat-research/2019/03/apt40-examining-a-china-nexus-espionage-actor.html
+
+- title: "Tactics, Techniques, and Procedures of Indicted APT40 Actors (AA21-200A)"
+  publisher: CISA
+  date: 2021-07-19
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-200a
+
+- title: "PRC Ministry of State Security APT40 Tradecraft in Action (AA24-190A)"
+  publisher: CISA
+  date: 2024-07-08
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-190a
+
+- title: "DOJ Indictment: Four Chinese Nationals Working with MSS"
+  publisher: U.S. Department of Justice
+  date: 2021-07-19
+  url: 
+    https://www.justice.gov/opa/pr/four-chinese-nationals-working-ministry-state-security-charged-global-computer-intrusion
+
+# ---- Targeting ----
+target_sectors:
+- government
+- military
+- diplomatic
+- defense
+- aerospace
+- maritime
+- biotechnology
+- healthcare
+- education
+- manufacturing
+- technology
+- telecommunications
+- transportation
+- energy
+- research
+
+target_regions:
+- United States
+- Austria
+- Cambodia
+- Canada
+- Germany
+- Indonesia
+- Malaysia
+- Norway
+- Saudi Arabia
+- South Africa
+- Switzerland
+- United Kingdom
+- Australia
+- New Zealand
+- South Korea
+- Japan
+
+# ---- Campaigns ----
+campaigns:
+- name: Naval Modernization and Maritime Espionage (TEMP.Periscope)
+  year_published: null
+  description: >
+    FireEye documented APT40's campaign targeting maritime
+    technology, naval research, engineering, and transportation sectors
+    in support of China's naval modernization and blue-water navy
+    ambitions. Targets included universities engaged in naval research,
+    defense contractors, and organizations involved in submersible and
+    autonomous vehicle development. The group masqueraded as an
+    underwater vehicle manufacturer after China's PLAN seized a U.S.
+    Navy UUV in the South China Sea in December 2016. Operations
+    expanded to Belt and Road Initiative-related targeting across
+    Cambodia, Belgium, Germany, the Philippines, Malaysia, Norway,
+    Saudi Arabia, Switzerland, the U.S., and UK.
+  targets:
+    sectors: [maritime, defense, aerospace, engineering, transportation, academia]
+    regions: [United States, Cambodia, Belgium, Germany, Philippines, Malaysia, Norway, Saudi Arabia, Switzerland, 
+        United Kingdom]
+  sources:
+  - url: https://cloud.google.com/blog/topics/threat-intelligence/apt40-examining-a-china-nexus-espionage-actor/
+    title: "APT40: Examining a China-Nexus Espionage Actor"
+    publisher: FireEye / Mandiant
+
+- name: Biomedical and IP Theft Campaign (DOJ Indictment)
+  year_published: null
+  description: >
+    The DOJ indictment detailed APT40's theft of trade secrets and
+    intellectual property from entities in 12 countries. Targeted
+    information included data on submersibles, autonomous vehicles,
+    chemical formulas, commercial aircraft servicing, genetic-sequencing
+    technology, and infectious-disease research (Ebola, MERS, HIV/AIDS,
+    Marburg, tularemia).
+  targets:
+    sectors: [biomedical, healthcare, defense, academia, aerospace, manufacturing, transportation]
+    regions: [United States, Austria, Cambodia, Canada, Germany, Indonesia, Malaysia, Norway, Saudi Arabia, South Africa,
+      Switzerland, United Kingdom]
+  sources:
+  - url: https://www.justice.gov/opa/pr/four-chinese-nationals-working-ministry-state-security-charged-global-computer-intrusion
+    title: "DOJ Indictment — APT40"
+    publisher: U.S. Department of Justice
+
+- name: New Zealand Parliamentary Breach
+  year_published: null
+  description: >
+    New Zealand's GCSB/NCSC attributed a 2021 breach of the Parliamentary
+    Counsel Office and Parliamentary Service to APT40. The compromise was
+    detected relatively quickly and contained before strategic or sensitive
+    data was exfiltrated. The attribution was disclosed publicly in March
+    2024 as part of a coordinated international action alongside the
+    U.S./UK APT31 announcements.
+  targets:
+    sectors: [government]
+    regions: [New Zealand]
+  sources:
+  - url: https://www.beehive.govt.nz/release/parliamentary-network-breached-prc
+    title: "Parliamentary Network Breached by the PRC"
+    publisher: New Zealand Government
+
+- name: Australian Network Intrusions (ASD Case Studies)
+  year_published: null
+  description: >
+    The 2024 multinational advisory documented two ASD-investigated
+    breaches of Australian organizations in 2022. In the first case
+    (July-September 2022), APT40 exploited a custom web application to
+    establish a foothold in a network DMZ, then used compromised
+    credentials for Active Directory enumeration and SMB-based data
+    exfiltration. In the second case (April-May 2022), APT40 exploited
+    RCE vulnerabilities in a remote access login portal, deploying
+    web shells and capturing hundreds of username-password pairs, MFA
+    codes, and JSON Web Tokens.
+  targets:
+    sectors: [government, technology]
+    regions: [Australia]
+  sources:
+  - url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-190a
+    title: "PRC MSS APT40 Tradecraft in Action (AA24-190A)"
+    publisher: ASD ACSC / CISA / multinational partners
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0065
+  group_url: https://attack.mitre.org/groups/G0065/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-04
+  last_updated: 2026-03-04
+
+# ---- MISP GALAXY ----
+misp_uuid: 5b4b6980-3bc7-11e8-84d6-879aaac37dd9
+
+news_queries:
+  - "Gingham Typhoon"
+  - "Kryptonite Panda"
+  - "BRONZE MOHAWK"
+  - "APT 40 Chinese hacking"
+  - "APT40 espionage"
+  - "APT40 hacking"

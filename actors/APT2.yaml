@@ -1,0 +1,189 @@
+# ---- Identity ----
+name: APT2
+aliases:
+- name: Putter Panda
+  vendor: CrowdStrike
+  source: http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf
+- name: TG-6952
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt2
+- name: MSUpdater
+  vendor: null
+  source: http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf
+- name: 4HCrew
+  vendor: null
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt2
+- name: SULPHUR
+  vendor: null
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt2
+- name: SearchFire
+  vendor: null
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt2
+- name: Group 36
+  vendor: null
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt2
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: PLA
+affiliation_unit: Unit 61486
+entity_name: null
+associated_address: Zhabei District, Shanghai, P.R. China
+coordinates: [31.27123518133814, 121.4619122721973]
+affiliation_detail: >
+  Associated by Crowdstrike (2014) to 12th Bureau of the PLA's 3rd General Staff Department (GSD),
+  Unit 61486, which is believed to be headquartered in the Zhabei District of Shanghai, China. The 12th Bureau supports China's
+  space surveillance network and is suspected to be involved in space-based SIGINT collection and
+  interception of satellite communications.
+  
+  CrowdStrike identified Chen Ping (alias "cpyy") as an individual responsible for domain registration of Putter Panda C2 infrastructure.
+affiliation_confidence: likely
+attribution_evidence:
+- type: vendor-report
+  title: "CrowdStrike Intelligence Report: Putter Panda"
+  publisher: CrowdStrike
+  date: 2014-06-09
+  url: http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf
+- type: vendor-report
+  title: "Hat-tribution to PLA Unit 61486"
+  publisher: CrowdStrike
+  date: 2014-06-09
+  url: https://www.crowdstrike.com/en-us/blog/hat-tribution-pla-unit-61486/
+- type: vendor-report
+  title: "Puttering into the Future…"
+  publisher: Cylance (now BlackBerry)
+  date: 2016-01-12
+  url: https://blogs.blackberry.com/en/2016/01/puttering-into-the-future
+- type: circumstantial
+  title: "C2 domain registrations linked to Chen Ping and physical location of Unit 61486 HQ via OSINT"
+  publisher: CrowdStrike
+  date: 2014-06
+  url: http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf
+
+# ---- Timeline ----
+first_seen: 2007                  # Earliest documented tool build times per CrowdStrike report
+first_described: 2014-06          # CrowdStrike Putter Panda report published June 9, 2014
+last_seen: 2016                  # No publicly reported activity post-2015; consistent with broader PLA operational drawdown after Obama-Xi agreement
+
+# ---- Overview ----
+description: >
+  APT2, tracked by CrowdStrike as Putter Panda, is a Chinese state-sponsored cyber espionage group
+  attributed to PLA Unit 61486, the 12th Bureau of the 3rd General Staff Department, headquartered in
+  Shanghai's Zhabei District. 
+
+  Active since at least 2007, the group primarily targeted the U.S. defense industry and European satellite,  aerospace, and
+  communications sectors, consistent with the 12th Bureau's mission of space surveillance and satellite SIGINT collection.
+
+  APT2 relied on spear-phishing emails exploiting vulnerabilities in Adobe Reader and Microsoft Office to deploy custom remote access tools. 
+  The group notably targeted conference attendees, particularly golf players, leading to its "Putter Panda" codename. 
+
+  CrowdStrike's 2014 report identified shared infrastructure with PLA Unit 61398 (APT1/Comment Panda),  suggesting coordination
+  between PLA cyber units. 
+
+  A 2016 Cylance report found the group had retooled with new backdoors achieving zero antivirus detection after its public
+  exposure.
+
+# ---- Key References ----
+assessment_basis:
+- title: "CrowdStrike Intelligence Report: Putter Panda"
+  publisher: CrowdStrike
+  date: 2014-06-09
+  url: http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf
+- title: "Hat-tribution to PLA Unit 61486"
+  publisher: CrowdStrike
+  date: 2014-06-09
+  url: https://www.crowdstrike.com/en-us/blog/hat-tribution-pla-unit-61486/
+- title: "Puttering into the Future…"
+  publisher: Cylance (now BlackBerry)
+  date: 2016-01-12
+  url: https://blogs.blackberry.com/en/2016/01/puttering-into-the-future
+- title: "Putter Panda"
+  publisher: Council on Foreign Relations
+  date: 2014-06
+  url: https://www.cfr.org/cyber-operations/putter-panda
+
+# ---- Targeting ----
+target_sectors:
+- defense
+- aerospace
+- technology
+- telecommunications
+- government
+- electronics                 # Satellite and remote sensing technology
+  # Primary focus: satellite, space, and communications technology aligned with 12th Bureau's
+  # space surveillance and SIGINT mission
+
+target_regions:
+- United States                  # Primary target, especially defense contractors
+- Europe                         # European satellite and aerospace industries (notably Toulouse Space Centre interest)
+- Japan                          # Japanese aerospace companies
+- Canada                         # Canadian National Research Council breach (2014, suspected but not confirmed)
+
+# ---- Campaigns ----
+campaigns:
+- name: Satellite and aerospace espionage campaign
+  year_published: null
+  description: >
+    Multi-year cyber espionage campaign targeting U.S. defense contractors and European satellite
+    and aerospace companies. Putter Panda used spear-phishing emails, often themed around industry
+    conferences and targeting golf-playing attendees, to exploit vulnerabilities in Adobe Reader
+    (e.g., CVE-2012-0158) and Microsoft Office. Custom RATs were deployed for long-term access
+    and data exfiltration of trade secrets related to satellite, communications, and space technology.
+    CrowdStrike documented over 20 confirmed intrusions.
+  targets:
+    sectors: [defense, aerospace, technology, telecommunications]
+    regions: [United States, Europe, Japan]
+  sources:
+  - url: http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf
+    title: "CrowdStrike Intelligence Report: Putter Panda"
+    publisher: CrowdStrike
+
+- name: Canadian National Research Council breach (suspected)
+  year_published: null
+  description: >
+    The Canadian government announced in July 2014 that "a highly sophisticated Chinese
+    state-sponsored actor" had compromised the National Research Council (NRC) network. CrowdStrike's
+    Dmitri Alperovitch stated the attack bore similarities to Putter Panda's past operations against
+    aircraft manufacturers. Canada attributed the attack to Chinese state actors but did not publicly
+    name Unit 61486. The NRC was forced to rebuild its entire network over approximately one year.
+  targets:
+    sectors: [government, aerospace]
+    regions: [Canada]
+  sources:
+  - url: https://www.yahoo.com/news/hacking-attack-canada-bears-signs-052307616.html
+    title: "Hacking attack in Canada bears signs of Chinese army unit - expert"
+    publisher: Reuters
+
+- name: Post-exposure retooling campaign
+  year_published: null
+  description: >
+    After public exposure in June 2014, Putter Panda retooled with new backdoor malware using
+    German dynamic DNS providers (spdns.org, spdns.de) for C2. Cylance identified samples targeting
+    Russian-language speakers with zero antivirus detection. One Chinese AV vendor briefly detected
+    a sample in July 2015 but quickly removed the detection, suggesting possible interference.
+  targets:
+    sectors: []
+    regions: []
+  sources:
+  - url: https://blogs.blackberry.com/en/2016/01/puttering-into-the-future
+    title: "Puttering into the Future…"
+    publisher: Cylance (now BlackBerry)
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0024
+  group_url: https://attack.mitre.org/groups/G0024/
+
+# ---- Meta ----
+meta:
+  created: 2025-02-28
+  last_updated: 2025-02-28
+
+# ---- MISP GALAXY ----
+misp_uuid: 0ca45163-e223-4167-b1af-f088ed14a93d
+
+news_queries:
+  - "Putter Panda"
+  - "TG-6952 hacking"
+  - "APT 2 Chinese hacking"
+  - "APT2 espionage"

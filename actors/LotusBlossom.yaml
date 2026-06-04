@@ -1,0 +1,208 @@
+# ---- Identity ----
+name: Lotus Blossom
+aliases:
+- name: Raspberry Typhoon
+  vendor: Microsoft
+  source: https://attack.mitre.org/groups/G0030/
+- name: BRONZE ELGIN
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/lotus_panda
+- name: Spring Dragon
+  vendor: Kaspersky
+  source: https://attack.mitre.org/groups/G0030/
+- name: Billbug
+  vendor: Symantec
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/lotus_panda
+- name: Thrip
+  vendor: Symantec
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/lotus_panda
+- name: DRAGONFISH
+  vendor: Accenture
+  source: https://attack.mitre.org/groups/G0030/
+- name: RADIUM
+  vendor: Microsoft (pre-rename)
+  source: https://attack.mitre.org/groups/G0030/
+- name: Lotus Panda
+  vendor: CrowdStrike
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/lotus_panda
+
+# ---- Attribution ----
+actor_type: unknown
+affiliation: unknown
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Attributed to China based on targeting and tooling. No specific PLA unit, MSS bureau, or contractor has been
+  publicly identified. No indictments. 
+  
+  SOCRadar (2026) describes the group as occupying "a specialized niche"
+  within the Chinese APT ecosystem focused on long-term intelligence
+  collection "integrated with national strategic planning."
+affiliation_confidence: suspected
+attribution_evidence:
+- type: vendor-report
+  title: "Dark Web Profile: Lotus Blossom"
+  publisher: SOCRadar
+  date: 2026-02
+  url: https://socradar.io/blog/dark-web-profile-lotus-blossom/
+
+# ---- Timeline ----
+first_seen: 2009
+first_described: 2015-06
+last_seen: 2026
+
+# ---- Overview ----
+description: >
+  Lotus Blossom is a suspected Chinese state-aligned espionage group active since
+  at least 2009, targeting government, military, diplomatic, telecom, and
+  critical infrastructure organizations primarily in Southeast Asia. The
+  group is defined by patient, long-dwell-time intelligence collection
+  and a distinctive custom malware. (SOCRadar, 2026)
+  
+  In 2015, Palo Alto's Unit 42 attributed a targeted attack directed at an French diplomat based in Taipei 
+  to Lotus Blossom, noting likely interest in "gaining insights into relations between France and Taiwan."
+
+  The group progressed from spear-phishing with weaponized Office
+  documents to living-off-the-land techniques and
+  supply chain attacks. (SOCRadar, 2026) In 2022, Symantec documented Lotus Blossom
+  (as Billbug) targeting a national Certificate Authority alongside
+  government agencies in multiple Asian countries. 
+  
+  In 2025, the group executed a supply chain compromise of Notepad++ update infrastructure
+  to deliver the Chrysalis backdoor to selectively
+  targeted in Southeast Asia across government, telecommunications and critical infrastructure sectors
+  over six months. (Rapid7, 2026; Palo Alto Unit 42, 2026)
+
+# ---- Key References ----
+assessment_basis:
+- title: "Operation Lotus Blossom"
+  publisher: Palo Alto Unit 42
+  date: 2015-06-16
+  url: https://unit42.paloaltonetworks.com/operation-lotus-blossom/
+
+- title: "Attack on French Diplomat Linked to Operation Lotus Blossom"
+  publisher: Palo Alto Unit 42
+  date: 2015-12-18
+  url: https://unit42.paloaltonetworks.com/attack-on-french-diplomat-linked-to-operation-lotus-blossom/
+
+- title: "Billbug: State-sponsored Actor Targets Cert Authority, Government Agencies in Multiple Asian Countries"
+  publisher: Symantec
+  date: 2022-11-12
+  url: https://www.security.com/threat-intelligence/espionage-asia-governments-cert-authority
+
+- title: "The Chrysalis Backdoor (Notepad++ Compromise)"
+  publisher: Rapid7
+  date: 2026-01
+  url: https://www.rapid7.com/blog/post/tr-chrysalis-backdoor-dive-into-lotus-blossoms-toolkit/
+
+- title: "Dark Web Profile: Lotus Blossom"
+  publisher: SOCRadar
+  date: 2026-02
+  url: https://socradar.io/blog/dark-web-profile-lotus-blossom/
+
+# ---- Targeting ----
+target_sectors:
+- government
+- military
+- diplomatic
+- telecommunications
+- manufacturing
+- media
+- critical-infrastructure
+- technology
+
+target_regions:
+- Philippines
+- Vietnam
+- Indonesia
+- Taiwan
+- Hong Kong
+- Malaysia
+- Thailand
+- Myanmar
+- Djibouti
+- Australia
+- El Salvador
+
+# ---- Malware & Tooling ----
+campaigns:
+- name: Operation Lotus Blossom
+  year_published: null
+  description: >
+    Spear-phishing campaigns deploying Elise backdoor against
+    government and military targets in Southeast Asia. Decoy military/government personnel rosters.
+  targets:
+    sectors: [government, military]
+    regions: [Southeast Asia]
+  sources:
+  - url: https://unit42.paloaltonetworks.com/operation-lotus-blossom/
+    title: "Operation Lotus Blossom"
+    publisher: Palo Alto Unit 42
+
+- name: Certificate Authority Compromise
+  year_published: null
+  description: >
+    Symantec documented targeting of a national Certificate Authority
+    and government agencies in multiple Asian countries. CA compromise could enable fraudulent
+    certificate issuance; public reporting did not confirm abuse.
+  targets:
+    sectors: [certificate-authorities, government]
+    regions: [Asia]
+  sources:
+  - url: https://www.security.com/threat-intelligence/espionage-asia-governments-cert-authority
+    title: "Billbug: State-sponsored Actor Targets Cert Authority, Government Agencies in Multiple Asian Countries"
+    publisher: Symantec
+
+- name: Sagerunex Multi-Industry Campaigns
+  year_published: null
+  description: >
+    Sagerunex variants with cloud C2 (Dropbox, Twitter/X, Zimbra)
+    targeting government, manufacturing, telecom, and media. WMI
+    lateral movement, Chrome cookie stealers, Venom proxy tool.
+  targets:
+    sectors: [government, manufacturing, telecommunications, media]
+    regions: [Asia-Pacific]
+  sources:
+  - url: https://blog.talosintelligence.com/lotus-blossom-espionage-group/
+    title: "Lotus Blossom espionage group targets multiple industries with different versions of Sagerunex and hacking tools"
+    publisher: Cisco Talos
+
+- name: Notepad++ Supply Chain Compromise
+  year_published: 2026
+  description: >
+    Compromised Notepad++ hosting infrastructure to hijack update
+    traffic. Chrysalis backdoor delivered selectively
+    over six months: government, telecommunications and critical infrastructure sectors across SEA.
+  targets:
+    sectors: [government, telecommunications, critical infrastructure]
+    regions: [South East Asia]
+  sources:
+  - url: https://www.rapid7.com/blog/post/tr-chrysalis-backdoor-dive-into-lotus-blossoms-toolkit/
+    title: "The Chrysalis Backdoor: A Deep Dive into Lotus Blossom’s toolkit"
+    publisher: Rapid7
+  - url: https://unit42.paloaltonetworks.com/notepad-infrastructure-compromise/
+    title: "Nation-State Actors Exploit Notepad++ Supply Chain"
+    publisher: Palo Alto Networks Unit 42
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0030
+  group_url: https://attack.mitre.org/groups/G0030/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-06
+  last_updated: 2026-03-06
+
+misp_uuid: 32fafa69-fe3c-49db-afd4-aac2664bcf0d
+
+news_queries:
+  - "Lotus Blossom apt"
+  - "Lotus Blossom group"
+  - "Lotus Blossom hack"
+  - "Spring Dragon apt"
+  - "Raspberry Typhoon"
+  - "Lotus Panda apt hack"
+  - "BRONZE ELGIN"

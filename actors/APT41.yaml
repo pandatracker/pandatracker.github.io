@@ -1,0 +1,325 @@
+# ---- Identity ----
+name: APT41
+aliases:
+- name: Double Dragon
+  vendor: FireEye / Mandiant
+  source: https://cloud.google.com/blog/topics/threat-intelligence/apt41-dual-espionage-and-cyber-crime-operation
+- name: Wicked Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/adversaries/wicked-panda/
+- name: Brass Typhoon
+  vendor: Microsoft
+  source: https://attack.mitre.org/groups/G0096/
+- name: BARIUM
+  vendor: Microsoft
+  source: https://attack.mitre.org/groups/G0096/
+- name: BRONZE ATLAS
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt41
+- name: Winnti Group
+  vendor: Kaspersky / ESET / multiple
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt41
+- name: Axiom
+  vendor: Novetta
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt41
+- name: Blackfly
+  vendor: Symantec
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt41
+- name: Earth Baku
+  vendor: Trend Micro
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt41
+- name: RedGolf
+  vendor: Recorded Future / Insikt Group
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt41
+- name: TA415
+  vendor: Proofpoint
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt41
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: MSS
+affiliation_unit: null
+entity_name:
+- Chengdu 404 Network Technology
+associated_address: Chengdu, Sichuan province, P.R. China
+coordinates: [30.572301182455544, 104.06641828891044]
+affiliation_detail: >
+  In September 2020, the DOJ unsealed charges against five Chinese
+  nationals and two Malaysian accomplices in connection with APT41's
+  operations. Three defendants were employees of the front company Chengdu
+  404 Network Technology (成都肆零肆网络科技有限公司), a purported network security
+  firm based in Chengdu, Sichuan Province. Intercepted communications revealed one
+  defendant boasting of close relationships with both the MSS and MPS.
+  The indictments covered attacks against over 100 organizations worldwide,
+  including supply chain compromises, ransomware attacks (including against
+  a non-profit combating global poverty), and theft of source code, digital
+  certificates, and customer data.
+
+  The two Malaysian nationals were arrested in Malaysia in September 2020 for conspiring with
+  APT41 members to profit from video game company intrusions. All five
+  Chinese defendants remain at large.
+affiliation_confidence: high
+attribution_evidence:
+- type: indictment
+  title: "Indictment of Zhang Haoran and Tan Dailin (August 2019)"
+  publisher: U.S. Department of Justice
+  date: 2019-08
+  url: https://www.justice.gov/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer
+- type: indictment
+  title: "Indictment of Jiang Lizhi, Qian Chuan, Fu Qiang / Chengdu 404 (August 2020)"
+  publisher: U.S. Department of Justice
+  date: 2020-08
+  url: https://www.justice.gov/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer
+- type: vendor-report
+  title: "Double Dragon — APT41, a Dual Espionage and Cyber Crime Operation"
+  publisher: FireEye / Mandiant
+  date: 2019-08-07
+  url: https://cloud.google.com/blog/topics/threat-intelligence/apt41-dual-espionage-and-cyber-crime-operation
+- type: vendor-report
+  title: "ShadowPad: A Masterpiece of Privately Sold Malware in Chinese Espionage"
+  publisher: SentinelOne / SentinelLabs
+  date: 2021-08
+  url: https://www.sentinelone.com/labs/shadowpad-a-masterpiece-of-privately-sold-malware-in-chinese-espionage/
+
+# ---- Timeline ----
+first_seen: 2012
+first_described: 2013
+last_seen: 2025
+
+# ---- Overview ----
+description: >
+  APT41 is a Chinese state-sponsored threat group characterized by conducting state-directed cyber espionage aligned with
+  China's strategic intelligence requirements while simultaneously engaging
+  in cybercrime activities. (FireEye, 2019) Active since at least 2012, APT41 has targeted organizations in at least 14
+  countries across large number of industries. According to U.S. DOJ, APT41 operated through the
+  front company Chengdu 404 Network Technology and was reportedly connected to both MSS and MPS.
+  
+  APT41 is known for its usage of software supply chain attacks, compromising software development environments and injecting
+  malicious code into trusted update mechanisms. FireEye (2019) attributes the
+  2017 NetSarang ShadowPad compromise, and the 2019 ASUS Live Update utility (ShadowHammer) to APT41. The 2017 CCleaner compromise,
+  while overlapping with APT41 TTPs, is not definitely attributed to the group by FireEye.
+
+  SentinelOne's 2021 research identified APT41 as comprising two
+  sub-groups: BARIUM, responsible for the
+  major supply chain attacks (NetSarang, ASUS ShadowHammer and allegedlly CCleaner);
+  and LEAD, conducting broader espionage and financial operations. Both sub-groups are, according to the authors, based in Chengdu.
+
+  In February 2026 Google Threat Intelligence Group (GTIG) observed APT41 misusing Google Gemini AI to accelerate 
+  the development and deployment of malicious tooling, including for knowledge synthesis, real-time troubleshooting, and code translation." 
+
+# ---- Key References ----
+assessment_basis:
+- title: "APT41, a Dual Espionage and Cyber Crime Operation"
+  publisher: FireEye / Mandiant
+  date: 2019-08-07
+  url: https://services.google.com/fh/files/misc/apt41-a-dual-espionage-and-cyber-crime-operation.pdf
+
+- title: "DOJ Indictments — APT41 / Chengdu 404"
+  publisher: U.S. Department of Justice
+  date: 2020-09-16
+  url: https://www.justice.gov/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer
+
+- title: "APT41 Investigation Series"
+  publisher: Intrusion Truth
+  date: 2022
+  url: https://intrusiontruth.wordpress.com/category/apt41/
+  notes: null
+
+- title: "ShadowPad: A Masterpiece of Privately Sold Malware in Chinese Espionage"
+  publisher: SentinelOne / SentinelLabs
+  date: 2021-08
+  url: https://www.sentinelone.com/labs/shadowpad-a-masterpiece-of-privately-sold-malware-in-chinese-espionage/
+
+- title: "Does This Look Infected? A Summary of APT41 Targeting U.S. State Governments"
+  publisher: Mandiant
+  date: 2022-03-08
+  url: https://cloud.google.com/blog/topics/threat-intelligence/apt41-us-state-governments
+
+- title: "Operation ShadowHammer"
+  publisher: Kaspersky Lab
+  date: 2019-03
+  url: https://securelist.com/operation-shadowhammer/89992/
+
+- title: "4 Malicious Campaigns and a New Wave of APT41 Attacks"
+  publisher: Group-IB
+  date: 2022
+  url: https://www.group-ib.com/blog/apt41-world-tour-2021/
+
+- title: "GTIG AI Threat Tracker: Distillation, Experimentation, and (Continued) Integration of AI for Adversarial Use"
+  publisher: GTIG
+  date: 2026-02-12
+  url: https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use
+
+# ---- Targeting ----
+target_sectors:
+- government
+- healthcare
+- telecommunications
+- technology
+- finance
+- education
+- gaming
+- retail
+- manufacturing
+- defense
+- aerospace
+- pharmaceuticals
+- media
+- energy
+- transportation
+- hospitality
+- cryptocurrency
+
+target_regions:
+- United States
+- United Kingdom
+- France
+- India
+- Italy
+- Japan
+- Myanmar
+- Netherlands
+- Singapore
+- South Korea
+- South Africa
+- Switzerland
+- Thailand
+- Turkey
+- Australia
+- Brazil
+- Chile
+- Hong Kong
+- Taiwan
+- Indonesia
+- Malaysia
+- Pakistan
+- Germany
+- Sweden
+- Vietnam
+
+# ---- Campaigns ----
+campaigns:
+- name: Video Game Industry Targeting and Virtual Currency Theft
+  year_published: null
+  description: >
+    APT41's financially motivated campaign,
+    targeting video game development studios, distributors, and publishers.
+    The group manipulated virtual currencies, stole in-game resources for
+    real-world sale, and stole source code and digital certificates.
+  targets:
+    sectors: [video-games, technology]
+    regions: [United States, South Korea, Japan, Singapore, Taiwan]
+  sources:
+  - url: https://services.google.com/fh/files/misc/apt41-a-dual-espionage-and-cyber-crime-operation.pdf
+    title: "APT41, A DUAL ESPIONAGE AND CYBER CRIME OPERATION"
+    publisher: FireEye / Mandiant
+
+- name: Supply Chain Attacks (NetSarang, ASUS)
+  year_published: null
+  description: >
+    APT41's most technically sophisticated campaigns, compromising
+    software vendor build environments to distribute backdoored updates.
+    The 2017 CCleaner attack distributed trojanized software to
+    approximately 2.2 million users, with ShadowPad deployed selectively
+    using MAC address filtering against approximately 11 technology
+    companies. The 2017 NetSarang attack injected ShadowPad into the
+    Xmanager and Xshell server management tools. The 2019 ASUS
+    ShadowHammer attack distributed backdoored ASUS Live Update signed
+    with legitimate certificates, targeting approximately 600 specific
+    MAC addresses. All three attacks demonstrated surgical precision
+    within mass distribution.
+  targets:
+    sectors: [technology, manufacturing]
+    regions: [global]
+  sources:
+  - url: https://securelist.com/operation-shadowhammer/89992/
+    title: "Operation ShadowHammer"
+    publisher: Kaspersky Lab
+  - url: https://www.sentinelone.com/labs/shadowpad-a-masterpiece-of-privately-sold-malware-in-chinese-espionage/
+    title: "ShadowPad: A Masterpiece of Privately Sold Malware"
+    publisher: SentinelOne
+  - url: https://services.google.com/fh/files/misc/apt41-a-dual-espionage-and-cyber-crime-operation.pdf
+    title: "APT41, A DUAL ESPIONAGE AND CYBER CRIME OPERATION"
+    publisher: FireEye / Mandiant
+
+
+- name: Mass Exploitation Campaign (Citrix/Cisco/Zoho)
+  year_published: null
+  description: >
+    Between January and March 2020, APT41 launched a sweeping campaign
+    exploiting recently disclosed vulnerabilities in Citrix ADC
+    (CVE-2019-19781), Cisco RV320 routers, and Zoho ManageEngine
+    Desktop Central (CVE-2020-10189). FireEye described it as one of
+    the most widespread campaigns from a China-nexus espionage actor in
+    recent years, targeting at least 75 organizations across banking,
+    defense, government, healthcare, high-tech, manufacturing, oil and
+    gas, pharmaceuticals, telecommunications, and transportation in
+    over 20 countries.
+  targets:
+    sectors: [government, healthcare, telecommunications, defense, finance, manufacturing, energy, pharmaceuticals, 
+        transportation]
+    regions: [United States, United Kingdom, Australia, Canada, France, India, Italy, Japan, Singapore, Sweden, 
+        Switzerland, UAE]
+  sources:
+  - url: https://www.csoonline.com/article/569145/chinese-hacker-group-apt41-uses-recent-exploits-to-target-companies-worldwide.html
+    title: "Chinese Hacker Group APT41 Uses Recent Exploits"
+    publisher: CSO Online
+  - url: https://cloud.google.com/blog/topics/threat-intelligence/apt41-initiates-global-intrusion-campaign-using-multiple-exploits/
+    title: "This Is Not a Test: APT41 Initiates Global Intrusion Campaign Using Multiple Exploits"
+    publisher: FireEye/Mandiant
+
+- name: U.S. State Government Targeting
+  year_published: null
+  description: >
+    Mandiant documented a sustained campaign targeting U.S. state
+    government networks. APT41 exploited vulnerabilities in internet-facing
+    web applications, including a zero-day in a commercial animal health
+    management application, and deployed the DEADEYE dropper with LOWKEY
+    backdoor.
+  targets:
+    sectors: [government]
+    regions: [United States]
+  sources:
+  - url: https://cloud.google.com/blog/topics/threat-intelligence/apt41-us-state-governments
+    title: "Does This Look Infected? APT41 Targeting U.S. State Governments"
+    publisher: Mandiant
+
+- name: Global Espionage Campaigns (Group-IB 2021)
+  year_published: null
+  description: >
+    Group-IB documented four distinct APT41 campaigns in 2021,
+    resulting in approximately 80 proactive notifications to affected
+    organizations worldwide. The campaigns used Cobalt Strike
+    infrastructure for C2 and targeted government and private sector
+    entities. Work schedule analysis confirmed operators working 9 AM
+    to 7 PM in the UTC+8 time zone (consistent with Chengdu).
+  targets:
+    sectors: [government, technology, telecommunications]
+    regions: [global]
+  sources:
+  - url: https://www.group-ib.com/blog/apt41-world-tour-2021/
+    title: "4 Malicious Campaigns and a New Wave of APT41 Attacks"
+    publisher: Group-IB
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0096
+  group_url: https://attack.mitre.org/groups/G0096/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-04
+  last_updated: 2026-03-04
+
+# ---- MISP GALAXY ----
+misp_uuid: 9c124874-042d-48cd-b72b-ccdc51ecbbd6
+
+news_queries:
+  - "Double Dragon hacking"
+  - "Brass Typhoon hacking"
+  - "Wicked Panda hacking"
+  - "BARIUM china hack"
+  - "Winnti Group hack"
+  - "APT 41 Chinese hacking"
+  - "APT41 espionage"
+  - "APT41 hacking"

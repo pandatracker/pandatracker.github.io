@@ -1,0 +1,1508 @@
+{
+  "id": 15,
+  "name": "APT31",
+  "slug": "apt31",
+  "actor_type": "contractor",
+  "affiliation": [
+    "MSS"
+  ],
+  "affiliation_unit": "Hubei State Security Department",
+  "affiliation_detail": "In March 2024, a coordinated action by the U.S. DOJ, Treasury, UK FCDO, and State Department resulted in the indictment of seven individuals, sanctions against Wuhan XRZ and two operators, and $10 million rewards for information. All defendants remain at large in China.\nIn May 2023, nearly a year before the DOJ indictment, Intrusion Truth published a detailed investigation series on APT31,  identifying Wuhan XRZ and some of the individuals later indicted by the U.S. DOJ.\n",
+  "affiliation_confidence": "high",
+  "entity_name": [
+    "Wuhan Xiaoruizhi Science and Technology Co., Ltd.",
+    "Wuhan Liuhe Tiangong Science & Technology Co., Ltd."
+  ],
+  "last_seen": "2025",
+  "first_seen": "2010",
+  "first_described": "2016",
+  "description": "Per U.S. DOJ indictment, APT31 is a Chinese state-sponsored cyber espionage group operating on behalf of the Ministry of State Security's Hubei State Security Department (HSSD) through the front company Wuhan Xiaoruizhi Science and Technology Company (Wuhan XRZ), established in 2010. \nOver approximately 15 years, the group conducted global campaigns of computer hacking targeting political dissidents and their perceived supporters, government officials across multiple countries, election-related entities, and private companies in defense, technology, telecommunications, energy, and finance sectors.\nAccording to the indictment, APT31 was sending more than 10,000 malicious emails impersonating journalists and news outlets, containing hidden tracking links to profile targets and collect victim metadata (IP addresses, device types, locations), then used this intelligence to conduct targeted exploitation of victims' home routers and personal devices.\nAPT31's operations include the targeting of the 2020 U.S. presidential election campaigns (Google TAG, 2020; Microsoft, 2020), the 2020-2021 breach of the Finnish Parliament (Supo, 2021),  the 2021 compromise of email accounts belonging to the Inter- Parliamentary Alliance on China (IPAC) including 43 UK parliamentary accounts, the 2021-2022 breach of the UK Electoral Commission exposing 40 million voter records (assessed as \"highly likely\" by the UK government), and a multi-year campaign against the Czech Foreign Ministry disclosed in May 2025. (NUKIB, 2025)\nCheck Point Research revealed in February 2021 that APT31 had cloned an exploit codenamed \"EpMe\" (allegedly developed by the NSA Tailored Access Opereations unit) to create its own tool \"Jian,\" which was used from at least 2015 until caught in 2017 when Lockheed Martin reported it to Microsoft. \nIn February 2026 Google Threat Intelligence Group (GTIG) observed APT31 misusing Google Gemini AI \"to automate the analysis of vulnerabilities and generate targeted testing plans.\" \n",
+  "attack_group_id": "G0128",
+  "attack_group_url": "https://attack.mitre.org/groups/G0128/",
+  "news_queries": [
+    "Zirconium hacking",
+    "Violet Typhoon",
+    "Judgment Panda",
+    "BRONZE VINEWOOD",
+    "APT 31 Chinese hacking",
+    "APT31 espionage",
+    "APT31 hacking"
+  ],
+  "aliases": [
+    {
+      "name": "Zirconium",
+      "vendor": "Microsoft",
+      "source": "https://www.bleepingcomputer.com/news/security/microsoft-quietly-patched-windows-zero-day-used-in-attacks-by-zirconium-group/"
+    },
+    {
+      "name": "Violet Typhoon",
+      "vendor": "Microsoft",
+      "source": "https://learn.microsoft.com/en-us/microsoft-365/security/intelligence/microsoft-threat-actor-naming"
+    },
+    {
+      "name": "Judgment Panda",
+      "vendor": "CrowdStrike",
+      "source": "https://thehackernews.com/2021/08/new-chinese-spyware-being-used-in.html"
+    },
+    {
+      "name": "BRONZE VINEWOOD",
+      "vendor": "SecureWorks",
+      "source": "https://thehackernews.com/2021/08/new-chinese-spyware-being-used-in.html"
+    },
+    {
+      "name": "TA412",
+      "vendor": "Proofpoint",
+      "source": "https://malpedia.caad.fkie.fraunhofer.de/actor/apt31"
+    },
+    {
+      "name": "Red Keres",
+      "vendor": null,
+      "source": "https://malpedia.caad.fkie.fraunhofer.de/actor/apt31"
+    },
+    {
+      "name": "Altaire",
+      "vendor": null,
+      "source": "https://rewardsforjustice.net/rewards/apt31-wuhan-xiaoruizhi-science-technology-company-ltd/"
+    }
+  ],
+  "attribution_evidence": [
+    {
+      "type": "indictment",
+      "title": "Seven Hackers Associated with Chinese Government Charged with Computer Intrusions Targeting Perceived Critics of China and U.S. Businesses and Politicians",
+      "publisher": "U.S. Department of Justice",
+      "date": "2024-03-25",
+      "url": "https://www.justice.gov/opa/pr/seven-hackers-associated-chinese-government-charged-computer-intrusions-targeting-perceived"
+    },
+    {
+      "type": "government-advisory",
+      "title": "OFAC Sanctions on Wuhan XRZ, Ni Gaobin, and Zhao Guangzong",
+      "publisher": "U.S. Department of the Treasury",
+      "date": "2024-03-25",
+      "url": "https://home.treasury.gov/news/press-releases/jy2205"
+    },
+    {
+      "type": "government-advisory",
+      "title": "UK Government Sanctions — APT31 / Wuhan XRZ",
+      "publisher": "UK Foreign, Commonwealth and Development Office",
+      "date": "2024-03-25",
+      "url": "https://www.gov.uk/government/news/uk-holds-china-state-affiliated-organisations-and-individuals-responsible-for-malicious-cyber-activity"
+    },
+    {
+      "type": "government-advisory",
+      "title": "Finnish Security Intelligence Service Attributes Parliament Breach to APT31",
+      "publisher": "Suojelupoliisi (Supo)",
+      "date": "2021-03",
+      "url": "https://supo.fi/en/-/supo-s-yearbook-parliament-breach-was-espionage"
+    },
+    {
+      "type": "vendor-report",
+      "title": "The Story of Jian — How APT31 Stole and Used an Unknown Equation Group 0-Day",
+      "publisher": "Check Point Research",
+      "date": "2021-02-22",
+      "url": "https://research.checkpoint.com/2021/the-story-of-jian/"
+    },
+    {
+      "type": "government-advisory",
+      "title": "APT31 Intrusion Set Campaign",
+      "publisher": "ANSSI / CERT-FR",
+      "date": "2021-12",
+      "url": "https://www.cert.ssi.gouv.fr/cti/CERTFR-2021-CTI-013/"
+    },
+    {
+      "type": "government-advisory",
+      "title": "The Czech Government Has Publicly Attributed Cyberattacks to China",
+      "publisher": "NUKIB",
+      "date": "2025-05",
+      "url": "https://nukib.gov.cz/en/infoservis-en/news/2263-the-czech-government-has-publicly-attributed-cyberattacks-to-china-actor-apt31-linked-to-the-chinese-ministry-of-state-security-has-targeted-the-infrastructure-of-the-czech-ministry-of-foreign-affairs/"
+    }
+  ],
+  "references": [
+    {
+      "title": "Seven Hackers Associated with Chinese Government Charged with Computer Intrusions",
+      "publisher": "U.S. Department of Justice",
+      "date": "2024-03-25",
+      "url": "https://www.justice.gov/opa/pr/seven-hackers-associated-chinese-government-charged-computer-intrusions-targeting-perceived",
+      "notes": null
+    },
+    {
+      "title": "APT31 Investigation Series",
+      "publisher": "Intrusion Truth",
+      "date": "2023",
+      "url": "https://intrusiontruth.wordpress.com/category/apt31-2/",
+      "notes": null
+    },
+    {
+      "title": "Analysis of the APT31 Indictment",
+      "publisher": "HarfangLab",
+      "date": "2024-04",
+      "url": "https://harfanglab.io/insidethelab/apt31-indictment-analysis/",
+      "notes": null
+    },
+    {
+      "title": "APT31 Intrusion Set Campaign",
+      "publisher": "ANSSI / CERT-FR",
+      "date": "2021-12",
+      "url": "https://www.cert.ssi.gouv.fr/cti/CERTFR-2021-CTI-013/",
+      "notes": null
+    },
+    {
+      "title": "The Story of Jian — How APT31 Stole and Used an Unknown Equation Group 0-Day",
+      "publisher": "Check Point Research",
+      "date": "2021-02-22",
+      "url": "https://research.checkpoint.com/2021/the-story-of-jian/",
+      "notes": null
+    },
+    {
+      "title": "Walking on APT31 Infrastructure Footprints",
+      "publisher": "Sekoia",
+      "date": "2022-01",
+      "url": "https://blog.sekoia.io/walking-on-apt31-infrastructure-footprints/",
+      "notes": null
+    },
+    {
+      "title": "Rewards for Justice — APT31/Wuhan XRZ",
+      "publisher": "U.S. Department of State",
+      "date": "2024-03-25",
+      "url": "https://rewardsforjustice.net/rewards/apt31-wuhan-xiaoruizhi-science-technology-company-ltd/",
+      "notes": null
+    },
+    {
+      "title": "GTIG AI Threat Tracker: Distillation, Experimentation, and (Continued) Integration of AI for Adversarial Use",
+      "publisher": "GTIG",
+      "date": "2026-02-12",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use",
+      "notes": null
+    }
+  ],
+  "target_sectors": [
+    "government",
+    "diplomatic",
+    "military",
+    "defense",
+    "aerospace",
+    "technology",
+    "telecommunications",
+    "energy",
+    "finance",
+    "manufacturing",
+    "legal",
+    "education",
+    "media",
+    "NGOs",
+    "critical-infrastructure"
+  ],
+  "target_regions": [
+    "United States",
+    "United Kingdom",
+    "France",
+    "Finland",
+    "Czech Republic",
+    "Norway",
+    "Germany",
+    "Australia",
+    "Canada",
+    "India",
+    "South Korea"
+  ],
+  "campaigns": [
+    {
+      "name": "2020 U.S. Presidential Election Targeting",
+      "year_published": null,
+      "description": "Google's Threat Analysis Group and Microsoft reported in September- October 2020 that APT31/Zirconium was targeting individuals associated with the 2020 U.S. presidential election, including staffers of both the Biden and Trump campaigns. The group used credential phishing emails containing tracking links. Google stated the attacks were unsuccessful but represented a significant election interference attempt.\n",
+      "target_sectors": [
+        "government"
+      ],
+      "target_regions": [
+        "United States"
+      ],
+      "sources": [
+        {
+          "url": "https://blog.google/threat-analysis-group/how-were-tackling-evolving-online-threats/",
+          "title": "How We're Tackling Evolving Online Threats",
+          "publisher": "Google Threat Analysis Group"
+        },
+        {
+          "url": "https://blogs.microsoft.com/on-the-issues/2020/09/10/cyberattacks-us-elections-trump-biden/",
+          "title": "New cyberattacks targeting U.S. elections",
+          "publisher": "Microsoft"
+        }
+      ]
+    },
+    {
+      "name": "Finnish Parliament Breach",
+      "year_published": null,
+      "description": "Finland's Security Intelligence Service (Supo) publicly attributed a cyber espionage operation against the Finnish Parliament to APT31 in March 2021. The breach targeted parliamentary email accounts and information systems. This was one of the first European government attributions of APT31 activity and signaled the group's expanding targeting beyond U.S.-focused operations.\n",
+      "target_sectors": [
+        "government"
+      ],
+      "target_regions": [
+        "Finland"
+      ],
+      "sources": [
+        {
+          "url": "https://supo.fi/en/-/supo-identified-the-cyber-espionage-operation-against-the-parliament-as-apt31",
+          "title": "Supo identified the cyber espionage operation against the parliament as APT31",
+          "publisher": "Suojelupoliisi (Supo)"
+        }
+      ]
+    },
+    {
+      "name": "France-Wide Intrusion Campaign (ANSSI/Pakdoor)",
+      "year_published": "2021",
+      "description": "ANSSI documented a large-scale campaign against numerous French entities beginning in January 2021. APT31 used a mesh network of approximately 1,000 compromised SOHO routers managed via the Pakdoor backdoor as an anonymization layer, enabling attacks to appear to originate from the target's own national IP space. The full infection chain included web shell deployment, CVE-2021-26885 exploitation, Juicy Potato privilege escalation, and Cobalt Strike for DNS-based exfiltration. ANSSI found no targeting criteria — the campaign appeared opportunistic in victim selection.\n",
+      "target_sectors": [
+        "government",
+        "technology",
+        "telecommunications"
+      ],
+      "target_regions": [
+        "France"
+      ],
+      "sources": [
+        {
+          "url": "https://www.cert.ssi.gouv.fr/cti/CERTFR-2021-CTI-013/",
+          "title": "APT31 Intrusion Set Campaign",
+          "publisher": "ANSSI / CERT-FR"
+        }
+      ]
+    },
+    {
+      "name": "UK Parliamentary and Electoral Commission Targeting",
+      "year_published": "2024",
+      "description": "APT31 targeted email accounts of members of the Inter-Parliamentary Alliance on China (IPAC), including 43 UK parliamentary accounts, most belonging to outspoken critics of the Chinese government. The UK government assessed this reconnaissance activity as \"almost certain\" to be APT31. Separately, the UK attributed the 2021-2022 breach of the Electoral Commission — which exposed voter data of approximately 40 million people — as \"highly likely\" conducted by a China state- affiliated actor, with APT31 identified in the associated sanctions action. The breach was not disclosed until August 2023.\n",
+      "target_sectors": [
+        "government",
+        "diplomatic"
+      ],
+      "target_regions": [
+        "United Kingdom"
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.uk/government/news/uk-holds-china-state-affiliated-organisations-and-individuals-responsible-for-malicious-cyber-activity",
+          "title": "UK Holds China State-Affiliated Organisations Responsible",
+          "publisher": "Foreign, Commonwealth and Development Office"
+        }
+      ]
+    },
+    {
+      "name": "14-Year Global Espionage Campaign (DOJ Indictment)",
+      "year_published": null,
+      "description": "The campaign described in the March 2024 DOJ indictment spanning from 2010 through January 2024. APT31 sent more than 10,000 malicious emails impersonating journalists and news outlets, targeting White House staff, multiple U.S. cabinet departments, Congressional members of both parties, defense contractors, seven managed service providers, energy companies, Hong Kong pro-democracy activists, Uyghur community members, Norwegian government officials, and IPAC parliamentarians worldwide. The group compromised subsidiary networks to pivot into parent defense contractors and used MSP access to reach downstream customers including a nuclear power engineering company.\n",
+      "target_sectors": [
+        "government",
+        "defense",
+        "aerospace",
+        "technology",
+        "telecommunications",
+        "energy",
+        "finance",
+        "manufacturing",
+        "legal",
+        "NGOs"
+      ],
+      "target_regions": [
+        "United States",
+        "United Kingdom",
+        "Norway",
+        "Europe"
+      ],
+      "sources": [
+        {
+          "url": "https://www.justice.gov/opa/pr/seven-hackers-associated-chinese-government-charged-computer-intrusions-targeting-perceived",
+          "title": "DOJ Indictment — APT31",
+          "publisher": "U.S. Department of Justice"
+        },
+        {
+          "url": "https://rewardsforjustice.net/rewards/apt31-wuhan-xiaoruizhi-science-technology-company-ltd/",
+          "title": "Rewards for Justice — APT31/Wuhan XRZ",
+          "publisher": "U.S. Department of State"
+        }
+      ]
+    },
+    {
+      "name": "Czech Foreign Ministry Campaign",
+      "year_published": null,
+      "description": "In May 2025, the Czech Republic publicly attributed a multi-year cyber espionage campaign against its Foreign Ministry's unclassified communications network to APT31. The Czech government summoned China's ambassador and the attribution triggered a coordinated international response, with NATO and the U.S. State Department issuing solidarity statements.\n",
+      "target_sectors": [
+        "government",
+        "diplomatic"
+      ],
+      "target_regions": [
+        "Czech Republic"
+      ],
+      "sources": [
+        {
+          "url": "https://nukib.gov.cz/en/infoservis-en/news/2263-the-czech-government-has-publicly-attributed-cyberattacks-to-china-actor-apt31-linked-to-the-chinese-ministry-of-state-security-has-targeted-the-infrastructure-of-the-czech-ministry-of-foreign-affairs/",
+          "title": "The Czech Government Has Publicly Attributed Cyberattacks to China",
+          "publisher": "NUKIB"
+        }
+      ]
+    }
+  ],
+  "attack_techniques": [],
+  "attack_software": [],
+  "otx_pulses": [],
+  "relations": [
+    {
+      "group_name": "APT19",
+      "group_slug": "apt19",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "legal",
+        "government",
+        "education",
+        "energy",
+        "finance",
+        "NGOs",
+        "technology",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Norway",
+        "Australia",
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT1",
+      "group_slug": "apt1",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1566.002",
+          "name": "Spearphishing Link",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/002"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "education",
+        "energy",
+        "technology",
+        "finance",
+        "aerospace",
+        "critical-infrastructure",
+        "media",
+        "legal",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "India"
+      ]
+    },
+    {
+      "group_name": "Volt Typhoon",
+      "group_slug": "volt-typhoon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1012",
+          "name": "Query Registry",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1012"
+        },
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1027.002",
+          "name": "Software Packing",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/002"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1068"
+        },
+        {
+          "technique_id": "T1090.003",
+          "name": "Multi-hop Proxy",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1090/003"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1124",
+          "name": "System Time Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1124"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1555.003",
+          "name": "Credentials from Web Browsers",
+          "tactic": "credential-access",
+          "url": "https://attack.mitre.org/techniques/T1555/003"
+        },
+        {
+          "technique_id": "T1573.001",
+          "name": "Symmetric Cryptography",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1573/001"
+        },
+        {
+          "technique_id": "T1584.008",
+          "name": "Network Devices",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1584/008"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "education",
+        "energy",
+        "technology",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT17",
+      "group_slug": "apt17",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1583.006",
+          "name": "Web Services",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/006"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "legal",
+        "government",
+        "finance",
+        "aerospace",
+        "media",
+        "NGOs",
+        "technology",
+        "manufacturing"
+      ],
+      "shared_regions": [
+        "South Korea",
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT15",
+      "group_slug": "apt15",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1041"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "military",
+        "diplomatic",
+        "NGOs",
+        "technology"
+      ],
+      "shared_regions": [
+        "India"
+      ]
+    },
+    {
+      "group_name": "APT10",
+      "group_slug": "apt10",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1036",
+          "name": "Masquerading",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "education",
+        "energy",
+        "technology",
+        "finance",
+        "aerospace",
+        "NGOs",
+        "legal",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Australia",
+        "Canada",
+        "Norway",
+        "United States",
+        "United Kingdom",
+        "India",
+        "France",
+        "Finland",
+        "South Korea"
+      ]
+    },
+    {
+      "group_name": "Charcoal Typhoon",
+      "group_slug": "charcoal-typhoon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1059.006",
+          "name": "Python",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/006"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1204.001",
+          "name": "Malicious Link",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/001"
+        },
+        {
+          "technique_id": "T1566.002",
+          "name": "Spearphishing Link",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/002"
+        },
+        {
+          "technique_id": "T1567.002",
+          "name": "Exfiltration to Cloud Storage",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1567/002"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        },
+        {
+          "technique_id": "T1583.006",
+          "name": "Web Services",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/006"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "education",
+        "media",
+        "NGOs",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Australia",
+        "United States",
+        "France",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT3",
+      "group_slug": "apt3",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1027.002",
+          "name": "Software Packing",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/002"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1041"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1204.001",
+          "name": "Malicious Link",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/001"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1555.003",
+          "name": "Credentials from Web Browsers",
+          "tactic": "credential-access",
+          "url": "https://attack.mitre.org/techniques/T1555/003"
+        },
+        {
+          "technique_id": "T1566.002",
+          "name": "Spearphishing Link",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/002"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "energy",
+        "technology",
+        "finance",
+        "aerospace",
+        "NGOs",
+        "legal",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United Kingdom",
+        "United States"
+      ]
+    },
+    {
+      "group_name": "Lotus Blossom",
+      "group_slug": "lotus-blossom",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1012",
+          "name": "Query Registry",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1012"
+        },
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1090.003",
+          "name": "Multi-hop Proxy",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1090/003"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "military",
+        "critical-infrastructure",
+        "media",
+        "diplomatic",
+        "technology",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Australia"
+      ]
+    },
+    {
+      "group_name": "APT41",
+      "group_slug": "apt41",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1012",
+          "name": "Query Registry",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1012"
+        },
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1027.002",
+          "name": "Software Packing",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/002"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1036.004",
+          "name": "Masquerade Task or Service",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/004"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1555.003",
+          "name": "Credentials from Web Browsers",
+          "tactic": "credential-access",
+          "url": "https://attack.mitre.org/techniques/T1555/003"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "education",
+        "energy",
+        "finance",
+        "aerospace",
+        "media",
+        "technology",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Australia",
+        "United States",
+        "United Kingdom",
+        "India",
+        "France",
+        "South Korea",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "Naikon",
+      "group_slug": "naikon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1036.004",
+          "name": "Masquerade Task or Service",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/004"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "military",
+        "diplomatic",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Australia",
+        "India"
+      ]
+    },
+    {
+      "group_name": "APT22",
+      "group_slug": "apt22",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        }
+      ],
+      "shared_sectors": [
+        "finance",
+        "government",
+        "military",
+        "technology"
+      ],
+      "shared_regions": [
+        "South Korea",
+        "United States",
+        "India"
+      ]
+    },
+    {
+      "group_name": "Hafnium",
+      "group_slug": "hafnium",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1068"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1567.002",
+          "name": "Exfiltration to Cloud Storage",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1567/002"
+        },
+        {
+          "technique_id": "T1583.006",
+          "name": "Web Services",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/006"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "legal",
+        "government",
+        "education",
+        "energy",
+        "finance",
+        "NGOs",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United Kingdom",
+        "Australia",
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT2",
+      "group_slug": "apt2",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "technology",
+        "aerospace",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Canada"
+      ]
+    },
+    {
+      "group_name": "APT12",
+      "group_slug": "apt12",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1102.002",
+          "name": "Bidirectional Communication",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1102/002"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "media",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT18",
+      "group_slug": "apt18",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "education",
+        "energy",
+        "aerospace",
+        "NGOs",
+        "technology",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT27",
+      "group_slug": "apt27",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1012",
+          "name": "Query Registry",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1012"
+        },
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1027.002",
+          "name": "Software Packing",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/002"
+        },
+        {
+          "technique_id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1033"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1068"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1567.002",
+          "name": "Exfiltration to Cloud Storage",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1567/002"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "education",
+        "energy",
+        "finance",
+        "aerospace",
+        "NGOs",
+        "technology",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Australia",
+        "Canada",
+        "United States",
+        "United Kingdom",
+        "India",
+        "France",
+        "South Korea",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT40",
+      "group_slug": "apt40",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1041"
+        },
+        {
+          "technique_id": "T1090.003",
+          "name": "Multi-hop Proxy",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1090/003"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1204.001",
+          "name": "Malicious Link",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/001"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1566.002",
+          "name": "Spearphishing Link",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/002"
+        },
+        {
+          "technique_id": "T1567.002",
+          "name": "Exfiltration to Cloud Storage",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1567/002"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        },
+        {
+          "technique_id": "T1584.008",
+          "name": "Network Devices",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1584/008"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "education",
+        "energy",
+        "military",
+        "aerospace",
+        "diplomatic",
+        "technology",
+        "manufacturing",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Australia",
+        "Canada",
+        "Norway",
+        "United States",
+        "United Kingdom",
+        "South Korea",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "Mustang Panda",
+      "group_slug": "mustang-panda",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1041"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1204.001",
+          "name": "Malicious Link",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/001"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1566.002",
+          "name": "Spearphishing Link",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/002"
+        },
+        {
+          "technique_id": "T1567.002",
+          "name": "Exfiltration to Cloud Storage",
+          "tactic": "exfiltration",
+          "url": "https://attack.mitre.org/techniques/T1567/002"
+        },
+        {
+          "technique_id": "T1573.001",
+          "name": "Symmetric Cryptography",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1573/001"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        },
+        {
+          "technique_id": "T1583.006",
+          "name": "Web Services",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/006"
+        },
+        {
+          "technique_id": "T1598.003",
+          "name": "Spearphishing Link",
+          "tactic": "reconnaissance",
+          "url": "https://attack.mitre.org/techniques/T1598/003"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "education",
+        "military",
+        "NGOs",
+        "diplomatic",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United Kingdom",
+        "United States",
+        "France",
+        "Germany"
+      ]
+    }
+  ]
+}

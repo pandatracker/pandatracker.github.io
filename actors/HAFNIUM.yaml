@@ -1,0 +1,241 @@
+# ---- Identity ----
+name: Hafnium
+aliases:
+- name: Silk Typhoon
+  vendor: Microsoft
+  source: https://www.microsoft.com/en-us/security/security-insider/threat-landscape/silk-typhoon
+- name: Murky Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/blog/murky-panda-trusted-relationship-threat-in-cloud/
+- name: Red Dev 13
+  vendor: PwC
+  source: https://apt.etda.or.th/cgi-bin/showcard.cgi?g=Hafnium&n=1
+- name: ATK233
+  vendor: Thales
+  source: https://cds.thalesgroup.com/en/node/664
+- name: timmy
+  vendor: Volexity
+  source: https://www.microsoft.com/en-us/security/security-insider/threat-landscape/silk-typhoon
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: MSS
+affiliation_unit: Shanghai State Security Bureau
+entity_name:
+- Shanghai Powerock Network Co. Ltd.
+- Shanghai Firetech Information Science and Technology Company, Ltd.
+associated_address: Shanghai, P.R. China
+coordinates: [31.224371472934, 121.4692059564527]
+affiliation_detail: >
+  According to DOJ indictment, HAFNIUM/Silk Typhoon operates on behalf of China's Ministry of State
+  Security (MSS), specifically the Shanghai State Security
+  Bureau (SSSB). On July 8, 2025, the DOJ unsealed an
+  indictment charging two Chinese nationals: Xu Zewei (徐泽伟),
+  employed by Shanghai Powerock Network Co. Ltd.; and Zhang Yu (张宇),
+  employed by Shanghai Firetech Information Science and Technology
+  Company, Ltd. Both, according to the indictment, operated under SSSB direction.
+
+  Shanghai Powerock shut down on April 7, 2021 — approximately one month
+  after Microsoft publicly attributed the Exchange Server attacks to
+  HAFNIUM and China. Xu Zewei subsequently moved to Chaitin Tech (another
+  cybersecurity firm) and later to Shanghai GTA Semiconductor Ltd.
+
+affiliation_confidence: high
+attribution_evidence:
+- type: indictment
+  title: "Justice Department Announces Arrest of Prolific Chinese State-Sponsored Contract Hacker"
+  publisher: U.S. Department of Justice
+  date: 2025-07-08
+  url: https://www.justice.gov/opa/pr/justice-department-announces-arrest-prolific-chinese-state-sponsored-contract-hacker
+
+# ---- Timeline ----
+first_seen: 2020
+first_described: 2021-03
+last_seen: 2025
+
+# ---- Overview ----
+description: >
+  According to the U.S. DOJ indictment, HAFNIUM/Silk Typhoon is a Chinese state-sponsored cyber espionage group directed 
+  by the MSS's Shanghai State Security Bureau (SSSB). 
+  
+  The group was first described in
+  March 2021 when Microsoft attributed the exploitation of four
+  zero-day vulnerabilities in Microsoft Exchange Server. The campaign, 
+  intially utilizing stolen credential or Microsoft Exchange Server zero day vulnerabilities, deployed
+  web shells for persistent access to emails and sensitive data
+  from government agencies, defense contractors, law firms, universities,
+  and infectious disease researchers. (Microsoft, 2021)
+
+  During the COVID-19 pandemic, HAFNIUM targeted American
+  universities conducting vaccine research, attempting to steal COVID-19 research data. (U.S. DOJ, 2021)
+  More recently, the group targeted IT supply chain:
+  Microsoft's March 2025 report documented Silk Typhoon compromising IT
+  services providers, remote monitoring and management companies,
+  and managed service providers to reach downstream customer
+  environments. (Microsoft, 2025)
+
+  In July 2025, the DOJ unsealed indictments against two HAFNIUM
+  operators — Xu Zewei and Zhang Yu — employed by Shanghai Powerock
+  and Shanghai Firetech respectively. Xu was arrested on July 3, 2025, at Milan's Malpensa Airport by
+  Italian law enforcement acting on a U.S. warrant. He was extradicted to the USA in April 2026. Zhang Yu remains at large.
+
+  SentinelLabs research (2025) revealed that Shanghai Firetech
+  registered over 10 patents for intrusive data collection technologies,
+  including remote automated evidence collection software, Apple computer
+  forensics, router evidence collection, hard drive decryption, and
+  remote cellphone evidence collection.
+
+# ---- Key References ----
+assessment_basis:
+- title: "New nation-state cyberattacks"
+  publisher: Microsoft Threat Intelligence Center (MSTIC)
+  date: 2021-03-02
+  url: https://blogs.microsoft.com/on-the-issues/2021/03/02/new-nation-state-cyberattacks/
+
+- title: "HAFNIUM Targeting Exchange Servers with 0-day Exploits"
+  publisher: Microsoft Threat Intelligence Center (MSTIC)
+  date: 2021-03-02
+  url: https://www.microsoft.com/en-us/security/blog/2021/03/02/hafnium-targeting-exchange-servers/
+
+- title: "Silk Typhoon Targeting IT Supply Chain"
+  publisher: Microsoft Threat Intelligence
+  date: 2025-03-05
+  url: https://www.microsoft.com/en-us/security/blog/2025/03/05/silk-typhoon-targeting-it-supply-chain/
+
+- title: "China's Covert Capabilities: Silk Spun From Hafnium"
+  publisher: SentinelOne / SentinelLabs
+  date: 2025-07-30
+  url: https://www.sentinelone.com/labs/chinas-covert-capabilities-silk-spun-from-hafnium/
+
+# ---- Targeting ----
+target_sectors:
+- government
+- defense
+- healthcare
+- biotechnology
+- education
+- legal
+- technology
+- managed-service-providers
+- telecommunications
+- NGOs
+- think-tanks
+- energy
+- finance
+
+target_regions:
+- United States
+- Australia
+- Japan
+- Vietnam
+- United Kingdom
+
+# ---- Malware & Tooling ----
+campaigns:
+- name: COVID-19 Vaccine Research Espionage
+  year_published: 2025
+  description: >
+    Beginning in February 2020 as the pandemic emerged, HAFNIUM
+    operators targeted American universities conducting COVID-19
+    vaccine research. The U.S. DOJ indictment
+    stated this campaign was aimed at "stealing groundbreaking
+    COVID-19 research" on behalf of the CCP.
+  targets:
+    sectors: [higher-education, infectious-disease-research, healthcare]
+    regions: [United States]
+  sources:
+  - url: https://www.justice.gov/usao-sdtx/pr/chinese-state-sponsored-hacker-arrested-us-warrant
+    title: "DOJ Indictment — Xu Zewei and Zhang Yu"
+    publisher: U.S. Department of Justice
+
+- name: Microsoft Exchange Server Mass Exploitation
+  year_published: 2021
+  description: >
+    HAFNIUM's most notorious campaign. The group initially gained
+    stealthy access to U.S. government and organizational emails
+    through zero-day exploitation of four Exchange Server
+    vulnerabilities (ProxyLogon chain) starting in late 2020.
+    Microsoft disclosed and patched the vulnerabilities on March 2,
+    2021. Between Microsoft's alert to partners (February 23) and
+    public disclosure, other Chinese groups began mass exploitation
+    at scale (February 28). The FBI assessed the campaign targeted
+    over 60,000 U.S. entities and successfully compromised more than
+    12,700. Web shells deployed during exploitation provided
+    persistent access even after patches were applied.
+
+    On July 19, 2021, the U.S., EU, UK, NATO, and allied nations
+    issued a coordinated attribution with high confidence to PRC
+    MSS-affiliated actors.
+  targets:
+    sectors: [government, defense, legal, higher-education, healthcare, NGOs, policy-think-tanks]
+    regions: [United States, global]
+  sources:
+  - url: https://www.microsoft.com/en-us/security/blog/2021/03/02/hafnium-targeting-exchange-servers/
+    title: "HAFNIUM Targeting Exchange Servers with 0-day Exploits"
+    publisher: Microsoft
+
+- name: Telecom and ISP Targeting (Tarrask)
+  year_published: 2022
+  description: >
+    HAFNIUM deployed the Tarrask defense evasion malware against
+    telecommunications companies, ISPs, and data service companies.
+    Tarrask abused Windows scheduled task mechanisms to maintain
+    hidden persistence on compromised servers.
+  targets:
+    sectors: [telecommunications, technology]
+    regions: [United States]
+  sources:
+  - url: https://www.microsoft.com/en-us/security/blog/2022/04/12/tarrask-malware-uses-scheduled-tasks-for-defense-evasion/
+    title: "Tarrask Malware Uses Scheduled Tasks for Defense Evasion"
+    publisher: Microsoft
+
+- name: Cloud Providers Campaign
+  year_published: 2025
+  description: >
+    Since 2023, CrowdStrike observed HAFNIUM/Murky Panda targeting cloud environment, 
+    "likely motivated by intelligence-collection requirements to gain access to sensitive information."
+    CrowdStrike described the adversary as "cloud-conscious," for its abilities to operate in cloud environment.
+  targets:
+    sectors: [government, technology, academia, legal, professional services]
+    regions: [United States]
+  sources:
+  - url: https://www.crowdstrike.com/en-us/blog/murky-panda-trusted-relationship-threat-in-cloud/
+    title: "MURKY PANDA: A Trusted-Relationship Threat in the Cloud"
+    publisher: CrowdStrike
+
+- name: IT Supply Chain Campaign
+  year_published: 2025
+  description: >
+    Microsoft documented HAFNIUM/Silk Typhoon's shift
+    toward IT supply chain targeting, compromising IT services
+    providers, RMM companies, and MSPs to reach downstream customer
+    environments. The group used stolen API keys, compromised OAuth
+    applications, and service principal abuse for lateral movement
+    and data exfiltration. Victims included state and local
+    government, IT services, and financial institutions.
+  targets:
+    sectors: [IT-services, managed-service-providers, government, financial]
+    regions: [United States, global]
+  sources:
+  - url: https://www.microsoft.com/en-us/security/blog/2025/03/05/silk-typhoon-targeting-it-supply-chain/
+    title: "Silk Typhoon Targeting IT Supply Chain"
+    publisher: Microsoft Threat Intelligence
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0125
+  group_url: https://attack.mitre.org/groups/G0125/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-05
+  last_updated: 2026-03-05
+
+misp_uuid: 4f05d6c1-3fc1-4567-91cd-dd4637cc38b5
+
+news_queries:
+  - "hafnium china hack"
+  - "Silk Typhoon"
+  - "Murky Panda"
+  - "BARIUM china hack"
+  - "Red Dev 13"

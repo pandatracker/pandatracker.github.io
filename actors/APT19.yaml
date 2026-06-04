@@ -1,0 +1,341 @@
+# ---- Identity ----
+name: APT19
+aliases:
+- name: Codoso
+  vendor: iSIGHT Partners
+  source: https://web.archive.org/web/20150213004519/http://www.isightpartners.com/2015/02/codoso/
+- name: Codosoo/C0d0so0
+  vendor: Palo Alto Networks
+  source: https://unit42.paloaltonetworks.com/new-attacks-linked-to-c0d0s0-group/
+- name: Sunshop Group
+  vendor: FireEye
+  source: https://web.archive.org/web/20210615181340/https://www.fireeye.com/blog/threat-research/2013/05/ready-for-summer-the-sunshop-campaign.html
+- name: Deep Panda
+  vendor: CrowdStrike
+  source: https://attack.mitre.org/groups/G0009/
+- name: Shell Crew
+  vendor: RSA
+  source: https://attack.mitre.org/groups/G0009/
+- name: WebMasters
+  vendor: RSA
+  source: https://attack.mitre.org/groups/G0009/
+- name: KungFu Kittens
+  vendor: Various
+  source: https://attack.mitre.org/groups/G0009/
+- name: PinkPanther
+  vendor: Various
+  source: https://attack.mitre.org/groups/G0009/
+- name: Black Vine
+  vendor: Symantec
+  source: https://attack.mitre.org/groups/G0009/
+- name: Pupa
+  vendor: Symantec
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt19
+- name: BRONZE FIRESTONE
+  vendor: SecureWorks
+  source: https://cybermaterial.com/apt19/
+- name: TG-3551
+  vendor: SecureWorks
+  source: https://cybermaterial.com/apt19/
+- name: Group 13
+  vendor: Various
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt19
+- name: TEMP.Avengers
+  vendor: FireEye/Mandiant
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt19
+- name: SCANDIUM
+  vendor: Microsoft (legacy)
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt19
+- name: Checkered Typhoon
+  vendor: Microsoft
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt19
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: unknown
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+    FireEye assessed it as "composed of freelancers, with some degree of sponsorship by the Chinese government."
+affiliation_confidence: suspected
+attribution_evidence:
+- type: vendor-report
+  title: "Privileges and Credentials: Phished at the Request of Counsel"
+  publisher: FireEye
+  date: 2017-06-06
+  url: https://cloud.google.com/blog/topics/threat-intelligence/phished-at-the-request-of-counsel/
+- type: vendor-report
+  title: "Forbes.com Watering Hole Attribution"
+  publisher: iSIGHT Partners
+  date: 2015-02-10
+  url: https://web.archive.org/web/20150213004519/http://www.isightpartners.com/2015/02/codoso/
+- type: vendor-report
+  title: "Forbes.com Watering Hole Attribution"
+  publisher: Invincea 
+  date: 2015-02-10
+  url: https://web.archive.org/web/20150213004721/http://www.invincea.com/2015/02/chinese-espionage-campaign-compromises-forbes/
+- type: vendor-report
+  title: "Ready for Summer: The Sunshop Campaign"
+  publisher: FireEye
+  date: 2013-05
+  url: https://web.archive.org/web/20210615181340/https://www.fireeye.com/blog/threat-research/2013/05/ready-for-summer-the-sunshop-campaign.html
+- type: vendor-report
+  title: "Sunshop Digital Quartermaster"
+  publisher: FireEye
+  date: 2013-11
+  url: https://www.securityweek.com/cyber-arms-dealer-center-11-advanced-attack-campaigns-fireeye/
+
+# ---- Timeline ----
+first_seen: 2010
+first_described: 2013
+last_seen: 2017/2022*
+
+# ---- Overview ----
+description: >
+  APT19 (also known as Codoso Team, C0d0so0, and Sunshop Group) is a Chinese cyber
+  espionage group active since at least 2010. 
+
+  The group has targeted a wide range of sectors including defense, finance,
+  energy, pharmaceutical, telecommunications, high-tech, education, manufacturing, legal
+  services, government, think tanks, and political dissidents. 
+
+  APT19 is best known for two high-profile campaigns: the 2014 Forbes.com watering hole attack, in which the group
+  chained two zero-day exploits (Adobe Flash CVE-2014-9163 and an IE ASLR bypass) to
+  compromise visitors from U.S. defense and financial firms; and a 2017 phishing campaign
+  targeting seven global law and investment firms using CVE-2017-0199, macro-enabled Excel
+  documents, and Cobalt Strike. 
+
+  The group's earliest known operation was the 2010 compromise
+  of the Norwegian Nobel Peace Prize Committee website using a Firefox zero-day, likely
+  motivated by the award to Chinese dissident Liu Xiaobo. 
+
+  APT19 relies heavily on Derusbi, a malware family assessed as unique to Chinese espionage operators. The group is connected
+  to the "Sunshop Digital Quartermaster" — a suspected common malware development entity
+  that FireEye assessed supports as many as 11 separate APT campaigns. APT19's relationship
+  to Deep Panda (G0009) is actively debated: Malpedia and some sources treat them as the
+  same entity, while MITRE and iSIGHT maintain them as separate (but possibly related)
+  groups sharing tools like Derusbi.
+
+  Aliases Notes:
+
+  The aliases and overlapping groups landscape around APT19 remains rather tangled. The core
+  question: Are APT19, Deep Panda, Shell Crew, Black Vine, and related designations
+  the same group, overlapping groups, or a broader ecosystem?
+
+  MITRE maintains separate entries: APT19 (G0073) and Deep Panda (G0009). MITRE
+  explicitly states: "Some analysts track APT19 and Deep Panda as the same group, but
+  it is unclear from open source information if the groups are the same." The G0073
+  entry references FireEye (2017 law firm phishing), Palo Alto (C0d0so0 attacks), and
+  iSIGHT/Dark Reading (Forbes watering hole). The G0009 entry references CrowdStrike
+  (think tank targeting), RSA (Shell Crew), ThreatConnect (Anthem breach), and
+  Symantec (Black Vine).
+
+  iSIGHT Partners (2015) explicitly stated that while Codoso Team "shares attack
+  techniques with Deep Panda, which like Codoso, leans heavily on the use of the
+  Derusbi malware," iSIGHT "believes them to be two distinct gangs." The shared use
+  of Derusbi may reflect the Sunshop Digital Quartermaster — a suspected common
+  malware supplier — rather than organizational identity.
+
+  Malpedia merges all these aliases under a single APT19 entry (including Deep Panda,
+  Shell Crew, Black Vine, KungFu Kittens, etc.). The CFR Cyber Operations Tracker
+  similarly lists them together.
+
+  * The most recent APT19-specific public reporting is FireEye's June 2017 law firm
+  phishing campaign. If Deep Panda is considered the same group, Fortinet reported
+  Deep Panda exploiting VMware Horizon servers in 2022. 
+
+# ---- Key References ----
+assessment_basis:
+- title: "Ready for Summer: The Sunshop Campaign"
+  publisher: FireEye
+  date: 2013-05
+  url: https://web.archive.org/web/20210615181340/https://www.fireeye.com/blog/threat-research/2013/05/ready-for-summer-the-sunshop-campaign.html
+- title: "Sunshop Digital Quartermaster"
+  publisher: FireEye
+  date: 2013-11
+  url: https://www.securityweek.com/cyber-arms-dealer-center-11-advanced-attack-campaigns-fireeye/
+- title: "Forbes.com Watering Hole Attack"
+  publisher: iSIGHT Partners / Invincea (joint)
+  date: 2015-02-10
+  url: https://www.helpnetsecurity.com/2015/02/11/forbescom-compromised-by-chinese-cyber-spies-targeting-us-firms/
+- title: "New Attacks Linked to C0d0so0 Group"
+  publisher: Palo Alto Networks Unit 42
+  date: 2016-01-22
+  url: https://unit42.paloaltonetworks.com/new-attacks-linked-to-c0d0s0-group/
+- title: "Privileges and Credentials: Phished at the Request of Counsel"
+  publisher: FireEye
+  date: 2017-06-06
+  url: https://cloud.google.com/blog/topics/threat-intelligence/phished-at-the-request-of-counsel/
+- title: "MITRE ATT&CK - APT19 (G0073)"
+  publisher: MITRE
+  date: null
+  url: https://attack.mitre.org/groups/G0073/
+
+# ---- Targeting ----
+target_sectors:
+- defense                         # Forbes watering hole, Sunshop campaigns
+- finance                         # Forbes watering hole; law/investment firms (2017)
+- legal                  # 2017 law firm phishing; 2016 C0d0so0 campaign
+- energy                          # iSIGHT targeting assessment
+- pharmaceuticals                  # MITRE G0073
+- telecommunications              # Palo Alto 2016 C0d0so0 campaign
+- technology                      # Palo Alto 2016 C0d0so0 campaign
+- education                       # Palo Alto 2016 C0d0so0 campaign
+- manufacturing                   # Palo Alto 2016 C0d0so0 campaign
+- government                      # Sunshop 2013 (Department of Labor); iSIGHT
+- think-tanks                     # iSIGHT; CrowdStrike Deep Panda reporting
+- political-dissidents            # Nobel Peace Prize (2010); Chinese dissident sites
+- NGOs                  # FireEye 2014 NGO targeting campaign
+
+target_regions:
+- United States                   # Primary target across all campaigns
+- Norway                          # Nobel Peace Prize Committee (2010)
+- Australia                       # Grey Dynamics notes US and Australian targeting
+
+# ---- Campaigns ----
+campaigns:
+- name: Nobel Peace Prize Committee Website Compromise
+  year_published: null
+  description: >
+    APT19/Sunshop Group compromised the website of the Norwegian Nobel Peace Prize
+    Committee shortly after the 2010 Nobel Peace Prize was awarded to Liu Xiaobo, a
+    Chinese dissident. The attack leveraged a zero-day vulnerability in Mozilla Firefox
+    to serve exploits to visitors via a watering hole. iSIGHT's John Hultquist noted
+    the connection between the award to a Chinese dissident and the immediate compromise
+    of the committee's website. FireEye later linked this attack to the Sunshop Group
+    based on shared TTPs including zero-day exploitation and strategic web compromise.
+  targets:
+    sectors: [political-dissidents, government]
+    regions: [Norway]
+  sources:
+  - url: https://web.archive.org/web/20210615181340/https://www.fireeye.com/blog/threat-research/2013/05/ready-for-summer-the-sunshop-campaign.html
+    title: "Ready for Summer: The Sunshop Campaign"
+    publisher: FireEye
+
+- name: Sunshop Campaign (IE/Java Zero-Day)
+  year_published: null
+  description: >
+    FireEye identified a campaign exploiting the IE zero-day CVE-2013-1347 (affecting
+    IE 8) and Java exploits CVE-2013-2423 and CVE-2013-1493. Attackers compromised
+    multiple legitimate websites and inserted malicious JavaScript redirecting visitors
+    to an exploit server at sunshop[.]com[.]tw (the infrastructure that gave the group
+    its name). Successful exploitation delivered Poison Ivy RAT and Briba backdoor.
+    A related U.S. Department of Labor watering hole (noted by CrowdStrike and AlienVault)
+    targeted pages with nuclear-related content — likely aimed at Department of Energy
+    employees.
+  targets:
+    sectors: [government, energy, defense]
+    regions: [United States]
+  sources:
+  - url: https://web.archive.org/web/20210615181340/https://www.fireeye.com/blog/threat-research/2013/05/ready-for-summer-the-sunshop-campaign.html
+    title: "Ready for Summer: The Sunshop Campaign"
+    publisher: FireEye
+
+- name: NGO/Non-Profit Targeting Campaign
+  year_published: null
+  description: >
+    FireEye uncovered a campaign targeting non-profit organizations and non-governmental
+    organizations by compromising legitimate websites. Attackers inserted iframes into
+    legitimate sites to redirect visitors to attacker-controlled IP addresses serving
+    Poison Ivy RAT. FireEye identified the involvement of the Sunshop Digital
+    Quartermaster through a shared RT_MANIFEST resource ("Sunshop Manifest") previously
+    observed in 86 other samples.
+  targets:
+    sectors: [non-profit-ngo, political-dissidents]
+    regions: [United States]
+  sources:
+  - url: https://securityaffairs.com/33417/cyber-crime/chinese-hackers-hit-forbes.html
+    title: "Chinese hackers hit Forbes visitors with zero-day exploits"
+    publisher: Security Affairs (citing FireEye research)
+
+- name: Forbes.com Watering Hole Attack
+  year_published: null
+  description: >
+    APT19/Codoso Team compromised the Forbes.com "Thought of the Day" Flash widget,
+    which appeared to every visitor on the site (ranked 61st most popular in the US by
+    Alexa). The attack chained two zero-day exploits: an Adobe Flash vulnerability
+    (CVE-2014-9163, patched December 9, 2014) and a previously unknown Internet Explorer
+    ASLR bypass allowing execution of the Flash exploit. Invincea described the chained
+    zero-day technique as "a unicorn" in sophistication, comparing it to Stuxnet. Despite
+    the massive reach of Forbes.com, the attack narrowly targeted visitors from U.S.
+    defense contractors and financial services firms. Additional websites were found
+    targeting Chinese dissident groups with the same exploit, deployed before its public
+    disclosure. Derusbi malware variants were delivered as payloads. iSIGHT attributed
+    the attack to Codoso Team based on simplified Chinese code, Derusbi (unique to Chinese
+    operators), and C2 domain connections to previous Codoso campaigns. Invincea first
+    detected the attack through a defense industry customer.
+  targets:
+    sectors: [defense, finance]
+    regions: [United States]
+  sources:
+  - url: https://www.darkreading.com/cyberattacks-data-breaches/chinese-hacking-group-codoso-team-uses-forbes-com-as-watering-hole
+    title: "Chinese Hacking Group Codoso Team Uses Forbes.com As Watering Hole"
+    publisher: Dark Reading (citing iSIGHT/Invincea)
+  - url: https://web.archive.org/web/20150213004519/http://www.isightpartners.com/2015/02/codoso/
+    title: "Cyber Espionage Campaign Compromises Web Properties to Target US Financial Services and Defense Companies, Chinese Dissidents – CVE-2015-0071 and CVE-2014-9163"
+    publisher: iSight Partners
+  - url: https://web.archive.org/web/20150213004721/http://www.invincea.com/2015/02/chinese-espionage-campaign-compromises-forbes/
+    title: "Chinese Espionage Campaign Compromises Forbes.com to Target US Defense, Financial Services Companies in Watering Hole Style Attack"
+    publisher: Invincea
+
+- name: C0d0so0 Multi-Industry Campaign
+  year_published: null
+  description: >
+    Palo Alto Networks Unit 42 identified a new wave of attacks by C0d0so0 targeting
+    organizations in the telecommunications, high-tech, education, manufacturing, and
+    legal services sectors. Two malware variants were deployed: an HTTP-based variant
+    disguised as an AVG AntiVirus serial number generator, and a newer variant using
+    a custom network protocol over port 22 disguised as a DLL side-loaded by a legitimate
+    McAfee application. Both variants shared network communication structure similar to
+    Derusbi, with campaign-specific compile times only days before observed attacks. C2
+    domains were registered with Chinese addresses and
+    resolved to a Hong Kong IP. Notably, several targeted hosts were
+    server systems rather than user endpoints, suggesting APT19 was building infrastructure
+    for future watering hole attacks. Unit 42 established code lineage to the Forbes.com
+    attack through shared single-byte XOR encryption routines and overlapping strings.
+  targets:
+    sectors: [telecommunications, technology, education, manufacturing, legal-services]
+    regions: [United States]
+  sources:
+  - url: https://unit42.paloaltonetworks.com/new-attacks-linked-to-c0d0s0-group/
+    title: "New Attacks Linked to C0d0so0 Group"
+    publisher: Palo Alto Networks Unit 42
+
+- name: Law and Investment Firm Phishing Campaign
+  year_published: null
+  description: >
+    FireEye observed a phishing campaign targeting at least seven global law and investment
+    firms. APT19 used three different techniques across the campaign, showing rapid
+    adaptation. FireEye stated they had "previously observed APT19 steal
+    data from law and investment firms for competitive economic purposes." FireEye had
+    not observed post-exploitation activity at time of publication.
+  targets:
+    sectors: [legal-services, finance]
+    regions: [United States]
+  sources:
+  - url: https://cloud.google.com/blog/topics/threat-intelligence/phished-at-the-request-of-counsel/
+    title: "Privileges and Credentials: Phished at the Request of Counsel"
+    publisher: FireEye
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0073
+  group_url: https://attack.mitre.org/groups/G0073/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-01
+  last_updated: 2026-03-01
+
+# ---- MISP GALAXY ----
+misp_uuid: 066d25c1-71bd-4bd4-8ca7-edbba00063f4
+
+news_queries:
+  - "Codoso hack"
+  - "Deep Panda APT"
+  - "TG 3551 China"
+  - "APT 19 Chinese hacking"
+  - "APT19 espionage"
+  - "APT19 hacking"

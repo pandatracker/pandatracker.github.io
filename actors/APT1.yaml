@@ -1,0 +1,185 @@
+# ---- Identity ----
+name: APT1
+aliases:
+- name: Comment Group
+  vendor: Mandiant
+  source: https://services.google.com/fh/files/misc/mandiant-apt1-report.pdf
+- name: Comment Panda
+  vendor: CrowdStrike
+  source: http://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf
+- name: Comment Crew
+  vendor: null
+  source: https://services.google.com/fh/files/misc/mandiant-apt1-report.pdf
+- name: GIF89a
+  vendor: null
+  source: https://en.wikipedia.org/wiki/PLA_Unit_61398
+- name: Byzantine Candor
+  vendor: Intelligence community
+  source: http://www.bloomberg.com/news/2012-07-26/china-hackers-hit-eu-point-man-and-d-c-with-byzantine-candor.html
+- name: Group 3
+  vendor: null
+  source: null
+- name: TG-8223
+  vendor: SecureWorks
+  source: null
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: PLA
+affiliation_unit: Unit 61398
+entity_name: null
+associated_address: 208 Datong Road, Pudong District, Shanghai, P.R. China
+coordinates: [31.349000, 121.574000]
+affiliation_confidence: high
+attribution_evidence:
+- type: vendor-report
+  title: "APT1: Exposing One of China's Cyber Espionage Units"
+  publisher: Mandiant
+  date: 2013-02
+  url: https://services.google.com/fh/files/misc/mandiant-apt1-report.pdf
+- type: indictment
+  title: "U.S. Charges Five Chinese Military Hackers for Cyber Espionage Against U.S. Corporations and a Labor Organization
+    for Commercial Advantage"
+  publisher: U.S. Department of Justice
+  date: 2014-05-19
+  url: 
+    https://www.justice.gov/archives/opa/pr/us-charges-five-chinese-military-hackers-cyber-espionage-against-us-corporations-and-labor
+- type: government-advisory
+  title: "Potential for China Cyber Response to Heightened U.S.–China Tensions"
+  publisher: CISA
+  date: 2020-09
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-275a
+
+# ---- Timeline ----
+first_seen: 2006                  # Per Mandiant report and DOJ indictment; WEBC2 compile timestamps suggest development as early as 2004
+first_described: 2013-02          # Mandiant APT1 report publication
+last_seen: 2014                  # Infrastructure dismantled after 2013 exposure and 2014 indictment; CrowdStrike confirmed infrastructure disappeared post-indictment
+
+# ---- Overview ----
+description: >
+  APT1 is a Chinese state-sponsored cyber espionage group attributed to PLA Unit 61398, the 2nd Bureau of the
+  PLA General Staff Department's 3rd Department, based in Shanghai's Pudong district. 
+
+  Active from at least 2006,the group conducted sustained intrusions against at least 141 organizations across 20 major industries,  with
+  a primary focus on English-speaking targets, particularly in the United States. 
+
+  APT1 was notable for its economic espionage operations, stealing hundreds of terabytes of data including trade
+  secrets, business plans, and proprietary technology. The group maintained persistence in victim networks for an average
+  of one year, with the longest known access lasting four years and ten months. 
+
+  The 2013 Mandiant report publicly linked the group to the PLA, followed by the 2014 DOJ indictment of five Unit 61398 officers
+  — the first-ever U.S. criminal charges against known state actors for cyber espionage.
+
+# ---- Key References ----
+assessment_basis:
+- title: "APT1: Exposing One of China's Cyber Espionage Units"
+  publisher: Mandiant
+  date: 2013-02
+  url: https://services.google.com/fh/files/misc/mandiant-apt1-report.pdf
+  notes: Foundational report linking APT1 to PLA Unit 61398; detailed TTPs, malware families, and infrastructure
+- title: "U.S. Charges Five Chinese Military Hackers for Cyber Espionage"
+  publisher: U.S. Department of Justice
+  date: 2014-05-19
+  url: 
+    https://www.justice.gov/archives/opa/pr/us-charges-five-chinese-military-hackers-cyber-espionage-against-us-corporations-and-labor
+  notes: First-ever U.S. indictment of nation-state hackers; officially confirmed Mandiant's attribution to Unit 61398
+- title: "Five Chinese Military Hackers Charged with Cyber Espionage Against U.S."
+  publisher: FBI
+  date: 2014-05-19
+  url: https://www.fbi.gov/news/stories/five-chinese-military-hackers-charged-with-cyber-espionage-against-us
+  notes: FBI summary of indicted individuals and victim organizations
+- title: "The PLA and the 800am-500pm Work Day"
+  publisher: FireEye
+  date: 2014-05
+  url: 
+    https://web.archive.org/web/20210417085454/https://www.fireeye.com/blog/threat-research/2014/05/the-pla-and-the-800am-500pm-work-day-fireeye-confirms-dojs-findings-on-apt1-intrusion-activity.html
+  notes: Corroborated DOJ findings with additional operational pattern analysis
+- title: "MITRE ATT&CK - APT1 (G0006)"
+  publisher: MITRE
+  date: 2017-05
+  url: https://attack.mitre.org/groups/G0006/
+  notes: Consolidated ATT&CK mapping of APT1 techniques
+
+# ---- Targeting ----
+target_sectors:
+- technology
+- aerospace
+- energy
+- telecommunications
+- manufacturing
+- finance
+- government
+- defense
+- media
+- legal
+- education
+- healthcare
+- maritime
+- critical-infrastructure
+  # Mandiant documented 20 targeted industries aligned with China's 12th Five-Year Plan priorities
+
+target_regions:
+- United States          # 115 of 141 known victims
+- United Kingdom
+- Canada
+- Israel
+- Taiwan
+- India
+- Singapore
+  # Majority English-speaking targets; 87% of Mandiant-tracked victims were in the U.S.
+
+# ---- Campaigns ----
+campaigns:
+- name: Economic espionage against U.S. corporations (DOJ Indictment)
+  year_published: null
+  description: >
+    Five PLA Unit 61398 officers (Wang Dong, Sun Kailiang, Wen Xinyu, Huang Zhenyu, Gu Chunhui)
+    conducted sustained cyber intrusions against six U.S. entities—Westinghouse Electric, SolarWorld AG
+    (U.S. subsidiaries), U.S. Steel, Allegheny Technologies Inc., the United Steelworkers Union, and Alcoa—
+    stealing trade secrets, proprietary manufacturing data, business strategy documents, and privileged
+    attorney-client communications in the nuclear power, metals, and solar products industries.
+  targets:
+    sectors: [energy, manufacturing, legal]
+    regions: [United States]
+  sources:
+  - url: 
+      https://www.justice.gov/archives/opa/pr/us-charges-five-chinese-military-hackers-cyber-espionage-against-us-corporations-and-labor
+    title: "U.S. Charges Five Chinese Military Hackers for Cyber Espionage"
+    publisher: U.S. Department of Justice
+  - url: https://www.fbi.gov/news/stories/five-chinese-military-hackers-charged-with-cyber-espionage-against-us
+    title: "Five Chinese Military Hackers Charged with Cyber Espionage Against U.S."
+    publisher: FBI
+
+- name: Broad economic espionage campaign (Mandiant-tracked)
+  year_published: null
+  description: >
+    Over seven years, APT1 systematically compromised at least 141 organizations across 20 industries,
+    exfiltrating hundreds of terabytes of intellectual property. Targets aligned with China's 12th Five-Year
+    Plan strategic priorities. The group maintained long-term persistent access, with the longest single
+    intrusion lasting 1,764 days. The largest single data theft observed was 6.5 terabytes from one
+    organization over 10 months.
+  targets:
+    sectors: [technology, aerospace, energy, telecommunications, manufacturing, finance, government, defense, media]
+    regions: [United States, United Kingdom, Canada]
+  sources:
+  - url: https://services.google.com/fh/files/misc/mandiant-apt1-report.pdf
+    title: "APT1: Exposing One of China's Cyber Espionage Units"
+    publisher: Mandiant
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0006
+  group_url: https://attack.mitre.org/groups/G0006/
+
+# ---- Meta ----
+meta:
+  created: 2025-02-28
+  last_updated: 2025-02-28
+  
+# ---- MISP GALAXY ----
+misp_uuid: 1cb7e1cc-d695-42b1-92f4-fd0112a3c9be
+
+news_queries:
+  - "PLA Unit 61398"
+  - "APT 1 Chinese hacking"
+  - "APT1 espionage"

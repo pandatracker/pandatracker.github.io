@@ -1,0 +1,346 @@
+# ---- Identity ----
+name: APT17
+aliases:
+- name: DeputyDog
+  vendor: FireEye/Mandiant
+  source: https://web.archive.org/web/20210125142014/https://www.fireeye.com/blog/threat-research/2013/09/operation-deputydog-zero-day-cve-2013-3893-attack-against-japanese-targets.html
+- name: Aurora Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/adversaries/aurora-panda/
+- name: Axiom
+  vendor: Novetta (Operation SMN coalition)
+  source: https://web.archive.org/web/20180901145240/https://www.novetta.com/wp-content/uploads/2014/11/Executive_Summary-Final_1.pdf
+- name: Hidden Lynx
+  vendor: Symantec
+  source: https://www.recordedfuture.com/blog/hidden-lynx-analysis
+- name: Group 72
+  vendor: Cisco Talos
+  source: https://blogs.cisco.com/security/talos/threat-spotlight-group-72
+- name: BRONZE KEYSTONE
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt17
+- name: Tailgater Team
+  vendor: null
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt17
+- name: Dogfish
+  vendor: iDefense
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt17
+- name: HELIUM
+  vendor: Microsoft (legacy)
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt17
+- name: Heart Typhoon
+  vendor: Microsoft
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt17
+- name: TEMP.Avengers
+  vendor: FireEye/Mandiant
+  source: https://thehackernews.com/2024/07/china-linked-apt17-targets-italian.html
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: MSS
+affiliation_unit: Jinan State Security Department
+entity_name: null
+associated_address: Jinan, Shandong province, P.R. China
+coordinates: [36.65182795795753, 117.11998484376855]
+affiliation_detail: >
+  Intrusion Truth published a series of articles in July 2019 identifying APT17 as being
+  managed by the Jinan bureau of the Chinese Ministry of State Security (MSS). They identified four individuals:
+  (1) Guo Lin (郭林), assessed to be an MSS officer who is affiliated with four private technology companies in Jinan,
+  (2) Wang Qingwei (王庆卫), (3) Zeng Xiaoyong (曾小勇, aka "envymask") and (4) Zhang Peng (aka "missll").
+  All identified individuals operated from Jinan, the capital of Shandong Province.
+
+  Intrusion Truth further documented links between APT17 operators and APT41, noting
+  shared malware (BLACKCOFFEE) and personal connections between individuals, suggesting
+  an "interlinked network of Chinese cyber actors sharing malware, expertise and connections."
+
+  No DOJ indictment has been filed against APT17 operators as of the profile date.
+affiliation_confidence: likely
+attribution_evidence:
+- type: investigative-reporting
+  title: "APT17 is run by the Jinan bureau of the Chinese Ministry of State Security"
+  publisher: Intrusion Truth
+  date: 2019-07-24
+  url: 
+    https://intrusiontruth.wordpress.com/2019/07/24/apt17-is-run-by-the-jinan-bureau-of-the-chinese-ministry-of-state-security/
+- type: vendor-report
+  title: "Hiding in Plain Sight: FireEye and Microsoft Expose Obfuscation Tactic"
+  publisher: FireEye
+  date: 2015-05-14
+  url: https://cloud.google.com/blog/topics/threat-intelligence/hiding_in_plain_sight
+- type: industry-coalition
+  title: "Operation SMN: Axiom Threat Actor Group Report"
+  publisher: Novetta (coalition of Symantec, Cisco, FireEye, F-Secure, iSIGHT, Microsoft, ThreatConnect, Tenable, 
+    ThreatTrack, Volexity)
+  date: 2014-10-15
+  url: https://web.archive.org/web/20180901145240/https://www.novetta.com/wp-content/uploads/2014/11/Executive_Summary-Final_1.pdf
+
+# ---- Timeline ----
+first_seen: 2009                  # Operation Aurora (mid-2009); some trace earlier activity
+first_described: 2013             # FireEye "Operation DeputyDog" report (September 2013)
+last_seen: 2024
+
+# ---- Overview ----
+description: >
+  APT17 is linked by Intrusion Truth to the Ministry of State Security's Jinan bureau (Shandong Province).
+
+  APT17 is characterized by prolific use of zero-day exploits (particularly Internet Explorer vulnerabilities), strategic
+  web compromises (watering holes), and supply chain attacks. The group gained its "DeputyDog"
+  name from FireEye's 2013 discovery of a campaign using IE zero-days against Japanese targets.
+  Subsequent FireEye research documented Operation Ephemeral Hydra (2013) and Operation SnowMan
+  (2014), both sharing infrastructure and tradecraft with DeputyDog. 
+
+  APT17 was, among other campaigns, described to be involved in the 2009 Operation Aurora. The group is also linked to the 2017 CCleaner supply chain compromise, which affected 2.27
+  million users and deployed the ShadowPad backdoor to a targeted subset. Most recently, in 2024, APT17 was observed targeting Italian companies and government entities with the
+  9002 RAT. 
+
+  Intrusion Truth reported that in 2015, during Xi Jinping's crackdown on Chinese
+  hackers, a Jinan office associated with APT17 activity was raided by the local Public
+  Security Bureau, resulting in several arrests. Intrusion Truth noted these arrests may
+  have been used to co-opt hackers into MSS service, as APT17 activity continued.
+
+# ---- Key References ----
+assessment_basis:
+- title: "Operation DeputyDog: Zero-Day (CVE-2013-3893) Attack Against Japanese Targets"
+  publisher: FireEye
+  date: 2013-09-21
+  url: https://web.archive.org/web/20210125142014/https://www.fireeye.com/blog/threat-research/2013/09/operation-deputydog-zero-day-cve-2013-3893-attack-against-japanese-targets.html
+- title: "Operation Ephemeral Hydra: IE Zero-Day Linked to DeputyDog Uses Diskless Method"
+  publisher: FireEye
+  date: 2013-11-10
+  url: https://web.archive.org/web/20190301152541/https://www.fireeye.com/blog/threat-research/2013/11/operation-ephemeral-hydra-ie-zero-day-linked-to-deputydog-uses-diskless-method.html
+- title: "Operation SnowMan: DeputyDog Actor Compromises US Veterans of Foreign Wars Website"
+  publisher: FireEye
+  date: 2014-02-13
+  url: https://web.archive.org/web/20191014205216/https://www.fireeye.com/blog/threat-research/2014/02/operation-snowman-deputydog-actor-compromises-us-veterans-of-foreign-wars-website.html
+- title: "Hiding in Plain Sight: FireEye and Microsoft Expose Obfuscation Tactic"
+  publisher: FireEye / Microsoft
+  date: 2015-05-14
+  url: https://cloud.google.com/blog/topics/threat-intelligence/hiding_in_plain_sight
+- title: "Operation SMN: Axiom Threat Actor Group Report"
+  publisher: Novetta (industry coalition)
+  date: 2014-10
+  url: https://web.archive.org/web/20180901145240/https://www.novetta.com/wp-content/uploads/2014/11/Executive_Summary-Final_1.pdf
+- title: "Threat Spotlight: Group 72"
+  publisher: Cisco Talos
+  date: 2014-10-14
+  url: https://blogs.cisco.com/security/talos/threat-spotlight-group-72
+- title: "APT17 is run by the Jinan bureau of the Chinese Ministry of State Security"
+  publisher: Intrusion Truth
+  date: 2019-07-24
+  url: https://intrusiontruth.wordpress.com/2019/07/24/apt17-is-run-by-the-jinan-bureau-of-the-chinese-ministry-of-state-security/
+- title: "China-linked APT17 Targets Italian Companies with 9002 RAT Malware"
+  publisher: TG Soft / The Hacker News
+  date: 2024-07-17
+  url: https://thehackernews.com/2024/07/china-linked-apt17-targets-italian.html
+- title: "MITRE ATT&CK - APT17 (G0025)"
+  publisher: MITRE
+  date: null
+  url: https://attack.mitre.org/groups/G0025/
+
+# ---- Targeting ----
+target_sectors:
+- government                     # U.S. government entities (FireEye); Italian government (2024)
+- defense                        # Defense industry; defense contractors (Cisco Talos/Operation SMN)
+- technology                     # IT companies; Bit9 (security firm); CCleaner (supply chain)
+- legal                      # International law firms (FireEye 2015)
+- mining                         # Mining companies (MITRE G0025)
+- NGOs                           # Non-government organizations (MITRE G0025)
+- aerospace                      # Aerospace sector (Cisco Talos); French aerospace (GIFAS)
+- manufacturing                  # Manufacturing, industrial sectors (Cisco Talos)
+- media                          # Media sector (Cisco Talos)
+- gaming                         # Gaming companies (Axiom/Winnti overlap)
+- finance                      # Financial sector (Operation Aurora)
+
+target_regions:
+- United States                  # Primary target: government, defense, tech, VFW
+- Japan                          # Operation DeputyDog (2013); consistent target
+- Taiwan                         # Cisco Talos; VOHO campaign
+- South Korea                    # Cisco Talos; Axiom
+- Italy                          # 2024 campaign (TG Soft)
+
+# ---- Campaigns ----
+campaigns:
+- name: Operation Aurora
+  year_published: null
+  description: >
+    Cyber espionage campaign targeting Google, Adobe, Juniper Networks, and 30+
+    other major companies. Attackers used a zero-day in Internet Explorer (CVE-2010-0249)
+    to deliver the Hydraq/9002 RAT. Google disclosed the attack publicly in January 2010,
+    stating attackers sought access to Gmail accounts of Chinese human rights activists and
+    stole intellectual property including source code. The attack fundamentally changed
+    public awareness of state-sponsored cyber espionage. Symantec attributed the attack to
+    the "Elderwood" group (named after a source-code variable), which has been linked to
+    APT17. McAfee named the campaign "Aurora" after a folder name found in the malware.
+  targets:
+    sectors: [technology, defense, financial, manufacturing, aerospace, energy]
+    regions: [United States, global]
+  sources:
+  - url: https://en.wikipedia.org/wiki/Operation_Aurora
+    title: "Operation Aurora"
+    publisher: Wikipedia (aggregating Google, McAfee, Symantec, CrowdStrike reporting)
+
+- name: Bit9 Breach
+  year_published: null
+  description: >
+    Attackers compromised application whitelisting security firm Bit9, deploying HiKit
+    rootkit variants and stealing digital code-signing certificates. The stolen certificates
+    were subsequently used to sign malware in later campaigns, including the VOHO campaign.
+    FireEye linked the Bit9 C2 infrastructure to Operation DeputyDog via shared domain
+    registrations and IP addresses.
+  targets:
+    sectors: [technology]
+    regions: [United States]
+  sources:
+  - url: https://www.fireeye.com/blog/threat-research/2013/09/operation-deputydog-zero-day-cve-2013-3893-attack-against-japanese-targets.html
+    title: "Operation DeputyDog"
+    publisher: FireEye
+
+- name: Operation DeputyDog
+  year_published: null
+  description: >
+    FireEye discovered a campaign using IE zero-day CVE-2013-3893 against Japanese
+    organizations. Malware samples contained the builder string "DGGYDSYRL" — the basis
+    for the "DeputyDog" name. Payloads were XOR-encoded (key 0x95) and disguised as image
+    files. FireEye linked the C2 infrastructure to the Bit9 breach via shared domains
+    (yahooeast.net, blankchair.com) and IP addresses. Most samples were compiled on
+    2013-08-19 within one second of each other.
+  targets:
+    sectors: [government, technology]
+    regions: [Japan]
+  sources:
+  - url: https://www.fireeye.com/blog/threat-research/2013/09/operation-deputydog-zero-day-cve-2013-3893-attack-against-japanese-targets.html
+    title: "Operation DeputyDog: Zero-Day Attack Against Japanese Targets"
+    publisher: FireEye
+
+- name: Operation Ephemeral Hydra
+  year_published: null
+  description: >
+    FireEye discovered a new IE zero-day (CVE-2013-3918) deployed via strategic web
+    compromise of a site "likely to draw visitors interested in national and international
+    security policy." The attack was notable for loading its payload (9002 RAT variant)
+    directly into memory without writing to disk — a technique not typically used by APT
+    actors at the time. Infrastructure overlap with DeputyDog confirmed via the shared
+    domain dll.freshdns.org.
+  targets:
+    sectors: [government, defense, think-tanks]
+    regions: [United States]
+  sources:
+  - url: https://www.fireeye.com/blog/threat-research/2013/11/operation-ephemeral-hydra-ie-zero-day-linked-to-deputydog-uses-diskless-method.html
+    title: "Operation Ephemeral Hydra"
+    publisher: FireEye
+
+- name: Operation SnowMan
+  year_published: null
+  description: >
+    FireEye identified IE 10 zero-day CVE-2014-0322 served from the U.S. Veterans of
+    Foreign Wars (VFW.org) website as a watering hole targeting U.S. military personnel.
+    The attack was timed during a paralyzing snowstorm at the U.S. Capitol ahead of
+    Presidents' Day weekend. A Flash object orchestrated exploitation, dropping a ZxShell
+    backdoor via the same 0x95 XOR/.jpg extension technique used in DeputyDog. Websense
+    also identified targeting of GIFAS (French aerospace association). Infrastructure and
+    tradecraft links confirmed connection to DeputyDog and Ephemeral Hydra campaigns.
+  targets:
+    sectors: [military, defense, aerospace]
+    regions: [United States, France]
+  sources:
+  - url: https://www.fireeye.com/blog/threat-research/2014/02/operation-snowman-deputydog-actor-compromises-us-veterans-of-foreign-wars-website.html
+    title: "Operation SnowMan"
+    publisher: FireEye
+
+- name: Operation SMN (Industry Coalition vs. Axiom)
+  year_published: null
+  description: >
+    Coordinated industry coalition led by Novetta (with Symantec, Cisco, FireEye, F-Secure,
+    iSIGHT Partners, Microsoft, ThreatConnect, Tenable, ThreatTrack Security, Volexity)
+    targeting the Axiom group's malware infrastructure. The coalition shared intelligence
+    and resources to create comprehensive, multi-vendor detection for Hikit, ZxShell,
+    Derusbi, Winnti, and other Axiom tools. This was one of the first major cross-industry
+    coordinated responses to a state-sponsored APT group.
+  targets:
+    sectors: [not-applicable]
+    regions: [not-applicable]
+  sources:
+  - url: https://www.novetta.com/wp-content/uploads/2014/11/Executive_Summary-Final_1.pdf
+    title: "Operation SMN: Axiom Threat Actor Group Report"
+    publisher: Novetta
+
+- name: BLACKCOFFEE/TechNet Dead Drop Resolver
+  year_published: null
+  description: >
+    FireEye and Microsoft jointly exposed APT17's technique of creating bogus profiles on
+    Microsoft TechNet and embedding encoded C2 IP addresses in profile pages and forum
+    posts for BLACKCOFFEE malware variants. The group created biographical sections and
+    posted in legitimate threads to make profiles appear authentic. This "dead drop resolver"
+    technique made it difficult for defenders to identify true C2 locations and allowed
+    infrastructure to remain active longer. Microsoft released anti-malware signatures;
+    FireEye released IOCs.
+  targets:
+    sectors: [government, technology, law-firms, defense, mining, NGOs]
+    regions: [United States]
+  sources:
+  - url: https://www.fireeye.com/blog/threat-research/2015/05/hiding_in_plain_sigh.html
+    title: "Hiding in Plain Sight"
+    publisher: FireEye / Microsoft
+
+- name: CCleaner Supply Chain Compromise
+  year_published: null
+  description: >
+    Attackers compromised Piriform's network (CCleaner developer, acquired by Avast July
+    2017) and injected a backdoor into CCleaner version 5.33.6162, affecting approximately
+    2.27 million users who downloaded the compromised update. Kaspersky's Costin Raiu first
+    identified code overlap between the CCleaner backdoor and Axiom/APT17 tools. Intezer
+    confirmed shared code with earlier APT17 samples. Avast's investigation found ShadowPad
+    backdoor installed on four Piriform computers (April 2017), with custom-built keylogger
+    capabilities. The second-stage payload was deployed to only ~40 machines, targeting
+    major tech companies. Attackers initially entered Piriform's network via TeamViewer.
+    In 2019, Avast detected and thwarted a second supply chain attack attempt against
+    CCleaner, again attributed to Axiom/APT17.
+  targets:
+    sectors: [technology]
+    regions: [global]
+  sources:
+  - url: https://www.darkreading.com/data-privacy/chinese-apt-backdoor-found-in-ccleaner-supply-chain-attack
+    title: "Chinese APT Backdoor Found in CCleaner Supply Chain Attack"
+    publisher: Dark Reading
+  - url: https://intezer.com/blog/evidence-aurora-operation-still-active-supply-chain-attack-through-ccleaner/
+    title: "Evidence Aurora Operation Still Active: Supply Chain Attack Through CCleaner"
+    publisher: Intezer
+
+- name: Italian Government and Companies (9002 RAT)
+  year_published: null
+  description: >
+    Italian cybersecurity firm TG Soft documented APT17 targeting Italian companies and
+    government entities in two waves. The first campaign (June 24) used a malicious Office
+    document; the second (July 2) used a link. Both invited victims to install a fake
+    Skype for Business package from a domain mimicking the Italian government, delivering
+    a variant of the 9002 RAT. The RAT was deployed via an MSI installer that triggered
+    a JAR file through VBScript, which decrypted and executed shellcode launching 9002 RAT.
+    The malware included diskless variants and modular architecture to reduce detection.
+  targets:
+    sectors: [government, technology]
+    regions: [Italy]
+  sources:
+  - url: https://thehackernews.com/2024/07/china-linked-apt17-targets-italian.html
+    title: "China-linked APT17 Targets Italian Companies with 9002 RAT Malware"
+    publisher: The Hacker News / TG Soft
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0025
+  group_url: https://attack.mitre.org/groups/G0025/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-01
+  last_updated: 2026-03-01
+
+# ---- MISP GALAXY ----
+misp_uuid: 99e30d89-9361-4b73-a999-9e5ff9320bcb
+
+news_queries:
+  - "Aurora Panda China"
+  - "DeputyDog China"
+  - "Hidden Lynx China"
+  - "APT 17 Chinese hacking"
+  - "APT17 espionage"
+  - "APT17 hacking"

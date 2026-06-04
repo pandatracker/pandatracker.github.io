@@ -1,0 +1,206 @@
+# ---- Identity ----
+name: Naikon
+aliases:
+- name: Camerashy
+  vendor: ThreatConnect / Defense Group Inc.
+  source: https://www.threatconnect.com/camerashy
+- name: Override Panda
+  vendor: CrowdStrike
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/naikon
+- name: BRONZE GENEVA
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/naikon
+- name: BRONZE STERLING
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/naikon
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: PLA
+affiliation_unit: Unit 78020
+entity_name: null
+associated_address: Kunming, Yunnan province, P.R. China
+coordinates: [24.879666225130762, 102.83323196704478]
+affiliation_detail: >
+  Attributed by ThreatConnect and Defense Group Inc. to the PLA Chengdu Military Region Second Technical Reconnaissance
+  Bureau (Military Unit Cover Designator 78020), headquartered in Kunming,
+  Yunnan Province. Attribution published 
+  in their September 2015 "Project CameraShy" report,
+  identifying PLA officer Ge Xing (葛星, a.k.a. "GreenSky27") as a member of
+  Unit 78020 involved in Naikon operations.
+
+  Evidence linking Ge Xing to Unit 78020 included social media profiles
+  claiming PLA membership, attendance at PLA International Studies University,
+  academic publications under Unit 78020's banner specializing in Southeast
+  Asian politics (particularly Thailand), photographs placing Ge Xing at the
+  Kunming TRB headquarters compound, and eight pattern-of-life overlaps
+  between Ge Xing's activities and greensky27.vicp.net infrastructure over
+  five years. All Naikon C2 infrastructure traced back to Kunming.
+affiliation_confidence: likely
+attribution_evidence:
+- type: vendor-report
+  title: "Project CameraShy: Closing the Aperture on China's Unit 78020"
+  publisher: ThreatConnect Inc. / Defense Group Inc. (DGI)
+  date: 2015-09-23
+  url: https://threatconnect.com/resource/project-camerashy-closing-the-aperture-on-chinas-unit-78020/
+
+
+# ---- Timeline ----
+first_seen: 2010
+first_described: 2015-05
+last_seen: 2021
+
+# ---- Overview ----
+description: >
+  Naikon is a Chinese state-sponsored cyber espionage group attributed to PLA
+  Unit 78020 (Chengdu Military Region Second Technical Reconnaissance Bureau),
+  active since at least 2010 and focused on national/international organizations in Southeast Asia and the South China Sea
+  region. Its operational mandate aligns with the collection of geopolitical
+  intelligence relevant to China's territorial claims and regional influence.
+
+  After being publicly exposed in 2015 — and one operator, Ge Xing
+  (GreenSky27), identified by name in ThreatConnect/DGI's CameraShy report —
+  Naikon appeared to go silent. However, Check Point Research discovered in
+  2020 that the group had maintained continuous operations for five years using
+  new backdoor and the tactic of launching attacks from
+  previously compromised government infrastructure to exploit inter-agency
+  trust. A 2021 Bitdefender report further revealed the group deploying
+  backdoors against Southeast Asian military
+  organizations.
+
+  Naikon is sometimes conflated with APT30 (MITRE G0013), a separate activity
+  cluster first documented by FireEye in April 2015 using a distinct toolset
+  (BACKSPACE, NETEAGLE, and air-gap crossing tools). MITRE maintains them as
+  separate entries — G0019 for Naikon and G0013 for APT30 — noting they "share
+  some characteristics" but "do not appear to be exact matches." 
+
+# ---- Key References ----
+assessment_basis:
+- title: "Project CameraShy: Closing the Aperture on China's Unit 78020"
+  publisher: ThreatConnect Inc. / Defense Group Inc. (DGI)
+  date: 2015-09-23
+  url: https://www.threatconnect.com/camerashy
+
+- title: "The Naikon APT"
+  publisher: Kaspersky Lab
+  date: 2015-05
+  url: https://securelist.com/the-naikon-apt/69953/
+
+- title: "Naikon APT: Cyber Espionage Reloaded"
+  publisher: Check Point Research
+  date: 2020-05-07
+  url: https://research.checkpoint.com/2020/naikon-apt-cyber-espionage-reloaded/
+
+- title: "Naikon's Aria"
+  publisher: Kaspersky Lab
+  date: 2020-05-07
+  url: https://securelist.com/naikons-aria/96899/
+
+- title: "NAIKON — Traces from a Military Cyber-Espionage Operation"
+  publisher: Bitdefender
+  date: 2021-04-28
+  url: https://www.bitdefender.com/files/News/CaseStudies/study/396/Bitdefender-PR-Whitepaper-NAIKON-creat5397-en-EN.pdf
+
+# ---- Targeting ----
+target_sectors:
+- government
+- military
+- diplomatic
+- defense
+- telecommunications
+- technology
+
+target_regions:
+- Philippines
+- Vietnam
+- Myanmar
+- Indonesia
+- Thailand
+- Cambodia
+- Laos
+- Malaysia
+- Singapore
+- Brunei
+- Nepal
+- Australia
+- India
+- ASEAN (as institution)
+- UNDP (as institution)
+
+# ---- Campaigns ----
+campaigns:
+- name: South China Sea Espionage Campaign
+  year_published: 2015
+  description: >
+    Kaspersky documented in May 2015 Naikon's long-running espionage
+    campaigns targeting government agencies, law enforcement, military,
+    and intelligence organizations across Southeast Asia. The group used
+    spear-phishing with regionalized lures tied to geopolitical events
+    (ASEAN summits, South China Sea disputes) to deliver XsFunction RAT
+    and related malware. ThreatConnect/DGI's CameraShy report showed
+    the group used regionalized infrastructure with campaign identifiers
+    referencing specific targets (UNDP, ASEAN, individual countries).
+  targets:
+    sectors: [government, military, diplomatic]
+    regions: [Philippines, Vietnam, Myanmar, Indonesia, Thailand, Cambodia, Laos, Malaysia, Singapore, Nepal]
+  sources:
+  - url: https://securelist.com/the-naikon-apt/69953/
+    title: "The Naikon APT"
+    publisher: Kaspersky Lab
+  - url: https://www.threatconnect.com/camerashy
+    title: "Project CameraShy"
+    publisher: ThreatConnect / DGI
+
+- name: Aria-body Stealth Campaign
+  year_published: 2020
+  description: >
+    Check Point Research discovered in May 2020 that Naikon had maintained continuous operations
+    using the Aria-body backdoor. The group targeted government ministries of foreign affairs,
+    science and technology, and state-owned companies in SEA. A
+    key evasion tactic was using compromised government servers as C2. A malicious
+    email from a compromised Indonesian Embassy server was sent to the
+    office of the Premier of Western Australia.
+  targets:
+    sectors: [government, diplomatic, technology]
+    regions: [Australia, Indonesia, Philippines, Vietnam, Thailand, Myanmar, Brunei]
+  sources:
+  - url: https://research.checkpoint.com/2020/naikon-apt-cyber-espionage-reloaded/
+    title: "Naikon APT: Cyber Espionage Reloaded"
+    publisher: Check Point Research
+  - url: https://securelist.com/naikons-aria/96899/
+    title: "Naikon's Aria"
+    publisher: Kaspersky Lab
+
+- name: Military Cyber-Espionage Operation (Nebulae/RainyDay)
+  year_published: null
+  description: >
+    Bitdefender documented a campaign between June 2019 and March 2021
+    targeting military organizations in Southeast Asia.
+    Data exfiltration used tools masquerading as Chrome that uploaded to
+    Dropbox.
+  targets:
+    sectors: [military]
+    regions: [Southeast Asia]
+  sources:
+  - url: https://www.bitdefender.com/files/News/CaseStudies/study/396/Bitdefender-PR-Whitepaper-NAIKON-creat5397-en-EN.pdf
+    title: "NAIKON — Traces from a Military Cyber-Espionage Operation"
+    publisher: Bitdefender
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0019
+  group_url: https://attack.mitre.org/groups/G0019/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-03
+  last_updated: 2026-03-03
+
+misp_uuid: 2f1fd017-9df6-4759-91fb-e7039609b5ff
+
+news_queries:
+  - "Naikon china hack"
+  - "Camerashy"
+  - "Override Panda"
+  - "BRONZE GENEVA"
+  - "BRONZE STERLING china"

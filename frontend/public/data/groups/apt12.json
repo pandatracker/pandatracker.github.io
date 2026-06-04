@@ -1,0 +1,598 @@
+{
+  "id": 3,
+  "name": "APT12",
+  "slug": "apt12",
+  "actor_type": "state-associated",
+  "affiliation": [
+    "PLA"
+  ],
+  "affiliation_unit": null,
+  "affiliation_detail": "APT12 is believed to be linked to the Chinese People's Liberation Army (PLA). FireEye/Mandiant stated that APT12's targets are \"consistent with larger People's Republic of China (PRC) goals\" and that campaigns are \"in-line with PRC goals and self-interest in Taiwan.\" The NYT breach investigation found that computers used to launch the attack were believed to be the same university computers used by the Chinese military to attack U.S. military contractors.\nHowever, no DOJ indictment or formal government attribution to a specific PLA unit has been published. The PLA link remains an industry assessment based on targeting patterns, operational timing alignment with PRC strategic interests, and infrastructure overlap with known PLA-associated entities. No specific PLA unit designation has been publicly identified for APT12.\n",
+  "affiliation_confidence": "suspected",
+  "entity_name": null,
+  "last_seen": "2016",
+  "first_seen": "2009",
+  "first_described": "2012",
+  "description": "APT12 is a Chinese cyber espionage group believed to have links to the PLA, active since at least 2009. \nThe group primarily targets organizations in East Asia — especially Taiwan and Japan — as well as media outlets, and entities whose interests intersect with PRC strategic concerns. \nAPT12 is best known for its 2012 breach of the New York Times, launched in apparent retaliation for the newspaper's investigation into the wealth accumulated by the family of then-Premier Wen Jiabao.\nThe group's defining operational characteristic is rapid adaptation to public disclosure. Mandiant dubbed APT12 \"Darwin's Favorite APT Group\" after observing the group retool its entire malware infrastructure at least twice in direct response to security vendor publications — first after the NYT breach exposure (2013), and again after Arbor Networks' detailed analysis of the Etumbot/RIPTIDE backdoor (2014). In both cases, APT12 paused operations only briefly before resuming with modified tooling specifically engineered to evade the detection methods described in the published research. \nBased on the reports consulted, the group's spear-phishing lure documents are typically written in Traditional Chinese and pertain to Taiwanese government interests.\n",
+  "attack_group_id": "G0005",
+  "attack_group_url": "https://attack.mitre.org/groups/G0005/",
+  "news_queries": [
+    "Numbered Panda",
+    "menuPass hack",
+    "APT 12 Chinese hacking",
+    "APT12 espionage",
+    "APT12 hacking"
+  ],
+  "aliases": [
+    {
+      "name": "Numbered Panda",
+      "vendor": "CrowdStrike",
+      "source": "https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/"
+    },
+    {
+      "name": "IXESHE",
+      "vendor": "Trend Micro",
+      "source": "https://www.trendmicro.de/cloud-content/us/pdfs/security-intelligence/white-papers/wp_ixeshe.pdf"
+    },
+    {
+      "name": "DynCalc",
+      "vendor": null,
+      "source": "https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/"
+    },
+    {
+      "name": "DNSCALC",
+      "vendor": null,
+      "source": "https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2"
+    },
+    {
+      "name": "BRONZE GLOBE",
+      "vendor": "SecureWorks",
+      "source": null
+    },
+    {
+      "name": "Hexagon Typhoon",
+      "vendor": "Microsoft",
+      "source": null
+    },
+    {
+      "name": "Group 22",
+      "vendor": null,
+      "source": null
+    }
+  ],
+  "attribution_evidence": [
+    {
+      "type": "vendor-report",
+      "title": "Darwin's Favorite APT Group",
+      "publisher": "FireEye/Mandiant",
+      "date": "2014-09-03",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2"
+    },
+    {
+      "type": "vendor-report",
+      "title": "Whois Numbered Panda",
+      "publisher": "CrowdStrike",
+      "date": "2013-03-29",
+      "url": "https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/"
+    },
+    {
+      "type": "vendor-report",
+      "title": "IXESHE: An APT Campaign",
+      "publisher": "Trend Micro",
+      "date": "2012-05-22",
+      "url": "https://documents.trendmicro.com/assets/wp/wp_ixeshe.pdf"
+    },
+    {
+      "type": "vendor-report",
+      "title": "Survival of the Fittest: New York Times Attackers Evolve Quickly",
+      "publisher": "FireEye/Mandiant",
+      "date": "2013-08-12",
+      "url": "https://web.archive.org/web/20191224162418/https://www.fireeye.com/blog/threat-research/2013/08/survival-of-the-fittest-new-york-times-attackers-evolve-quickly.html"
+    }
+  ],
+  "references": [
+    {
+      "title": "IXESHE: An APT Campaign",
+      "publisher": "Trend Micro",
+      "date": "2012-05-22",
+      "url": "https://documents.trendmicro.com/assets/wp/wp_ixeshe.pdf",
+      "notes": null
+    },
+    {
+      "title": "Whois Numbered Panda",
+      "publisher": "FireEye/Mandiant",
+      "date": "2013-08-12",
+      "url": "https://web.archive.org/web/20191224162418/https://www.fireeye.com/blog/threat-research/2013/08/survival-of-the-fittest-new-york-times-attackers-evolve-quickly.html",
+      "notes": null
+    },
+    {
+      "title": "Darwin's Favorite APT Group",
+      "publisher": "FireEye/Mandiant",
+      "date": "2014-09-03",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2",
+      "notes": null
+    },
+    {
+      "title": "CNACOM Open Source Exploitation via Strategic Web Compromise",
+      "publisher": "Zscaler",
+      "date": "2016-12",
+      "url": "https://www.zscaler.com/blogs/security-research/cnacom-open-source-exploitation-strategic-web-compromise",
+      "notes": null
+    },
+    {
+      "title": "MITRE ATT&CK - APT12 (G0005)",
+      "publisher": "MITRE",
+      "date": "2017-05",
+      "url": "https://attack.mitre.org/groups/G0005/",
+      "notes": "Consolidated ATT&CK mapping of APT12 techniques and software"
+    }
+  ],
+  "target_sectors": [
+    "government",
+    "media",
+    "technology",
+    "electronics",
+    "telecommunications",
+    "defense",
+    "finance"
+  ],
+  "target_regions": [
+    "Taiwan",
+    "Japan",
+    "United States",
+    "Germany"
+  ],
+  "campaigns": [
+    {
+      "name": "IXESHE Campaign (East Asia targeting)",
+      "year_published": null,
+      "description": "Trend Micro's documentation of APT12 activity. Spear phishing campaigns using malicious PDF and Word documents primarily targeting East Asian governments, Taiwanese electronics manufacturers, and a German telecommunications firm operating in Asia. The group amassed approximately 60 compromised C&C servers by 2012, mostly located in Taiwan and the United States. Distinctive use of compromised machines within target networks as C&C servers to disguise activity. HTRAN proxy tool used to mask true origin; one error traced to Guangdong, China.\n",
+      "target_sectors": [
+        "government",
+        "electronics-manufacturing",
+        "telecommunications"
+      ],
+      "target_regions": [
+        "Taiwan",
+        "Japan",
+        "Germany"
+      ],
+      "sources": [
+        {
+          "url": "https://www.trendmicro.de/cloud-content/us/pdfs/security-intelligence/white-papers/wp_ixeshe.pdf",
+          "title": "IXESHE: An APT Campaign",
+          "publisher": "Trend Micro"
+        }
+      ]
+    },
+    {
+      "name": "New York Times Breach",
+      "year_published": null,
+      "description": "APT12 infiltrated the New York Times' computer network beginning in October 2012, coinciding with the newspaper's investigation by Shanghai bureau chief David Barboza into the vast personal wealth accumulated by the family of then-Premier Wen Jiabao. The attackers compromised the email of Barboza and also targeted the South Asia bureau chief (previously Beijing bureau chief). APT12 ultimately stole the corporate passwords for every NYT employee. The attackers appeared primarily interested in identifying sources for the Wen Jiabao investigation rather than causing system damage. The computers used in the attack were reportedly the same university computers used by the Chinese military to attack U.S. military contractors. Mandiant was hired to investigate.\n",
+      "target_sectors": [
+        "media"
+      ],
+      "target_regions": [
+        "United States"
+      ],
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20191224162418/https://www.fireeye.com/blog/threat-research/2013/08/survival-of-the-fittest-new-york-times-attackers-evolve-quickly.html",
+          "title": "Survival of the Fittest: New York Times Attackers Evolve Quickly",
+          "publisher": "FireEye/Mandiant"
+        }
+      ]
+    },
+    {
+      "name": "Post-Arbor Retooling Campaign",
+      "year_published": null,
+      "description": "After Arbor Networks published a detailed analysis of RIPTIDE/Etumbot in June 2014, APT12 rapidly retooled — deploying the HIGHTIDE backdoor (a modified RIPTIDE variant) with changed drop locations, image base addresses, User-Agent strings, and URI formats. These changes specifically targeted the detection methods described in the Arbor report. FireEye observed HIGHTIDE at multiple Taiwan-based organizations and a suspected APT12 WATERSPOUT backdoor at a Japan-based electronics company. This was the second documented instance of APT12 retooling after public disclosure.\n",
+      "target_sectors": [
+        "government",
+        "electronics-manufacturing"
+      ],
+      "target_regions": [
+        "Taiwan",
+        "Japan"
+      ],
+      "sources": [
+        {
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2",
+          "title": "Darwin's Favorite APT Group",
+          "publisher": "FireEye/Mandiant"
+        }
+      ]
+    },
+    {
+      "name": "CNACOM Watering Hole Campaign",
+      "year_published": null,
+      "description": "Zscaler documented a web-based campaign dubbed CNACOM specifically targeting Taiwanese government networks. The group compromised a major Taiwanese public service website, injecting a malicious iframe that loaded an exploit page. The exploit code (CVE-2016-0189) fingerprinted visitors, only delivering the payload if the IP address belonged to specific Taiwanese government network ranges. The payload was an updated IXESHE variant with SSL communication and without embedded campaign codes. Zscaler also identified a related 2015 campaign exploiting the HackingTeam Flash exploit (CVE-2015-5122) targeting a different set of Taiwanese government networks. This represents a shift from APT12's traditional spear phishing to watering hole attacks while maintaining the same target set.\n",
+      "target_sectors": [
+        "government"
+      ],
+      "target_regions": [
+        "Taiwan"
+      ],
+      "sources": [
+        {
+          "url": "https://www.zscaler.com/blogs/security-research/cnacom-open-source-exploitation-strategic-web-compromise",
+          "title": "CNACOM Open Source Exploitation via Strategic Web Compromise",
+          "publisher": "Zscaler"
+        }
+      ]
+    },
+    {
+      "name": "Fukushima Reactor Incident Intelligence Collection",
+      "year_published": null,
+      "description": "CrowdStrike noted that Numbered Panda targeted organizations in operations related to the Fukushima Reactor Incident of 2011, likely filling intelligence gaps regarding cleanup and mitigation operations. Specific targets and extent not detailed.\n",
+      "target_sectors": [
+        "government",
+        "energy"
+      ],
+      "target_regions": [
+        "Japan"
+      ],
+      "sources": [
+        {
+          "url": "https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/",
+          "title": "Whois Numbered Panda",
+          "publisher": "CrowdStrike"
+        }
+      ]
+    }
+  ],
+  "attack_techniques": [],
+  "attack_software": [],
+  "otx_pulses": [],
+  "relations": [
+    {
+      "group_name": "APT19",
+      "group_slug": "apt19",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT1",
+      "group_slug": "apt1",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "media",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Taiwan"
+      ]
+    },
+    {
+      "group_name": "APT30",
+      "group_slug": "apt30",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "media",
+        "telecommunications"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT10",
+      "group_slug": "apt10",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Japan"
+      ]
+    },
+    {
+      "group_name": "Charcoal Typhoon",
+      "group_slug": "charcoal-typhoon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "media",
+        "telecommunications",
+        "technology"
+      ],
+      "shared_regions": [
+        "United States",
+        "Taiwan",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT3",
+      "group_slug": "apt3",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "Naikon",
+      "group_slug": "naikon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "telecommunications",
+        "technology"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT41",
+      "group_slug": "apt41",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "media",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Taiwan",
+        "Japan",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT31",
+      "group_slug": "apt31",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1102.002",
+          "name": "Bidirectional Communication",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1102/002"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "media",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT27",
+      "group_slug": "apt27",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "finance",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Taiwan",
+        "Japan",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT40",
+      "group_slug": "apt40",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "telecommunications",
+        "technology"
+      ],
+      "shared_regions": [
+        "United States",
+        "Japan",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "Mustang Panda",
+      "group_slug": "mustang-panda",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Taiwan",
+        "Germany"
+      ]
+    }
+  ]
+}

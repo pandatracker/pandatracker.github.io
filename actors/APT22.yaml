@@ -1,0 +1,192 @@
+# ---- Identity ----
+name: APT22
+aliases:
+- name: Barista
+  vendor: FireEye/Mandiant
+  source: https://cloud.google.com/security/resources/insights/apt-groups
+- name: Suckfly
+  vendor: Symantec
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt22
+- name: Group 46
+  vendor: Various
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt22
+- name: BRONZE OLIVE
+  vendor: SecureWorks
+  source: https://www.secureworks.com/research/threat-profiles/bronze-olive
+
+# ---- Attribution ----
+actor_type: unknown
+affiliation: unknown
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  U.S. Health Sector Cybersecurity Coordination Cente (2023) states: "It is unknown which area of the Chinese government they are affiliated
+  with." FireEye/Mandiant (via Google Cloud) states: "We believe APT22 has a nexus to
+  China." Symantec traced Suckfly activity to three IP addresses in Chengdu, China and noted Monday-through-Friday operational schedule.
+affiliation_confidence: suspected
+attribution_evidence:
+- type: vendor-report
+  title: "Suckfly: Revealing the secret life of your code signing certificates"
+  publisher: Symantec
+  date: 2016-03-15
+  url: https://community.broadcom.com/viewdocument/suckfly-revealing-the-secret-life
+- type: vendor-report
+  title: "Indian organizations targeted in Suckfly attacks"
+  publisher: Symantec
+  date: 2016-05-17
+  url: https://web.archive.org/web/20210422042059/https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=7a60af1f-7786-446c-976b-7c71a16e9d3b&CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&tab=librarydocuments
+- type: vendor-assessment
+  title: "APT groups and threat actors"
+  publisher: Google Cloud / Mandiant
+  date: null
+  url: https://cloud.google.com/security/resources/insights/apt-groups
+- type: vendor-report
+  title: "China-Based Threat Actor Profiles"
+  publisher: HHS Health Sector Cybersecurity Coordination Center (HC3)
+  date: 2023-08-16
+  url: https://www.hhs.gov/sites/default/files/china-based-threat-actor-profiles-tlpclear.pdf
+
+# ---- Timeline ----
+first_seen: 2014
+first_described: 2016
+last_seen: 2016
+
+# ---- Overview ----
+description: >
+  APT22 (also known as Suckfly, Barista, and Group 46) is a
+  cyber espionage group active since at least early 2014. It is believed to be associated to the Chinese government.
+
+  The group is known for its capability to systematically steal code-signing certificates from South
+  Korean companies to digitally sign its malware and hacking tools.
+
+  Symantec's 2016 investigation traced APT22's activity to IP addresses in Chengdu,
+  China, and documented the theft of nine code-signing certificates from Seoul-based
+  companies across the software, gaming, entertainment, and financial sectors. These
+  stolen certificates were used to sign malware,
+  allowing the group's tools to appear as legitimate software and bypass security
+  controls. 
+
+  APT22's Indian targets included government entities responsible for
+  implementing network software across ministries, one of India's largest financial
+  organizations, a major e-commerce company and its shipping vendor, and a top-5 IT
+  firm. (Symatec, 2016)
+  
+  FireEye/Mandiant separately tracks APT22 as "Barista" and documents the group's
+  use of a broader malware arsenal (PISCES, SOGU/PlugX, FLATNOTE, ANGRYBELL, BASELESS,
+  SEAWOLF, LOGJAM) and its targeting of healthcare organizations, particularly
+  biomedical and pharmaceutical firms, and cancer research facilities.
+
+# ---- Key References ----
+assessment_basis:
+- title: "Suckfly: Revealing the secret life of your code signing certificates"
+  publisher: Symantec
+  date: 2016-03-15
+  url: https://community.broadcom.com/viewdocument/suckfly-revealing-the-secret-life
+- title: "Indian organizations targeted in Suckfly attacks"
+  publisher: Symantec
+  date: 2016-05-17
+  url: https://web.archive.org/web/20210422042059/https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=7a60af1f-7786-446c-976b-7c71a16e9d3b&CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&tab=librarydocuments
+- title: "APT groups and threat actors - APT22"
+  publisher: Google Cloud / FireEye / Mandiant
+  date: null
+  url: https://cloud.google.com/security/resources/insights/apt-groups
+- title: "China-Based Threat Actor Profiles"
+  publisher: HHS HC3
+  date: 2023-08-16
+  url: https://www.hhs.gov/sites/default/files/china-based-threat-actor-profiles-tlpclear.pdf
+
+# ---- Targeting ----
+target_sectors:
+- government                      # Indian central government (Symantec 2016)
+- healthcare                      # US healthcare provider's India unit; cancer research (FireEye)
+- pharmaceuticals       # HC3: "especially biomedical and pharmaceutical"
+- biotechnology
+- technology          # Indian top-5 IT firm; HC3
+- finance                         # One of India's largest financial organizations (Symantec)
+- retail                      # Indian major e-commerce company + shipping vendor (Symantec)
+- political-dissidents            # FireEye/Mandiant: "public and private sector entities, including dissidents"
+- military                        # HC3: "political, military, and economic targets"
+
+target_regions:
+- India                           # Primary target (Symantec 2016): government, finance, IT, e-commerce
+- South Korea                     # Certificate theft from Seoul-based companies (Symantec 2016)
+- United States                   # US healthcare provider (Symantec); HC3
+- Saudi Arabia                    # Suckfly attacked Saudi IT/government entities (Symantec 2016)
+- East Asia                       # HC3: targets "across East Asia"
+- Europe                          # HC3: targets "in Europe"
+
+# ---- Campaigns ----
+campaigns:
+- name: South Korean Certificate Theft Campaign
+  year_published: 2016
+  description: >
+    APT22/Suckfly systematically compromised South Korean companies in Seoul to steal
+    code-signing certificates. Nine certificates were stolen from companies across the
+    software (3), gaming (3), entertainment/media (2), and financial services (1)
+    sectors. All certificate-owning companies were located in central districts of
+    Seoul. The certificates were still valid when discovered in late 2015, and the
+    legitimate owners were unaware of the theft. Three certificates were first used
+    maliciously in early 2014; the remaining six were likely compromised in 2015.
+    Symantec assessed the most likely theft method was malware capable of searching
+    for and extracting certificates from within the organizations. The stolen
+    certificates were subsequently used to sign all of Suckfly's hacking tools and
+    malware, enabling the group's tools to bypass security controls. Symantec noted
+    parallels with the Blackfly (Winnti/APT41) group, which also stole certificates
+    from South Korean gaming and software companies; Suckfly stole a certificate
+    from the same company Blackfly had previously compromised, though the specific
+    certificates were different.
+  targets:
+    sectors: [software, gaming, entertainment, finance]
+    regions: [South Korea]
+  sources:
+  - url: https://www.computerworld.com/article/1660367/cyberespionage-groups-are-stealing-digital-certificates-to-sign-malware-3.html
+    title: "Cyberespionage groups are stealing digital certificates to sign malware"
+    publisher: Computerworld (citing Symantec)
+
+- name: India-Focused Espionage Campaign
+  year_published: 2016
+  description: >
+    Over a two-year period beginning April 2014, APT22/Suckfly conducted a sustained
+    espionage campaign primarily targeting Indian organizations. High-profile targets
+    included: one of India's largest financial organizations, a major e-commerce
+    company and its primary shipping vendor, one of India's top five IT firms, a US
+    healthcare provider's Indian business unit, and two Indian government organizations
+    (one linked to central government departments responsible for implementing network
+    software across ministries). Government targets had the highest infection rates
+    and received more attacker time than most commercial targets — likely because of
+    their access to other government systems. The group delivered Backdoor.Nidiran
+    through strategic web compromises exploiting CVE-2014-6332 (Windows OLE RCE via
+    IE). All malware and hacking tools were signed with certificates stolen from South
+    Korean companies. Suckfly operated Monday through Friday, consistent with a
+    professional/government-employed team. Suckfly also targeted similar government IT
+    organizations in Saudi Arabia. Symantec assessed the targeting pattern suggested
+    an intent to disrupt or gain economic insight into India's economy by simultaneously
+    targeting financial, e-commerce, shipping, IT, and government sectors.
+  targets:
+    sectors: [government, finance, e-commerce, information-technology, healthcare]
+    regions: [India, Saudi Arabia]
+  sources:
+  - url: https://securityaffairs.com/47464/intelligence/suckfly-group-target-india.html
+    title: "Cyber spies from Suckfly group hacked organizations in India"
+    publisher: Security Affairs (citing Symantec)
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0039
+  group_url: https://attack.mitre.org/groups/G0039/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-01
+  last_updated: 2026-03-01
+
+# ---- MISP GALAXY ----
+misp_uuid: 5abb12e7-5066-4f84-a109-49a037205c76
+
+news_queries:
+  - "Suckfly china"
+  - "APT 22 Chinese hacking"
+  - "APT22 espionage"
+  - "APT22 hacking"

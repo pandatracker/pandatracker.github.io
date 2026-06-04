@@ -1,0 +1,223 @@
+# ---- Identity ----
+name: Salt Typhoon
+aliases:
+- name: Earth Estries
+  vendor: Trend Micro
+  source: https://www.trendmicro.com/en_gb/research/24/k/earth-estries.html
+- name: FamousSparrow
+  vendor: ESET
+  source: https://www.eset.com/us/about/newsroom/research/eset-research-discovers-famoussparrow-apt-group-spying-on-hotels-governments-and-private-companies/
+- name: GhostEmperor
+  vendor: Kaspersky
+  source: https://www.kaspersky.com/about/press-releases/ghostemperor-chinese-speaking-apt-targets-high-profile-victims-using-unknown-rootkit
+- name: UNC2286/UNC5807
+  vendor: Mandiant
+  source: https://en.wikipedia.org/wiki/Salt_Typhoon
+- name: RedMike
+  vendor: Insikt Group / Recorded Future
+  source: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+- name: OPERATOR PANDA
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/adversaries/operator-panda/
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: MSS
+affiliation_unit: null
+entity_name:
+- Sichuan Juxinhe Network Technology Co., Ltd.
+- Beijing Huanyu Tianqiong Information Technology Co., Ltd.
+- Sichuan Zhixin Ruijie Network Technology Co., Ltd.
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Believed to be controlled by China's Ministry of State Security (MSS). On
+  January 17, 2025, OFAC sanctioned Sichuan Juxinhe Network Technology
+  Co., Ltd. (四川聚信和网络科技有限公司) for "direct involvement in the Salt Typhoon cyber group." 
+  
+  The August 2025 CISA multinational advisory linked the
+  activity to at least three Chinese entities: Sichuan Juxinhe, Beijing
+  Huanyu Tianqiong Information Technology Co., Ltd. (北京寰宇天穹信息技
+  术有限公司), and Sichuan Zhixin Ruijie Network Technology Co., Ltd.
+  (四川智信锐捷网络科技有限公司). According to the CISA advisory, these companies provide cyber products
+  and services to multiple PLA and MSS units.
+
+  No individuals have been publicly indicted specifically for Salt
+  Typhoon telecom intrusions. However, according to a 2025 SpyCloud report, leaked datasets appearing on
+  DarkForums in 2025 contained non-public documents related to VenusTech
+  (a Chinese IT security vendor serving government clients) and Salt
+  Typhoon, including contract information showing various Chinese
+  government entities as clients.
+affiliation_confidence: high
+attribution_evidence:
+- type: government-advisory
+  title: "Treasury Sanctions Company Associated with Salt Typhoon and Hacker Associated with Treasury Compromise"
+  publisher: U.S. Department of the Treasury / OFAC
+  date: 2025-01-17
+  url: https://home.treasury.gov/news/press-releases/jy2792
+- type: government-advisory
+  title: " Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System"
+  publisher: CISA / NSA / FBI / multinational partners
+  date: 2025-08
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+- type: vendor-report
+  title: "State Secrets for Sale: More Leaks from the Chinese Hack-for-Hire Industry"
+  publisher: SpyCloud
+  date: 2025-07-01
+  url: https://spycloud.com/blog/state-secrets-for-sale-chinese-hacking/
+
+# ---- Timeline ----
+first_seen: 2019
+first_described: 2024-09
+last_seen: 2026
+
+# ---- Overview ----
+description: >
+  Salt Typhoon is a Chinese state-sponsored espionage group that executed
+  what the chairman of the Senate Intelligence Committee described as "the worst telecom hack in our
+  nation's history." (Reuters, 2024) The group infiltrated at least nine major U.S.
+  telecommunications companies — including Verizon, AT&T, T-Mobile, — as well
+  as telecoms in over 80 countries, with the campaign running one to two
+  years before discovery in late 2024.
+
+  The group is believed to have compromised CALEA lawful
+  intercept systems — the infrastructure used by U.S. law enforcement
+  and intelligence agencies for court-authorized surveillance. This gave
+  the group access to lists of individuals under surveillance, intercepted
+  call content and text messages, and metadata. As of May 2026, no detailed technical reporting on the breach.
+  Democratic Senator Maria Cantwell said Verizon and AT&T are blocking release of key documents. (Reuters, 2026)
+
+  The group targets backbone infrastructure — Cisco routers
+  handling major internet traffic, provider edge and customer edge
+  routers — and modifies them for persistent long-term access.
+  Custom tooling includes the GhostSpider backdoor for persistent access to telecom networks. (Trend Micro, 2024) 
+
+  In May 2026, Bitdefender published a report describing Salt Typhoon/FamousSparrow targeting Azerbaijani oil and gas industry.
+  The campagin, lasting between late December 2025 through late February 2026, exploited Microsoft Exchange server entry point vulnerability to deploy
+  "two distinct backdoor families, Deed RAT and Terndoor."
+
+  OFAC sanctioned Sichuan Juxinhe Network Technology for direct
+  involvement. The August 2025 CISA advisory identified two additional
+  Chinese companies providing services to PLA and MSS units. In November
+  2025, Australia's ASIO director confirmed Salt Typhoon had targeted
+  Australian telecommunications networks.
+
+# ---- Key References ----
+assessment_basis:
+- title: " Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System"
+  publisher: CISA / NSA / FBI / multinational partners
+  date: 2024-08
+  url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+- title: "Chinese government hackers penetrate U.S. internet providers to spy"
+  publisher: Washington Post
+  date: 2024-08
+  url: https://web.archive.org/web/20240827152513/https://www.washingtonpost.com/technology/2024/08/27/chinese-government-hackers-penetrate-us-internet-providers-spy/
+- title: "A 9th telecoms firm has been hit by a massive Chinese espionage campaign, the White House says"
+  publisher: Associated Press (AP)
+  date: 2024-12
+  url: https://apnews.com/article/united-states-china-hacking-espionage-c5351ef7c2207785b76c8c62cde6c513
+- title: "OFAC Sanctions — Sichuan Juxinhe"
+  publisher: U.S. Department of the Treasury
+  date: 2025-01-17
+  url: https://home.treasury.gov/news/press-releases
+- title: "Enhanced Visibility and Hardening Guidance for Communications Infrastructure"
+  publisher: CISA / NSA / FBI
+  date: 2024-12
+  url: https://www.cisa.gov/news-events/alerts/2024/12/04/
+- title: "Salt Typhoon: Earth Estries"
+  publisher: Trend Micro
+  date: 2024
+  url: https://www.trendmicro.com/en_gb/research/24/k/earth-estries.html
+- title: "Suspected China-linked hack on US telecoms worst in nation's history, senator says"
+  publisher: Reuters
+  date: 2024
+  url: https://www.reuters.com/business/media-telecom/suspected-china-linked-hack-us-telecoms-worst-nations-history-senator-says-2024-11-22/
+- title: "US Senator says AT&T, Verizon blocking release of Salt Typhoon security assessment reports"
+  publisher: Reuters
+  date: 2026
+  url: https://www.reuters.com/business/media-telecom/senator-says-att-verizon-blocking-release-salt-typhoon-security-assessment-2026-02-03/
+
+# ---- Targeting ----
+target_sectors:
+- telecommunications
+- government
+- transportation
+- hospitality
+- military
+- technology
+- energy
+
+target_regions:
+- United States
+- Australia
+- Canada
+- Azerbaijan
+
+# ---- Campaigns----
+campaigns:
+- name: U.S. Telecommunications Mass Breach & Global Telecom and Infrastructure Targeting
+  year_published: 2024
+  description: >
+    Salt Typhoon infiltrated at least nine major U.S. telecom
+    providers (Verizon, AT&T, T-Mobile, Spectrum, Lumen, Consolidated
+    Communications, Windstream) over one to two years. Compromised
+    CALEA lawful intercept systems, accessing surveillance target
+    lists, call content, text messages, and metadata on 1M+ users
+    including senior government officials. Verizon and
+    AT&T announced containment in December 2024. FBI Director Wray
+    stated the group could not be fully expelled from most systems.
+    White House established Cyber UCG on October 8, 2024. Congress
+    approved $3B to remove Chinese equipment from U.S. telecom
+    networks.
+
+    Beyond U.S. targets, Salt Typhoon has infiltrated telecoms in
+    over 80 countries and several dozen were compromised. Targets
+    include government agencies, hotels, transportation, and military
+    infrastructure worldwide. ESET documented hotel and government
+    breaches globally. In November 2025, Australia's ASIO confirmed
+    targeting of Australian telecom networks. A Canadian telecom was
+    breached in February 2025. Viasat (U.S. satellite telecom) was
+    named as a victim in June 2025.
+  targets:
+    sectors: [telecommunications, government]
+    regions: [United States]
+  sources:
+  - url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+    title: "AA25-239A Joint Advisory"
+    publisher: CISA / multinational partners
+  - url: https://web.archive.org/web/20240827152513/https://www.washingtonpost.com/technology/2024/08/27/chinese-government-hackers-penetrate-us-internet-providers-spy/
+    title: "Chinese government hackers penetrate U.S. internet providers to spy"
+    publisher: Washington Posts
+- name: Azerbaijani Oil and Gas Industry Targeting
+  year_published: 2026
+  description: >
+    In May 2026, Bitdefender published a report describing Salt Typhoon/FamousSparrow targeting Azerbaijani oil and gas industry.
+    The campagin, lasting between late December 2025 through late February 2026, exploited Microsoft Exchange server entry point vulnerability to deploy
+    "two distinct backdoor families, Deed RAT and Terndoor."
+  targets:
+    sectors: [energy]
+    regions: [Azerbaijan]
+  sources:
+  - url: https://www.bitdefender.com/en-us/blog/businessinsights/famoussparrow-apt-targets-azerbaijani-oil-gas-industry
+    title: " FamousSparrow APT Targets Azerbaijani Oil and Gas Industry "
+    publisher: Bitdefender
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G1045
+  group_url: https://attack.mitre.org/groups/G1045/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-06
+  last_updated: 2026-03-06
+  
+misp_uuid: 3c3ca8f3-c6ab-4c5d-9bd0-be6677d6cdeb
+
+news_queries:
+  - "Salt Typhoon"
+  - "Earth Estries"
+  - "FamousSparrow"
+  - "GhostEmperor"
+  - "UNC2286"
+  - "OPERATOR PANDA"

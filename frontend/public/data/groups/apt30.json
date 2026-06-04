@@ -1,0 +1,397 @@
+{
+  "id": 14,
+  "name": "APT30",
+  "slug": "apt30",
+  "actor_type": "unknown",
+  "affiliation": [
+    "unknown"
+  ],
+  "affiliation_unit": null,
+  "affiliation_detail": "",
+  "affiliation_confidence": "suspected",
+  "entity_name": null,
+  "last_seen": "2024",
+  "first_seen": "2005",
+  "first_described": "2015-04",
+  "description": "APT30 is a Chinese government-suspected cyber espionage group first documented by FireEye in April 2015, with tooling development dating back to at least 2005. \nThe group targets government and commercial entities in Southeast Asia and India, with a particular focus on ASEAN member states, territorial dispute stakeholders, and journalists covering China-related issues. Its intelligence collection mission aligns closely with Chinese government interests in the SEA region. (FireEye, 2015)\nAPT30 is notable for maintaining and developing the BACKSPACE and NETEAGLE backdoors for over a decade, and for building air-gap crossing capabilities (SHIPSHAPE, SPACESHIP, FLASHFLOOD) into its toolkit from the very beginning of development in 2005. FireEye's analysis of the BACKSPACE controller GUI (named \"NetEagle Remote Control System\" / 网络神鹰远程控制系统) revealed evidence of shift-work operations, target prioritization, and version-controlled malware development, suggesting a well-organized professional team. \nPT Security noted in 2024 that the group remains active with modernized versions of its classic tools plus new backdoors.\nAPT30 is frequently conflated with Naikon (MITRE G0019), a related but distinct activity cluster attributed to PLA Unit 78020. MITRE maintains them as separate entries — G0013 for APT30 and G0019 for Naikon — noting they \"share some characteristics\" but \"do not appear to be exact matches.\"\n",
+  "attack_group_id": "G0013",
+  "attack_group_url": "https://attack.mitre.org/groups/G0013/",
+  "news_queries": [
+    "APT 30 Chinese hacking",
+    "APT30 espionage",
+    "APT30 hacking"
+  ],
+  "aliases": [],
+  "attribution_evidence": [
+    {
+      "type": "vendor-report",
+      "title": "APT30 and the Mechanics of a Long-Running Cyber Espionage Operation",
+      "publisher": "FireEye",
+      "date": "2015-04",
+      "url": "https://web.archive.org/web/20220512021812/https://www2.fireeye.com/rs/fireye/images/rpt-apt30.pdf"
+    },
+    {
+      "type": "vendor-report",
+      "title": "The eagle eye is back: old and new backdoors from APT30",
+      "publisher": "PT Security (PT Expert Security Center)",
+      "date": "2024-08-19",
+      "url": "https://global.ptsecurity.com/en/research/pt-esc-threat-intelligence/eagle-eye-is-back-apt30/"
+    }
+  ],
+  "references": [
+    {
+      "title": "APT30 and the Mechanics of a Long-Running Cyber Espionage Operation",
+      "publisher": "FireEye",
+      "date": "2015-04",
+      "url": "https://web.archive.org/web/20220512021812/https://www2.fireeye.com/rs/fireye/images/rpt-apt30.pdf",
+      "notes": null
+    },
+    {
+      "title": "The eagle eye is back: old and new backdoors from APT30",
+      "publisher": "PT Security (PT Expert Security Center)",
+      "date": "2024-08-19",
+      "url": "https://global.ptsecurity.com/en/research/pt-esc-threat-intelligence/eagle-eye-is-back-apt30/",
+      "notes": null
+    }
+  ],
+  "target_sectors": [
+    "government",
+    "military",
+    "diplomatic",
+    "defense",
+    "aerospace",
+    "telecommunications",
+    "media",
+    "NGOs"
+  ],
+  "target_regions": [
+    "Malaysia",
+    "Vietnam",
+    "Thailand",
+    "South Korea",
+    "Thailand"
+  ],
+  "campaigns": [
+    {
+      "name": "Decade-Long Southeast Asia / India Espionage (FireEye APT30 Report)",
+      "year_published": null,
+      "description": "FireEye documented over a decade of APT30 operations targeting government and commercial entities across Southeast Asia and India. The group focused on political, economic, and military intelligence, with special emphasis on ASEAN-related targets, South China Sea territorial disputes, India-China relations, and journalists covering Chinese government issues. Social engineering lures were crafted around ASEAN summits (notably January and April 2013) and regional security topics. The group used ASEAN-themed infrastructure and customized malware, deployed BACKSPACE and NETEAGLE backdoors via spear-phishing, and employed SHIPSHAPE/SPACESHIP/FLASHFLOOD to cross air-gapped networks. FireEye identified activity at an Indian aerospace/defense company and an Indian telecom firm.\n",
+      "target_sectors": [
+        "government",
+        "military",
+        "diplomatic",
+        "defense",
+        "aerospace",
+        "telecommunications",
+        "media"
+      ],
+      "target_regions": [
+        "SEA",
+        "India"
+      ],
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20220512021812/https://www2.fireeye.com/rs/fireye/images/rpt-apt30.pdf",
+          "title": "APT30 and the Mechanics of a Long-Running Cyber Espionage Operation",
+          "publisher": "FireEye"
+        }
+      ]
+    },
+    {
+      "name": "Malaysia / Thailand Targeting (PT Security)",
+      "year_published": null,
+      "description": "PT Security detected renewed APT30 activity starting in August 2019 with a NETEAGLE dropper disguised as a Malaysian government meeting agenda (AGENDA.scr, created by user \"Norehan Binti Nordin\"). The dropper deployed an updated NETEAGLE variant (internal string changed to \"JokerPlay\") and BACKSPACE backdoors with new string encryption algorithms. Samples were uploaded from Malaysia to VirusTotal. Additional infrastructure analysis revealed two new backdoor families (RHttpCtrl, RCtrl) sharing C2 infrastructure (gordeneyes.com, kabadefender.com) with the classic tools, confirming operational continuity.\n",
+      "target_sectors": [
+        "government"
+      ],
+      "target_regions": [
+        "Malaysia"
+      ],
+      "sources": [
+        {
+          "url": "https://global.ptsecurity.com/en/research/pt-esc-threat-intelligence/eagle-eye-is-back-apt30/",
+          "title": "The eagle eye is back: old and new backdoors from APT30",
+          "publisher": "PT Security"
+        }
+      ]
+    }
+  ],
+  "attack_techniques": [],
+  "attack_software": [],
+  "otx_pulses": [],
+  "relations": [
+    {
+      "group_name": "APT19",
+      "group_slug": "apt19",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "NGOs",
+        "telecommunications"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT1",
+      "group_slug": "apt1",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "media",
+        "aerospace",
+        "telecommunications"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT10",
+      "group_slug": "apt10",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "NGOs",
+        "aerospace",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "South Korea",
+        "Thailand"
+      ]
+    },
+    {
+      "group_name": "Charcoal Typhoon",
+      "group_slug": "charcoal-typhoon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "media",
+        "NGOs",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Vietnam",
+        "Thailand"
+      ]
+    },
+    {
+      "group_name": "APT41",
+      "group_slug": "apt41",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "media",
+        "aerospace",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Malaysia",
+        "Vietnam",
+        "South Korea",
+        "Thailand"
+      ]
+    },
+    {
+      "group_name": "Naikon",
+      "group_slug": "naikon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "military",
+        "diplomatic",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Malaysia",
+        "Vietnam",
+        "Thailand"
+      ]
+    },
+    {
+      "group_name": "APT12",
+      "group_slug": "apt12",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "media",
+        "telecommunications"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT27",
+      "group_slug": "apt27",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "NGOs",
+        "aerospace",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "South Korea"
+      ]
+    },
+    {
+      "group_name": "APT40",
+      "group_slug": "apt40",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "government",
+        "military",
+        "diplomatic",
+        "aerospace",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "South Korea",
+        "Malaysia"
+      ]
+    },
+    {
+      "group_name": "Mustang Panda",
+      "group_slug": "mustang-panda",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "military",
+        "NGOs",
+        "diplomatic",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Vietnam",
+        "Thailand"
+      ]
+    }
+  ]
+}

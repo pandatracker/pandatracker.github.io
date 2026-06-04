@@ -1,0 +1,195 @@
+# ---- Identity ----
+name: APT20
+aliases:
+- name: Violin Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/adversaries/violin-panda/
+- name: TH3Bug (th3bug)
+  vendor: Palo Alto Networks
+  source: https://unit42.paloaltonetworks.com/recent-watering-hole-attacks-attributed-apt-group-th3bug-using-poison-ivy/
+- name: Crawling Taurus
+  vendor: Palo Alto Networks (later designation)
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt20
+- name: Wocao
+  vendor: Fox IT
+  source: https://www.fox-it.com/media/kadlze5c/201912_report_operation_wocao.pdf
+
+# ---- Attribution ----
+actor_type: unknown
+affiliation: unknown
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Fox-IT (2019) stated: "Fox-IT assesses with high confidence that the actor is a Chinese
+  group and that they are likely working to support the interests of the Chinese government
+  and are tasked with obtaining information for espionage purposes." Fox-IT's evidence for Chinese origin included: browser language settings set to Chinese, a rented server
+  registration using a non-existent US address but with the state name "Louisiana" written
+  in Chinese characters, and code sourced from Chinese-language forums. 
+
+  No DOJ indictment, no specific government unit, and no named
+  individuals have been publicly identified.
+affiliation_confidence: likely
+attribution_evidence:
+- type: vendor-report
+  title: "Operation Wocao: Shining a light on one of China's hidden hacking groups"
+  publisher: Fox-IT (NCC Group)
+  date: 2019-12-19
+  url: https://www.fox-it.com/en/news/whitepapers/operation-wocao-shining-a-light-on-one-of-chinas-hidden-hacking-groups/
+- type: vendor-report
+  title: "Recent Watering Hole Attacks Attributed to APT Group 'th3bug' Using Poison Ivy"
+  publisher: Palo Alto Networks Unit 42
+  date: 2014-09
+  url: https://unit42.paloaltonetworks.com/recent-watering-hole-attacks-attributed-apt-group-th3bug-using-poison-ivy/
+- type: vendor-report
+  title: "Poison Ivy: Assessing Damage and Extracting Intelligence"
+  publisher: FireEye
+  date: 2013-08
+  url: https://www.infosecurity-magazine.com/news/poison-ivy-dissected-commodity-tool-or-apt-weapon/
+
+# ---- Timeline ----
+first_seen: 2008
+first_described: 2013
+last_seen: 2019
+
+# ---- Overview ----
+description: >
+  APT20 is a suspected Chinese state-associated cyber espionage group active since at least 2009.
+
+  In its earlier phase (2008-2014), tracked as "th3bug" by Palo Alto, the group favored watering hole attacks using Poison
+  Ivy RAT, targeting higher education, healthcare, telecommunications, and Uyghur ethnic
+  minority communities. After a period of apparent dormancy (2016-2017), the group re-
+  emerged with evolved tradecraft documented by Fox-IT in "Operation Wocao"
+  (December 2019), shifting to living-off-the-land techniques, exploiting vulnerable JBoss web servers for initial access,
+  deploying web shells, and using legitimate system tools for lateral movement. 
+
+  The group targeted government entities, managed service providers, and organizations across
+  aviation, construction, energy, finance, healthcare, insurance, gambling, offshore
+  engineering, software development, and transportation in 10+ countries. 
+
+  The "Wocao" name (我操, Chinese slang for "shit" or "damn") originated from a frustrated command the hackers typed when they
+  discovered their web shells had been removed by defenders during incident response.
+
+# ---- Key References ----
+assessment_basis:
+- title: "Operation Wocao: Shining a light on one of China's hidden hacking groups"
+  publisher: Fox-IT (NCC Group)
+  date: 2019-12-19
+  url: https://www.fox-it.com/en/news/whitepapers/operation-wocao-shining-a-light-on-one-of-chinas-hidden-hacking-groups/
+- title: "Recent Watering Hole Attacks Attributed to APT Group 'th3bug' Using Poison Ivy"
+  publisher: Palo Alto Networks Unit 42
+  date: 2014-09
+  url: https://unit42.paloaltonetworks.com/recent-watering-hole-attacks-attributed-apt-group-th3bug-using-poison-ivy/
+- title: "Poison Ivy: Assessing Damage and Extracting Intelligence"
+  publisher: FireEye
+  date: 2013-08
+  url: https://web.archive.org/web/20190807122548/http://www.fireeye.com/content/dam/fireeye-www/global/en/current-threats/pdfs/rpt-poison-ivy.pdf
+- title: "MITRE ATT&CK - Operation Wocao (C0014)"
+  publisher: MITRE
+  date: null
+  url: https://attack.mitre.org/campaigns/C0014/
+
+# ---- Targeting ----
+target_sectors:
+- government                      # Fox-IT: government entities
+- managed-service-providers       # Fox-IT: MSPs explicitly targeted
+- healthcare                      # FireEye (2013), Fox-IT (2019)
+- transportation                        # Fox-IT (2019)
+- construction        # Fox-IT (2019)
+- energy                          # Fox-IT (2019)
+- finance                         # Fox-IT (2019)
+- gambling                        # Fox-IT (2019)
+- technology            # Fox-IT (2019)
+- telecommunications              # Palo Alto (2014)
+- education                       # FireEye (2013), Palo Alto (2014)
+- ethnic-minorities               # Uyghur community websites (Palo Alto 2014)
+
+target_regions:
+- United States                   # Primary target across both phases
+- United Kingdom                  # Fox-IT (2019)
+- France                          # Fox-IT (2019)
+- Germany                         # Fox-IT (2019)
+- Italy                           # Fox-IT (2019)
+- Spain                           # Fox-IT (2019)
+- Portugal                        # Fox-IT (2019)
+- Brazil                          # Fox-IT (2019)
+- Mexico                          # Fox-IT (2019)
+- China                           # Uyghur community targeting (Palo Alto 2014)
+
+# ---- Malware & Tooling ----
+campaigns:
+- name: TH3Bug Watering Hole Campaigns
+  year_published: null
+  description: >
+    APT20/th3bug conducted a series of watering hole attacks over several years,
+    compromising legitimate websites to infect visitors with Poison Ivy RAT variants.
+    FireEye's 2013 Poison Ivy report identified th3bug as a distinct campaign active
+    since at least 2008. In summer 2014, Palo Alto documented the group compromising a Uyghur-language
+    community website and other sites, such as telecom providers or US-based IT
+    companies. The malware used Poison Ivy with the
+    distinctive password "th3bug." Metasploit Meterpreter shells were used as
+    intermediate downloaders. FireEye also noted in
+    2013 that th3bug received the IE CVE-2013-3893 exploit (originally used by APT17/
+    DeputyDog) shortly after it became publicly available, indicating exploit-sharing
+    relationships in the Chinese APT ecosystem.
+  targets:
+    sectors: [education, healthcare, telecommunications, technology, ethnic-minorities]
+    regions: [United States, China]
+  sources:
+  - url: https://unit42.paloaltonetworks.com/recent-watering-hole-attacks-attributed-apt-group-th3bug-using-poison-ivy/
+    title: "Recent Watering Hole Attacks Attributed to APT Group 'th3bug' Using Poison Ivy"
+    publisher: Palo Alto Networks Unit 42
+  - url: https://www.infosecurity-magazine.com/news/poison-ivy-dissected-commodity-tool-or-apt-weapon/
+    title: "Poison Ivy: Assessing Damage and Extracting Intelligence"
+    publisher: FireEye
+
+- name: "Operation Wocao"
+  year_published: null
+  description: >
+    Fox-IT discovered operations with medium confidence attributed to APT20 in summer 2018 during incident
+    response for a compromised client, ultimately documenting nearly two years of
+    activity. The group abandoned custom malware in favor of living-off-the-land techniques. Initial access was primarily through
+    exploitation of vulnerable JBoss enterprise application servers. APT20
+    leveraged web shells planted by other threat actors on already-compromised servers
+    for reconnaissance before deploying their own access. Post-compromise, the group
+    used legitimate tools (PowerShell, Mimikatz, ProcDump, PsExec, SMBExec,
+    BloodHound/SharpHound, KeeThief, Kerberoast) for lateral movement, credential
+    dumping, and Active Directory reconnaissance. A primary objective was VPN credential
+    theft for persistent, encrypted access to victim networks. Most significantly,
+    Fox-IT documented APT20 bypassing two-factor authentication by stealing RSA SecurID
+    software tokens from compromised systems and generating valid one-time codes on
+    attacker-controlled computers — effectively defeating 2FA-protected VPN access.
+    The investigation identified victims in 10+ countries across government entities,
+    managed service providers, and numerous industries. The campaign name originated
+    when defenders removed APT20's web shells and the frustrated hackers typed "wocao"
+    (我操, Chinese slang for "shit/damn") upon discovering their access was revoked.
+  targets:
+    sectors: [government, managed-service-providers, aviation, construction-engineering, energy, finance, healthcare, 
+        insurance, gambling, offshore-engineering, software-development, transportation]
+    regions: [United States, United Kingdom, France, Germany, Italy, Spain, Portugal, Brazil, Mexico]
+  sources:
+  - url: https://www.fox-it.com/en/news/whitepapers/operation-wocao-shining-a-light-on-one-of-chinas-hidden-hacking-groups/
+    title: "Operation Wocao: Shining a light on one of China's hidden hacking groups"
+    publisher: Fox-IT (NCC Group)
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: null
+  group_url: null
+
+# ---- Meta ----
+meta:
+  created: 2026-03-01
+  last_updated: 2026-03-01
+
+# ---- MISP GALAXY ----
+misp_uuid: 8bcd855f-a4c1-453a-bede-ff36582f4f40
+
+news_queries:
+  - "Violin Panda"
+  - "TH3Bug"
+  - "Crawling Taurus"
+  - "APT 20 Chinese hacking"
+  - "APT20 espionage"
+  - "APT20 hacking"

@@ -1,0 +1,190 @@
+# ---- Identity ----
+name: APT18
+aliases:
+- name: Dynamite Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/adversaries/dynamite-panda/
+- name: Wekby
+  vendor: Palo Alto Networks
+  source: https://unit42.paloaltonetworks.com/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/
+- name: TG-0416
+  vendor: SecureWorks
+  source: https://attack.mitre.org/groups/G0026/
+- name: SCANDIUM
+  vendor: Microsoft (legacy)
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt18
+- name: Satin Typhoon
+  vendor: Microsoft
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt18
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: PLA
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Some sources attribute APT18 to the Chinese People's Liberation Army Navy (PLAN/PLA
+  Navy). Bugcrowd states "security researchers generally agree that APT18 is directly
+  supported by, and aligned with, the Chinese People's Liberation Navy." No attribution details or reports have hoverwer been observed.
+
+  No DOJ indictment, formal government attribution statement, or
+  specific PLA Navy unit designation has been published. The basis for the PLA Navy
+  attribution has not been detailed in publicly available primary vendor reports.
+affiliation_confidence: suspected
+attribution_evidence:
+- type: vendor-report
+  title: "APT18"
+  publisher: Bugcrowd
+  date: null
+  url: https://www.bugcrowd.com/glossary/apt18/
+- type: vendor-report
+  title: "Demonstrating Hustle, Chinese APT Groups Quickly Use Zero-Day Vulnerability"
+  publisher: FireEye
+  date: 2015-07-13
+  url: https://cloud.google.com/blog/topics/threat-intelligence/demonstrating-hustle/
+- type: vendor-report
+  title: "New Wekby Attacks Use DNS Requests As Command and Control Mechanism"
+  publisher: Palo Alto Networks Unit 42
+  date: 2016-05
+  url: https://unit42.paloaltonetworks.com/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/
+
+# ---- Timeline ----
+first_seen: 2009                  # MITRE, multiple sources: "since at least 2009"
+first_described: 2014             # Community Health Systems breach reporting (August 2014)
+last_seen: 2016
+
+# ---- Overview ----
+description: >
+  APT18 is a Chinese state-sponsored cyber espionage group attributed by some to the People's
+  Liberation Army Navy (PLA Navy), active since at least 2009. 
+
+  The group primarily targets U.S.-based organizations across a wide range of sectors including healthcare, aerospace,
+  defense, telecommunications, high technology, and human rights groups. 
+
+  APT18 is best known for the 2014 Community Health Systems breach, in which the personal information of 4.5
+  million patients was stolen.
+
+  The group is notable for its rapid exploitation of newly disclosed vulnerabilities,
+  particularly demonstrated when it weaponized the HackingTeam-leaked Flash zero-day
+  (CVE-2015-5119) within days of disclosure, launching phishing campaigns across numerous
+  industry sectors before a patch was available. (FireEye, 2015) 
+
+# ---- Key References ----
+assessment_basis:
+- title: "Demonstrating Hustle, Chinese APT Groups Quickly Use Zero-Day Vulnerability (CVE-2015-5119) Following Hacking Team
+    Leak"
+  publisher: FireEye
+  date: 2015-07-13
+  url: https://cloud.google.com/blog/topics/threat-intelligence/demonstrating-hustle/
+- title: "New Wekby Attacks Use DNS Requests As Command and Control Mechanism"
+  publisher: Palo Alto Networks Unit 42
+  date: 2016-05
+  url: https://unit42.paloaltonetworks.com/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/
+- title: "Community Health Systems Data Breach"
+  publisher: Various (Threatpost, HIPAA Vault, HHS HC3)
+  date: 2014-08
+  url: https://threatpost.com/apt-gang-branches-out-to-medical-espionage-in-community-health-breach/107828/
+- title: "APT and Cybercriminal Targeting of HCS"
+  publisher: HHS Health Sector Cybersecurity Coordination Center (HC3)
+  date: 2020-11-19
+  url: https://www.hhs.gov/sites/default/files/apt-and-cybercriminal-targeting-of-hcs.pdf
+- title: "MITRE ATT&CK - APT18 (G0026)"
+  publisher: MITRE
+  date: null
+  url: https://attack.mitre.org/groups/G0026/
+
+# ---- Targeting ----
+target_sectors:
+- healthcare                     # Primary: CHS breach (4.5M patients); medical device IP; pharmaceutical/biotech
+- aerospace                      # FireEye 2015 campaign
+- defense                        # FireEye 2015 campaign; general targeting
+- technology                     # High-tech sector (Palo Alto, FireEye, SecureWorks)
+- telecommunications             # Palo Alto/Wekby reporting
+- manufacturing                  # MITRE/SecureWorks
+- government                     # MITRE G0026
+- NGOs                   # MITRE G0026; human rights groups
+- construction       # FireEye 2015 HackingTeam campaign
+- education                      # FireEye 2015 HackingTeam campaign
+- energy                         # FireEye 2015 HackingTeam campaign
+- biotechnology                  # FireEye 2015; medical espionage
+- transportation                 # FireEye 2015 HackingTeam campaign
+
+target_regions:
+- United States                  # Primary and near-exclusive focus (Brandefense, Bugcrowd, all sources)
+
+# ---- Campaigns ----
+campaigns:
+- name: Community Health Systems Breach
+  year_published: null
+  description: >
+    APT18 is believed responsible for breaching Community Health Systems (CHS), one of the
+    largest hospital operators in the United States. The initial intrusion occurred in April
+    2014, with a second intrusion in June 2014. The attackers reportedly exploited the
+    OpenSSL Heartbleed vulnerability (CVE-2014-0160) for initial network access. The breach
+    resulted in theft of personally identifiable information (SSNs, names, addresses,
+    birthdates, phone numbers) for approximately 4.5 million patients.
+  targets:
+    sectors: [healthcare]
+    regions: [United States]
+  sources:
+  - url: https://threatpost.com/apt-gang-branches-out-to-medical-espionage-in-community-health-breach/107828/
+    title: "APT Gang Branches Out to Medical Espionage in Community Health Breach"
+    publisher: Threatpost
+
+- name: HackingTeam Flash Zero-Day Exploitation (CVE-2015-5119)
+  year_published: null
+  description: >
+    Following the July 2015 leak of HackingTeam's internal data (which exposed a Flash
+    zero-day CVE-2015-5119), APT18 swiftly weaponized the exploit and launched phishing
+    campaigns against organizations in numerous sectors before Adobe released a patch on
+    July 8, 2015. APT18 sent phishing emails with "Flash Update" themes containing
+    malicious URLs that delivered a Flash SWF file exploiting the vulnerability, which
+    installed a Gh0st RAT variant communicating with known APT18 C2 infrastructure
+    (223.25.233.248). FireEye noted this demonstrated APT18's ability to "shift resources 
+    — selecting targets, preparing infrastructure, crafting messages, and updating tools 
+    — to take advantage of unexpected opportunities."
+  targets:
+    sectors: [aerospace, defense, construction, engineering, education, energy, healthcare, biotechnology, technology, 
+        non-profit, telecommunications, transportation]
+    regions: [United States]
+  sources:
+  - url: https://cloud.google.com/blog/topics/threat-intelligence/demonstrating-hustle/
+    title: "Demonstrating Hustle"
+    publisher: FireEye
+
+- name: Pisloader/DNS C2 Campaign
+  year_published: null
+  description: >
+    Palo Alto Networks Unit 42 documented APT18/Wekby targeting a U.S.-based high-tech
+    organization with the Pisloader malware, which uses DNS TXT records for command-and-
+    control communication. The malware was delivered via HTTP from attacker-controlled
+    infrastructure using domains mimicking legitimate companies. 
+  targets:
+    sectors: [technology]
+    regions: [United States]
+  sources:
+  - url: https://unit42.paloaltonetworks.com/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/
+    title: "New Wekby Attacks Use DNS Requests As Command and Control Mechanism"
+    publisher: Palo Alto Networks Unit 42
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0026
+  group_url: https://attack.mitre.org/groups/G0026/
+
+# ---- Meta ----
+meta:
+  created: 2026-03-01
+  last_updated: 2026-03-01
+
+# ---- MISP GALAXY ----
+misp_uuid: 9a683d9c-8f7d-43df-bba2-ad0ca71e277c
+
+news_queries:
+  - "Dynamite Panda"
+  - "Satin Typhoon"
+  - "APT 18 Chinese hacking"
+  - "APT18 espionage"
+  - "APT18 hacking"

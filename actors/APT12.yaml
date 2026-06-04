@@ -1,0 +1,246 @@
+# ---- Identity ----
+name: APT12
+aliases:
+- name: Numbered Panda
+  vendor: CrowdStrike
+  source: https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/
+- name: IXESHE
+  vendor: Trend Micro
+  source: https://www.trendmicro.de/cloud-content/us/pdfs/security-intelligence/white-papers/wp_ixeshe.pdf
+- name: DynCalc
+  vendor: null                    # Referenced by multiple vendors; CrowdStrike and FireEye use it; original coiner unclear
+  source: https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/
+- name: DNSCALC
+  vendor: null                    # Referenced in FireEye reporting; Total Defense may be original source per Japanese logs
+  source: https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2
+- name: BRONZE GLOBE
+  vendor: SecureWorks
+  source: null                    # Referenced in Hedgehog Security compilation; no primary SecureWorks report URL found
+- name: Hexagon Typhoon
+  vendor: Microsoft
+  source: null                    # Microsoft's 2023 renaming scheme; no dedicated report found
+- name: Group 22
+  vendor: null
+  source: null                    # Referenced in CFR Cyber Operations Tracker
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: PLA
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  APT12 is believed to be linked to the Chinese People's Liberation Army (PLA). FireEye/Mandiant
+  stated that APT12's targets are "consistent with larger People's Republic of China (PRC) goals"
+  and that campaigns are "in-line with PRC goals and self-interest in Taiwan." The NYT breach
+  investigation found that computers used to launch the attack were believed to be the same
+  university computers used by the Chinese military to attack U.S. military contractors.
+  
+  However, no DOJ indictment or formal government attribution to a specific PLA unit has been published.
+  The PLA link remains an industry assessment based on targeting patterns, operational timing
+  alignment with PRC strategic interests, and infrastructure overlap with known PLA-associated
+  entities. No specific PLA unit designation has been publicly identified for APT12.
+affiliation_confidence: suspected
+attribution_evidence:
+- type: vendor-report
+  title: "Darwin's Favorite APT Group"
+  publisher: FireEye/Mandiant
+  date: 2014-09-03
+  url: https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2
+- type: vendor-report
+  title: "Whois Numbered Panda"
+  publisher: CrowdStrike
+  date: 2013-03-29
+  url: https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/
+- type: vendor-report
+  title: "IXESHE: An APT Campaign"
+  publisher: Trend Micro
+  date: 2012-05-22
+  url: https://documents.trendmicro.com/assets/wp/wp_ixeshe.pdf
+- type: vendor-report
+  title: "Survival of the Fittest: New York Times Attackers Evolve Quickly"
+  publisher: FireEye/Mandiant
+  date: 2013-08-12
+  url: https://web.archive.org/web/20191224162418/https://www.fireeye.com/blog/threat-research/2013/08/survival-of-the-fittest-new-york-times-attackers-evolve-quickly.html
+# ---- Timeline ----
+first_seen: 2009                  # Trend Micro's IXESHE white paper: spear phishing campaigns since "approximately 2009"
+first_described: 2012             # Trend Micro IXESHE white paper (2012-05-22) is the first public report
+last_seen: 2016
+
+# ---- Overview ----
+description: >
+  APT12 is a Chinese cyber espionage group believed to have links to the PLA, active since at
+  least 2009. 
+
+  The group primarily targets organizations in East Asia — especially Taiwan and Japan —
+  as well as media outlets, and entities whose interests intersect with PRC strategic concerns. 
+
+  APT12 is best known for its 2012 breach of the New York Times, launched in apparent retaliation for the
+  newspaper's investigation into the wealth accumulated by the family of then-Premier Wen Jiabao.
+
+  The group's defining operational characteristic is rapid adaptation to public disclosure.
+  Mandiant dubbed APT12 "Darwin's Favorite APT Group" after observing the group retool its
+  entire malware infrastructure at least twice in direct response to security vendor publications —
+  first after the NYT breach exposure (2013), and again after Arbor Networks' detailed analysis
+  of the Etumbot/RIPTIDE backdoor (2014). In both cases, APT12 paused operations only briefly
+  before resuming with modified tooling specifically engineered to evade the detection methods
+  described in the published research. 
+
+  Based on the reports consulted, the group's spear-phishing lure documents are typically
+  written in Traditional Chinese and pertain to Taiwanese government interests.
+
+# ---- Key References ----
+assessment_basis:
+- title: "IXESHE: An APT Campaign"
+  publisher: Trend Micro
+  date: 2012-05-22
+  url: https://documents.trendmicro.com/assets/wp/wp_ixeshe.pdf
+- title: "Whois Numbered Panda"
+  publisher: CrowdStrike
+  date: 2013-03-29
+  url: https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/
+  publisher: FireEye/Mandiant
+  date: 2013-08-12
+  url: https://web.archive.org/web/20191224162418/https://www.fireeye.com/blog/threat-research/2013/08/survival-of-the-fittest-new-york-times-attackers-evolve-quickly.html
+- title: "Darwin's Favorite APT Group"
+  publisher: FireEye/Mandiant
+  date: 2014-09-03
+  url: https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2
+- title: "CNACOM Open Source Exploitation via Strategic Web Compromise"
+  publisher: Zscaler
+  date: 2016-12
+  url: https://www.zscaler.com/blogs/security-research/cnacom-open-source-exploitation-strategic-web-compromise
+- title: "MITRE ATT&CK - APT12 (G0005)"
+  publisher: MITRE
+  date: 2017-05
+  url: https://attack.mitre.org/groups/G0005/
+  notes: Consolidated ATT&CK mapping of APT12 techniques and software
+
+# ---- Targeting ----
+target_sectors:
+- government                     # Taiwanese government primary target; also Japanese government entities
+- media                          # New York Times breach (2012); journalists covering PRC leadership
+- technology
+- electronics      # Taiwanese and Japanese electronics firms
+- telecommunications             # German telecom operating in Asia (Trend Micro)
+- defense
+- finance                        # International economic policy organization (post-NYT retooling)
+
+target_regions:
+- Taiwan                         # Primary and persistent target; lure docs in Traditional Chinese
+- Japan                          # Consistent secondary target
+- United States                  # NYT breach; defense contractors
+- Germany                        # Telecom firm operating in East Asia (Trend Micro IXESHE report)
+
+# ---- Campaigns ----
+campaigns:
+- name: IXESHE Campaign (East Asia targeting)
+  year_published: null
+  description: >
+    Trend Micro's documentation of APT12 activity. Spear phishing campaigns
+    using malicious PDF and Word documents primarily targeting East Asian governments,
+    Taiwanese electronics manufacturers, and a German telecommunications firm operating in
+    Asia. The group amassed approximately 60 compromised C&C servers by 2012, mostly located
+    in Taiwan and the United States. Distinctive use of compromised machines within target
+    networks as C&C servers to disguise activity. HTRAN proxy tool used to mask true origin;
+    one error traced to Guangdong, China.
+  targets:
+    sectors: [government, electronics-manufacturing, telecommunications]
+    regions: [Taiwan, Japan, Germany]
+  sources:
+  - url: https://www.trendmicro.de/cloud-content/us/pdfs/security-intelligence/white-papers/wp_ixeshe.pdf
+    title: "IXESHE: An APT Campaign"
+    publisher: Trend Micro
+
+- name: New York Times Breach
+  year_published: null
+  description: >
+    APT12 infiltrated the New York Times' computer network beginning in
+    October 2012, coinciding with the newspaper's investigation by Shanghai bureau chief
+    David Barboza into the vast personal wealth accumulated by the family of then-Premier
+    Wen Jiabao. The attackers compromised the email of Barboza and also targeted the South
+    Asia bureau chief (previously Beijing bureau chief). APT12 ultimately stole the corporate
+    passwords for every NYT employee. The attackers appeared primarily interested in identifying
+    sources for the Wen Jiabao investigation rather than causing system damage. The computers
+    used in the attack were reportedly the same university computers used by the Chinese military
+    to attack U.S. military contractors. Mandiant was hired to investigate.
+  targets:
+    sectors: [media]
+    regions: [United States]
+  sources:
+  - url: https://web.archive.org/web/20191224162418/https://www.fireeye.com/blog/threat-research/2013/08/survival-of-the-fittest-new-york-times-attackers-evolve-quickly.html
+    title: "Survival of the Fittest: New York Times Attackers Evolve Quickly"
+    publisher: FireEye/Mandiant
+
+- name: Post-Arbor Retooling Campaign
+  year_published: null
+  description: >
+    After Arbor Networks published a detailed analysis of RIPTIDE/Etumbot in June 2014,
+    APT12 rapidly retooled — deploying the HIGHTIDE backdoor (a modified RIPTIDE variant)
+    with changed drop locations, image base addresses, User-Agent strings, and URI formats.
+    These changes specifically targeted the detection methods described in the Arbor report.
+    FireEye observed HIGHTIDE at multiple Taiwan-based organizations and a suspected APT12
+    WATERSPOUT backdoor at a Japan-based electronics company. This was the second documented
+    instance of APT12 retooling after public disclosure.
+  targets:
+    sectors: [government, electronics-manufacturing]
+    regions: [Taiwan, Japan]
+  sources:
+  - url: https://cloud.google.com/blog/topics/threat-intelligence/darwins-favorite-apt-group-2
+    title: "Darwin's Favorite APT Group"
+    publisher: FireEye/Mandiant
+
+- name: CNACOM Watering Hole Campaign
+  year_published: null
+  description: >
+    Zscaler documented a web-based campaign dubbed CNACOM specifically targeting Taiwanese
+    government networks. The group compromised a major Taiwanese public service website,
+    injecting a malicious iframe that loaded an exploit page. The exploit code (CVE-2016-0189)
+    fingerprinted visitors, only delivering the payload if the IP address belonged to specific
+    Taiwanese government network ranges. The payload was an updated IXESHE variant with SSL
+    communication and without embedded campaign codes. Zscaler also identified a related
+    2015 campaign exploiting the HackingTeam Flash exploit (CVE-2015-5122) targeting a
+    different set of Taiwanese government networks. This represents a shift from APT12's
+    traditional spear phishing to watering hole attacks while maintaining the same target set.
+  targets:
+    sectors: [government]
+    regions: [Taiwan]
+  sources:
+  - url: https://www.zscaler.com/blogs/security-research/cnacom-open-source-exploitation-strategic-web-compromise
+    title: "CNACOM Open Source Exploitation via Strategic Web Compromise"
+    publisher: Zscaler
+
+- name: Fukushima Reactor Incident Intelligence Collection
+  year_published: null
+  description: >
+    CrowdStrike noted that Numbered Panda targeted organizations in operations
+    related to the Fukushima Reactor Incident of 2011, likely filling intelligence gaps
+    regarding cleanup and mitigation operations. Specific targets and extent not detailed.
+  targets:
+    sectors: [government, energy]
+    regions: [Japan]
+  sources:
+  - url: https://www.crowdstrike.com/en-us/blog/whois-numbered-panda/
+    title: "Whois Numbered Panda"
+    publisher: CrowdStrike
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0005
+  group_url: https://attack.mitre.org/groups/G0005/
+
+# ---- Meta ----
+meta:
+  created: 2025-02-28
+  last_updated: 2025-02-28
+
+# ---- MISP GALAXY ----
+misp_uuid: 48146604-6693-4db1-bd94-159744726514
+
+news_queries:
+  - "Numbered Panda"
+  - "menuPass hack"
+  - "APT 12 Chinese hacking"
+  - "APT12 espionage"
+  - "APT12 hacking"

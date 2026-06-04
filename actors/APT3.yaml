@@ -1,0 +1,295 @@
+# ---- Identity ----
+name: APT3
+aliases:
+- name: Gothic Panda
+  vendor: CrowdStrike
+  source: https://www.recordedfuture.com/research/chinese-mss-behind-apt3
+- name: Buckeye
+  vendor: Symantec
+  source: http://www.symantec.com/connect/blogs/buckeye-cyberespionage-group-shifts-gaze-us-hong-kong
+- name: Brocade Typhoon
+  vendor: Microsoft
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt3
+- name: UPS Team
+  vendor: FireEye/Mandiant
+  source: https://www.fireeye.com/blog/threat-research/2015/06/operation-clandestine-wolf-adobe-flash-zero-day.html
+- name: Pirpi
+  vendor: PwC
+  source: http://pwc.blogs.com/cyber_security_updates/2015/07/pirpi-scanbox.html
+- name: TG-0110
+  vendor: SecureWorks
+  source: https://www.recordedfuture.com/research/chinese-mss-behind-apt3
+- name: Threat Group-0110
+  vendor: SecureWorks
+  source: https://www.recordedfuture.com/research/chinese-mss-behind-apt3
+- name: Boyusec
+  vendor: null
+  source: https://intrusiontruth.wordpress.com/2017/05/09/apt3-is-boyusec-a-chinese-intelligence-contractor/
+- name: BORON
+  vendor: null
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt3
+- name: BRONZE MAYFAIR
+  vendor: SecureWorks
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt3
+- name: Red Sylvan
+  vendor: PwC
+  source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt3
+- name: Group 6
+  vendor: null
+  source: https://attack.mitre.org/groups/G0022/
+
+# ---- Attribution ----
+actor_type: contractor
+affiliation: MSS
+affiliation_unit: null
+entity_name: Guangzhou Boyu Information Technology Co., Ltd. (Boyusec)
+associated_address: Guangzhou, Guangdong province, , P.R. China
+coordinates: [23.128295475284688, 113.26215957798064]
+affiliation_detail: >
+  Associated to Guangzhou Boyu Information Technology Company Limited (Boyusec), operating as a contractor for
+  China's Ministry of State Security. 
+  
+  Boyusec was co-founded by Wu Yingzhuo and Dong Hao, both later indicted by the U.S. DOJ (Intrustion Truth, 2017; DOJ 2017). Boyusec collaborated with Guangdong Information Technology Security
+  Evaluation Center (Guangdong ITSEC), a field office of CNITSEC, which is run by the MSS (Recorded Future, 2017).
+
+  No DOJ indictment or formal government attribution to a specific buereau or unit has been published.
+affiliation_confidence: high
+attribution_evidence:
+- type: indictment
+  title: "U.S. Charges Three Chinese Hackers Who Work at Internet Security Firm for Hacking Three Corporations for Commercial
+    Advantage"
+  publisher: U.S. Department of Justice
+  date: 2017-11-27
+  url: https://www.justice.gov/opa/press-release/file/1013866/download
+- type: vendor-report
+  title: "Recorded Future Research Concludes Chinese Ministry of State Security Behind APT3"
+  publisher: Recorded Future
+  date: 2017-05-17
+  url: https://www.recordedfuture.com/research/chinese-mss-behind-apt3
+- type: investigative-reporting
+  title: "APT3 is Boyusec, a Chinese Intelligence Contractor"
+  publisher: Intrusion Truth
+  date: 2017-05
+  url: https://intrusiontruth.wordpress.com/2017/05/09/apt3-is-boyusec-a-chinese-intelligence-contractor/
+- type: vendor-report
+  title: "Pentagon Links Chinese Cyber Security Firm to Beijing Spy Service"
+  publisher: Washington Free Beacon
+  date: 2016-11-29
+  url: https://freebeacon.com/national-security/pentagon-links-chinese-cyber-security-firm-beijing-spy-service/
+
+# ---- Timeline ----
+first_seen: 2009                  # Symantec traces Buckeye's first espionage attacks to 2009; Recorded Future notes activity since at least 2010
+first_described: 2014-04          # FireEye's Operation Clandestine Fox report (April 2014) was the first major public disclosure
+last_seen: 2017                  # APT3 activity ceased in May 2017 after intrusiontruth exposure; Boyusec disbanded November 2017; confirmed by multiple researchers
+
+# ---- Overview ----
+description: >
+  APT3 is a state-sponsored group attributed to the Ministry of State Security (MSS), operating
+  through the entity Guangzhou Boyu Information Technology Company (Boyusec) as a contractor.
+
+  Active from at least 2009 to mid-2017, the group initially targeted a broad range of U.S. organizations across the defense,
+  telecommunications, transportation, technology, and aerospace sectors for the goal of intellectual property extraction,
+  before shifting focus to political
+  organizations in Hong Kong around mid-2015. (Intrustion Truth, 2017; Symantec, 2015)
+
+  APT3 was notable for its technical sophistication, including the use of zero-day exploits in Internet Explorer and Adobe
+  Flash, and was discovered to have obtained and
+  used variants of NSA Equation Group tools (DoublePulsar) at least a year before the Shadow Brokers leak.
+
+  The group was responsible for Operations Clandestine Fox, Clandestine Wolf, and Double Tap. In May 2017,
+  Intrusion Truth linked APT3 to Boyusec and the MSS, corroborated by Recorded Future
+  and FireEye. The DOJ indicted three Boyusec employees in November 2017, and Boyusec was subsequently
+  disbanded. 
+
+  APT3 activity has not been observed since May 2017. (Intrusion Truth, 2017; WSJ, 2017)
+
+# ---- Key References ----
+assessment_basis:
+- title: "Operation Clandestine Fox"
+  publisher: FireEye
+  date: 2014-04
+  url: https://www.fireeye.com/blog/threat-research/2014/04/new-zero-day-exploit-targeting-internet-explorer-versions-9-through-11-identified-in-targeted-attacks.html
+- title: "Operation Clandestine Wolf – Adobe Flash Zero-Day in APT3 Phishing Campaign"
+  publisher: FireEye
+  date: 2015-06
+  url: https://cloud.google.com/blog/topics/threat-intelligence/operation-clandestine-wolf-adobe-flash-zero-day/
+- title: "Operation Double Tap"
+  publisher: FireEye
+  date: 2014-11
+  url: https://www.fireeye.com/blog/threat-research/2014/11/operation_doubletap.html
+- title: "Series on APT3"
+  publisher: Intrustion Truth
+  date: 2017-2018
+  url: https://intrusiontruth.wordpress.com/category/apt3/
+- title: "Buckeye cyberespionage group shifts gaze from US to Hong Kong"
+  publisher: Symantec
+  date: 2016-09
+  url: https://web.archive.org/web/20170912103621/https://www.symantec.com/connect/blogs/buckeye-cyberespionage-group-shifts-gaze-us-hong-kong
+- title: "Recorded Future Research Concludes Chinese Ministry of State Security Behind APT3"
+  publisher: Recorded Future
+  date: 2017-05-17
+  url: https://www.recordedfuture.com/research/chinese-mss-behind-apt3
+- title: "U.S. Charges Three Chinese Hackers Who Work at Internet Security Firm"
+  publisher: U.S. Department of Justice
+  date: 2017-11-27
+  url: https://www.justice.gov/opa/press-release/file/1013866/download
+- title: "Buckeye: Espionage Outfit Used Equation Group Tools Prior to Shadow Brokers Leak"
+  publisher: Symantec
+  date: 2019-05-07
+  url: https://www.symantec.com/blogs/threat-intelligence/buckeye-windows-zero-day-exploit
+- title: "The Destruction of APT3" 
+  publisher: Intrusion Truth
+  date: 2018-05-22
+  url: https://intrusiontruth.wordpress.com/2018/05/22/the-destruction-of-apt3/
+- title: "Chinese Firm Behind Alleged Hacking Was Disbanded This Month"
+  publisher: Wall Street Journal
+  date: 2017-11-29
+  url: https://www.wsj.com/articles/chinese-firm-behind-alleged-hacking-was-disbanded-this-month-1511881494
+
+# ---- Targeting ----
+target_sectors:
+- defense
+- aerospace
+- technology
+- telecommunications
+- transportation
+- government
+- finance
+- energy
+- manufacturing
+- legal
+- NGOs                           
+
+target_regions:
+- United States                  # Primary target until mid-2015
+- Hong Kong                      # Primary target from mid-2015 onward
+- United Kingdom
+- Luxembourg
+- Philippines
+- Vietnam
+- Sweden
+- Italy
+
+# ---- Campaigns ----
+campaigns:
+- name: Operation Clandestine Fox
+  year_published: null
+  description: >
+    APT3 exploited a zero-day vulnerability in Internet Explorer (CVE-2014-1776, affecting
+    versions 9 through 11) in targeted attacks against U.S. organizations. The group used
+    spear-phishing emails to deliver exploits and deployed the Pirpi backdoor via DLL
+    side-loading using a legitimate Chrome binary. FireEye published a follow-up "Clandestine
+    Fox Part Deux" documenting the group's rapid adaptation after initial disclosure.
+  targets:
+    sectors: [defense, technology]
+    regions: [United States]
+  sources:
+  - url: 
+      https://www.fireeye.com/blog/threat-research/2014/04/new-zero-day-exploit-targeting-internet-explorer-versions-9-through-11-identified-in-targeted-attacks.html
+    title: "New Zero-Day Exploit targeting Internet Explorer Versions 9 through 11"
+    publisher: FireEye
+  - url: https://www.fireeye.com/blog/threat-research/2014/06/clandestine-fox-part-deux.html
+    title: "Clandestine Fox, Part Deux"
+    publisher: FireEye
+
+- name: Operation Double Tap
+  year_published: null
+  description: >
+    APT3 used two known vulnerabilities (CVE-2014-6332 in Windows OLE and CVE-2014-4113 in
+    Windows kernel) in a spear-phishing campaign. The group established persistence via
+    registry Run keys and startup folder scripts, used PowerShell for payload delivery, and
+    employed SOCKS5-based multi-stage C2 channels. This represented a shift toward using known
+    exploits combined with social engineering rather than zero-days.
+  targets:
+    sectors: []
+    regions: [United States]
+  sources:
+  - url: https://www.fireeye.com/blog/threat-research/2014/11/operation_doubletap.html
+    title: "Operation Double Tap"
+    publisher: FireEye
+
+- name: Operation Clandestine Wolf
+  year_published: null
+  description: >
+    APT3 exploited an Adobe Flash Player zero-day vulnerability (CVE-2015-3113) as part of a
+    phishing campaign targeting organizations in the U.S. aerospace, defense, construction and
+    engineering, technology, telecommunications, and transportation sectors, as well as U.S.
+    government agencies.
+  targets:
+    sectors: [aerospace, defense, technology, telecommunications, transportation, government]
+    regions: [United States]
+  sources:
+  - url: https://cloud.google.com/blog/topics/threat-intelligence/operation-clandestine-wolf-adobe-flash-zero-day/
+    title: "Operation Clandestine Wolf – Adobe Flash Zero-Day in APT3 Phishing Campaign"
+    publisher: FireEye
+
+- name: Hong Kong targeting shift
+  year_published: null
+  description: >
+    Around mid-2015, APT3 shifted its primary targeting from U.S. organizations to political
+    organizations and entities in Hong Kong. Symantec documented this shift in September 2016.
+    The change may have been partially driven by increased U.S.-China tensions and the 2015
+    Obama-Xi cyber agreement.
+  targets:
+    sectors: [government, NGOs]
+    regions: [Hong Kong]
+  sources:
+  - url: http://www.symantec.com/connect/blogs/buckeye-cyberespionage-group-shifts-gaze-us-hong-kong
+    title: "Buckeye cyberespionage group shifts gaze from US to Hong Kong"
+    publisher: Symantec
+
+- name: Siemens, Moody's Analytics, and Trimble intrusions (DOJ Indictment)
+  year_published: null
+  description: >
+    Three Boyusec employees (Wu Yingzhuo, Dong Hao, Xia Lei) conducted sustained intrusions
+    against Siemens AG, Moody's Analytics, and GPS/surveying company Trimble Inc., stealing
+    hundreds of gigabytes of sensitive data including trade secrets, proprietary technology,
+    and confidential business information in the finance, engineering, and technology sectors.
+    Wu hacked Trimble, Dong hacked Siemens, and Xia hacked Moody's Analytics.
+  targets:
+    sectors: [technology, finance, manufacturing]
+    regions: [United States, Germany]
+  sources:
+  - url: https://www.justice.gov/opa/press-release/file/1013866/download
+    title: "United States of America v. Wu Yingzhuo, Dong Hao, Xia Lei"
+    publisher: U.S. Department of Justice
+
+- name: Equation Group tool usage campaign
+  year_published: null
+  description: >
+    Beginning March 2016, APT3 deployed a variant of the NSA Equation Group's DoublePulsar
+    backdoor via its custom Bemstour exploit tool—at least a year before the Shadow Brokers
+    leaked these tools publicly. Initial attacks targeted organizations in Hong Kong, followed
+    by targets in Belgium, Luxembourg, Vietnam, and the Philippines. The DoublePulsar variant
+    differed from the later leaked version, suggesting APT3 may have reverse-engineered it from
+    captured network traffic. Bemstour and DoublePulsar continued to be used until at least
+    September 2018, after APT3's apparent dissolution, raising questions about tool handoff to
+    other groups.
+  targets:
+    sectors: [telecommunications, education]
+    regions: [Hong Kong, Luxembourg, Philippines, Vietnam]
+  sources:
+  - url: https://www.symantec.com/blogs/threat-intelligence/buckeye-windows-zero-day-exploit
+    title: "Buckeye: Espionage Outfit Used Equation Group Tools Prior to Shadow Brokers Leak"
+    publisher: Symantec
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0022
+  group_url: https://attack.mitre.org/groups/G0022/
+
+# ---- Meta ----
+meta:
+  created: 2025-02-28
+  last_updated: 2025-02-28
+
+# ---- MISP GALAXY ----
+misp_uuid: d144c83e-2302-4947-9e24-856fbf7949ae
+
+news_queries:
+  - "Gothic Panda"
+  - "Buckeye APT China"
+  - "Boyusec China"
+  - "APT 3 Chinese hacking"
+  - "APT3 espionage"
+
