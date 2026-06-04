@@ -1,110 +1,109 @@
 #!/usr/bin/env python3
 """
-Fetch news/mentions via Google News RSS (no API key required).
+Fetch news for pandatracker static site.
 
-Reads news_queries from each actors/*.yaml, queries Google News RSS,
-and writes:
-  frontend/public/data/news/index.json   -- all articles, newest first
-  frontend/public/data/news/{slug}.json  -- per-group articles
+Global feed:  reads scripts/feeds.yaml — security vendor blogs + broad Google
+              News searches filtered by "china"/"chinese" keywords.
+Group mentions: Google News RSS per group, filtered with smart regex (handles
+                APT1 / APT-1 / APT 1 variations, checks title + summary).
+
+Writes:
+  frontend/public/data/news/index.json   -- global feed (NewsItemData[])
+  frontend/public/data/news/{slug}.json  -- per-group mentions (GroupNewsItem[])
 
 Usage:
     python fetch_news.py \
-        --actors /path/to/actors \
-        --out    /path/to/frontend/public/data
-
-Typically run by GitHub Actions every 6 hours.
+        --actors actors \
+        --feeds  scripts/feeds.yaml \
+        --out    frontend/public/data
 """
 
 import argparse
-import json
+import html
 import re
 import sys
 import time
-import urllib.parse
-import urllib.request
-import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
+import feedparser
 import yaml
 
 
-RSS_BASE = "https://news.google.com/rss/search"
-USER_AGENT = "Mozilla/5.0 (compatible; pandatracker-news-bot/1.0)"
-REQUEST_DELAY = 2.0  # seconds between requests to avoid rate limiting
-MAX_ITEMS_PER_QUERY = 20
+REQUEST_DELAY = 1.5
 MAX_ITEMS_PER_GROUP = 50
+MAX_GLOBAL_ITEMS = 300
 
+
+# ---------------------------------------------------------------------------
+# Text helpers
+# ---------------------------------------------------------------------------
 
 def slugify(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 
-def fetch_rss(query: str) -> list[dict]:
-    """Fetch and parse Google News RSS for a query string."""
-    params = urllib.parse.urlencode({
-        "q": query,
-        "hl": "en-US",
-        "gl": "US",
-        "ceid": "US:en",
-        "num": MAX_ITEMS_PER_QUERY,
-    })
-    url = f"{RSS_BASE}?{params}"
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+def clean_text(raw: str) -> str:
+    text = html.unescape(raw)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            xml_data = resp.read()
-    except Exception as e:
-        print(f"  Warning: failed to fetch '{query}': {e}", file=sys.stderr)
-        return []
 
-    try:
-        root = ET.fromstring(xml_data)
-    except ET.ParseError as e:
-        print(f"  Warning: failed to parse RSS for '{query}': {e}", file=sys.stderr)
-        return []
+def parse_published(entry) -> str | None:
+    if getattr(entry, "published_parsed", None):
+        try:
+            dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+            return dt.isoformat()
+        except Exception:
+            pass
+    return None
 
-    items = []
-    channel = root.find("channel")
-    if channel is None:
-        return []
 
-    for item in channel.findall("item"):
-        title = item.findtext("title") or ""
-        link  = item.findtext("link")  or ""
-        pub   = item.findtext("pubDate") or None
-        desc  = item.findtext("description") or None
-        source_el = item.find("source")
-        source_name = source_el.text if source_el is not None else "Google News"
+def source_name(entry, feed_name: str) -> str:
+    if hasattr(entry, "source") and isinstance(entry.source, dict):
+        return entry.source.get("title") or feed_name
+    return feed_name
 
-        # Parse pubDate to ISO format
-        pub_iso = None
-        if pub:
-            try:
-                dt = datetime.strptime(pub, "%a, %d %b %Y %H:%M:%S %Z")
-                pub_iso = dt.replace(tzinfo=timezone.utc).isoformat()
-            except ValueError:
-                pub_iso = pub
 
-        # Strip HTML from description
-        summary = None
-        if desc:
-            summary = re.sub(r"<[^>]+>", " ", desc).replace("&nbsp;", " ").strip()
-            summary = re.sub(r"\s+", " ", summary)[:300]
+# ---------------------------------------------------------------------------
+# Relevance filtering (ported from fetch_mentions.py)
+# ---------------------------------------------------------------------------
 
-        if title and link:
-            items.append({
-                "title": title.strip(),
-                "url": link.strip(),
-                "source": source_name.strip() if source_name else "Google News",
-                "published": pub_iso,
-                "summary": summary,
-                "query": query,
-            })
+def build_filter_terms(group_name: str, alias_names: list[str]) -> list[str]:
+    terms = [group_name]
+    for name in alias_names:
+        if len(name) > 4:
+            terms.append(name)
+    return terms
 
-    return items
 
+def term_to_pattern(term: str) -> str:
+    """Regex tolerating hyphens/spaces at letter↔digit boundaries.
+    'APT1' matches 'APT1', 'APT-1', 'APT 1'.
+    """
+    segments = re.split(r'[\s\-]+', term.strip())
+    escaped = []
+    for seg in segments:
+        p = re.escape(seg)
+        p = re.sub(r'([A-Za-z])(\d)', r'\1[\\s\\-]?\2', p)
+        p = re.sub(r'(\d)([A-Za-z])', r'\1[\\s\\-]?\2', p)
+        escaped.append(p)
+    return r'\b' + r'[\s\-]+'.join(escaped) + r'\b'
+
+
+def is_relevant(title: str, summary: str, terms: list[str]) -> bool:
+    text = (title + " " + summary).lower()
+    for term in terms:
+        if re.search(term_to_pattern(term.lower()), text):
+            return True
+    return False
+
+
+# ---------------------------------------------------------------------------
+# Parse actors YAML
+# ---------------------------------------------------------------------------
 
 def parse_actors(actors_dir: Path) -> list[dict]:
     actors = []
@@ -115,98 +114,177 @@ def parse_actors(actors_dir: Path) -> list[dict]:
             data = yaml.safe_load(yaml_path.read_text())
         except Exception:
             continue
-        name = data.get("name", yaml_path.stem)
+        name = data.get("name") or yaml_path.stem
+        if not name:
+            continue
         slug = slugify(name)
         queries = data.get("news_queries") or []
         if isinstance(queries, str):
             queries = [queries]
-        actors.append({"name": name, "slug": slug, "queries": queries})
+        aliases_raw = data.get("aliases") or []
+        alias_names = []
+        for a in aliases_raw:
+            if isinstance(a, dict):
+                alias_names.append(a.get("name", ""))
+            elif isinstance(a, str):
+                alias_names.append(a)
+        actors.append({
+            "name": name,
+            "slug": slug,
+            "queries": queries,
+            "alias_names": alias_names,
+        })
     return actors
 
 
+# ---------------------------------------------------------------------------
+# Global feed (from feeds.yaml)
+# ---------------------------------------------------------------------------
+
+def fetch_global_feed(feeds_path: Path) -> list[dict]:
+    if not feeds_path.exists():
+        print(f"Warning: {feeds_path} not found, skipping global feed", file=sys.stderr)
+        return []
+
+    config = yaml.safe_load(feeds_path.read_text())
+    feeds = config.get("feeds", [])
+    items: list[dict] = []
+    seen_urls: set[str] = set()
+
+    for feed in feeds:
+        name = feed["name"]
+        url = feed["url"]
+        feed_type = feed.get("type", "vendor_blog")
+        keywords = [k.lower() for k in feed.get("keywords", [])]
+
+        print(f"  [{feed_type}] {name}...")
+        parsed = feedparser.parse(url)
+        if parsed.bozo and not parsed.entries:
+            print(f"    WARN: failed to parse", file=sys.stderr)
+            continue
+
+        for entry in parsed.entries[:30]:
+            link = entry.get("link", "").strip()
+            if not link or link in seen_urls:
+                continue
+
+            title = clean_text(entry.get("title", ""))
+            summary_raw = entry.get("summary", "")
+            summary = clean_text(summary_raw) if summary_raw else None
+            if summary and len(summary) > 300:
+                summary = summary[:300].rstrip() + "…"
+
+            if feed_type == "vendor_blog" and keywords:
+                text = (title + " " + (summary or "")).lower()
+                if not any(kw in text for kw in keywords):
+                    continue
+
+            seen_urls.add(link)
+            items.append({
+                "title": title,
+                "url": link,
+                "source": source_name(entry, name),
+                "published": parse_published(entry),
+                "summary": summary,
+                "groups": [],
+            })
+
+        time.sleep(REQUEST_DELAY)
+
+    items.sort(key=lambda x: x.get("published") or "", reverse=True)
+    return items[:MAX_GLOBAL_ITEMS]
+
+
+# ---------------------------------------------------------------------------
+# Per-group mentions
+# ---------------------------------------------------------------------------
+
+def fetch_group_mentions(actor: dict) -> list[dict]:
+    slug = actor["slug"]
+    queries = actor["queries"]
+    filter_terms = build_filter_terms(actor["name"], actor["alias_names"])
+    seen_urls: set[str] = set()
+    items: list[dict] = []
+
+    for query in queries:
+        feed_url = (
+            f"https://news.google.com/rss/search"
+            f"?q={quote(query)}&hl=en-US&gl=US&ceid=US:en"
+        )
+        parsed = feedparser.parse(feed_url)
+        if parsed.bozo and not parsed.entries:
+            continue
+
+        for entry in parsed.entries[:20]:
+            link = entry.get("link", "").strip()
+            if not link or link in seen_urls:
+                continue
+
+            title = clean_text(entry.get("title", ""))
+            summary = clean_text(entry.get("summary", ""))
+
+            if not is_relevant(title, summary, filter_terms):
+                continue
+
+            seen_urls.add(link)
+            items.append({
+                "title": title,
+                "url": link,
+                "source": source_name(entry, "Google News"),
+                "published": parse_published(entry),
+                "query": query,
+            })
+
+        time.sleep(REQUEST_DELAY)
+
+    items.sort(key=lambda x: x.get("published") or "", reverse=True)
+    return items[:MAX_ITEMS_PER_GROUP]
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fetch Google News RSS for APT groups")
-    parser.add_argument("--actors", required=True, help="Path to actors/ directory")
-    parser.add_argument("--out",    required=True, help="Path to frontend/public/data/")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--actors", required=True)
+    parser.add_argument("--feeds",  required=True, help="Path to feeds.yaml")
+    parser.add_argument("--out",    required=True)
     args = parser.parse_args()
 
     actors_dir = Path(args.actors)
+    feeds_path = Path(args.feeds)
     out_dir    = Path(args.out)
     news_dir   = out_dir / "news"
     news_dir.mkdir(parents=True, exist_ok=True)
 
+    import json
+
+    # --- Global feed ---
+    print("Fetching global news feed...")
+    global_items = fetch_global_feed(feeds_path)
+    (news_dir / "index.json").write_text(
+        json.dumps(global_items, ensure_ascii=False, indent=2)
+    )
+    print(f"  Wrote index.json ({len(global_items)} articles)")
+
+    # --- Per-group mentions ---
     actors = parse_actors(actors_dir)
-    print(f"Processing {len(actors)} groups...")
-
-    all_items: list[dict] = []
-    seen_urls: set[str] = set()
-
+    print(f"\nFetching mentions for {len(actors)} groups...")
     for actor in actors:
         slug = actor["slug"]
-        queries = actor["queries"]
-        if not queries:
-            print(f"  {actor['name']}: no news_queries defined, skipping")
-            # Write empty file so the frontend doesn't 404
+        if not actor["queries"]:
+            print(f"  {actor['name']}: no queries, skipping")
             (news_dir / f"{slug}.json").write_text("[]")
             continue
-
-        print(f"  {actor['name']} ({len(queries)} queries)...")
-        group_items: list[dict] = []
-        group_seen: set[str] = set()
-
-        for query in queries:
-            results = fetch_rss(query)
-            for item in results:
-                url = item["url"]
-                if url not in group_seen:
-                    group_seen.add(url)
-                    group_item = {**item, "groups": [slug]}
-                    group_items.append(group_item)
-
-                if url not in seen_urls:
-                    seen_urls.add(url)
-                    all_items.append({**item, "groups": [slug]})
-
-            time.sleep(REQUEST_DELAY)
-
-        # Sort by published date, newest first
-        group_items.sort(key=lambda x: x.get("published") or "", reverse=True)
-        group_items = group_items[:MAX_ITEMS_PER_GROUP]
-
-        # Per-group file uses GroupNewsItem shape: {title, url, source, published, query}
-        group_out = [
-            {
-                "title": it["title"],
-                "url": it["url"],
-                "source": it["source"],
-                "published": it["published"],
-                "query": it["query"],
-            }
-            for it in group_items
-        ]
+        print(f"  {actor['name']} ({len(actor['queries'])} queries)...")
+        items = fetch_group_mentions(actor)
         (news_dir / f"{slug}.json").write_text(
-            json.dumps(group_out, ensure_ascii=False, indent=2)
+            json.dumps(items, ensure_ascii=False, indent=2)
         )
-        print(f"    {len(group_out)} articles")
+        print(f"    {len(items)} mentions")
 
-    # Global index: all articles sorted newest first, deduplicated
-    all_items.sort(key=lambda x: x.get("published") or "", reverse=True)
-    index_out = [
-        {
-            "title": it["title"],
-            "url": it["url"],
-            "source": it["source"],
-            "published": it["published"],
-            "summary": it.get("summary"),
-            "groups": it.get("groups", []),
-        }
-        for it in all_items
-    ]
-    (news_dir / "index.json").write_text(
-        json.dumps(index_out, ensure_ascii=False, indent=2)
-    )
-    print(f"\nWrote index.json ({len(index_out)} total articles)")
-    print(f"Done. News data written to: {news_dir}")
+    print(f"\nDone. News written to: {news_dir}")
 
 
 if __name__ == "__main__":
