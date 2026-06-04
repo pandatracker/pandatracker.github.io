@@ -109,7 +109,7 @@ def fetch_rss(query: str) -> list[dict]:
 def parse_actors(actors_dir: Path) -> list[dict]:
     actors = []
     for yaml_path in sorted(actors_dir.glob("*.yaml")):
-        if yaml_path.name.startswith("."):
+        if yaml_path.name.startswith(".") or yaml_path.name == "template.yaml":
             continue
         try:
             data = yaml.safe_load(yaml_path.read_text())
