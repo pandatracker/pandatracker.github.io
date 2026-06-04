@@ -28,6 +28,7 @@ jobs:
         run: |
           python scripts/fetch_news.py \
             --actors actors \
+            --feeds  scripts/feeds.yaml \
             --out    frontend/public/data
 
       - name: Commit updated news data
