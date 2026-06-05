@@ -39,6 +39,22 @@ def slugify(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 
+def make_pattern(term: str) -> re.Pattern:
+    """Whole-word regex: 'APT1' must not match 'APT10'."""
+    escaped = re.escape(term)
+    return re.compile(
+        rf"(?<![A-Za-z0-9\-]){escaped}(?![A-Za-z0-9\-])",
+        re.IGNORECASE,
+    )
+
+
+def pulse_matches(pulse: dict, patterns: list) -> bool:
+    title = pulse.get("name", "")
+    tags = " ".join(pulse.get("tags", []))
+    text = f"{title} {tags}"
+    return any(p.search(text) for p in patterns)
+
+
 def otx_get(path: str, api_key: str, params: dict | None = None) -> dict | None:
     url = f"{OTX_BASE}{path}"
     if params:
@@ -62,6 +78,17 @@ def search_pulses(query: str, api_key: str, limit: int = 20) -> list[dict]:
     return data.get("results", [])
 
 
+def extract_refs(pulse: dict) -> list[str]:
+    refs = pulse.get("references", [])
+    urls = []
+    for r in refs:
+        if isinstance(r, str):
+            urls.append(r)
+        elif isinstance(r, dict) and r.get("url"):
+            urls.append(r["url"])
+    return urls
+
+
 def parse_pulse(pulse: dict) -> dict:
     return {
         "pulse_id": pulse.get("id", ""),
@@ -70,7 +97,7 @@ def parse_pulse(pulse: dict) -> dict:
         "author_name": pulse.get("author_name"),
         "created": pulse.get("created"),
         "modified": pulse.get("modified"),
-        "reference_urls": pulse.get("references", []),
+        "reference_urls": extract_refs(pulse),
         "targeted_countries": pulse.get("targeted_countries", []),
         "industries": pulse.get("industries", []),
         "tags": pulse.get("tags", []),
@@ -98,7 +125,11 @@ def parse_actors(actors_dir: Path) -> list[dict]:
             elif isinstance(a, str):
                 alias_names.append(a)
 
-        search_terms = [name] + alias_names[:3]
+        # Deduplicate while preserving order, cap at 5 terms (same as DB version)
+        seen: dict = {}
+        for t in [name] + alias_names:
+            seen[t] = None
+        search_terms = list(seen.keys())[:5]
         actors.append({"name": name, "slug": slug, "search_terms": search_terms})
     return actors
 
@@ -128,12 +159,13 @@ def main() -> None:
 
         seen_ids: set[str] = set()
         pulses: list[dict] = []
+        patterns = [make_pattern(t) for t in terms]
 
         for term in terms:
             results = search_pulses(term, api_key, limit=20)
             for p in results:
                 pid = p.get("id", "")
-                if pid and pid not in seen_ids:
+                if pid and pid not in seen_ids and pulse_matches(p, patterns):
                     seen_ids.add(pid)
                     pulses.append(parse_pulse(p))
             time.sleep(REQUEST_DELAY)
