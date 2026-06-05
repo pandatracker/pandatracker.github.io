@@ -3,6 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows:
+      - "Fetch News (Google News RSS)"
+      - "Sync OTX Pulses"
+      - "Sync Actor Data"
+      - "Sync MITRE ATT&CK Data"
+    types: [completed]
   workflow_dispatch:
 
 permissions:
