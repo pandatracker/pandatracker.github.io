@@ -245,22 +245,8 @@ def fetch_group_mentions(actor: dict) -> list[dict]:
 # Main
 # ---------------------------------------------------------------------------
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--actors", required=True)
-    parser.add_argument("--feeds",  required=True, help="Path to feeds.yaml")
-    parser.add_argument("--out",    required=True)
-    args = parser.parse_args()
-
-    actors_dir = Path(args.actors)
-    feeds_path = Path(args.feeds)
-    out_dir    = Path(args.out)
-    news_dir   = out_dir / "news"
-    news_dir.mkdir(parents=True, exist_ok=True)
-
+def run_global(feeds_path: Path, news_dir: Path) -> None:
     import json
-
-    # --- Global feed ---
     print("Fetching global news feed...")
     global_items = fetch_global_feed(feeds_path)
     (news_dir / "index.json").write_text(
@@ -268,9 +254,11 @@ def main() -> None:
     )
     print(f"  Wrote index.json ({len(global_items)} articles)")
 
-    # --- Per-group mentions ---
+
+def run_mentions(actors_dir: Path, news_dir: Path) -> None:
+    import json
     actors = parse_actors(actors_dir)
-    print(f"\nFetching mentions for {len(actors)} groups...")
+    print(f"Fetching mentions for {len(actors)} groups...")
     for actor in actors:
         slug = actor["slug"]
         if not actor["queries"]:
@@ -283,6 +271,28 @@ def main() -> None:
             json.dumps(items, ensure_ascii=False, indent=2)
         )
         print(f"    {len(items)} mentions")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--actors", required=True)
+    parser.add_argument("--feeds",  required=True, help="Path to feeds.yaml")
+    parser.add_argument("--out",    required=True)
+    parser.add_argument("--mode",   choices=["global", "mentions", "all"], default="all",
+                        help="global: news feed only; mentions: per-group only; all: both")
+    args = parser.parse_args()
+
+    actors_dir = Path(args.actors)
+    feeds_path = Path(args.feeds)
+    out_dir    = Path(args.out)
+    news_dir   = out_dir / "news"
+    news_dir.mkdir(parents=True, exist_ok=True)
+
+    if args.mode in ("global", "all"):
+        run_global(feeds_path, news_dir)
+
+    if args.mode in ("mentions", "all"):
+        run_mentions(actors_dir, news_dir)
 
     print(f"\nDone. News written to: {news_dir}")
 
