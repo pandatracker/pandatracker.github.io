@@ -124,6 +124,7 @@ export default function HomePage() {
             pandatracker
           </span>
           <nav className="flex items-center gap-4 text-sm text-zinc-400 mt-1.5">
+            <Link href="/dashboard" className="hover:text-zinc-200 transition-colors">Dashboard</Link>
             <Link href="/" className="text-zinc-200 font-medium">APT Directory</Link>
             <Link href="/visualize" className="hover:text-zinc-200 transition-colors">Visualize</Link>
             <Link href="/news" className="hover:text-zinc-200 transition-colors">News Feed</Link>

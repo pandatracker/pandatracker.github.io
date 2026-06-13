@@ -886,18 +886,11 @@ export default function VisualizePage() {
           </span>
 
           <nav className="flex items-center gap-4 text-sm text-zinc-400 mt-1.5">
-            <Link href="/" className="hover:text-zinc-200 transition-colors">
-              APT Directory
-            </Link>
-            <Link href="/visualize" className="text-zinc-200 font-medium">
-              Visualize
-            </Link>
-            <Link href="/news" className="hover:text-zinc-200 transition-colors">
-              News Feed
-            </Link>
-            <Link href="/about" className="hover:text-zinc-200 transition-colors">
-              About
-            </Link>
+            <Link href="/dashboard" className="hover:text-zinc-200 transition-colors">Dashboard</Link>
+            <Link href="/" className="hover:text-zinc-200 transition-colors">APT Directory</Link>
+            <Link href="/visualize" className="text-zinc-200 font-medium">Visualize</Link>
+            <Link href="/news" className="hover:text-zinc-200 transition-colors">News Feed</Link>
+            <Link href="/about" className="hover:text-zinc-200 transition-colors">About</Link>
           </nav>
 
           <div className="flex-1 flex justify-end">

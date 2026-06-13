@@ -636,6 +636,33 @@ def main() -> None:
             attack_count += 1
     print(f"  Wrote {attack_count} ATT&CK group files")
 
+    # Write dashboard.json (recently_active + recent_campaigns — static parts)
+    recently_active = sorted(
+        [g for g in groups if g.get("last_seen")],
+        key=lambda g: g["last_seen"],
+        reverse=True,
+    )[:8]
+    all_campaigns = []
+    for g in groups:
+        for c in g.get("campaigns", []):
+            all_campaigns.append({**c, "group_name": g["name"], "group_slug": g["slug"]})
+    all_campaigns.sort(key=lambda c: c.get("year_published") or "", reverse=True)
+    dashboard = {
+        "recently_active": [
+            {
+                "name": g["name"],
+                "slug": g["slug"],
+                "last_seen": g["last_seen"],
+                "affiliation": g.get("affiliation"),
+                "affiliation_confidence": g.get("affiliation_confidence"),
+            }
+            for g in recently_active
+        ],
+        "recent_campaigns": all_campaigns[:6],
+    }
+    (out_dir / "dashboard.json").write_text(json.dumps(dashboard, ensure_ascii=False, indent=2))
+    print("  Wrote dashboard.json")
+
     # Write graph.json
     (out_dir / "graph.json").write_text(json.dumps(graph, ensure_ascii=False, indent=2))
     print(f"  Wrote graph.json ({len(graph['nodes'])} nodes, {len(graph['edges'])} edges)")

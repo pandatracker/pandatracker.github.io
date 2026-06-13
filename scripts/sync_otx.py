@@ -152,6 +152,8 @@ def main() -> None:
     actors = parse_actors(actors_dir)
     print(f"Processing {len(actors)} groups...")
 
+    all_recent: list[dict] = []
+
     for actor in actors:
         slug = actor["slug"]
         terms = actor["search_terms"]
@@ -177,6 +179,20 @@ def main() -> None:
             json.dumps(pulses, ensure_ascii=False, indent=2)
         )
         print(f"    {len(pulses)} pulses")
+
+        for p in pulses:
+            if p.get("modified"):
+                all_recent.append({
+                    **p,
+                    "group_name": actor["name"],
+                    "group_slug": slug,
+                })
+
+    all_recent.sort(key=lambda x: x.get("modified") or "", reverse=True)
+    (otx_dir / "recent.json").write_text(
+        json.dumps(all_recent[:10], ensure_ascii=False, indent=2)
+    )
+    print(f"  Wrote recent.json ({min(len(all_recent), 10)} pulses)")
 
     print(f"\nDone. OTX data written to: {otx_dir}")
 

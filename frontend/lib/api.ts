@@ -408,6 +408,93 @@ export async function fetchGraph(): Promise<GraphData> {
 }
 
 // ---------------------------------------------------------------------------
+// Dashboard
+// ---------------------------------------------------------------------------
+
+export interface DashboardNewsItem {
+  title: string;
+  url: string;
+  source: string;
+  published: string | null;
+  summary: string | null;
+}
+
+export interface DashboardActiveGroup {
+  name: string;
+  slug: string;
+  last_seen: string | null;
+  affiliation: string[] | null;
+  affiliation_confidence: string | null;
+}
+
+export interface AptMentionItem {
+  group_name: string;
+  group_slug: string;
+  title: string;
+  url: string;
+  source: string;
+  published: string | null;
+}
+
+export interface RecentOtxItem {
+  pulse_id: string;
+  name: string;
+  group_name: string;
+  group_slug: string;
+  modified: string | null;
+  indicator_count: number;
+}
+
+export interface DashboardCampaign {
+  name: string;
+  year_published: string | null;
+  description: string | null;
+  target_sectors: string[];
+  target_regions: string[];
+  group_name: string;
+  group_slug: string;
+}
+
+export interface DashboardData {
+  recent_news: DashboardNewsItem[];
+  recent_otx: RecentOtxItem[];
+  apt_mentions: AptMentionItem[];
+  recent_campaigns: DashboardCampaign[];
+  recently_active: DashboardActiveGroup[];
+}
+
+export async function fetchDashboard(): Promise<DashboardData> {
+  const [newsRaw, staticRaw, mentionsRaw, otxRaw] = await Promise.allSettled([
+    loadJson<StaticNewsItem[]>("/data/news/index.json"),
+    loadJson<{ recently_active: DashboardActiveGroup[]; recent_campaigns: DashboardCampaign[] }>("/data/dashboard.json"),
+    loadJson<AptMentionItem[]>("/data/news/mentions.json"),
+    loadJson<RecentOtxItem[]>("/data/otx/recent.json"),
+  ]);
+
+  const recent_news: DashboardNewsItem[] = newsRaw.status === "fulfilled"
+    ? newsRaw.value.slice(0, 8).map((n) => ({
+        title: n.title,
+        url: n.url,
+        source: n.source,
+        published: n.published,
+        summary: n.summary ?? null,
+      }))
+    : [];
+
+  const staticData = staticRaw.status === "fulfilled" ? staticRaw.value : { recently_active: [], recent_campaigns: [] };
+  const apt_mentions: AptMentionItem[] = mentionsRaw.status === "fulfilled" ? mentionsRaw.value.slice(0, 10) : [];
+  const recent_otx: RecentOtxItem[] = otxRaw.status === "fulfilled" ? otxRaw.value.slice(0, 8) : [];
+
+  return {
+    recent_news,
+    recent_otx,
+    apt_mentions,
+    recent_campaigns: staticData.recent_campaigns,
+    recently_active: staticData.recently_active,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Group news / mentions
 // ---------------------------------------------------------------------------
 

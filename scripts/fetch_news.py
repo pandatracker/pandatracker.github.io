@@ -259,6 +259,7 @@ def run_mentions(actors_dir: Path, news_dir: Path) -> None:
     import json
     actors = parse_actors(actors_dir)
     print(f"Fetching mentions for {len(actors)} groups...")
+    all_mentions = []
     for actor in actors:
         slug = actor["slug"]
         if not actor["queries"]:
@@ -271,6 +272,14 @@ def run_mentions(actors_dir: Path, news_dir: Path) -> None:
             json.dumps(items, ensure_ascii=False, indent=2)
         )
         print(f"    {len(items)} mentions")
+        for item in items:
+            all_mentions.append({**item, "group_name": actor["name"], "group_slug": slug})
+
+    all_mentions.sort(key=lambda x: x.get("published") or "", reverse=True)
+    (news_dir / "mentions.json").write_text(
+        json.dumps(all_mentions[:50], ensure_ascii=False, indent=2)
+    )
+    print(f"  Wrote mentions.json ({min(len(all_mentions), 50)} items)")
 
 
 def main() -> None:
