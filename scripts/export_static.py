@@ -507,6 +507,19 @@ def build_graph(groups: list[dict], attack_data: dict, relations: dict[str, list
                         "software_id": tool["software_id"],
                         "software_url": tool.get("url"),
                     })
+            for tech in rel["shared_techniques"]:
+                key = tuple(sorted([slug, other_slug])) + ("shared_technique", tech["technique_id"])
+                if key not in edge_set:
+                    edge_set.add(key)
+                    edges.append({
+                        "source": slug,
+                        "target": other_slug,
+                        "edge_type": "shared_technique",
+                        "confidence": None,
+                        "tool": tech["name"],
+                        "software_id": tech["technique_id"],
+                        "software_url": tech.get("url"),
+                    })
 
     return {"nodes": nodes, "edges": edges}
 
