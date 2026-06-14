@@ -31,9 +31,9 @@ import yaml
 
 
 OTX_BASE = "https://otx.alienvault.com/api/v1"
-REQUEST_DELAY = 0.5       # seconds between calls
-TIMEOUT = 60              # OTX search takes ~13s; 60s gives plenty of headroom
-MAX_TERMS_PER_GROUP = 3   # name + 2 aliases — keeps total calls ~78 for 26 groups
+REQUEST_DELAY = 15        # seconds between calls — avoids OTX rate limiting
+TIMEOUT = 60              # OTX search takes ~13s; 60s gives headroom for slower queries
+MAX_TERMS_PER_GROUP = 1   # primary name only — specific queries are fast and reliable
 MAX_RESULTS_PER_TERM = 50
 MAX_PULSES_PER_GROUP = 50
 
