@@ -236,6 +236,16 @@ def main() -> None:
     for actor in actors:
         slug = actor["slug"]
         pulses = list(group_pulses[slug].values())
+
+        # Deduplicate clones: same article published by multiple OTX authors
+        # gets a unique pulse ID per clone, so dedup by normalised title instead.
+        by_name: dict[str, dict] = {}
+        for p in pulses:
+            key = p.get("name", "").strip().lower()
+            if key not in by_name or (p.get("modified") or "") > (by_name[key].get("modified") or ""):
+                by_name[key] = p
+        pulses = list(by_name.values())
+
         pulses.sort(key=lambda x: x.get("created") or "", reverse=True)
         pulses = pulses[:MAX_PULSES_PER_GROUP]
 
@@ -252,7 +262,14 @@ def main() -> None:
                     "group_slug": slug,
                 })
 
-    all_recent.sort(key=lambda x: x.get("modified") or "", reverse=True)
+    # Deduplicate recent.json by name across all groups too
+    recent_by_name: dict[str, dict] = {}
+    for p in all_recent:
+        key = p.get("name", "").strip().lower()
+        if key not in recent_by_name or (p.get("modified") or "") > (recent_by_name[key].get("modified") or ""):
+            recent_by_name[key] = p
+    all_recent = sorted(recent_by_name.values(), key=lambda x: x.get("modified") or "", reverse=True)
+
     (otx_dir / "recent.json").write_text(
         json.dumps(all_recent[:10], ensure_ascii=False, indent=2)
     )

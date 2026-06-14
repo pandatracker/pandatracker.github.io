@@ -24,6 +24,25 @@ jobs:
       - name: Install dependencies
         run: pip install -r scripts/requirements.txt
 
+      - name: Probe OTX search endpoint
+        env:
+          OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
+        run: |
+          python - <<'EOF'
+          import os, time, requests
+          key = os.environ["OTX_API_KEY"]
+          s = requests.Session()
+          s.headers.update({"X-OTX-API-KEY": key, "Accept": "application/json", "User-Agent": "OTXv2 Python SDK"})
+          t0 = time.time()
+          try:
+              r = s.get("https://otx.alienvault.com/api/v1/search/pulses", params={"q": "APT41", "limit": 5}, timeout=120)
+              elapsed = time.time() - t0
+              print(f"Search probe: HTTP {r.status_code} in {elapsed:.1f}s — {len(r.json().get('results', []))} results")
+          except Exception as e:
+              elapsed = time.time() - t0
+              print(f"Search probe: FAILED after {elapsed:.1f}s — {e}")
+          EOF
+
       - name: Sync OTX pulses
         env:
           OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
