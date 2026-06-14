@@ -23,16 +23,19 @@ import os
 import re
 import sys
 import time
-import urllib.parse
-import urllib.request
 from pathlib import Path
 
+import requests
 import yaml
 
 
 OTX_BASE = "https://otx.alienvault.com/api/v1"
 REQUEST_DELAY = 1.0
 MAX_PULSES_PER_GROUP = 50
+MAX_RETRIES = 3
+RETRY_BACKOFF = 4.0  # seconds between retries on timeout
+
+_session: requests.Session | None = None
 
 
 def slugify(name: str) -> str:
@@ -55,23 +58,43 @@ def pulse_matches(pulse: dict, patterns: list) -> bool:
     return any(p.search(text) for p in patterns)
 
 
+def get_session(api_key: str) -> requests.Session:
+    global _session
+    if _session is None:
+        _session = requests.Session()
+        _session.headers.update({
+            "X-OTX-API-KEY": api_key,
+            "Accept": "application/json",
+            "User-Agent": "OTXv2 Python SDK",
+        })
+    return _session
+
+
 def otx_get(path: str, api_key: str, params: dict | None = None) -> dict | None:
+    session = get_session(api_key)
     url = f"{OTX_BASE}{path}"
-    if params:
-        url += "?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={"X-OTX-API-KEY": api_key})
-    try:
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            return json.loads(resp.read())
-    except urllib.error.HTTPError as e:
-        print(f"  HTTP {e.code} for {path}", file=sys.stderr)
-        return None
-    except Exception as e:
-        print(f"  Error fetching {path}: {e}", file=sys.stderr)
-        return None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            resp = session.get(url, params=params, timeout=30)
+            resp.raise_for_status()
+            return resp.json()
+        except requests.exceptions.Timeout:
+            if attempt < MAX_RETRIES:
+                print(f"  Timeout for {path} (attempt {attempt}/{MAX_RETRIES}), retrying in {RETRY_BACKOFF}s...", file=sys.stderr)
+                time.sleep(RETRY_BACKOFF)
+            else:
+                print(f"  Timeout for {path} after {MAX_RETRIES} attempts, skipping.", file=sys.stderr)
+                return None
+        except requests.exceptions.HTTPError as e:
+            print(f"  HTTP {e.response.status_code} for {path}", file=sys.stderr)
+            return None
+        except Exception as e:
+            print(f"  Error fetching {path}: {e}", file=sys.stderr)
+            return None
+    return None
 
 
-def search_pulses(query: str, api_key: str, limit: int = 20) -> list[dict]:
+def search_pulses(query: str, api_key: str, limit: int = 50) -> list[dict]:
     data = otx_get("/search/pulses", api_key, {"q": query, "limit": limit})
     if not data:
         return []
@@ -164,7 +187,7 @@ def main() -> None:
         patterns = [make_pattern(t) for t in terms]
 
         for term in terms:
-            results = search_pulses(term, api_key, limit=20)
+            results = search_pulses(term, api_key, limit=50)
             for p in results:
                 pid = p.get("id", "")
                 if pid and pid not in seen_ids and pulse_matches(p, patterns):
