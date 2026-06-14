@@ -2,9 +2,14 @@
 """
 Sync OTX (AlienVault Open Threat Exchange) pulse data for APT groups.
 
-Reads group names/aliases from actors/*.yaml, searches OTX API,
-and writes:
+Reads group names/aliases from actors/*.yaml, fetches pulse feeds from
+known OTX authors, filters locally, and writes:
   frontend/public/data/otx/{slug}.json   -- OtxPulseItem[]
+  frontend/public/data/otx/recent.json   -- cross-group recent pulses
+
+Uses /api/v1/pulses/user/{username} (author feed) instead of /search/pulses.
+Author feeds are lightweight list endpoints not subject to the same
+throttling as full-text search, which fails consistently from CI IPs.
 
 Requires:
   OTX_API_KEY environment variable
@@ -32,8 +37,26 @@ import yaml
 OTX_BASE = "https://otx.alienvault.com/api/v1"
 REQUEST_DELAY = 1.0
 MAX_PULSES_PER_GROUP = 50
-MAX_RETRIES = 3
-RETRY_BACKOFF = 4.0  # seconds between retries on timeout
+MAX_PAGES_PER_AUTHOR = 4   # 4 pages × 50 = 200 most-recent pulses per author
+
+# OTX usernames that consistently publish Chinese APT content.
+# Derived from the top contributors in our pulse database.
+AUTHOR_FEEDS = [
+    "AlienVault",
+    "otxrobot",
+    "343GuiltySpark",
+    "nightingale",
+    "Tr1sa111",
+    "mohdrennis",
+    "dorkingbeauty1",
+    "zer0daydan",
+    "Cyber_Hat",
+    "CyberHunter_NL",
+    "mitsoras",
+    "cryptocti",
+    "Provintell-Lab",
+    "BITSecurity",
+]
 
 _session: requests.Session | None = None
 
@@ -73,32 +96,34 @@ def get_session(api_key: str) -> requests.Session:
 def otx_get(path: str, api_key: str, params: dict | None = None) -> dict | None:
     session = get_session(api_key)
     url = f"{OTX_BASE}{path}"
-    for attempt in range(1, MAX_RETRIES + 1):
-        try:
-            resp = session.get(url, params=params, timeout=30)
-            resp.raise_for_status()
-            return resp.json()
-        except requests.exceptions.Timeout:
-            if attempt < MAX_RETRIES:
-                print(f"  Timeout for {path} (attempt {attempt}/{MAX_RETRIES}), retrying in {RETRY_BACKOFF}s...", file=sys.stderr)
-                time.sleep(RETRY_BACKOFF)
-            else:
-                print(f"  Timeout for {path} after {MAX_RETRIES} attempts, skipping.", file=sys.stderr)
-                return None
-        except requests.exceptions.HTTPError as e:
-            print(f"  HTTP {e.response.status_code} for {path}", file=sys.stderr)
-            return None
-        except Exception as e:
-            print(f"  Error fetching {path}: {e}", file=sys.stderr)
-            return None
-    return None
+    try:
+        resp = session.get(url, params=params, timeout=30)
+        resp.raise_for_status()
+        return resp.json()
+    except requests.exceptions.Timeout:
+        print(f"  Timeout: {url}", file=sys.stderr)
+        return None
+    except requests.exceptions.HTTPError as e:
+        print(f"  HTTP {e.response.status_code}: {url}", file=sys.stderr)
+        return None
+    except Exception as e:
+        print(f"  Error fetching {url}: {e}", file=sys.stderr)
+        return None
 
 
-def search_pulses(query: str, api_key: str, limit: int = 50) -> list[dict]:
-    data = otx_get("/search/pulses", api_key, {"q": query, "limit": limit})
-    if not data:
-        return []
-    return data.get("results", [])
+def fetch_author_pulses(username: str, api_key: str) -> list[dict]:
+    """Fetch recent pulses from a specific OTX author (up to MAX_PAGES_PER_AUTHOR pages)."""
+    pulses: list[dict] = []
+    for page in range(1, MAX_PAGES_PER_AUTHOR + 1):
+        data = otx_get(f"/pulses/user/{username}", api_key, {"limit": 50, "page": page})
+        if not data:
+            break
+        results = data.get("results", [])
+        pulses.extend(results)
+        if not data.get("next"):
+            break
+        time.sleep(REQUEST_DELAY)
+    return pulses
 
 
 def extract_refs(pulse: dict) -> list[str]:
@@ -148,7 +173,6 @@ def parse_actors(actors_dir: Path) -> list[dict]:
             elif isinstance(a, str):
                 alias_names.append(a)
 
-        # Deduplicate while preserving order, cap at 5 terms (same as DB version)
         seen: dict = {}
         for t in [name] + alias_names:
             seen[t] = None
@@ -173,35 +197,52 @@ def main() -> None:
     otx_dir.mkdir(parents=True, exist_ok=True)
 
     actors = parse_actors(actors_dir)
-    print(f"Processing {len(actors)} groups...")
 
+    # Pre-compile patterns for every actor
+    actor_patterns = {
+        a["slug"]: [make_pattern(t) for t in a["search_terms"]]
+        for a in actors
+    }
+    actor_by_slug = {a["slug"]: a for a in actors}
+
+    # group_slug -> {pulse_id -> parsed_pulse}
+    group_pulses: dict[str, dict[str, dict]] = {a["slug"]: {} for a in actors}
+
+    # Fetch pulses from each author feed and distribute to matching groups
+    print(f"Fetching pulses from {len(AUTHOR_FEEDS)} author feeds...")
+    for username in AUTHOR_FEEDS:
+        print(f"  {username}...")
+        raw_pulses = fetch_author_pulses(username, api_key)
+        matched = 0
+        for pulse in raw_pulses:
+            pid = pulse.get("id")
+            if not pid:
+                continue
+            parsed = None
+            for slug, patterns in actor_patterns.items():
+                if pulse_matches(pulse, patterns):
+                    if pid not in group_pulses[slug]:
+                        if parsed is None:
+                            parsed = parse_pulse(pulse)
+                        group_pulses[slug][pid] = parsed
+                        matched += 1
+        time.sleep(REQUEST_DELAY)
+        print(f"    {len(raw_pulses)} pulses fetched, {matched} group matches")
+
+    # Write per-group files
+    print(f"\nWriting per-group files for {len(actors)} groups...")
     all_recent: list[dict] = []
 
     for actor in actors:
         slug = actor["slug"]
-        terms = actor["search_terms"]
-        print(f"  {actor['name']}...")
-
-        seen_ids: set[str] = set()
-        pulses: list[dict] = []
-        patterns = [make_pattern(t) for t in terms]
-
-        for term in terms:
-            results = search_pulses(term, api_key, limit=50)
-            for p in results:
-                pid = p.get("id", "")
-                if pid and pid not in seen_ids and pulse_matches(p, patterns):
-                    seen_ids.add(pid)
-                    pulses.append(parse_pulse(p))
-            time.sleep(REQUEST_DELAY)
-
+        pulses = list(group_pulses[slug].values())
         pulses.sort(key=lambda x: x.get("created") or "", reverse=True)
         pulses = pulses[:MAX_PULSES_PER_GROUP]
 
         (otx_dir / f"{slug}.json").write_text(
             json.dumps(pulses, ensure_ascii=False, indent=2)
         )
-        print(f"    {len(pulses)} pulses")
+        print(f"  {actor['name']}: {len(pulses)} pulses")
 
         for p in pulses:
             if p.get("modified"):
@@ -215,9 +256,8 @@ def main() -> None:
     (otx_dir / "recent.json").write_text(
         json.dumps(all_recent[:10], ensure_ascii=False, indent=2)
     )
-    print(f"  Wrote recent.json ({min(len(all_recent), 10)} pulses)")
-
-    print(f"\nDone. OTX data written to: {otx_dir}")
+    print(f"\nWrote recent.json ({min(len(all_recent), 10)} pulses)")
+    print(f"Done. OTX data written to: {otx_dir}")
 
 
 if __name__ == "__main__":
