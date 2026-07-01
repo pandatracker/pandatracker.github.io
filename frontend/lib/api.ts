@@ -455,20 +455,29 @@ export interface DashboardCampaign {
   group_slug: string;
 }
 
+export interface ActiveFromMentions {
+  name: string;
+  slug: string;
+  last_mentioned: string;
+  mention_count: number;
+}
+
 export interface DashboardData {
   recent_news: DashboardNewsItem[];
   recent_otx: RecentOtxItem[];
   apt_mentions: AptMentionItem[];
   recent_campaigns: DashboardCampaign[];
   recently_active: DashboardActiveGroup[];
+  active_from_mentions: ActiveFromMentions[];
 }
 
 export async function fetchDashboard(): Promise<DashboardData> {
-  const [newsRaw, staticRaw, mentionsRaw, otxRaw] = await Promise.allSettled([
+  const [newsRaw, staticRaw, mentionsRaw, otxRaw, activeRaw] = await Promise.allSettled([
     loadJson<StaticNewsItem[]>("/data/news/index.json"),
     loadJson<{ recently_active: DashboardActiveGroup[]; recent_campaigns: DashboardCampaign[] }>("/data/dashboard.json"),
     loadJson<AptMentionItem[]>("/data/news/mentions.json"),
     loadJson<RecentOtxItem[]>("/data/otx/recent.json"),
+    loadJson<ActiveFromMentions[]>("/data/news/active_groups.json"),
   ]);
 
   const recent_news: DashboardNewsItem[] = newsRaw.status === "fulfilled"
@@ -484,6 +493,7 @@ export async function fetchDashboard(): Promise<DashboardData> {
   const staticData = staticRaw.status === "fulfilled" ? staticRaw.value : { recently_active: [], recent_campaigns: [] };
   const apt_mentions: AptMentionItem[] = mentionsRaw.status === "fulfilled" ? mentionsRaw.value.slice(0, 10) : [];
   const recent_otx: RecentOtxItem[] = otxRaw.status === "fulfilled" ? otxRaw.value.slice(0, 8) : [];
+  const active_from_mentions: ActiveFromMentions[] = activeRaw.status === "fulfilled" ? activeRaw.value : [];
 
   return {
     recent_news,
@@ -491,6 +501,7 @@ export async function fetchDashboard(): Promise<DashboardData> {
     apt_mentions,
     recent_campaigns: staticData.recent_campaigns,
     recently_active: staticData.recently_active,
+    active_from_mentions,
   };
 }
 

@@ -257,9 +257,13 @@ def run_global(feeds_path: Path, news_dir: Path) -> None:
 
 def run_mentions(actors_dir: Path, news_dir: Path) -> None:
     import json
+    from datetime import timedelta
     actors = parse_actors(actors_dir)
     print(f"Fetching mentions for {len(actors)} groups...")
     all_mentions = []
+    active_groups = []
+    cutoff_14 = (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
+
     for actor in actors:
         slug = actor["slug"]
         if not actor["queries"]:
@@ -275,11 +279,27 @@ def run_mentions(actors_dir: Path, news_dir: Path) -> None:
         for item in items:
             all_mentions.append({**item, "group_name": actor["name"], "group_slug": slug})
 
+        recent = [m for m in items if (m.get("published") or "") >= cutoff_14]
+        if recent:
+            last_mentioned = max(m.get("published") or "" for m in recent)
+            active_groups.append({
+                "name": actor["name"],
+                "slug": slug,
+                "last_mentioned": last_mentioned,
+                "mention_count": len(recent),
+            })
+
     all_mentions.sort(key=lambda x: x.get("published") or "", reverse=True)
     (news_dir / "mentions.json").write_text(
         json.dumps(all_mentions[:50], ensure_ascii=False, indent=2)
     )
     print(f"  Wrote mentions.json ({min(len(all_mentions), 50)} items)")
+
+    active_groups.sort(key=lambda x: x["last_mentioned"], reverse=True)
+    (news_dir / "active_groups.json").write_text(
+        json.dumps(active_groups, ensure_ascii=False, indent=2)
+    )
+    print(f"  Wrote active_groups.json ({len(active_groups)} groups)")
 
 
 def main() -> None:

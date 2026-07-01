@@ -534,7 +534,7 @@ function GroupProfileInner({ slug }: { slug: string }) {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center">
         <p className="text-zinc-400 mb-4">{error}</p>
-        <Link href="/" className="text-blue-400 hover:text-blue-300 text-sm">← Back to directory</Link>
+        <Link href="/groups" className="text-blue-400 hover:text-blue-300 text-sm">← Back to directory</Link>
       </div>
     );
   }
@@ -557,7 +557,7 @@ function GroupProfileInner({ slug }: { slug: string }) {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       {/* Back link */}
-      <Link href="/" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors mb-6 inline-block">
+      <Link href="/groups" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors mb-6 inline-block">
         ← All groups
       </Link>
 
@@ -654,8 +654,8 @@ export default function GroupDetailClient() {
             pandatracker
           </span>
           <nav className="flex items-center gap-4 text-sm text-zinc-400 mt-1.5">
-            <Link href="/dashboard" className="hover:text-zinc-200 transition-colors">Dashboard</Link>
-            <Link href="/" className="hover:text-zinc-200 transition-colors">APT Directory</Link>
+            <Link href="/" className="hover:text-zinc-200 transition-colors">Dashboard</Link>
+            <Link href="/groups" className="hover:text-zinc-200 transition-colors">APT Directory</Link>
             <Link href="/visualize" className="hover:text-zinc-200 transition-colors">Visualize</Link>
             <Link href="/news" className="hover:text-zinc-200 transition-colors">News Feed</Link>
             <Link href="/about" className="hover:text-zinc-200 transition-colors">About</Link>
