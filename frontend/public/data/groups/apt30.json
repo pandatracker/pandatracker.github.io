@@ -121,10 +121,16 @@
   "otx_pulses": [],
   "relations": [
     {
-      "group_name": "APT1",
-      "group_slug": "apt1",
+      "group_name": "APT27",
+      "group_slug": "apt27",
       "shared_tools": [],
       "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
         {
           "technique_id": "T1566.001",
           "name": "Spearphishing Attachment",
@@ -133,13 +139,45 @@
         }
       ],
       "shared_sectors": [
-        "defense",
-        "aerospace",
-        "government",
+        "NGOs",
         "telecommunications",
-        "media"
+        "defense",
+        "government",
+        "aerospace"
       ],
-      "shared_regions": []
+      "shared_regions": [
+        "South Korea"
+      ]
+    },
+    {
+      "group_name": "APT10",
+      "group_slug": "apt10",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "NGOs",
+        "telecommunications",
+        "defense",
+        "government",
+        "aerospace"
+      ],
+      "shared_regions": [
+        "Thailand",
+        "South Korea"
+      ]
     },
     {
       "group_name": "Naikon",
@@ -160,21 +198,21 @@
         }
       ],
       "shared_sectors": [
-        "defense",
-        "government",
-        "diplomatic",
+        "telecommunications",
         "military",
-        "telecommunications"
+        "diplomatic",
+        "defense",
+        "government"
       ],
       "shared_regions": [
-        "Malaysia",
         "Vietnam",
-        "Thailand"
+        "Thailand",
+        "Malaysia"
       ]
     },
     {
-      "group_name": "Charcoal Typhoon",
-      "group_slug": "charcoal-typhoon",
+      "group_name": "APT12",
+      "group_slug": "apt12",
       "shared_tools": [],
       "shared_techniques": [
         {
@@ -182,24 +220,7 @@
           "name": "Malicious File",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1204/002"
-        }
-      ],
-      "shared_sectors": [
-        "NGOs",
-        "government",
-        "media",
-        "telecommunications"
-      ],
-      "shared_regions": [
-        "Vietnam",
-        "Thailand"
-      ]
-    },
-    {
-      "group_name": "APT41",
-      "group_slug": "apt41",
-      "shared_tools": [],
-      "shared_techniques": [
+        },
         {
           "technique_id": "T1566.001",
           "name": "Spearphishing Attachment",
@@ -209,17 +230,11 @@
       ],
       "shared_sectors": [
         "defense",
-        "aerospace",
-        "government",
         "telecommunications",
-        "media"
+        "media",
+        "government"
       ],
-      "shared_regions": [
-        "Malaysia",
-        "Vietnam",
-        "Thailand",
-        "South Korea"
-      ]
+      "shared_regions": []
     },
     {
       "group_name": "APT19",
@@ -241,9 +256,9 @@
       ],
       "shared_sectors": [
         "NGOs",
-        "government",
         "defense",
-        "telecommunications"
+        "telecommunications",
+        "government"
       ],
       "shared_regions": []
     },
@@ -266,11 +281,11 @@
         }
       ],
       "shared_sectors": [
-        "government",
-        "diplomatic",
-        "military",
+        "NGOs",
         "telecommunications",
-        "NGOs"
+        "military",
+        "diplomatic",
+        "government"
       ],
       "shared_regions": [
         "Vietnam",
@@ -278,8 +293,8 @@
       ]
     },
     {
-      "group_name": "APT10",
-      "group_slug": "apt10",
+      "group_name": "Charcoal Typhoon",
+      "group_slug": "charcoal-typhoon",
       "shared_tools": [],
       "shared_techniques": [
         {
@@ -287,37 +302,24 @@
           "name": "Malicious File",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
         }
       ],
       "shared_sectors": [
-        "defense",
-        "aerospace",
+        "NGOs",
         "government",
         "telecommunications",
-        "NGOs"
+        "media"
       ],
       "shared_regions": [
-        "Thailand",
-        "South Korea"
+        "Vietnam",
+        "Thailand"
       ]
     },
     {
-      "group_name": "APT27",
-      "group_slug": "apt27",
+      "group_name": "APT1",
+      "group_slug": "apt1",
       "shared_tools": [],
       "shared_techniques": [
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
         {
           "technique_id": "T1566.001",
           "name": "Spearphishing Attachment",
@@ -326,39 +328,11 @@
         }
       ],
       "shared_sectors": [
-        "defense",
-        "aerospace",
-        "government",
         "telecommunications",
-        "NGOs"
-      ],
-      "shared_regions": [
-        "South Korea"
-      ]
-    },
-    {
-      "group_name": "APT12",
-      "group_slug": "apt12",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ],
-      "shared_sectors": [
-        "media",
-        "government",
         "defense",
-        "telecommunications"
+        "government",
+        "aerospace",
+        "media"
       ],
       "shared_regions": []
     },
@@ -381,16 +355,42 @@
         }
       ],
       "shared_sectors": [
-        "defense",
-        "aerospace",
-        "government",
+        "telecommunications",
         "military",
         "diplomatic",
-        "telecommunications"
+        "defense",
+        "government",
+        "aerospace"
       ],
       "shared_regions": [
         "Malaysia",
         "South Korea"
+      ]
+    },
+    {
+      "group_name": "APT41",
+      "group_slug": "apt41",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "telecommunications",
+        "defense",
+        "government",
+        "aerospace",
+        "media"
+      ],
+      "shared_regions": [
+        "Vietnam",
+        "South Korea",
+        "Thailand",
+        "Malaysia"
       ]
     }
   ]

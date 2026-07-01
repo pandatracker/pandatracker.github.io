@@ -246,10 +246,22 @@
   "otx_pulses": [],
   "relations": [
     {
-      "group_name": "APT1",
-      "group_slug": "apt1",
+      "group_name": "APT27",
+      "group_slug": "apt27",
       "shared_tools": [],
       "shared_techniques": [
+        {
+          "technique_id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
         {
           "technique_id": "T1566.001",
           "name": "Spearphishing Attachment",
@@ -258,16 +270,47 @@
         }
       ],
       "shared_sectors": [
-        "defense",
         "finance",
-        "government",
-        "technology",
         "telecommunications",
-        "media"
+        "technology",
+        "defense",
+        "government"
       ],
       "shared_regions": [
         "United States",
-        "Taiwan"
+        "Taiwan",
+        "Germany",
+        "Japan"
+      ]
+    },
+    {
+      "group_name": "APT10",
+      "group_slug": "apt10",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "finance",
+        "telecommunications",
+        "technology",
+        "defense",
+        "government"
+      ],
+      "shared_regions": [
+        "United States",
+        "Japan"
       ]
     },
     {
@@ -291,67 +334,10 @@
       "shared_sectors": [
         "government",
         "defense",
-        "technology",
-        "telecommunications"
+        "telecommunications",
+        "technology"
       ],
       "shared_regions": []
-    },
-    {
-      "group_name": "Charcoal Typhoon",
-      "group_slug": "charcoal-typhoon",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        }
-      ],
-      "shared_sectors": [
-        "media",
-        "government",
-        "technology",
-        "telecommunications"
-      ],
-      "shared_regions": [
-        "Germany",
-        "United States",
-        "Taiwan"
-      ]
-    },
-    {
-      "group_name": "APT41",
-      "group_slug": "apt41",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1203"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ],
-      "shared_sectors": [
-        "defense",
-        "finance",
-        "government",
-        "technology",
-        "telecommunications",
-        "media"
-      ],
-      "shared_regions": [
-        "Japan",
-        "Germany",
-        "United States",
-        "Taiwan"
-      ]
     },
     {
       "group_name": "APT19",
@@ -372,63 +358,41 @@
         }
       ],
       "shared_sectors": [
-        "defense",
         "finance",
-        "government",
-        "technology",
-        "telecommunications"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "APT31",
-      "group_slug": "apt31",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1102.002",
-          "name": "Bidirectional Communication",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1102/002"
-        }
-      ],
-      "shared_sectors": [
-        "defense",
-        "finance",
-        "government",
-        "technology",
         "telecommunications",
-        "media"
+        "technology",
+        "defense",
+        "government"
       ],
       "shared_regions": [
-        "Germany",
         "United States"
       ]
     },
     {
-      "group_name": "APT3",
-      "group_slug": "apt3",
+      "group_name": "APT30",
+      "group_slug": "apt30",
       "shared_tools": [],
       "shared_techniques": [
         {
-          "technique_id": "T1203",
-          "name": "Exploitation for Client Execution",
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
           "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1203"
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
         }
       ],
       "shared_sectors": [
         "defense",
-        "finance",
-        "government",
-        "technology",
-        "telecommunications"
+        "telecommunications",
+        "media",
+        "government"
       ],
-      "shared_regions": [
-        "United States"
-      ]
+      "shared_regions": []
     },
     {
       "group_name": "Mustang Panda",
@@ -459,14 +423,14 @@
         "telecommunications"
       ],
       "shared_regions": [
-        "Germany",
         "United States",
+        "Germany",
         "Taiwan"
       ]
     },
     {
-      "group_name": "APT30",
-      "group_slug": "apt30",
+      "group_name": "Charcoal Typhoon",
+      "group_slug": "charcoal-typhoon",
       "shared_tools": [],
       "shared_techniques": [
         {
@@ -474,55 +438,23 @@
           "name": "Malicious File",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
         }
       ],
       "shared_sectors": [
+        "government",
+        "telecommunications",
         "media",
-        "government",
-        "defense",
-        "telecommunications"
-      ],
-      "shared_regions": []
-    },
-    {
-      "group_name": "APT10",
-      "group_slug": "apt10",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ],
-      "shared_sectors": [
-        "defense",
-        "finance",
-        "government",
-        "technology",
-        "telecommunications"
+        "technology"
       ],
       "shared_regions": [
-        "Japan",
-        "United States"
+        "United States",
+        "Germany",
+        "Taiwan"
       ]
     },
     {
-      "group_name": "APT27",
-      "group_slug": "apt27",
+      "group_name": "APT3",
+      "group_slug": "apt3",
       "shared_tools": [],
       "shared_techniques": [
         {
@@ -530,13 +462,49 @@
           "name": "Exploitation for Client Execution",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1203"
-        },
+        }
+      ],
+      "shared_sectors": [
+        "finance",
+        "telecommunications",
+        "technology",
+        "defense",
+        "government"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT31",
+      "group_slug": "apt31",
+      "shared_tools": [],
+      "shared_techniques": [
         {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
+          "technique_id": "T1102.002",
+          "name": "Bidirectional Communication",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1102/002"
+        }
+      ],
+      "shared_sectors": [
+        "finance",
+        "telecommunications",
+        "technology",
+        "defense",
+        "government",
+        "media"
+      ],
+      "shared_regions": [
+        "United States",
+        "Germany"
+      ]
+    },
+    {
+      "group_name": "APT1",
+      "group_slug": "apt1",
+      "shared_tools": [],
+      "shared_techniques": [
         {
           "technique_id": "T1566.001",
           "name": "Spearphishing Attachment",
@@ -545,15 +513,14 @@
         }
       ],
       "shared_sectors": [
-        "defense",
         "finance",
-        "government",
+        "telecommunications",
         "technology",
-        "telecommunications"
+        "defense",
+        "government",
+        "media"
       ],
       "shared_regions": [
-        "Japan",
-        "Germany",
         "United States",
         "Taiwan"
       ]
@@ -585,13 +552,46 @@
       "shared_sectors": [
         "government",
         "defense",
-        "technology",
-        "telecommunications"
+        "telecommunications",
+        "technology"
       ],
       "shared_regions": [
-        "Japan",
+        "United States",
         "Germany",
-        "United States"
+        "Japan"
+      ]
+    },
+    {
+      "group_name": "APT41",
+      "group_slug": "apt41",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "finance",
+        "telecommunications",
+        "technology",
+        "defense",
+        "government",
+        "media"
+      ],
+      "shared_regions": [
+        "United States",
+        "Taiwan",
+        "Germany",
+        "Japan"
       ]
     }
   ]
