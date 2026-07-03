@@ -335,7 +335,7 @@ export default function HomePage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-white mb-1">Dashboard</h1>
-          <p className="text-sm text-zinc-500">Chinese APT activity — current snapshot</p>
+          <p className="text-sm text-zinc-500">China-associated APT activity</p>
         </div>
         <DashboardContent />
       </main>
