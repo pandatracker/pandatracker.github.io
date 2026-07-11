@@ -31,7 +31,7 @@ function RecentlyActive({ groups }: { groups: ActiveFromMentions[] }) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-lg">
       <div className="px-4 py-3 border-b border-zinc-800 flex items-center justify-between">
-        <h2 className="text-sm font-semibold text-zinc-200">Recently Active</h2>
+        <h2 className="text-sm font-semibold text-zinc-200">Recently Mentioned</h2>
         <span className="text-xs text-zinc-600">news mentions · last 14 days</span>
       </div>
       <div className="divide-y divide-zinc-800">
@@ -41,7 +41,7 @@ function RecentlyActive({ groups }: { groups: ActiveFromMentions[] }) {
             href={`/group/${g.slug}`}
             className="flex items-center justify-between px-4 py-2.5 hover:bg-zinc-800/50 transition-colors"
           >
-            <span className="text-sm text-zinc-100 font-medium">{g.name}</span>
+            <span className="text-sm text-zinc-100">{g.name}</span>
             <div className="flex items-center gap-2 shrink-0 ml-3">
               <span className="text-xs text-zinc-600">{g.mention_count} mention{g.mention_count !== 1 ? "s" : ""}</span>
               <span className="text-zinc-700">·</span>
@@ -72,7 +72,7 @@ function LastKnownActivity({ groups }: { groups: DashboardActiveGroup[] }) {
               className="flex items-center justify-between px-4 py-2.5 hover:bg-zinc-800/50 transition-colors"
             >
               <div className="min-w-0">
-                <span className="text-sm text-zinc-100 font-medium">{g.name}</span>
+                <span className="text-sm text-zinc-100">{g.name}</span>
                 <div className="mt-0.5">
                   <AffiliationBadge affiliation={g.affiliation} confidence={g.affiliation_confidence} />
                 </div>
@@ -335,7 +335,7 @@ export default function HomePage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-white mb-1">Dashboard</h1>
-          <p className="text-sm text-zinc-500">China-associated APT activity</p>
+          <p className="text-sm text-zinc-500">China-associated threat groups activity</p>
         </div>
         <DashboardContent />
       </main>
