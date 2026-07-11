@@ -29,16 +29,16 @@ export default function TabNavigation({ slug }: { slug: string }) {
   }
 
   return (
-    <div className="border-b border-zinc-800">
-      <nav className="flex gap-0 -mb-px">
+    <div className="border-b border-gray-200 overflow-x-auto">
+      <nav className="flex gap-0 -mb-px min-w-max">
         {TABS.map(({ id, label }) => (
           <button
             key={id}
             onClick={() => setTab(id)}
             className={`px-5 py-3 text-sm font-medium border-b-2 transition-colors ${
               active === id
-                ? "border-blue-500 text-blue-400"
-                : "border-transparent text-zinc-500 hover:text-zinc-300"
+                ? "border-blue-500 text-blue-600"
+                : "border-transparent text-gray-400 hover:text-gray-700"
             }`}
           >
             {label}

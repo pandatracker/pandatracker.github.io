@@ -68,18 +68,18 @@ function GroupsContent() {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white mb-1">APT Directory</h1>
-        <p className="text-sm text-zinc-500">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">APT Directory</h1>
+        <p className="text-sm text-gray-400">
           Structured intelligence on Chinese state-sponsored and affiliated threat groups.
         </p>
       </div>
 
-      <div className="mb-6 p-4 bg-zinc-900 border border-zinc-800 rounded-lg">
+      <div className="mb-6 p-4 bg-white border border-gray-200 rounded-lg">
         <FilterBar filters={filters} options={filterOptions} onChange={applyFilters} />
       </div>
 
       {error && (
-        <div className="text-sm text-red-400 bg-red-900/20 border border-red-800 rounded-lg px-4 py-3 mb-6">
+        <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-6">
           {error}
         </div>
       )}
@@ -87,18 +87,18 @@ function GroupsContent() {
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-lg p-5 animate-pulse">
-              <div className="h-5 bg-zinc-800 rounded w-1/3 mb-3" />
-              <div className="h-3 bg-zinc-800 rounded w-2/3 mb-4" />
-              <div className="h-3 bg-zinc-800 rounded w-1/2" />
+            <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 animate-pulse">
+              <div className="h-5 bg-gray-100 rounded w-1/3 mb-3" />
+              <div className="h-3 bg-gray-100 rounded w-2/3 mb-4" />
+              <div className="h-3 bg-gray-100 rounded w-1/2" />
             </div>
           ))}
         </div>
       ) : groups.length === 0 ? (
-        <p className="text-zinc-500 text-sm">No groups match the current filters.</p>
+        <p className="text-gray-400 text-sm">No groups match the current filters.</p>
       ) : (
         <>
-          <p className="text-xs text-zinc-600 mb-4">
+          <p className="text-xs text-gray-400 mb-4">
             {groups.length} group{groups.length !== 1 ? "s" : ""}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -114,18 +114,18 @@ function GroupsContent() {
 
 export default function GroupsPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="border-b border-zinc-800 bg-zinc-950/90 sticky top-0 z-40 backdrop-blur">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-6">
-          <Link href="/" className="text-2xl font-bold leading-none text-white shrink-0" style={{ fontFamily: "var(--font-brand)" }}>
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <header className="border-b border-gray-200 bg-gray-50/90 sticky top-0 z-40 backdrop-blur">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4">
+          <Link href="/" className="text-2xl font-bold leading-none text-gray-900 shrink-0" style={{ fontFamily: "var(--font-brand)" }}>
             pandatracker
           </Link>
-          <nav className="flex items-center gap-4 text-sm text-zinc-400 mt-1.5">
-            <Link href="/" className="hover:text-zinc-200 transition-colors">Dashboard</Link>
-            <Link href="/groups" className="text-zinc-200 font-medium">APT Directory</Link>
-            <Link href="/visualize" className="hover:text-zinc-200 transition-colors">Visualize</Link>
-            <Link href="/news" className="hover:text-zinc-200 transition-colors">News Feed</Link>
-            <Link href="/about" className="hover:text-zinc-200 transition-colors">About</Link>
+          <nav className="hidden sm:flex items-center gap-4 text-sm text-gray-500">
+            <Link href="/" className="hover:text-gray-800 transition-colors">Dashboard</Link>
+            <Link href="/groups" className="text-gray-800 font-medium">APT Directory</Link>
+            <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
+            <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
+            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
           </nav>
           <div className="flex-1 flex justify-end">
             <Suspense>
@@ -133,6 +133,15 @@ export default function GroupsPage() {
             </Suspense>
           </div>
         </div>
+        <nav className="sm:hidden px-4 py-2 overflow-x-auto border-t border-gray-100">
+          <div className="flex items-center gap-5 text-sm whitespace-nowrap text-gray-500">
+            <Link href="/" className="hover:text-gray-800 transition-colors">Dashboard</Link>
+            <Link href="/groups" className="text-gray-800 font-medium">APT Directory</Link>
+            <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
+            <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
+            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
+          </div>
+        </nav>
       </header>
       <Suspense>
         <GroupsContent />

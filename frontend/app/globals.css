@@ -3,34 +3,33 @@
 @tailwind utilities;
 
 body {
-  background-color: #09090b; /* zinc-950 */
-  color: #f4f4f5;            /* zinc-100 */
+  background-color: #f9fafb; /* gray-50 */
+  color: #111827;            /* gray-900 */
   font-family: ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Leaflet dark tooltip override */
+/* Leaflet tooltip override */
 .leaflet-tooltip {
-  background-color: #18181b !important;
-  border: 1px solid #3f3f46 !important;
-  color: #e4e4e7 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  color: #1f2937 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
   padding: 3px 8px !important;
   border-radius: 6px !important;
   font-size: 12px !important;
 }
 .leaflet-tooltip::before {
-  border-top-color: #3f3f46 !important;
+  border-top-color: #e5e7eb !important;
 }
-/* Hide default Leaflet container background on dark tiles */
 .leaflet-container {
-  background: #09090b !important;
+  background: #f9fafb !important;
 }
 
-/* MITRE prose: inline code and links injected via dangerouslySetInnerHTML */
+/* MITRE prose: inline code */
 .mitre-prose code {
-  background: #27272a;
-  color: #a5f3fc;
+  background: #f3f4f6;
+  color: #0e7490;
   padding: 0.1em 0.35em;
   border-radius: 4px;
   font-size: 0.85em;
@@ -38,20 +37,20 @@ body {
 }
 
 /* Blog markdown content */
-.blog-content { color: #d4d4d8; line-height: 1.75; font-size: 0.9375rem; }
-.blog-content h2 { color: #f4f4f5; font-size: 1.2rem; font-weight: 700; margin: 2rem 0 0.75rem; }
-.blog-content h3 { color: #e4e4e7; font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+.blog-content { color: #374151; line-height: 1.75; font-size: 0.9375rem; }
+.blog-content h2 { color: #111827; font-size: 1.2rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+.blog-content h3 { color: #1f2937; font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
 .blog-content p  { margin: 0 0 1rem; }
 .blog-content ul, .blog-content ol { margin: 0 0 1rem 1.25rem; }
 .blog-content li { margin-bottom: 0.25rem; }
 .blog-content ul { list-style-type: disc; }
 .blog-content ol { list-style-type: decimal; }
-.blog-content a  { color: #60a5fa; text-decoration: underline; text-decoration-color: #3b82f680; }
-.blog-content a:hover { color: #93c5fd; }
-.blog-content strong { color: #f4f4f5; font-weight: 600; }
-.blog-content em { color: #a1a1aa; font-style: italic; }
-.blog-content code { background: #27272a; color: #a5f3fc; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.875em; }
-.blog-content pre  { background: #18181b; border: 1px solid #3f3f46; border-radius: 8px; padding: 1rem; overflow-x: auto; margin: 0 0 1rem; }
+.blog-content a  { color: #2563eb; text-decoration: underline; text-decoration-color: #2563eb80; }
+.blog-content a:hover { color: #1d4ed8; }
+.blog-content strong { color: #111827; font-weight: 600; }
+.blog-content em { color: #6b7280; font-style: italic; }
+.blog-content code { background: #f3f4f6; color: #0e7490; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.875em; }
+.blog-content pre  { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; overflow-x: auto; margin: 0 0 1rem; }
 .blog-content pre code { background: none; padding: 0; font-size: 0.875rem; }
-.blog-content blockquote { border-left: 3px solid #3f3f46; padding-left: 1rem; color: #71717a; margin: 0 0 1rem; }
-.blog-content hr { border: none; border-top: 1px solid #27272a; margin: 2rem 0; }
+.blog-content blockquote { border-left: 3px solid #e5e7eb; padding-left: 1rem; color: #6b7280; margin: 0 0 1rem; }
+.blog-content hr { border: none; border-top: 1px solid #f3f4f6; margin: 2rem 0; }

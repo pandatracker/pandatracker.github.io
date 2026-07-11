@@ -14,9 +14,9 @@ const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), { ssr: false 
 
 const ORG_COLOR = "#ef4444";
 const UNIT_COLOR = "#f97316";
-const GROUP_COLOR = "#60a5fa";
-const TOOL_EDGE_COLOR = "#c084fc";
-const TECH_EDGE_COLOR = "#34d399";
+const GROUP_COLOR = "#3b82f6";
+const TOOL_EDGE_COLOR = "#a855f7";
+const TECH_EDGE_COLOR = "#10b981";
 const MIN_LABEL_PX = 2.5;
 
 type EdgeMode = "software" | "techniques";
@@ -215,41 +215,41 @@ function NodePanel({ node, rawData, edgeMode, onClose }: { node: GraphNode; rawD
   }, [rawData, node, edgeMode]);
 
   return (
-    <div className="absolute top-4 right-4 w-72 bg-zinc-900 border border-zinc-700 rounded-xl p-4 shadow-xl z-20 max-h-[80vh] overflow-y-auto">
+    <div className="absolute top-4 right-2 sm:right-4 w-[min(18rem,calc(100vw-1rem))] bg-white border border-gray-300 rounded-xl p-4 shadow-xl z-20 max-h-[80vh] overflow-y-auto">
       <div className="flex items-start justify-between mb-3">
-        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+        <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
           {node.node_type === "org" ? "Organisation" : node.node_type === "unit" ? "Unit" : "APT Group"}
         </span>
-        <button onClick={onClose} className="text-zinc-500 hover:text-zinc-200 text-lg leading-none">×</button>
+        <button onClick={onClose} className="text-gray-400 hover:text-gray-800 text-lg leading-none">×</button>
       </div>
 
-      <h2 className="text-base font-bold text-white mb-2">{node.label}</h2>
+      <h2 className="text-base font-bold text-gray-900 mb-2">{node.label}</h2>
 
       {node.node_type === "group" && node.aliases && node.aliases.length > 0 && (
         <div className="flex flex-wrap gap-1 mb-3">
           {node.aliases.map((a) => (
-            <span key={a} className="px-1.5 py-0.5 rounded text-xs bg-zinc-800 text-zinc-400 border border-zinc-700">{a}</span>
+            <span key={a} className="px-1.5 py-0.5 rounded text-xs bg-gray-100 text-gray-500 border border-gray-300">{a}</span>
           ))}
         </div>
       )}
 
       {node.affiliation && node.affiliation.length > 0 && node.node_type !== "org" && (
-        <p className="text-xs text-zinc-400 mb-1">
-          <span className="text-zinc-500">Affiliation: </span>
+        <p className="text-xs text-gray-500 mb-1">
+          <span className="text-gray-400">Affiliation: </span>
           {node.affiliation.join(", ")}
         </p>
       )}
 
       {node.affiliation_confidence && (
-        <p className="text-xs text-zinc-400 mb-3">
-          <span className="text-zinc-500">Confidence: </span>
+        <p className="text-xs text-gray-500 mb-3">
+          <span className="text-gray-400">Confidence: </span>
           {node.affiliation_confidence}
         </p>
       )}
 
       {sharedItems.length > 0 && (
-        <div className="mt-1 mb-3 border-t border-zinc-800 pt-3">
-          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+        <div className="mt-1 mb-3 border-t border-gray-200 pt-3">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
             Shared ATT&CK {edgeMode === "software" ? "Tools" : "Techniques"}
           </p>
           <div className="space-y-2">
@@ -267,7 +267,7 @@ function NodePanel({ node, rawData, edgeMode, onClose }: { node: GraphNode; rawD
                 ) : (
                   <p className={`text-xs font-medium ${edgeMode === "software" ? "text-purple-300" : "text-emerald-300"}`}>{name}</p>
                 )}
-                <p className="text-xs text-zinc-500">shared with {groups.join(", ")}</p>
+                <p className="text-xs text-gray-400">shared with {groups.join(", ")}</p>
               </div>
             ))}
           </div>
@@ -277,7 +277,7 @@ function NodePanel({ node, rawData, edgeMode, onClose }: { node: GraphNode; rawD
       {node.slug && (
         <Link
           href={`/group/${node.slug}`}
-          className="block text-center text-xs px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+          className="block text-center text-xs px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-gray-900 transition-colors"
         >
           View profile →
         </Link>
@@ -295,30 +295,30 @@ function LinkPanel({ link, onClose }: { link: MergedToolLink; onClose: () => voi
   const tgt = typeof link.target === "object" ? link.target : null;
 
   return (
-    <div className="absolute top-4 right-4 w-72 bg-zinc-900 border border-purple-800/60 rounded-xl p-4 shadow-xl z-20 max-h-[80vh] overflow-y-auto">
+    <div className="absolute top-4 right-2 sm:right-4 w-[min(18rem,calc(100vw-1rem))] bg-white border border-purple-800/60 rounded-xl p-4 shadow-xl z-20 max-h-[80vh] overflow-y-auto">
       <div className="flex items-start justify-between mb-3">
         <span className={`text-xs font-semibold uppercase tracking-wider ${link.edge_type === "shared_technique" ? "text-emerald-400" : "text-purple-400"}`}>
           {link.edge_type === "shared_technique" ? "Shared Techniques" : "Shared Tools"} · {link.tools.length}
         </span>
-        <button onClick={onClose} className="text-zinc-500 hover:text-zinc-200 text-lg leading-none">×</button>
+        <button onClick={onClose} className="text-gray-400 hover:text-gray-800 text-lg leading-none">×</button>
       </div>
 
       <div className="flex items-center gap-2 mb-3">
         {([src, tgt].flatMap((n) => (n ? [n] : [])) as (GraphNode & { x?: number; y?: number })[]).map((n, i, arr) => (
           <span key={n.id} className="flex items-center gap-2">
             {n.slug ? (
-              <Link href={`/group/${n.slug}`} className="text-sm font-bold text-blue-300 hover:underline">
+              <Link href={`/group/${n.slug}`} className="text-sm font-bold text-blue-700 hover:underline">
                 {n.label}
               </Link>
             ) : (
-              <span className="text-sm font-bold text-blue-300">{n.label}</span>
+              <span className="text-sm font-bold text-blue-700">{n.label}</span>
             )}
-            {i < arr.length - 1 && <span className="text-zinc-600 text-xs">↔</span>}
+            {i < arr.length - 1 && <span className="text-gray-400 text-xs">↔</span>}
           </span>
         ))}
       </div>
 
-      <div className="border-t border-zinc-800 pt-3 space-y-2">
+      <div className="border-t border-gray-200 pt-3 space-y-2">
         {link.tools.map((t) => {
           const isTech = link.edge_type === "shared_technique";
           return (
@@ -351,52 +351,52 @@ function Legend({ edgeMode }: { edgeMode: EdgeMode }) {
   const sharedEdgeLabel = edgeMode === "software" ? "Shared tools" : "Shared techniques";
 
   return (
-    <div className="absolute bottom-4 left-4 bg-zinc-900/90 border border-zinc-800 rounded-xl p-4 text-xs space-y-2 z-20">
-      <p className="font-semibold text-zinc-400 uppercase tracking-wider mb-1">Legend</p>
+    <div className="absolute bottom-4 left-4 bg-white/90 border border-gray-200 rounded-xl p-4 text-xs space-y-2 z-20">
+      <p className="font-semibold text-gray-500 uppercase tracking-wider mb-1">Legend</p>
 
       <div className="flex items-center gap-2">
         <span className="w-3 h-3 rounded-full" style={{ background: ORG_COLOR }} />
-        <span className="text-zinc-300">Top-level org</span>
+        <span className="text-gray-700">Top-level org</span>
       </div>
 
       <div className="flex items-center gap-2">
         <span className="w-3 h-3 rounded-full" style={{ background: UNIT_COLOR }} />
-        <span className="text-zinc-300">Affiliated unit</span>
+        <span className="text-gray-700">Affiliated unit</span>
       </div>
 
       <div className="flex items-center gap-2">
         <span className="w-3 h-3 rounded-full" style={{ background: GROUP_COLOR }} />
-        <span className="text-zinc-300">APT group</span>
+        <span className="text-gray-700">APT group</span>
       </div>
 
-      <div className="border-t border-zinc-800 my-1" />
+      <div className="border-t border-gray-200 my-1" />
 
       <div className="flex items-center gap-2">
         <svg width="24" height="8">
           <line x1="0" y1="4" x2="24" y2="4" stroke="#71717a" strokeWidth="1.5" />
         </svg>
-        <span className="text-zinc-300">Confirmed</span>
+        <span className="text-gray-700">Confirmed</span>
       </div>
 
       <div className="flex items-center gap-2">
         <svg width="24" height="8">
           <line x1="0" y1="4" x2="24" y2="4" stroke="#71717a" strokeWidth="1.5" strokeDasharray="6,3" />
         </svg>
-        <span className="text-zinc-300">Likely</span>
+        <span className="text-gray-700">Likely</span>
       </div>
 
       <div className="flex items-center gap-2">
         <svg width="24" height="8">
           <line x1="0" y1="4" x2="24" y2="4" stroke="#71717a" strokeWidth="1.5" strokeDasharray="3,4" />
         </svg>
-        <span className="text-zinc-300">Suspected</span>
+        <span className="text-gray-700">Suspected</span>
       </div>
 
       <div className="flex items-center gap-2">
         <svg width="24" height="8">
           <line x1="0" y1="4" x2="24" y2="4" stroke={sharedEdgeColor} strokeWidth="1.5" strokeDasharray="4,2" />
         </svg>
-        <span className="text-zinc-300">{sharedEdgeLabel} (select node)</span>
+        <span className="text-gray-700">{sharedEdgeLabel} (select node)</span>
       </div>
     </div>
   );
@@ -676,7 +676,7 @@ export default function VisualizePage() {
       const fontSize = Math.max(MIN_LABEL_PX, basePx / globalScale);
 
       ctx.font = `${node.node_type === "org" ? "bold " : ""}${fontSize}px sans-serif`;
-      ctx.fillStyle = "#e4e4e7";
+      ctx.fillStyle = "#1f2937";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(node.label, x, y + r + fontSize * 0.9);
@@ -802,7 +802,7 @@ export default function VisualizePage() {
         ctx.lineWidth = (isSelected ? 2.5 : 1.5) / globalScale;
         ctx.setLineDash([4 / globalScale, 2 / globalScale]);
       } else {
-        ctx.strokeStyle = connected ? "#a1a1aa" : "#52525b";
+        ctx.strokeStyle = connected ? "#4b5563" : "#d1d5db";
         ctx.lineWidth = (connected ? 2 : 1.5) / globalScale;
 
         const rawDash = CONFIDENCE_DASH[(link as HierarchyLink).confidence ?? "high"] ?? [];
@@ -834,7 +834,7 @@ export default function VisualizePage() {
         const tw = ctx.measureText(label).width;
         const pad = 3 / globalScale;
 
-        ctx.fillStyle = "rgba(39,39,42,0.95)";
+        ctx.fillStyle = "rgba(249,250,251,0.95)";
         ctx.fillRect(mx - tw / 2 - pad, my - labelPx * 0.8, tw + pad * 2, labelPx * 1.6);
 
         const isTechEdge2 = link.edge_type === "shared_technique";
@@ -875,22 +875,22 @@ export default function VisualizePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col">
-      <header className="border-b border-zinc-800 bg-zinc-950/90 sticky top-0 z-40 backdrop-blur">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-6">
+    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col">
+      <header className="border-b border-gray-200 bg-gray-50/90 sticky top-0 z-40 backdrop-blur">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4">
           <span
-            className="text-2xl font-bold leading-none text-white shrink-0"
+            className="text-2xl font-bold leading-none text-gray-900 shrink-0"
             style={{ fontFamily: "var(--font-brand)" }}
           >
             pandatracker
           </span>
 
-          <nav className="flex items-center gap-4 text-sm text-zinc-400 mt-1.5">
-            <Link href="/" className="hover:text-zinc-200 transition-colors">Dashboard</Link>
-            <Link href="/groups" className="hover:text-zinc-200 transition-colors">APT Directory</Link>
-            <Link href="/visualize" className="text-zinc-200 font-medium">Visualize</Link>
-            <Link href="/news" className="hover:text-zinc-200 transition-colors">News Feed</Link>
-            <Link href="/about" className="hover:text-zinc-200 transition-colors">About</Link>
+          <nav className="hidden sm:flex items-center gap-4 text-sm text-gray-500">
+            <Link href="/" className="hover:text-gray-800 transition-colors">Dashboard</Link>
+            <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
+            <Link href="/visualize" className="text-gray-800 font-medium">Visualize</Link>
+            <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
+            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
           </nav>
 
           <div className="flex-1 flex justify-end">
@@ -899,11 +899,20 @@ export default function VisualizePage() {
             </Suspense>
           </div>
         </div>
+        <nav className="sm:hidden px-4 py-2 overflow-x-auto border-t border-gray-100">
+          <div className="flex items-center gap-5 text-sm whitespace-nowrap text-gray-500">
+            <Link href="/" className="hover:text-gray-800 transition-colors">Dashboard</Link>
+            <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
+            <Link href="/visualize" className="text-gray-800 font-medium">Visualize</Link>
+            <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
+            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
+          </div>
+        </nav>
       </header>
 
       <div className="flex-1 relative" ref={containerRef}>
         {loading && (
-          <div className="absolute inset-0 flex items-center justify-center text-zinc-500 text-sm">
+          <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
             Loading graph…
           </div>
         )}
@@ -939,7 +948,7 @@ export default function VisualizePage() {
             onLinkClick={handleLinkClick}
             onBackgroundClick={closePanel}
             nodeLabel={(n: object) => (n as GraphNode).label}
-            backgroundColor="#09090b"
+            backgroundColor="#f9fafb"
             linkDirectionalParticles={0}
             d3AlphaDecay={0.04}
             d3VelocityDecay={0.4}
@@ -971,20 +980,20 @@ export default function VisualizePage() {
         )}
 
         {!loading && !error && (
-          <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
+          <div className="absolute top-4 left-2 sm:left-4 z-20 flex flex-col gap-2 max-w-[calc(100vw-1rem)]">
             {/* Controls */}
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               {/* Edge mode toggle */}
-              <div className="flex items-center bg-zinc-900/95 border border-zinc-700 rounded-lg overflow-hidden text-[10px]">
+              <div className="flex items-center bg-white/95 border border-gray-300 rounded-lg overflow-hidden text-[10px]">
                 <button
                   onClick={() => { setEdgeMode("software"); setSelectedLink(null); }}
-                  className={`px-3 py-1.5 font-medium transition-colors ${edgeMode === "software" ? "bg-zinc-700 text-zinc-100" : "text-zinc-400 hover:text-zinc-200"}`}
+                  className={`px-3 py-1.5 font-medium transition-colors ${edgeMode === "software" ? "bg-gray-200 text-gray-900" : "text-gray-500 hover:text-gray-800"}`}
                 >
                   Software
                 </button>
                 <button
                   onClick={() => { setEdgeMode("techniques"); setSelectedLink(null); }}
-                  className={`px-3 py-1.5 font-medium transition-colors ${edgeMode === "techniques" ? "bg-zinc-700 text-zinc-100" : "text-zinc-400 hover:text-zinc-200"}`}
+                  className={`px-3 py-1.5 font-medium transition-colors ${edgeMode === "techniques" ? "bg-gray-200 text-gray-900" : "text-gray-500 hover:text-gray-800"}`}
                 >
                   Techniques
                 </button>
@@ -1002,26 +1011,26 @@ export default function VisualizePage() {
                   setLayoutVersion((v) => v + 1);
                   setTimeout(() => graphRef.current?.d3ReheatSimulation(), 50);
                 }}
-                className="px-3 py-1.5 text-[10px] font-medium bg-zinc-900/95 border border-zinc-700 rounded-lg text-zinc-400 hover:text-zinc-200 hover:border-zinc-500 transition-colors"
+                className="px-3 py-1.5 text-[10px] font-medium bg-white/95 border border-gray-300 rounded-lg text-gray-500 hover:text-gray-800 hover:border-gray-400 transition-colors"
               >
                 Reset layout
               </button>
 
               {/* MITRE only toggle */}
-              <label className="flex items-center gap-1.5 bg-zinc-900/95 border border-zinc-700 rounded-lg px-2.5 py-1.5 cursor-pointer select-none">
+              <label className="flex items-center gap-1.5 bg-white/95 border border-gray-300 rounded-lg px-2.5 py-1.5 cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={attackOnly}
                   onChange={(e) => { setMitreOnly(e.target.checked); setSelectedNode(null); setSelectedLink(null); }}
                   className="w-3 h-3 accent-blue-500"
                 />
-                <span className="text-[10px] text-zinc-400">Groups with ATT&CK entry only</span>
+                <span className="text-[10px] text-gray-500">Groups with ATT&CK entry only</span>
               </label>
             </div>
 
             <div className="relative">
               {/* Combined mode + search bar */}
-              <div className="flex items-center bg-zinc-900/95 border border-zinc-700 rounded-lg overflow-visible focus-within:border-zinc-500 transition-colors">
+              <div className="flex items-center bg-white/95 border border-gray-300 rounded-lg overflow-visible focus-within:border-gray-400 transition-colors">
                 <select
                   value={searchMode}
                   onChange={(e) => {
@@ -1030,7 +1039,7 @@ export default function VisualizePage() {
                     setSelectedNode(null);
                     setSelectedLink(null);
                   }}
-                  className="bg-transparent border-r border-zinc-700 text-[10px] text-zinc-400 pl-2.5 pr-5 py-1.5 focus:outline-none appearance-none cursor-pointer shrink-0"
+                  className="bg-transparent border-r border-gray-300 text-[10px] text-gray-500 pl-2.5 pr-5 py-1.5 focus:outline-none appearance-none cursor-pointer shrink-0"
                   style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 4px center" }}
                 >
                   <option value="groups">Groups</option>
@@ -1038,7 +1047,7 @@ export default function VisualizePage() {
                 </select>
 
                 <div className="relative flex items-center">
-                  <svg className="absolute left-2 w-3.5 h-3.5 text-zinc-500 pointer-events-none shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="absolute left-2 w-3.5 h-3.5 text-gray-400 pointer-events-none shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
                   </svg>
                   <input
@@ -1052,44 +1061,44 @@ export default function VisualizePage() {
                     onFocus={() => setInputFocused(true)}
                     onBlur={() => setTimeout(() => setInputFocused(false), 150)}
                     placeholder={searchMode === "groups" ? "Search groups…" : "Search tools…"}
-                    className="w-44 pl-7 pr-6 py-1.5 text-xs bg-transparent text-zinc-200 placeholder-zinc-600 focus:outline-none"
+                    className="w-44 pl-7 pr-6 py-1.5 text-xs bg-transparent text-gray-800 placeholder-gray-300 focus:outline-none"
                   />
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery("")}
-                      className="absolute right-2 text-zinc-500 hover:text-zinc-300 text-sm leading-none"
+                      className="absolute right-2 text-gray-400 hover:text-gray-700 text-sm leading-none"
                     >×</button>
                   )}
                 </div>
               </div>
 
               {inputFocused && hints.length > 0 && (
-                <div className="absolute top-full mt-1 left-0 w-64 bg-zinc-900 border border-zinc-700 rounded-lg shadow-xl overflow-hidden">
+                <div className="absolute top-full mt-1 left-0 w-64 bg-white border border-gray-300 rounded-lg shadow-xl overflow-hidden">
                   {hints.map((hint) => hint.kind === "node" ? (
                     <button
                       key={hint.node.id}
                       onMouseDown={() => handleHintClick(hint)}
-                      className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-zinc-800 transition-colors"
+                      className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-gray-100 transition-colors"
                     >
                       <span
                         className="w-2 h-2 rounded-full shrink-0"
                         style={{ background: hint.node.node_type === "org" ? "#ef4444" : hint.node.node_type === "unit" ? "#f97316" : "#60a5fa" }}
                       />
-                      <span className="text-xs text-zinc-200 truncate">{hint.node.label}</span>
+                      <span className="text-xs text-gray-800 truncate">{hint.node.label}</span>
                       {hint.matchedAlias && (
-                        <span className="text-[10px] text-zinc-500 truncate italic">aka {hint.matchedAlias}</span>
+                        <span className="text-[10px] text-gray-400 truncate italic">aka {hint.matchedAlias}</span>
                       )}
-                      <span className="ml-auto text-[10px] text-zinc-600 shrink-0">{hint.node.node_type}</span>
+                      <span className="ml-auto text-[10px] text-gray-400 shrink-0">{hint.node.node_type}</span>
                     </button>
                   ) : (
                     <button
                       key={hint.name}
                       onMouseDown={() => handleHintClick(hint)}
-                      className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-zinc-800 transition-colors"
+                      className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-gray-100 transition-colors"
                     >
                       <span className="w-2 h-2 rounded shrink-0 bg-purple-500/70" />
-                      <span className="text-xs text-zinc-200 truncate">{hint.name}</span>
-                      <span className="ml-auto text-[10px] text-zinc-600 shrink-0">{hint.groupCount} groups</span>
+                      <span className="text-xs text-gray-800 truncate">{hint.name}</span>
+                      <span className="ml-auto text-[10px] text-gray-400 shrink-0">{hint.groupCount} groups</span>
                     </button>
                   ))}
                 </div>
