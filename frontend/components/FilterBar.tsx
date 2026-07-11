@@ -32,11 +32,11 @@ function Select({
 }) {
   return (
     <div className="flex flex-col gap-1">
-      <label className="text-xs text-zinc-500 uppercase tracking-wider">{label}</label>
+      <label className="text-xs text-gray-400 uppercase tracking-wider">{label}</label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-zinc-800 border border-zinc-700 text-zinc-300 text-sm rounded px-2.5 py-1.5 focus:outline-none focus:border-zinc-500"
+        className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded px-2.5 py-1.5 focus:outline-none focus:border-gray-400"
       >
         <option value="">All</option>
         {options.map((o) => (
@@ -62,11 +62,11 @@ export default function FilterBar({ filters, options, onChange }: Props) {
         <Select label="Sector"      value={filters.sector}      options={options.sectors}       onChange={set("sector")} />
 
         <div className="flex flex-col gap-1 ml-auto">
-          <label className="text-xs text-zinc-500 uppercase tracking-wider">Sort</label>
+          <label className="text-xs text-gray-400 uppercase tracking-wider">Sort</label>
           <select
             value={filters.sort}
             onChange={(e) => set("sort")(e.target.value)}
-            className="bg-zinc-800 border border-zinc-700 text-zinc-300 text-sm rounded px-2.5 py-1.5 focus:outline-none focus:border-zinc-500"
+            className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded px-2.5 py-1.5 focus:outline-none focus:border-gray-400"
           >
             <option value="name">Name (A–Z)</option>
             <option value="last_seen">Last seen (newest)</option>
@@ -83,15 +83,15 @@ export default function FilterBar({ filters, options, onChange }: Props) {
             <button
               key={key}
               onClick={() => set(key)("")}
-              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-zinc-700 text-zinc-300 hover:bg-zinc-600 transition-colors"
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
             >
-              <span className="text-zinc-500">{key.replace("_", " ")}:</span> {value}
-              <span className="ml-0.5 text-zinc-400">×</span>
+              <span className="text-gray-400">{key.replace("_", " ")}:</span> {value}
+              <span className="ml-0.5 text-gray-500">×</span>
             </button>
           ))}
           <button
             onClick={() => onChange({ affiliation: "", actor_type: "", sector: "", sort: "name" })}
-            className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
           >
             Clear all
           </button>

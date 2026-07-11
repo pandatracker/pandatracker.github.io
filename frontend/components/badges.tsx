@@ -3,9 +3,9 @@
 export function ConfidenceIndicator({ confidence }: { confidence: string | null }) {
   if (!confidence) return null;
   const map: Record<string, { symbol: string; cls: string }> = {
-    high:      { symbol: "✓", cls: "text-green-400" },
-    likely:    { symbol: "~", cls: "text-yellow-400" },
-    suspected: { symbol: "?", cls: "text-orange-400" },
+    high:      { symbol: "✓", cls: "text-green-600" },
+    likely:    { symbol: "~", cls: "text-yellow-700" },
+    suspected: { symbol: "?", cls: "text-orange-600" },
   };
   const entry = map[confidence];
   if (!entry) return null;
@@ -25,7 +25,7 @@ export function AffiliationBadge({
       {affiliation.map((aff, i) => {
         const label = aff.split(/[—(]/)[0].trim();
         return (
-          <span key={aff} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-500/15 text-blue-300 border border-blue-500/25">
+          <span key={aff} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
             {label}
             {i === affiliation.length - 1 && <ConfidenceIndicator confidence={confidence} />}
           </span>

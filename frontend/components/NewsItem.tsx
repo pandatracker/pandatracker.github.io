@@ -19,27 +19,27 @@ function formatDate(iso: string | null): string {
 
 export default function NewsItem({ item }: { item: NewsItemData }) {
   return (
-    <article className="border-b border-zinc-800 py-4 last:border-0">
+    <article className="border-b border-gray-200 py-4 last:border-0">
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-zinc-100 hover:text-blue-400 transition-colors leading-snug"
+            className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors leading-snug"
           >
             {item.title}
           </a>
 
           <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-            <span className="text-xs px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">
+            <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-500 border border-gray-300">
               {item.source}
             </span>
-            <span className="text-xs text-zinc-600">{formatDate(item.published)}</span>
+            <span className="text-xs text-gray-400">{formatDate(item.published)}</span>
           </div>
 
           {item.summary && (
-            <p className="text-xs text-zinc-500 mt-1.5 leading-relaxed line-clamp-3">
+            <p className="text-xs text-gray-400 mt-1.5 leading-relaxed line-clamp-3">
               {item.summary.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()}
             </p>
           )}

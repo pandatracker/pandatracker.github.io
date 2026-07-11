@@ -8,18 +8,18 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="border-b border-zinc-800 bg-zinc-950/90 sticky top-0 z-40 backdrop-blur">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-6">
-          <span className="text-2xl font-bold leading-none text-white shrink-0" style={{ fontFamily: "var(--font-brand)" }}>
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <header className="border-b border-gray-200 bg-gray-50/90 sticky top-0 z-40 backdrop-blur">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4">
+          <span className="text-2xl font-bold leading-none text-gray-900 shrink-0" style={{ fontFamily: "var(--font-brand)" }}>
             pandatracker
           </span>
-          <nav className="flex items-center gap-4 text-sm text-zinc-400 mt-1.5">
-            <Link href="/" className="hover:text-zinc-200 transition-colors">Dashboard</Link>
-            <Link href="/groups" className="hover:text-zinc-200 transition-colors">APT Directory</Link>
-            <Link href="/visualize" className="hover:text-zinc-200 transition-colors">Visualize</Link>
-            <Link href="/news" className="hover:text-zinc-200 transition-colors">News Feed</Link>
-            <Link href="/about" className="text-zinc-200 font-medium">About</Link>
+          <nav className="hidden sm:flex items-center gap-4 text-sm text-gray-500">
+            <Link href="/" className="hover:text-gray-800 transition-colors">Dashboard</Link>
+            <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
+            <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
+            <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
+            <Link href="/about" className="text-gray-800 font-medium">About</Link>
           </nav>
           <div className="flex-1 flex justify-end">
             <Suspense>
@@ -27,12 +27,21 @@ export default function AboutPage() {
             </Suspense>
           </div>
         </div>
+        <nav className="sm:hidden px-4 py-2 overflow-x-auto border-t border-gray-100">
+          <div className="flex items-center gap-5 text-sm whitespace-nowrap text-gray-500">
+            <Link href="/" className="hover:text-gray-800 transition-colors">Dashboard</Link>
+            <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
+            <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
+            <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
+            <Link href="/about" className="text-gray-800 font-medium">About</Link>
+          </div>
+        </nav>
       </header>
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-10">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-3">About</h1>
-          <p className="text-zinc-400 leading-relaxed">
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">About</h1>
+          <p className="text-gray-500 leading-relaxed">
             pandatracker is first and foremost a pet project that grew out of a long-standing interest in China’s activities 
             in cyberspace and a personal need for a unified reference.
             It tries to address the fragmentation of threat intelligence across vendors, researchers, 
@@ -42,8 +51,8 @@ export default function AboutPage() {
         </div>
 
         <section>
-          <h2 className="text-lg font-semibold text-white mb-3">Methodology</h2>
-          <div className="space-y-3 text-sm text-zinc-400 leading-relaxed">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Methodology</h2>
+          <div className="space-y-3 text-sm text-gray-500 leading-relaxed">
             <p>
               Core data is human-reviewed.
               Each group file covers identity, attribution evidence, timeline, targeting, malware,
@@ -53,7 +62,7 @@ export default function AboutPage() {
             <p>
               ATT&CK technique and software data is fetched automatically from the{" "}
               <a href="https://attack.mitre.org" target="_blank" rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-300">
+                className="text-blue-600 hover:text-blue-700">
                 ATT&CK
               </a>{" "}
               Enterprise dataset via the official STIX bundle. This data is never manually edited
@@ -64,15 +73,15 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-white mb-3">Attribution Confidence</h2>
-          <div className="text-sm text-zinc-400 leading-relaxed space-y-2">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Attribution Confidence</h2>
+          <div className="text-sm text-gray-500 leading-relaxed space-y-2">
             <p>
               Attribution in threat intelligence is rarely certain. pandatracker uses three confidence levels:
             </p>
             <ul className="space-y-1 pl-4">
-              <li><span className="text-green-400 font-medium">High</span> — backed by official indictment or leaked documents directly identifying the actors.</li>
-              <li><span className="text-yellow-400 font-medium">Likely</span> — strong circumstantial or technical evidence pointing to a specific entity.</li>
-              <li><span className="text-orange-400 font-medium">Suspected</span> — assessed based on targeting patterns, infrastructure, or TTPs consistent with known entities.</li>
+              <li><span className="text-green-600 font-medium">High</span> — backed by official indictment or leaked documents directly identifying the actors.</li>
+              <li><span className="text-yellow-700 font-medium">Likely</span> — strong circumstantial or technical evidence pointing to a specific entity.</li>
+              <li><span className="text-orange-600 font-medium">Suspected</span> — assessed based on targeting patterns, infrastructure, or TTPs consistent with known entities.</li>
             </ul>
             <p>
               Mistakes or inconsistencies may (and do) occur. Attribution claims should always be verified against the primary sources.
@@ -83,12 +92,12 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-white mb-3">Naming Conventions</h2>
-          <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Naming Conventions</h2>
+          <p className="text-sm text-gray-500 leading-relaxed mb-4">
             Each vendor tracks threat groups independently and under different naming schemes.
             The same actor often carries four or five names across sources.
           </p>
-          <div className="space-y-0 text-sm divide-y divide-zinc-800/60">
+          <div className="space-y-0 text-sm divide-y divide-gray-100">
             {[
               {
                 vendor: "Mandiant / Google",
@@ -141,25 +150,25 @@ export default function AboutPage() {
                 note: "G0096, G0065, G0030. Vendor-neutral registry; typically adopts the primary name used by the discovering vendor.",
               },
             ].map(({ vendor, china, note }) => (
-              <div key={vendor} className="py-3 grid grid-cols-[160px_90px_1fr] gap-x-4 items-start">
-                <span className="text-zinc-200 font-medium">{vendor}</span>
-                <span className="text-blue-400 font-mono text-xs pt-0.5">{china}</span>
-                <span className="text-zinc-500 leading-relaxed">{note}</span>
+              <div key={vendor} className="py-3 flex flex-col gap-1 sm:grid sm:grid-cols-[160px_90px_1fr] sm:gap-x-4 sm:items-start">
+                <span className="text-gray-800 font-medium">{vendor}</span>
+                <span className="text-blue-600 font-mono text-xs">{china}</span>
+                <span className="text-gray-400 leading-relaxed">{note}</span>
               </div>
             ))}
           </div>
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-white mb-3">Licensing</h2>
-          <div className="text-sm text-zinc-400 leading-relaxed space-y-2">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Licensing</h2>
+          <div className="text-sm text-gray-500 leading-relaxed space-y-2">
             <p>
               Do whatever you like with the data you find here. No credit needed. This project does not invent anything new, it simply collects and organizes publicly available references.
             </p>
             <p>
               MITRE ATT&CK® data is used under the{" "}
               <a href="https://attack.mitre.org/resources/terms-of-use/" target="_blank"
-                rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
+                rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
                 ATT&CK Terms of Use
               </a>
               . © The MITRE Corporation. Reproduced and distributed with permission.
@@ -168,8 +177,8 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-white mb-3">Contributing</h2>
-          <p className="text-sm text-zinc-400 leading-relaxed">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Contributing</h2>
+          <p className="text-sm text-gray-500 leading-relaxed">
             Contributions are welcomed. Contact via email pandatrckr@proton.me.
           </p>
         </section>
