@@ -1,5 +1,5 @@
 {
-  "id": 23,
+  "id": 24,
   "name": "Naikon",
   "slug": "naikon",
   "actor_type": "state-associated",
@@ -206,6 +206,52 @@
   "otx_pulses": [],
   "relations": [
     {
+      "group_name": "APT19",
+      "group_slug": "apt19",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "telecommunications",
+        "technology",
+        "government"
+      ],
+      "shared_regions": [
+        "Australia"
+      ]
+    },
+    {
       "group_name": "APT27",
       "group_slug": "apt27",
       "shared_tools": [
@@ -279,26 +325,117 @@
         }
       ],
       "shared_sectors": [
-        "government",
         "defense",
         "telecommunications",
-        "technology"
+        "technology",
+        "government"
       ],
       "shared_regions": [
+        "Philippines",
         "India",
-        "Australia",
-        "Philippines"
+        "Australia"
       ]
     },
     {
-      "group_name": "Hafnium",
-      "group_slug": "hafnium",
+      "group_name": "Mustang Panda",
+      "group_slug": "mustang-panda",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        },
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
+        },
+        {
+          "technique_id": "T1053.005",
+          "name": "Scheduled Task",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        }
+      ],
+      "shared_sectors": [
+        "telecommunications",
+        "government",
+        "diplomatic",
+        "military"
+      ],
+      "shared_regions": [
+        "Philippines",
+        "Myanmar",
+        "Vietnam",
+        "Thailand"
+      ]
+    },
+    {
+      "group_name": "GALLIUM",
+      "group_slug": "gallium",
       "shared_tools": [
         {
           "name": "PsExec",
           "software_id": "S0029",
           "software_type": "tool",
           "url": "https://attack.mitre.org/software/S0029"
+        },
+        {
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
+        },
+        {
+          "name": "Ping",
+          "software_id": "S0097",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0097"
         }
       ],
       "shared_techniques": [
@@ -313,17 +450,499 @@
           "name": "Remote System Discovery",
           "tactic": "discovery",
           "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
+        },
+        {
+          "technique_id": "T1053.005",
+          "name": "Scheduled Task",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
         }
       ],
       "shared_sectors": [
+        "defense",
+        "technology",
+        "telecommunications",
+        "military",
+        "government"
+      ],
+      "shared_regions": [
+        "Philippines",
+        "Malaysia",
+        "Australia",
+        "Vietnam",
+        "Cambodia",
+        "Nepal"
+      ]
+    },
+    {
+      "group_name": "APT40",
+      "group_slug": "apt40",
+      "shared_tools": [
+        {
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "technology",
+        "telecommunications",
+        "military",
         "government",
+        "diplomatic"
+      ],
+      "shared_regions": [
+        "Indonesia",
+        "Cambodia",
+        "Australia",
+        "Malaysia"
+      ]
+    },
+    {
+      "group_name": "APT3",
+      "group_slug": "apt3",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1053.005",
+          "name": "Scheduled Task",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
+        },
+        {
+          "technique_id": "T1078.002",
+          "name": "Domain Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078/002"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        }
+      ],
+      "shared_sectors": [
         "defense",
         "telecommunications",
+        "technology",
+        "government"
+      ],
+      "shared_regions": [
+        "Philippines",
+        "Vietnam"
+      ]
+    },
+    {
+      "group_name": "APT12",
+      "group_slug": "apt12",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "telecommunications",
+        "technology",
+        "government"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT1",
+      "group_slug": "apt1",
+      "shared_tools": [
+        {
+          "name": "PsExec",
+          "software_id": "S0029",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0029"
+        },
+        {
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
+        },
+        {
+          "name": "Tasklist",
+          "software_id": "S0057",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0057"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "telecommunications",
+        "technology",
+        "government"
+      ],
+      "shared_regions": [
+        "India",
+        "Singapore"
+      ]
+    },
+    {
+      "group_name": "Volt Typhoon",
+      "group_slug": "volt-typhoon",
+      "shared_tools": [
+        {
+          "name": "PsExec",
+          "software_id": "S0029",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0029"
+        },
+        {
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
+        },
+        {
+          "name": "Tasklist",
+          "software_id": "S0057",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0057"
+        },
+        {
+          "name": "Systeminfo",
+          "software_id": "S0096",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0096"
+        },
+        {
+          "name": "Ping",
+          "software_id": "S0097",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0097"
+        },
+        {
+          "name": "netsh",
+          "software_id": "S0108",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0108"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        },
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
+        },
+        {
+          "technique_id": "T1078.002",
+          "name": "Domain Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078/002"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "telecommunications",
+        "technology",
+        "government"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT22",
+      "group_slug": "apt22",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        }
+      ],
+      "shared_sectors": [
+        "military",
+        "government",
         "technology"
       ],
       "shared_regions": [
+        "India"
+      ]
+    },
+    {
+      "group_name": "APT15",
+      "group_slug": "apt15",
+      "shared_tools": [
+        {
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
+        },
+        {
+          "name": "Tasklist",
+          "software_id": "S0057",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0057"
+        },
+        {
+          "name": "Systeminfo",
+          "software_id": "S0096",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0096"
+        },
+        {
+          "name": "Ping",
+          "software_id": "S0097",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0097"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "military",
+        "government",
+        "technology",
+        "diplomatic"
+      ],
+      "shared_regions": [
+        "India"
+      ]
+    },
+    {
+      "group_name": "Tonto Team",
+      "group_slug": "tonto-team",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        }
+      ],
+      "shared_sectors": [
+        "defense",
+        "technology",
+        "military",
+        "government",
+        "diplomatic"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "Charcoal Typhoon",
+      "group_slug": "charcoal-typhoon",
+      "shared_tools": [
+        {
+          "name": "Tasklist",
+          "software_id": "S0057",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0057"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
+        },
+        {
+          "technique_id": "T1053.005",
+          "name": "Scheduled Task",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        }
+      ],
+      "shared_sectors": [
+        "telecommunications",
+        "government",
+        "technology"
+      ],
+      "shared_regions": [
+        "Philippines",
+        "Australia",
         "Vietnam",
-        "Australia"
+        "Thailand",
+        "Nepal"
       ]
     },
     {
@@ -406,42 +1025,16 @@
         }
       ],
       "shared_sectors": [
-        "government",
         "defense",
         "telecommunications",
-        "technology"
+        "technology",
+        "government"
       ],
       "shared_regions": [
         "India",
         "Australia",
         "Thailand"
       ]
-    },
-    {
-      "group_name": "APT12",
-      "group_slug": "apt12",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "defense",
-        "telecommunications",
-        "technology"
-      ],
-      "shared_regions": []
     },
     {
       "group_name": "Lotus Blossom",
@@ -481,70 +1074,27 @@
         }
       ],
       "shared_sectors": [
+        "technology",
         "telecommunications",
         "military",
-        "technology",
-        "diplomatic",
-        "government"
+        "government",
+        "diplomatic"
       ],
       "shared_regions": [
-        "Myanmar",
-        "Thailand",
-        "Vietnam",
-        "Indonesia",
         "Philippines",
         "Malaysia",
-        "Australia"
+        "Australia",
+        "Vietnam",
+        "Thailand",
+        "Indonesia",
+        "Myanmar"
       ]
     },
     {
-      "group_name": "APT15",
-      "group_slug": "apt15",
-      "shared_tools": [
-        {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
-        },
-        {
-          "name": "Tasklist",
-          "software_id": "S0057",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0057"
-        },
-        {
-          "name": "Systeminfo",
-          "software_id": "S0096",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0096"
-        },
-        {
-          "name": "Ping",
-          "software_id": "S0097",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0097"
-        }
-      ],
+      "group_name": "APT2",
+      "group_slug": "apt2",
+      "shared_tools": [],
       "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
         {
           "technique_id": "T1547.001",
           "name": "Registry Run Keys / Startup Folder",
@@ -553,18 +1103,16 @@
         }
       ],
       "shared_sectors": [
-        "government",
-        "military",
+        "defense",
+        "telecommunications",
         "technology",
-        "diplomatic"
+        "government"
       ],
-      "shared_regions": [
-        "India"
-      ]
+      "shared_regions": []
     },
     {
-      "group_name": "APT19",
-      "group_slug": "apt19",
+      "group_name": "Tropic Trooper",
+      "group_slug": "tropic-trooper",
       "shared_tools": [],
       "shared_techniques": [
         {
@@ -574,10 +1122,28 @@
           "url": "https://attack.mitre.org/techniques/T1016"
         },
         {
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        },
+        {
           "technique_id": "T1204.002",
           "name": "Malicious File",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1518.001",
+          "name": "Security Software Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1518/001"
         },
         {
           "technique_id": "T1547.001",
@@ -599,13 +1165,14 @@
         }
       ],
       "shared_sectors": [
+        "military",
         "government",
-        "defense",
-        "telecommunications",
         "technology"
       ],
       "shared_regions": [
-        "Australia"
+        "Philippines",
+        "Vietnam",
+        "Malaysia"
       ]
     },
     {
@@ -627,216 +1194,16 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "military",
-        "diplomatic",
         "defense",
-        "government"
-      ],
-      "shared_regions": [
-        "Vietnam",
-        "Thailand",
-        "Malaysia"
-      ]
-    },
-    {
-      "group_name": "Mustang Panda",
-      "group_slug": "mustang-panda",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
-        },
-        {
-          "technique_id": "T1047",
-          "name": "Windows Management Instrumentation",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1047"
-        },
-        {
-          "technique_id": "T1053.005",
-          "name": "Scheduled Task",
-          "tactic": "execution, persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1053/005"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        },
-        {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
         "telecommunications",
         "military",
+        "government",
         "diplomatic"
       ],
       "shared_regions": [
+        "Malaysia",
         "Vietnam",
-        "Myanmar",
-        "Philippines",
         "Thailand"
-      ]
-    },
-    {
-      "group_name": "Charcoal Typhoon",
-      "group_slug": "charcoal-typhoon",
-      "shared_tools": [
-        {
-          "name": "Tasklist",
-          "software_id": "S0057",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0057"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1047",
-          "name": "Windows Management Instrumentation",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1047"
-        },
-        {
-          "technique_id": "T1053.005",
-          "name": "Scheduled Task",
-          "tactic": "execution, persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1053/005"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "telecommunications",
-        "technology"
-      ],
-      "shared_regions": [
-        "Thailand",
-        "Nepal",
-        "Vietnam",
-        "Philippines",
-        "Australia"
-      ]
-    },
-    {
-      "group_name": "APT3",
-      "group_slug": "apt3",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1053.005",
-          "name": "Scheduled Task",
-          "tactic": "execution, persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1053/005"
-        },
-        {
-          "technique_id": "T1078.002",
-          "name": "Domain Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078/002"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        },
-        {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "defense",
-        "telecommunications",
-        "technology"
-      ],
-      "shared_regions": [
-        "Vietnam",
-        "Philippines"
       ]
     },
     {
@@ -864,143 +1231,16 @@
         }
       ],
       "shared_sectors": [
+        "defense",
+        "technology",
         "telecommunications",
         "military",
-        "technology",
-        "diplomatic",
-        "defense",
-        "government"
+        "government",
+        "diplomatic"
       ],
       "shared_regions": [
         "India",
         "Australia"
-      ]
-    },
-    {
-      "group_name": "APT1",
-      "group_slug": "apt1",
-      "shared_tools": [
-        {
-          "name": "PsExec",
-          "software_id": "S0029",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0029"
-        },
-        {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
-        },
-        {
-          "name": "Tasklist",
-          "software_id": "S0057",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0057"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "defense",
-        "telecommunications",
-        "technology"
-      ],
-      "shared_regions": [
-        "India",
-        "Singapore"
-      ]
-    },
-    {
-      "group_name": "APT22",
-      "group_slug": "apt22",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "military",
-        "technology"
-      ],
-      "shared_regions": [
-        "India"
-      ]
-    },
-    {
-      "group_name": "APT40",
-      "group_slug": "apt40",
-      "shared_tools": [
-        {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1047",
-          "name": "Windows Management Instrumentation",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1047"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "military",
-        "technology",
-        "diplomatic",
-        "defense",
-        "government"
-      ],
-      "shared_regions": [
-        "Cambodia",
-        "Australia",
-        "Indonesia",
-        "Malaysia"
       ]
     },
     {
@@ -1016,30 +1256,10 @@
         }
       ],
       "shared_sectors": [
-        "government",
         "defense",
         "telecommunications",
-        "technology"
-      ],
-      "shared_regions": []
-    },
-    {
-      "group_name": "APT2",
-      "group_slug": "apt2",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "defense",
-        "telecommunications",
-        "technology"
+        "technology",
+        "government"
       ],
       "shared_regions": []
     },
@@ -1129,61 +1349,31 @@
         }
       ],
       "shared_sectors": [
-        "government",
         "defense",
         "telecommunications",
-        "technology"
+        "technology",
+        "government"
       ],
       "shared_regions": [
-        "Myanmar",
-        "Thailand",
-        "India",
-        "Vietnam",
-        "Indonesia",
-        "Singapore",
         "Malaysia",
-        "Australia"
+        "India",
+        "Singapore",
+        "Australia",
+        "Vietnam",
+        "Thailand",
+        "Indonesia",
+        "Myanmar"
       ]
     },
     {
-      "group_name": "Volt Typhoon",
-      "group_slug": "volt-typhoon",
+      "group_name": "Hafnium",
+      "group_slug": "hafnium",
       "shared_tools": [
         {
           "name": "PsExec",
           "software_id": "S0029",
           "software_type": "tool",
           "url": "https://attack.mitre.org/software/S0029"
-        },
-        {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
-        },
-        {
-          "name": "Tasklist",
-          "software_id": "S0057",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0057"
-        },
-        {
-          "name": "Systeminfo",
-          "software_id": "S0096",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0096"
-        },
-        {
-          "name": "Ping",
-          "software_id": "S0097",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0097"
-        },
-        {
-          "name": "netsh",
-          "software_id": "S0108",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0108"
         }
       ],
       "shared_techniques": [
@@ -1198,39 +1388,18 @@
           "name": "Remote System Discovery",
           "tactic": "discovery",
           "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
-        },
-        {
-          "technique_id": "T1047",
-          "name": "Windows Management Instrumentation",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1047"
-        },
-        {
-          "technique_id": "T1078.002",
-          "name": "Domain Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078/002"
         }
       ],
       "shared_sectors": [
-        "government",
         "defense",
         "telecommunications",
-        "technology"
+        "technology",
+        "government"
       ],
-      "shared_regions": []
+      "shared_regions": [
+        "Australia",
+        "Vietnam"
+      ]
     }
   ]
 }
