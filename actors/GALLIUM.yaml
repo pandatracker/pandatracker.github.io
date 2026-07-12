@@ -1,0 +1,250 @@
+# ---- Identity ----
+name: GALLIUM
+aliases:
+  - name: Granite Typhoon
+    vendor: Microsoft
+    source: https://attack.mitre.org/groups/G0093/
+  - name: Soft Cell
+    vendor: Cybereason
+    source: https://www.cybereason.com/blog/research/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers
+  - name: Alloy Taurus
+    vendor: Palo Alto Unit 42
+    source: https://unit42.paloaltonetworks.com/pingpull-gallium/
+  - name: Phantom Panda
+    vendor: CrowdStrike
+    source: https://www.crowdstrike.com/en-us/adversaries/phantom-panda/
+  - name: Red Dev 4
+    vendor: PwC
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/gallium
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: null
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  GALLIUM is widely assessed as a Chinese state-sponsored group. Microsoft
+  identified the group based on tools and TTPs "commonly associated with
+  Chinese threat actors" and noted that its C2 infrastructure was hosted on
+  servers in mainland China, Hong Kong SAR, and Taiwan. (MSTIC, 2019)
+
+  Cybereason initially attributed GALLIUM's telecom targeting campaign to activity consistent
+  with APT10, though Microsoft subsequently tracked it under the separate
+  GALLIUM designation. (Cybereason, 2019; MSTIC, 2019)
+
+  No specific MSS bureau, PLA unit, or contractor has been publicly named.
+  No individuals have been indicted. The relationship between GALLIUM and
+  APT10 remains ambiguous — Cybereason noted TTPs consistent
+  with APT10, while Microsoft tracks GALLIUM as a separate entity.
+affiliation_confidence: suspected
+attribution_evidence:
+  - type: vendor-report
+    title: "Operation Soft Cell: A Worldwide Campaign Against Telecommunications Providers"
+    publisher: Cybereason Nocturnus
+    date: 2019-06-25
+    url: https://www.cybereason.com/blog/research/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers
+  - type: vendor-report
+    title: "GALLIUM: Targeting Global Telecom"
+    publisher: Microsoft Threat Intelligence Center (MSTIC)
+    date: 2019-12-12
+    url: https://www.microsoft.com/en-us/security/blog/2019/12/12/gallium-targeting-global-telecom/
+  - type: vendor-report
+    title: "GALLIUM Expands Targeting Across Telecommunications, Government and Finance Sectors With New PingPull Tool"
+    publisher: Palo Alto Networks Unit 42
+    date: 2022-06-13
+    url: https://unit42.paloaltonetworks.com/pingpull-gallium/
+
+# ---- Timeline ----
+first_seen: 2012
+first_described: 2019-06
+last_seen: 2024
+
+# ---- Overview ----
+description: >
+  GALLIUM is a Chinese state-sponsored cyber espionage group that has
+  been active since at least 2012, specializing in the compromise of
+  telecommunications infrastructure to enable large-scale surveillance.
+  The group was first publicly exposed by Cybereason in June 2019 under
+  the campaign name "Operation Soft Cell," and subsequently designated
+  GALLIUM by Microsoft in December 2019. (Cybereason, 2019; MSTIC, 2019)
+
+  Operation Soft Cell involved multi-year intrusions
+  into global telecommunications providers to steal Call Detail Records
+  (CDRs) — metadata containing the communications, geolocation, and
+  associations of specific high-value individuals. (Cybereason, 2019) At least a dozen global
+  telecommunications providers were affected.
+
+  Beginning in 2021, Unit 42 documented an expansion of GALLIUM's
+  targeting beyond telecoms to include financial institutions and government
+  entities across nine countries, accompanied by the deployment of a new
+  RAT called PingPull. (Unit 42, 2022) In 2023, Unit 42 identified a Linux
+  variant of PingPull and a previously undocumented backdoor called
+  Sword2033, deployed against targets in South Africa. (Unit 42, 2023) 
+  In 2024, Unit 42 reported intrusions 
+  directed at SEA governments attributed to Alloy Taurus. (Unit 42, 2024)
+  
+  ESET's 2024 reporting identified GALLIUM activity using SoftEther VPN across African
+  telecom operators. (ESET, 2024)
+
+# ---- Key References ----
+assessment_basis:
+  - title: "Operation Soft Cell: A Worldwide Campaign Against Telecommunications Providers"
+    publisher: Cybereason Nocturnus
+    date: 2019-06-25
+    url: https://www.cybereason.com/blog/research/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers
+
+  - title: "GALLIUM: Targeting Global Telecom"
+    publisher: Microsoft Threat Intelligence Center (MSTIC)
+    date: 2019-12-12
+    url: https://www.microsoft.com/en-us/security/blog/2019/12/12/gallium-targeting-global-telecom/
+
+  - title: "GALLIUM Expands Targeting Across Telecommunications, Government and Finance Sectors With New PingPull Tool"
+    publisher: Palo Alto Networks Unit 42
+    date: 2022-06-13
+    url: https://unit42.paloaltonetworks.com/pingpull-gallium/
+
+  - title: "Chinese Alloy Taurus Updates PingPull Malware"
+    publisher: Palo Alto Networks Unit 42
+    date: 2023-04-26
+    url: https://unit42.paloaltonetworks.com/alloy-taurus/
+
+  - title: "Persistent Attempts at Cyberespionage Against Southeast Asian Government Target Have Links to Alloy Taurus"
+    publisher: Palo Alto Networks Unit 42
+    date: 2024-06
+    url: https://unit42.paloaltonetworks.com/alloy-taurus-targets-se-asian-government/
+
+  - title: "APT Activity Report Q4 2023–Q1 2024"
+    publisher: ESET
+    date: 2024-05
+    url: https://www.eset.com/us/business/resource-center/reports/apt-activity-report-q4-2023-q1-2024/
+
+# ---- Targeting ----
+target_sectors:
+  - telecommunications
+  - government
+  - finance
+  - defense
+  - military
+  - technology
+
+target_regions:
+  - Southeast Asia
+  - Africa
+  - Europe
+  - Afghanistan
+  - Australia
+  - Belgium
+  - Cambodia
+  - Malaysia
+  - Mozambique
+  - Philippines
+  - Russia
+  - Vietnam
+  - South Africa
+  - Nepal
+
+# ---- Campaigns ----
+campaigns:
+  - name: Operation Soft Cell
+    year_published: 2019
+    description: >
+      Cybereason exposed a sustained campaign active since at least 2012
+      targeting global telecommunications providers. The attackers
+      compromised carrier networks to steal Call Detail Records, enabling
+      surveillance of specific high-value individuals' communications,
+      geolocation, and associations. The group achieved total network
+      compromise, exfiltrating "hundreds of gigabytes of call data records"
+      each time.
+    targets:
+      sectors: [telecommunications]
+      regions: [Southeast Asia, Europe, Africa]
+    sources:
+      - url: https://www.cybereason.com/blog/research/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers
+        title: "Operation Soft Cell: A Worldwide Campaign Against Telecommunications Providers"
+        publisher: Cybereason Nocturnus
+
+  - name: DeadRinger (Telecom Intrusions Continuation)
+    year_published: 2021
+    description: >
+      Cybereason documented three concurrent clusters of Chinese APT
+      activity targeting Southeast Asian telecoms, including continued
+      Soft Cell operations through Q1 2021. The group exploited
+      Microsoft Exchange ProxyLogon vulnerabilities, deploying PcShare
+      backdoor and China Chopper web shells to access CDRs and billing
+      systems.
+    targets:
+      sectors: [telecommunications]
+      regions: [Southeast Asia]
+    sources:
+      - url: https://www.cybereason.com/blog/research/deadringer-exposing-chinese-threat-actors-targeting-major-telcos
+        title: "DeadRinger: Exposing Chinese Threat Actors Targeting Major Telcos"
+        publisher: Cybereason Nocturnus
+
+  - name: PingPull Multi-Sector Expansion
+    year_published: 2022
+    description: >
+      Unit 42 identified GALLIUM expanding beyond telecoms to target
+      financial institutions and government entities across nine countries:
+      Afghanistan, Australia, Belgium, Cambodia, Malaysia, Mozambique,
+      the Philippines, Russia, and Vietnam. The group deployed a new
+      RAT called PingPull using ICMP, HTTPS, and raw TCP for C2
+      communications. Over 170 IP addresses were mapped in GALLIUM's
+      infrastructure. (Unit 42, 2022)
+    targets:
+      sectors: [telecommunications, finance, government]
+      regions: [Afghanistan, Australia, Belgium, Cambodia, Malaysia, Mozambique, Philippines, Russia, Vietnam]
+    sources:
+      - url: https://unit42.paloaltonetworks.com/pingpull-gallium/
+        title: "GALLIUM Expands Targeting With New PingPull Tool"
+        publisher: Palo Alto Networks Unit 42
+
+  - name: South Africa and Linux PingPull Deployment
+    year_published: 2023
+    description: >
+      Unit 42 identified a Linux variant of PingPull and a new backdoor
+      called Sword2033 targeting South African entities.
+    targets:
+      sectors: [government, finance, telecommunications]
+      regions: [South Africa, Nepal]
+    sources:
+      - url: https://unit42.paloaltonetworks.com/alloy-taurus/
+        title: "Chinese Alloy Taurus Updates PingPull Malware"
+        publisher: Palo Alto Networks Unit 42
+
+  - name: Southeast Asian Government Espionage
+    year_published: 2024
+    description: >
+      Unit 42 attributed with moderate confidence a multiwave intrusion
+      campaign against a Southeast Asian government from 2022 through
+      2023 to Alloy Taurus. The group exploited Exchange Server
+      vulnerabilities, deployed China Chopper web shells, and used
+      renamed SoftEther VPN for persistence — a combination unique to
+      GALLIUM operations.
+    targets:
+      sectors: [government]
+      regions: [Southeast Asia]
+    sources:
+      - url: https://unit42.paloaltonetworks.com/alloy-taurus-targets-se-asian-government/
+        title: "Persistent Attempts at Cyberespionage Against Southeast Asian Government"
+        publisher: Palo Alto Networks Unit 42
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0093
+  group_url: https://attack.mitre.org/groups/G0093/
+
+# ---- Meta ----
+meta:
+  created: 2026-07-11
+  last_updated: 2026-07-11
+
+misp_uuid: null
+
+news_queries:
+  - "GALLIUM hacking"
+  - "Granite Typhoon hacking"
+  - "Alloy Taurus espionage"
+  - "Phantom Panda china"
+  - "PingPull malware"

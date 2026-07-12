@@ -1,0 +1,267 @@
+# ---- Identity ----
+name: Tropic Trooper
+aliases:
+  - name: Earth Centaur
+    vendor: Trend Micro
+    source: https://attack.mitre.org/groups/G0081/
+  - name: KeyBoy
+    vendor: Citizen Lab / Rapid7
+    source: https://citizenlab.ca/research/parliament-keyboy/
+  - name: Pirate Panda
+    vendor: CrowdStrike
+    source: https://attack.mitre.org/groups/G0081/
+  - name: APT23
+    vendor: Mandiant
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt23
+  - name: BRONZE HOBART
+    vendor: SecureWorks
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt23
+  - name: Red Orthrus
+    vendor: PwC
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt23
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: China
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Tropic Trooper is assessed as a Chinese state-sponsored group based on
+  its sustained targeting of Taiwan, the Philippines, and Hong Kong —
+  regions of direct strategic interest to the PRC — as well as its use
+  of tools and TTPs common to the Chinese APT ecosystem (China Chopper,
+  Poison Ivy, TClient). (Trend Micro, 2015; Kaspersky, 2024) No specific
+  MSS bureau, PLA unit, or contractor has been publicly identified.
+
+  Kaspersky noted potential connections between Tropic Trooper and the
+  FamousSparrow threat group. (Kaspersky, 2024)
+
+affiliation_confidence: suspected
+attribution_evidence:
+  - type: vendor-report
+    title: "Operation Tropic Trooper: Relying on Tried-and-Tested Flaws to Infiltrate Secret Keepers"
+    publisher: Trend Micro
+    date: 2015
+    url: https://documents.trendmicro.com/assets/wp/wp-operation-tropic-trooper.pdf
+  - type: vendor-report
+    title: "Tropic Trooper Targets Taiwanese Government and Fossil Fuel Provider With Poison Ivy"
+    publisher: Palo Alto Networks Unit 42
+    date: 2016-11-22
+    url: https://unit42.paloaltonetworks.com/unit42-tropic-trooper-targets-taiwanese-government-and-fossil-fuel-provider-with-poison-ivy/
+  - type: vendor-report
+    title: "It's Parliamentary: KeyBoy and the Targeting of the Tibetan Community"
+    publisher: Citizen Lab
+    date: 2016-11-17
+    url: https://citizenlab.ca/research/parliament-keyboy/
+  - type: vendor-report
+    title: "New Malicious Web Shell from the Tropic Trooper Group Found in the Middle East"
+    publisher: Kaspersky GReAT
+    date: 2024-09-05
+    url: https://securelist.com/new-tropic-trooper-web-shell-infection/113737/
+
+# ---- Timeline ----
+first_seen: 2011
+first_described: 2015
+last_seen: 2026
+
+# ---- Overview ----
+description: >
+  Tropic Trooper is a suspected Chinese state-sponsored cyber espionage group active
+  since at least 2011, targeting primarily government, military, healthcare,
+  transportation, and technology organizations in Taiwan, the Philippines,
+  and Hong Kong. (Trend Micro, 2015; MITRE, n.d.)
+
+  The group first gained public attention through Trend Micro's 2015
+  "Operation Tropic Trooper" report, which documented campaigns against
+  Taiwanese government institutions and Philippine military targets using
+  weaponized document exploits. The "KeyBoy" alias derives from early
+  malware samples used to target the Tibetan community and parliamentary
+  staff. (Citizen Lab, 2016)
+
+  Tropic Trooper is notable for its capability to penetrate air-gapped
+  military networks. In 2020, Trend Micro documented USBferry, a USB
+  malware active since at least December 2014 that targets physically
+  isolated environments in the Taiwanese and Philippine military. The
+  group was observed pivoting from a military hospital into air-gapped
+  networks to exfiltrate defense-, ocean-, and ship-related documents.
+  (Trend Micro, 2020) In 2021, Trend Micro identified the group expanding
+  into the transportation sector, accessing flight schedules and financial
+  data from compromised hosts. (Trend Micro, 2021)
+
+  In 2024, Kaspersky documented the group targeting a Middle Eastern government entity involved in human
+  rights studies — "particularly those related to the Israel-Hamas war" —
+  since at least June 2023. (Kaspersky, 2024) 
+  
+  In April 2026, Zscaler ThreatLabz and Itochu researchers identified campaigns using trojanized
+  SumatraPDF with military-themed lures and AdaptixC2 beacons leveraging
+  GitHub for C2, targeting individuals in Japan, Taiwan, and South Korea.
+  (Zscaler, 2026; Dark Reading, 2026)
+
+# ---- Key References ----
+assessment_basis:
+  - title: "Operation Tropic Trooper: Relying on Tried-and-Tested Flaws to Infiltrate Secret Keepers"
+    publisher: Trend Micro
+    date: 2015
+    url: https://documents.trendmicro.com/assets/wp/wp-operation-tropic-trooper.pdf
+
+  - title: "Tropic Trooper's Back: USBferry Attack Targets Air-gapped Environments"
+    publisher: Trend Micro
+    date: 2020-05-12
+    url: https://www.trendmicro.com/en_us/research/20/e/tropic-troopers-back-usbferry-attack-targets-air-gapped-environments.html
+
+  - title: "Earth Centaur — Tropic Trooper Targets Transportation and Government"
+    publisher: Trend Micro
+    date: 2021-12
+    url: https://www.trendmicro.com/en_us/research/21/l/collecting-in-the-dark-tropic-trooper-targets-transportation-and-government-organizations.html
+
+  - title: "New Malicious Web Shell from the Tropic Trooper Group Found in the Middle East"
+    publisher: Kaspersky GReAT
+    date: 2024-09-05
+    url: https://securelist.com/new-tropic-trooper-web-shell-infection/113737/
+
+  - title: "Tropic Trooper Uses Trojanized SumatraPDF and GitHub to Deploy AdaptixC2"
+    publisher: Zscaler ThreatLabz
+    date: 2026-04
+    url: https://www.zscaler.com/blogs/security-research/tropic-trooper-pivots-adaptixc2-and-custom-beacon-listener
+
+  - title: "Tropic Trooper APT Takes Aim at Home Routers, Japanese Targets"
+    publisher: Dark Reading (reporting on Itochu Cyber & Intelligence)
+    date: 2026-04-24
+    url: https://www.darkreading.com/threat-intelligence/tropic-trooper-apt-takes-aim-home-routers-japanese-targets
+
+# ---- Targeting ----
+target_sectors:
+  - government
+  - military
+  - healthcare
+  - transportation
+  - technology
+  - energy
+  - political-dissidents
+
+target_regions:
+  - Taiwan
+  - Philippines
+  - Hong Kong
+  - Middle East
+  - Malaysia
+  - Japan
+  - South Korea
+  - Vietnam
+
+# ---- Campaigns ----
+campaigns:
+  - name: Operation Tropic Trooper
+    year_published: 2015
+    description: >
+      Trend Micro documented the group's initial campaigns targeting
+      Taiwanese government institutions and Philippine military entities
+      using spear-phishing with weaponized document exploits. The
+      campaign name became the group's primary designation. (Trend Micro,
+      2015)
+    targets:
+      sectors: [government, military]
+      regions: [Taiwan, Philippines]
+    sources:
+      - url: https://documents.trendmicro.com/assets/wp/wp-operation-tropic-trooper.pdf
+        title: "Operation Tropic Trooper"
+        publisher: Trend Micro
+
+  - name: USBferry Air-Gapped Network Targeting
+    year_published: 2020
+    description: >
+      Trend Micro documented USBferry, a USB malware active since
+      December 2014, targeting physically isolated military networks
+      in Taiwan and the Philippines. The group pivoted from military
+      hospitals into air-gapped environments and exfiltrated defense,
+      naval, and shipping documents. Three USBferry versions were
+      identified, with the latest residing entirely in memory. Targets
+      included military/navy agencies, government institutions, and a
+      national bank. (Trend Micro, 2020)
+    targets:
+      sectors: [military, government, healthcare]
+      regions: [Taiwan, Philippines]
+    sources:
+      - url: https://www.trendmicro.com/en_us/research/20/e/tropic-troopers-back-usbferry-attack-targets-air-gapped-environments.html
+        title: "Tropic Trooper's Back: USBferry Attack Targets Air-gapped Environments"
+        publisher: Trend Micro
+
+  - name: Earth Centaur Transportation Sector Campaign
+    year_published: 2021
+    description: >
+      Trend Micro documented Tropic Trooper expanding to target the
+      transportation sector in Taiwan, the Philippines, and Hong Kong.
+      The group accessed flight schedules, financial plans, and personal
+      information from compromised hosts. Backdoors used reverse proxy
+      protocols to bypass network security monitoring. (Trend Micro, 2021)
+    targets:
+      sectors: [transportation, government, healthcare]
+      regions: [Taiwan, Philippines, Hong Kong]
+    sources:
+      - url: https://www.trendmicro.com/en_us/research/21/l/collecting-in-the-dark-tropic-trooper-targets-transportation-and-government-organizations.html
+        title: "Earth Centaur Targets Transportation and Government"
+        publisher: Trend Micro
+
+  - name: Middle East Government Targeting (Human Rights)
+    year_published: 2024
+    description: >
+      Kaspersky documented a year-long campaign (June 2023–2024) targeting
+      a Middle Eastern government entity involved in human rights studies,
+      "particularly those related to the Israel-Hamas war." The group
+      deployed a China Chopper web shell variant embedded in Umbraco CMS,
+      the Crowdoor loader (related to SparrowDoor), and DLL side-loading
+      implants. A Malaysian government entity was simultaneously targeted.
+      Kaspersky attributed with high confidence and noted this represented
+      "a new strategic move" for the group. (Kaspersky, 2024)
+    targets:
+      sectors: [government, political-dissidents]
+      regions: [Middle East, Malaysia]
+    sources:
+      - url: https://securelist.com/new-tropic-trooper-web-shell-infection/113737/
+        title: "New Malicious Web Shell from the Tropic Trooper Group"
+        publisher: Kaspersky GReAT
+
+  - name: Trojanized SumatraPDF / AdaptixC2 Campaign
+    year_published: 2026
+    description: >
+      Zscaler ThreatLabz identified Tropic Trooper distributing
+      trojanized SumatraPDF installers bundled with military-themed
+      decoy documents to target Chinese-speaking individuals in Taiwan
+      and individuals in South Korea and Japan. The group used GitHub
+      as a C2 platform for custom AdaptixC2 Beacons. Itochu researchers
+      additionally discovered an exposed S3 bucket containing 48 files
+      with new malware and phishing pages mimicking Signal authentication.
+      (Zscaler, 2026; Itochu via Dark Reading, 2026)
+    targets:
+      sectors: [government, military]
+      regions: [Taiwan, Japan, South Korea]
+    sources:
+      - url: https://www.zscaler.com/blogs/security-research/tropic-trooper-pivots-adaptixc2-and-custom-beacon-listener
+        title: "Tropic Trooper Uses Trojanized SumatraPDF and GitHub to Deploy AdaptixC2"
+        publisher: Zscaler ThreatLabz
+      - url: https://www.darkreading.com/threat-intelligence/tropic-trooper-apt-takes-aim-home-routers-japanese-targets
+        title: "Tropic Trooper APT Takes Aim at Home Routers, Japanese Targets"
+        publisher: Dark Reading (reporting on Itochu Cyber & Intelligence)
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0081
+  group_url: https://attack.mitre.org/groups/G0081/
+
+# ---- Meta ----
+meta:
+  created: 2026-07-11
+  last_updated: 2026-07-11
+
+misp_uuid: null
+
+news_queries:
+  - "Tropic Trooper hacking"
+  - "Tropic Trooper China"
+  - "Tropic Trooper apt"
+  - "Earth Centaur espionage"
+  - "Pirate Panda APT"
+  - "KeyBoy malware"
+  - "APT23 china"
