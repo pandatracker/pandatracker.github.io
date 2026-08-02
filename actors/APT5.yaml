@@ -1,0 +1,247 @@
+# ---- Identity ----
+name: APT5
+aliases:
+  - name: Mulberry Typhoon
+    vendor: Microsoft
+    source: https://attack.mitre.org/groups/G1023/
+  - name: MANGANESE
+    vendor: Microsoft
+    source: https://attack.mitre.org/groups/G1023/
+  - name: Keyhole Panda
+    vendor: CrowdStrike
+    source: https://www.crowdstrike.com/en-us/adversaries/keyhole-panda/
+  - name: UNC2630
+    vendor: Mandiant
+    source: https://cloud.google.com/blog/topics/threat-intelligence/suspected-apt-actors-leverage-bypass-techniques-pulse-secure-zero-day
+  - name: BRONZE FLEETWOOD
+    vendor: SecureWorks
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt5
+  - name: Poisoned Flight
+    vendor: null
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt5
+  - name: TEMP.Bottle
+    vendor: Mandiant
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt5
+  - name: Red Horus
+    vendor: PwC
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/apt5
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: unknown
+affiliation_unit: null
+entity_name: null
+associated_address: null
+coordinates: [null, null]
+affiliation_detail: >
+  Mandiant characterizes APT5 as "a large threat group that
+  consists of several subgroups, often with distinct tactics and
+  infrastructure," (Mandiant, n.d.)
+  
+  The NSA attributed the 2022 Citrix ADC zero-day exploitation to APT5 in a
+  named advisory. (NSA, 2022)
+
+  No specific MSS bureau, PLA unit, or contractor has been publicly
+  identified.
+
+  Mandiant notes that UNC2630's targeting "generally line up with collection requirements
+  for the Chinese government." (Mandiant, 2021) The UNC2630 linkage to APT5 is assessed rather than
+  definitive. Mandiant stated: "Although we are not able to definitively
+  connect UNC2630 to APT5, or any other existing APT group, a trusted
+  third party has uncovered evidence connecting this activity to historic
+  campaigns which Mandiant tracks as Chinese espionage actor APT5."
+  (Mandiant, 2021)
+
+affiliation_confidence: likely
+attribution_evidence:
+  - type: government-advisory
+    title: "APT5: Citrix ADC Threat Hunting Guidance"
+    publisher: National Security Agency (NSA)
+    date: 2022-12-13
+    url: https://media.defense.gov/2022/Dec/13/2003131586/-1/-1/0/CSA-APT5-CITRIXADC-V1.PDF
+
+  - type: vendor-report
+    title: "Check Your Pulse: Suspected APT Actors Leverage Authentication Bypass Techniques and Pulse Secure Zero-Day"
+    publisher: Mandiant / FireEye
+    date: 2021-04-20
+    url: https://cloud.google.com/blog/topics/threat-intelligence/suspected-apt-actors-leverage-bypass-techniques-pulse-secure-zero-day
+
+  - type: vendor-report
+    title: "Re-Checking Your Pulse: Updates on Chinese APT Actors Compromising Pulse Secure VPN Devices"
+    publisher: Mandiant
+    date: 2021-05-27
+    url: https://cloud.google.com/blog/topics/threat-intelligence/updates-on-chinese-apt-compromising-pulse-secure-vpn-devices
+
+  - type: vendor-report
+    title: "Advanced persistent threats (APTs)"
+    publisher: Mandiant
+    date: n.d.
+    url: https://cloud.google.com/security/resources/insights/apt-groups
+
+# ---- Timeline ----
+first_seen: 2007
+first_described: 2014
+last_seen: 2024
+
+# ---- Overview ----
+description: >
+  APT5 is a China-based cyber espionage actor active since at least 2007,
+  primarily targeting the telecommunications, aerospace, and defense
+  industries across the United States, Europe, and Asia. Mandiant
+  characterizes it as "a large threat group that consists of several
+  subgroups, often with distinct tactics and infrastructure." (Mandiant,
+  n.d.)
+
+  The group is distinguished by its focus on compromising
+  network infrastructure devices — VPN appliances, routers, application
+  delivery controllers — and modifying their underlying software to
+  maintain persistent access while bypassing authentication controls.
+  As early as 2014, Mandiant observed APT5 making unauthorized code
+  modifications to files in embedded operating systems of technology
+  platforms. In 2015, APT5 compromised a U.S. telecommunications
+  organization and "downloaded and modified some of the router images
+  related to the company's network routers." (Mandiant, n.d.)
+
+  In April 2021, Mandiant documented APT5 (tracked as UNC2630) exploiting
+  a zero-day in Pulse Secure VPN appliances to target
+  U.S. defense industrial base networks. The group deployed 16 distinct
+  malware families specifically designed for Pulse Secure devices. CISA issued an
+  emergency directive requiring all federal agencies to assess their Pulse
+  Secure deployments. (Mandiant, 2021; CISA, 2021)
+
+  In December 2022, the NSA published a named advisory attributing active
+  exploitation of a Citrix ADC zero-day to APT5. The
+  vulnerability allowed unauthenticated remote code execution on Citrix
+  Application Delivery Controller and Gateway devices. (NSA, 2022) APT5 has also
+  been documented using ORB (Operational Relay Box) networks — specifically
+  the SPACEHOP infrastructure — for network reconnaissance and exploit
+  delivery, raising the cost of attribution for defenders. (Mandiant, 2024)
+
+# ---- Key References ----
+assessment_basis:
+  - title: "APT Groups — APT5 Profile"
+    publisher: Mandiant / Google Cloud
+    date: null
+    url: https://cloud.google.com/security/resources/insights/apt-groups
+
+  - title: "Check Your Pulse: Suspected APT Actors Leverage Authentication Bypass Techniques and Pulse Secure Zero-Day"
+    publisher: Mandiant / FireEye
+    date: 2021-04-20
+    url: https://cloud.google.com/blog/topics/threat-intelligence/suspected-apt-actors-leverage-bypass-techniques-pulse-secure-zero-day
+
+  - title: "Re-Checking Your Pulse: Updates on Chinese APT Actors Compromising Pulse Secure VPN Devices"
+    publisher: Mandiant
+    date: 2021-05-27
+    url: https://cloud.google.com/blog/topics/threat-intelligence/updates-on-chinese-apt-compromising-pulse-secure-vpn-devices
+
+  - title: "APT5: Citrix ADC Threat Hunting Guidance"
+    publisher: National Security Agency (NSA)
+    date: 2022-12-13
+    url: https://media.defense.gov/2022/Dec/13/2003131586/-1/-1/0/CSA-APT5-CITRIXADC-V1.PDF
+
+  - title: "IOC Extinction? China-Nexus Cyber Espionage Actors Use ORB Networks to Raise Cost on Defenders"
+    publisher: Mandiant
+    date: 2024-05-22
+    url: https://cloud.google.com/blog/topics/threat-intelligence/china-nexus-espionage-orb-networks
+
+# ---- Targeting ----
+target_sectors:
+  - telecommunications
+  - technology
+  - aerospace
+  - defense
+  - government
+  - finance
+  - managed-service-providers
+
+target_regions:
+  - United States
+  - Europe
+  - Southeast Asia
+  - South Asia
+
+# ---- Campaigns ----
+campaigns:
+  - name: Pulse Secure VPN Zero-Day Exploitation (UNC2630)
+    year_published: 2021
+    description: >
+      Mandiant documented UNC2630 (assessed as APT5) exploiting a
+      zero-day vulnerability (CVE-2021-22893) in Pulse Secure VPN
+      appliances to target U.S. defense industrial base networks
+      beginning August 2020. The group deployed 16 malware families
+      designed specifically for Pulse Secure, including SLOWPULSE
+      (which bypasses LDAP and RADIUS 2FA), ATRIUM, PACEMAKER, and
+      RADIALPULSE. CISA issued Emergency Directive 21-03 requiring
+      all federal agencies to assess their Pulse Secure environments.
+      Mandiant noted "these actors display an unusual sensitivity to
+      publicity" after observing UNC2630 rapidly remove backdoors from
+      dozens of devices around the time of public disclosure. (Mandiant,
+      2021)
+    targets:
+      sectors: [defense, government, finance, technology]
+      regions: [United States, Europe]
+    sources:
+      - url: https://cloud.google.com/blog/topics/threat-intelligence/suspected-apt-actors-leverage-bypass-techniques-pulse-secure-zero-day
+        title: "Check Your Pulse"
+        publisher: Mandiant / FireEye
+      - url: https://cloud.google.com/blog/topics/threat-intelligence/updates-on-chinese-apt-compromising-pulse-secure-vpn-devices
+        title: "Re-Checking Your Pulse"
+        publisher: Mandiant
+
+  - name: Citrix ADC Zero-Day Exploitation (CVE-2022-27518)
+    year_published: 2022
+    description: >
+      The NSA published a named advisory attributing active exploitation
+      of a critical Citrix ADC zero-day (CVE-2022-27518, CVSS 9.8) to
+      APT5. The vulnerability allowed unauthenticated remote code
+      execution on Citrix Application Delivery Controller and Gateway
+      devices configured with SAML SP or IdP. APT5 modified legitimate
+      binaries for persistence, requiring investigation beyond patching.
+      CISA added the CVE to the KEV catalog on December 13, 2022.
+      (NSA, 2022; Citrix, 2022)
+    targets:
+      sectors: [telecommunications, technology, defense]
+      regions: [United States, global]
+    sources:
+      - url: https://media.defense.gov/2022/Dec/13/2003131586/-1/-1/0/CSA-APT5-CITRIXADC-V1.PDF
+        title: "APT5: Citrix ADC Threat Hunting Guidance"
+        publisher: National Security Agency (NSA)
+
+  - name: Telecom and Router Infrastructure Compromise (2014–2015)
+    year_published: null
+    description: >
+      Mandiant documented APT5 making unauthorized code modifications
+      to files in the embedded operating system of a technology platform
+      as early as 2014. In 2015, APT5 compromised a U.S. telecommunications
+      organization and downloaded and modified router images. During the
+      same period, APT5 stole military technology files from a South Asian
+      defense organization, including product specifications, procurement
+      bids, and documents on unmanned aerial vehicles (UAVs). (Mandiant,
+      n.d.)
+    targets:
+      sectors: [telecommunications, defense, technology]
+      regions: [United States, South Asia]
+    sources:
+      - url: https://cloud.google.com/security/resources/insights/apt-groups
+        title: "APT Groups — APT5"
+        publisher: Mandiant / Google Cloud
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G1023
+  group_url: https://attack.mitre.org/groups/G1023/
+
+# ---- Meta ----
+meta:
+  created: 2026-07-11
+  last_updated: 2026-07-11
+
+misp_uuid: null
+
+news_queries:
+  - "APT5 hacking"
+  - "APT5 china"
+  - "Mulberry Typhoon apt"
+  - "Keyhole Panda china"
+  - "UNC2630 china"
+

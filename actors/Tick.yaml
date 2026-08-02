@@ -1,0 +1,256 @@
+# ---- Identity ----
+name: BRONZE BUTER
+aliases:
+  - name: Tick
+    vendor: Symantec
+    source: https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=5da7ee8f-e251-4e14-acf5-693bdd61bde6&CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&tab=librarydocuments
+  - name: REDBALDKNIGHT
+    vendor: Trend Micro
+    source: https://blog.trendmicro.com/trendlabs-security-intelligence/redbaldknight-bronze-butler-daserf-backdoor-now-using-steganography/
+  - name: Stalker Panda
+    vendor: CrowdStrike
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/tick
+  - name: Stalker Taurus
+    vendor: Palo Alto Unit 42
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/tick
+  - name: Swirl Typhoon
+    vendor: Microsoft
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/tick
+  - name: Nian
+    vendor: null
+    source: https://malpedia.caad.fkie.fraunhofer.de/actor/tick
+
+# ---- Attribution ----
+actor_type: state-associated
+affiliation: PLA
+affiliation_unit: Unit 61419
+entity_name: null
+associated_address: Qingdao, Shandong province
+coordinates: [36.066898, 120.382698]
+affiliation_detail: >
+  SecureWorks assessed "with moderate confidence" that BRONZE BUTLER
+  "operates on behalf of China," based on Chinese characters in malware
+  strings, documented links between the group's Daserf tool and the
+  PRC-based NCPH hacking group, and a decrease in activity during PRC
+  national holidays. (SecureWorks, 2017)
+
+  In April 2021, Japan's Ministry of Foreign Affairs announced that cyberattack 
+  on Japan Aerospace Exploration Agency (JAXA) was "highly likely" conducted by Tick, 
+  stating that "the Unit 61419 of the Chinese People's Liberation Army is behind" 
+  the group. (MOFA JP, 2021; Recorded Future 2021)
+
+  Recorded Future's Insikt Group
+  noted that TAG-74's (reportedly overlapping with Tonto Team, suspected affiliation to PLA) tool ReVBShell is "very likely" shared
+  with Tick. (Recorded Future, 2023)
+affiliation_confidence: likely
+attribution_evidence:
+  - type: vendor-report
+    title: "BRONZE BUTLER Targets Japanese Enterprises"
+    publisher: SecureWorks Counter Threat Unit
+    date: 2017-10-12
+    url: https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses
+  - type: press-release
+    title: "Cases of cyberattacks including those by a group known as APT40 which the Chinese government is behind (Statement by Press Secretary YOSHIDA Tomoyuki)"
+    publisher: Ministry of Foreign Affairs Japan
+    date: 2021-07-19
+    url: https://www.mofa.go.jp/press/danwa/press6e_000312.html
+  - type: vendor-report
+    title: "Japanese police say Tick APT is linked to Chinese military"
+    publisher: Recorded Future
+    date: 2021-04-20
+    url: https://therecord.media/japanese-police-say-tick-apt-is-linked-to-chinese-military
+  - type: vendor-report
+    title: "Multi-year Chinese APT Campaign Targets South Korean Academic, Government, and Political Entities"
+    publisher: Recorded Future
+    date: 2023-09-19
+    url: https://assets.recordedfuture.com/insikt-report-pdfs/2023/cta-2023-0919.pdf
+
+# ---- Timeline ----
+first_seen: 2006
+first_described: 2016
+last_seen: 2025
+
+# ---- Overview ----
+description: >
+  BRONZE BUTER/Tick is a suspected Chinese cyber espionage group active since at
+  least 2006, primarily focused on intellectual property and
+  classified information from Japanese organizations. The group also
+  targets entities in South Korea, and to a lesser extent Russia,
+  Singapore, and Taiwan. (Symantec, 2016; Trend Micro, 2017; SecureWorks,
+  2017) In 2023, Japanese law enforcement attributed Tick to PLA Unit 61419, 
+  a unit stationed in Qingdao, Shandong Province. (The Record, 2023)
+
+  SecureWorks' 2017 analysis documented the group's focus on
+  "critical infrastructure, heavy industry, manufacturing, and international
+  relations" in Japan, noting that "the diverse targeting suggests that
+  the group may be tasked by multiple teams or organizations with
+  varying priorities." (SecureWorks, 2017) The group is distinguished by
+  its deep knowledge of Japan-specific software: it exploited a zero-day
+  in the Japanese asset management product SKYSEA Client View in 2016,
+  and in mid-2025 exploited another zero-day in the
+  widely deployed Motex LANSCOPE Endpoint Manager. (SecureWorks/Sophos, 2025)
+
+  In 2019, Trend Micro documented Operation ENDTRADE, which targeted defense, aerospace,
+  chemical, and satellite industries with multi-stage backdoors. (Trend
+  Micro, 2019)
+
+  In 2021, ESET identified Tick as one of the first groups to exploit the
+  ProxyLogon vulnerability in Microsoft Exchange, targeting a South Korean
+  IT company before public patch availability. (ESET, 2021) Subsequently,
+  Tick compromised an East Asian DLP software developer serving government
+  and military clients, deploying the previously undocumented ShadowPy
+  downloader and trojanizing legitimate installers that were transferred to two downstream customers via
+  remote support tools. (ESET, 2023)
+
+  In 2021, Recorded Future’s Insikt Group has discovered procurement documents 
+  that show the PLA Unit 61419 associated with Tick seeking "to purchase antivirus software from several major American, European, and Russian security companies,"
+  likely "as a testing environment for natively developed malware" or "to find previously undisclosed vulnerabilities." (Recorded Future, 2021)
+
+# ---- Key References ----
+assessment_basis:
+  - title: "BRONZE BUTLER Targets Japanese Enterprises"
+    publisher: SecureWorks Counter Threat Unit
+    date: 2017-10-12
+    url: https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses
+
+  - title: "REDBALDKNIGHT/BRONZE BUTLER's Daserf Backdoor Now Using Steganography"
+    publisher: Trend Micro
+    date: 2017-11-07
+    url: https://blog.trendmicro.com/trendlabs-security-intelligence/redbaldknight-bronze-butler-daserf-backdoor-now-using-steganography/
+
+  - title: "Operation ENDTRADE: TICK's Multi-Stage Backdoors for Attacking Industries and Stealing Classified Data"
+    publisher: Trend Micro
+    date: 2019-11
+    url: https://www.trendmicro.com/en_us/research/19/k/operation-endtrade-finding-multi-stage-backdoors-that-tick.html
+
+  - title: "The Slow Tick-ing Time Bomb: Tick APT Group Compromise of a DLP Software Developer in East Asia"
+    publisher: ESET
+    date: 2023-03-14
+    url: https://www.welivesecurity.com/2023/03/14/slow-ticking-time-bomb-tick-apt-group-dlp-software-developer-east-asia/
+
+  - title: "BRONZE BUTLER Exploits Japanese Asset Management Software Vulnerability"
+    publisher: SecureWorks / Sophos CTU
+    date: 2025-10-30
+    url: https://www.sophos.com/en-us/blog/bronze-butler-exploits-japanese-asset-management-software-vulnerability
+
+  - title: "Tick Cyberespionage Group Zeros In on Japan"
+    publisher: Symantec
+    date: 2016-04-28
+    url: https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=5da7ee8f-e251-4e14-acf5-693bdd61bde6&CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&tab=librarydocuments
+  
+  - title: "China’s PLA Unit 61419 Purchasing Foreign Antivirus Products, Likely for Exploitation"
+    publisher: Recorded Future/Insikt Group
+    date: 2021-05-05
+    url: https://www.recordedfuture.com/fr/research/china-pla-unit-purchasing-antivirus-exploitation
+
+# ---- Targeting ----
+target_sectors:
+  - government
+  - defense
+  - aerospace
+  - manufacturing
+  - electronics
+  - biotechnology
+  - critical-infrastructure
+  - technology
+  - research
+  - finance
+  - energy
+
+target_regions:
+  - Japan
+  - South Korea
+
+# ---- Campaigns ----
+campaigns:
+  - name: SKYSEA Client View Zero-Day Exploitation
+    year_published: 2017
+    description: >
+      SecureWorks documented Tick exploiting a zero-day vulnerability
+      (CVE-2016-7836) in SKYSEA Client View, a popular Japanese asset
+      management product, from June 2016 through at least February 2019.
+      The vulnerability allowed remote code execution on systems exposed
+      to the internet. JPCERT/CC observed scanning activity exclusively
+      targeting Japanese IP addresses.
+    targets:
+      sectors: [government, manufacturing, critical-infrastructure]
+      regions: [Japan]
+    sources:
+      - url: https://www.secureworks.com/research/bronze-butler-targets-japanese-businesses
+        title: "BRONZE BUTLER Targets Japanese Enterprises"
+        publisher: SecureWorks
+
+  - name: Operation ENDTRADE
+    year_published: 2019
+    description: >
+      Trend Micro identified a campaign targeting defense, aerospace,
+      chemical, and satellite industries — specifically organizations
+      with head offices in Japan and subsidiaries in China. The group
+      deployed new multi-stage backdoors and used compromised legitimate
+      email accounts for malware delivery, targeting industries holding
+      classified information.
+    targets:
+      sectors: [defense, aerospace, manufacturing, technology]
+      regions: [Japan]
+    sources:
+      - url: https://www.trendmicro.com/en_us/research/19/k/operation-endtrade-finding-multi-stage-backdoors-that-tick.html
+        title: "Operation ENDTRADE"
+        publisher: Trend Micro
+
+  - name: DLP Software Developer Supply Chain Compromise
+    year_published: 2023
+    description: >
+      ESET documented Tick compromising an East Asian DLP software
+      developer whose customer portfolio included government and military
+      entities. Beginning March 2021, the group deployed Netboy, Ghostdown,
+      and ShadowPy, then trojanized Q-Dir installers and compromised
+      internal update servers. In February and June 2022, the malicious
+      installers were transferred to two downstream customers (engineering
+      and manufacturing firms) via remote support tools. Tick also exploited
+      ProxyLogon to compromise a South Korean IT company around the same
+      time.
+    targets:
+      sectors: [technology, government, military, manufacturing]
+      regions: [East Asia, South Korea]
+    sources:
+      - url: https://www.welivesecurity.com/2023/03/14/slow-ticking-time-bomb-tick-apt-group-dlp-software-developer-east-asia/
+        title: "The Slow Tick-ing Time Bomb"
+        publisher: ESET
+
+  - name: LANSCOPE Endpoint Manager Zero-Day Campaign
+    year_published: 2025
+    description: >
+      SecureWorks/Sophos CTU observed BRONZE BUTLER exploiting
+      CVE-2025-61932, a critical zero-day (CVSS 9.8) in Motex LANSCOPE
+      Endpoint Manager — a platform deployed by one in four listed
+      companies and one in three financial institutions in Japan. The
+      group deployed an updated Gokcpdoor backdoor with multiplexed
+      communications and the Havoc C2 framework. CISA added the CVE to
+      the KEV catalog on October 22, 2025.
+    targets:
+      sectors: [government, finance, manufacturing, technology]
+      regions: [Japan]
+    sources:
+      - url: https://www.sophos.com/en-us/blog/bronze-butler-exploits-japanese-asset-management-software-vulnerability
+        title: "BRONZE BUTLER Exploits Japanese Asset Management Software Vulnerability"
+        publisher: SecureWorks / Sophos CTU
+
+# ---- MITRE ATT&CK ----
+mitre:
+  group_id: G0060
+  group_url: https://attack.mitre.org/groups/G0060/
+
+# ---- Meta ----
+meta:
+  created: 2026-07-11
+  last_updated: 2026-07-11
+
+misp_uuid: 93f52415-0571-4571-b55d-c5b7b8e1b4c3
+
+news_queries:
+  - "Tick APT group"
+  - "BRONZE BUTLER hacking"
+  - "REDBALDKNIGHT espionage"
+  - "Stalker Panda china"
+  - "Swirl Typhoon"
+  - "Bisonal Daserf Japan"
