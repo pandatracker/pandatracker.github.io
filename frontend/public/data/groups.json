@@ -856,6 +856,46 @@
   },
   {
     "id": 18,
+    "name": "APT5",
+    "slug": "apt5",
+    "actor_type": "state-associated",
+    "affiliation": [
+      "unknown"
+    ],
+    "affiliation_confidence": "likely",
+    "last_seen": "2024",
+    "first_seen": "2007",
+    "first_described": "2014",
+    "description": "APT5 is a China-based cyber espionage actor active since at least 2007, primarily targeting the telecommunications, aerospace, and defense industries across the United States, Europe, and Asia. Mandiant characterizes it as \"a large threat group that consists of several subgroups, often with distinct tactics and infrastructure.\" (Mandiant, n.d.)\nThe group is distinguished by its focus on compromising network infrastructure devices — VPN appliances, routers, application delivery controllers — and modifying their underlying software to maintain persistent access while bypassing authentication controls. As early as 2014, Mandiant observed APT5 making unauthorized code modifications to files in embedded operating systems of technology platforms. In 2015, APT5 compromised a U.S. telecommunications organization and \"downloaded and modified some of the router images related to the company's network routers.\" (Mandiant, n.d.)\nIn April 2021, Mandiant documented APT5 (tracked as UNC2630) exploiting a zero-day in Pulse Secure VPN appliances to target U.S. defense industrial base networks. The group deployed 16 distinct malware families specifically designed for Pulse Secure devices. CISA issued an emergency directive requiring all federal agencies to assess their Pulse Secure deployments. (Mandiant, 2021; CISA, 2021)\nIn December 2022, the NSA published a named advisory attributing active exploitation of a Citrix ADC zero-day to APT5. The vulnerability allowed unauthenticated remote code execution on Citrix Application Delivery Controller and Gateway devices. (NSA, 2022) APT5 has also been documented using ORB (Operational Relay Box) networks — specifically the SPACEHOP infrastructure — for network reconnaissance and exploit delivery, raising the cost of attribution for defenders. (Mandiant, 2024)\n",
+    "aliases": [
+      "Mulberry Typhoon",
+      "MANGANESE",
+      "Keyhole Panda",
+      "UNC2630",
+      "BRONZE FLEETWOOD",
+      "Poisoned Flight",
+      "TEMP.Bottle",
+      "Red Horus"
+    ],
+    "target_sectors": [
+      "telecommunications",
+      "technology",
+      "aerospace",
+      "defense",
+      "government",
+      "finance",
+      "managed-service-providers"
+    ],
+    "target_regions": [
+      "United States",
+      "Europe",
+      "Southeast Asia",
+      "South Asia"
+    ],
+    "attack_group_id": "G1023"
+  },
+  {
+    "id": 19,
     "name": "APT9",
     "slug": "apt9",
     "actor_type": "unknown",
@@ -889,7 +929,7 @@
     "attack_group_id": null
   },
   {
-    "id": 19,
+    "id": 20,
     "name": "Charcoal Typhoon",
     "slug": "charcoal-typhoon",
     "actor_type": "contractor",
@@ -945,7 +985,7 @@
     "attack_group_id": "G1006"
   },
   {
-    "id": 20,
+    "id": 21,
     "name": "GALLIUM",
     "slug": "gallium",
     "actor_type": "state-associated",
@@ -991,7 +1031,7 @@
     "attack_group_id": "G0093"
   },
   {
-    "id": 21,
+    "id": 22,
     "name": "Hafnium",
     "slug": "hafnium",
     "actor_type": "contractor",
@@ -1035,7 +1075,7 @@
     "attack_group_id": "G0125"
   },
   {
-    "id": 22,
+    "id": 23,
     "name": "Lotus Blossom",
     "slug": "lotus-blossom",
     "actor_type": "unknown",
@@ -1083,7 +1123,7 @@
     "attack_group_id": "G0030"
   },
   {
-    "id": 23,
+    "id": 24,
     "name": "Mustang Panda",
     "slug": "mustang-panda",
     "actor_type": "unknown",
@@ -1140,7 +1180,7 @@
     "attack_group_id": "G0129"
   },
   {
-    "id": 24,
+    "id": 25,
     "name": "Naikon",
     "slug": "naikon",
     "actor_type": "state-associated",
@@ -1186,7 +1226,52 @@
     "attack_group_id": "G0019"
   },
   {
-    "id": 25,
+    "id": 26,
+    "name": "RedFoxtrot",
+    "slug": "redfoxtrot",
+    "actor_type": "state-associated",
+    "affiliation": [
+      "PLA"
+    ],
+    "affiliation_confidence": "likely",
+    "last_seen": "2025",
+    "first_seen": "~2011",
+    "first_described": "2021-06",
+    "description": "RedFoxtrot is a PLA-linked cyber espionage group active since at least 2014, attributed by Recorded Future with high confidence to PLA Unit 69010 based in Ürümqi, Xinjiang. The group predominantly targets government, defense, telecommunications, aerospace, mining, and research organizations across Central Asia, South Asia, and China's western border countries. (Recorded Future, 2021)\nIn 2022, SentinelLabs documented overlapping activity under the name \"Moshen Dragon,\" targeting Central Asian telecom providers. Moshen Dragon was notable for systematically abusing security vendor software — from Symantec, TrendMicro, BitDefender, McAfee, and Kaspersky — to sideload ShadowPad and PlugX variants via DLL search order hijacking. SentinelLabs noted the overlap with RedFoxtrot and Nomad Panda but did not make a definitive merge. (SentinelLabs, 2022) \nIn Relation to SentinelLabs report, it is worth departing slightly from  the otherwise descriptive purpose of this project and insert a one-sentence note. Coincidence that PLA Unit 61419 (Tick) procured all of this software a year earlier? (see Tick: Recoded Future, 2021) \nBroadcom's April 2025 \"Relentless Force\" report reported continued activity, tracking the group as Needleminer and documenting use of the Quickheal backdoor with updated configuration and VMProtect obfuscation — \"almost identical to Quickheal variants documented by Recorded Future in 2021.\" (Broadcom, 2025) The group has operated alongside Naikon and other Chinese groups in coordinated campaigns against Southeast Asian telecoms. (Broadcom, 2025)\n",
+    "aliases": [
+      "Nomad Panda",
+      "TEMP.Trident",
+      "Moshen Dragon",
+      "Dagger Panda",
+      "Needleminer",
+      "Red Wendigo",
+      "UAT-7290",
+      "Icefog"
+    ],
+    "target_sectors": [
+      "government",
+      "defense",
+      "aerospace",
+      "telecommunications",
+      "mining",
+      "research",
+      "education"
+    ],
+    "target_regions": [
+      "India",
+      "Pakistan",
+      "Afghanistan",
+      "Kazakhstan",
+      "Kyrgyzstan",
+      "Tajikistan",
+      "Uzbekistan",
+      "Central Asia",
+      "Southeast Asia"
+    ],
+    "attack_group_id": null
+  },
+  {
+    "id": 27,
     "name": "Salmon Typhoon",
     "slug": "salmon-typhoon",
     "actor_type": "unknown",
@@ -1218,7 +1303,7 @@
     "attack_group_id": null
   },
   {
-    "id": 26,
+    "id": 28,
     "name": "Salt Typhoon",
     "slug": "salt-typhoon",
     "actor_type": "contractor",
@@ -1256,7 +1341,47 @@
     "attack_group_id": "G1045"
   },
   {
-    "id": 27,
+    "id": 29,
+    "name": "BRONZE BUTER",
+    "slug": "bronze-buter",
+    "actor_type": "state-associated",
+    "affiliation": [
+      "PLA"
+    ],
+    "affiliation_confidence": "likely",
+    "last_seen": "2025",
+    "first_seen": "2006",
+    "first_described": "2016",
+    "description": "BRONZE BUTER/Tick is a suspected Chinese cyber espionage group active since at least 2006, primarily focused on intellectual property and classified information from Japanese organizations. The group also targets entities in South Korea, and to a lesser extent Russia, Singapore, and Taiwan. (Symantec, 2016; Trend Micro, 2017; SecureWorks, 2017) In 2023, Japanese law enforcement attributed Tick to PLA Unit 61419,  a unit stationed in Qingdao, Shandong Province. (The Record, 2023)\nSecureWorks' 2017 analysis documented the group's focus on \"critical infrastructure, heavy industry, manufacturing, and international relations\" in Japan, noting that \"the diverse targeting suggests that the group may be tasked by multiple teams or organizations with varying priorities.\" (SecureWorks, 2017) The group is distinguished by its deep knowledge of Japan-specific software: it exploited a zero-day in the Japanese asset management product SKYSEA Client View in 2016, and in mid-2025 exploited another zero-day in the widely deployed Motex LANSCOPE Endpoint Manager. (SecureWorks/Sophos, 2025)\nIn 2019, Trend Micro documented Operation ENDTRADE, which targeted defense, aerospace, chemical, and satellite industries with multi-stage backdoors. (Trend Micro, 2019)\nIn 2021, ESET identified Tick as one of the first groups to exploit the ProxyLogon vulnerability in Microsoft Exchange, targeting a South Korean IT company before public patch availability. (ESET, 2021) Subsequently, Tick compromised an East Asian DLP software developer serving government and military clients, deploying the previously undocumented ShadowPy downloader and trojanizing legitimate installers that were transferred to two downstream customers via remote support tools. (ESET, 2023)\nIn 2021, Recorded Future’s Insikt Group has discovered procurement documents  that show the PLA Unit 61419 associated with Tick seeking \"to purchase antivirus software from several major American, European, and Russian security companies,\" likely \"as a testing environment for natively developed malware\" or \"to find previously undisclosed vulnerabilities.\" (Recorded Future, 2021)\n",
+    "aliases": [
+      "Tick",
+      "REDBALDKNIGHT",
+      "Stalker Panda",
+      "Stalker Taurus",
+      "Swirl Typhoon",
+      "Nian"
+    ],
+    "target_sectors": [
+      "government",
+      "defense",
+      "aerospace",
+      "manufacturing",
+      "electronics",
+      "biotechnology",
+      "critical-infrastructure",
+      "technology",
+      "research",
+      "finance",
+      "energy"
+    ],
+    "target_regions": [
+      "Japan",
+      "South Korea"
+    ],
+    "attack_group_id": "G0060"
+  },
+  {
+    "id": 30,
     "name": "Tonto Team",
     "slug": "tonto-team",
     "actor_type": "state-associated",
@@ -1299,7 +1424,7 @@
     "attack_group_id": "G0131"
   },
   {
-    "id": 28,
+    "id": 31,
     "name": "Tropic Trooper",
     "slug": "tropic-trooper",
     "actor_type": "state-associated",
@@ -1341,7 +1466,7 @@
     "attack_group_id": "G0081"
   },
   {
-    "id": 29,
+    "id": 32,
     "name": "Volt Typhoon",
     "slug": "volt-typhoon",
     "actor_type": "unknown",
