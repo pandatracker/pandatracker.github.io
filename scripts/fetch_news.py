@@ -248,11 +248,28 @@ def fetch_group_mentions(actor: dict) -> list[dict]:
 def run_global(feeds_path: Path, news_dir: Path) -> None:
     import json
     print("Fetching global news feed...")
-    global_items = fetch_global_feed(feeds_path)
-    (news_dir / "index.json").write_text(
-        json.dumps(global_items, ensure_ascii=False, indent=2)
-    )
-    print(f"  Wrote index.json ({len(global_items)} articles)")
+    new_items = fetch_global_feed(feeds_path)
+
+    # Load existing articles and merge so a bad run never wipes history
+    index_path = news_dir / "index.json"
+    existing: list[dict] = []
+    if index_path.exists():
+        try:
+            existing = json.loads(index_path.read_text())
+        except Exception:
+            pass
+
+    seen_urls: set[str] = {item["url"] for item in new_items if item.get("url")}
+    for item in existing:
+        if item.get("url") and item["url"] not in seen_urls:
+            new_items.append(item)
+            seen_urls.add(item["url"])
+
+    new_items.sort(key=lambda x: x.get("published") or "", reverse=True)
+    new_items = new_items[:MAX_GLOBAL_ITEMS]
+
+    index_path.write_text(json.dumps(new_items, ensure_ascii=False, indent=2))
+    print(f"  Wrote index.json ({len(new_items)} articles, {len(existing)} previously stored)")
 
 
 def run_mentions(actors_dir: Path, news_dir: Path) -> None:
