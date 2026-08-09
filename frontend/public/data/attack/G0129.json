@@ -177,22 +177,6 @@
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has installed TeamViewer on targeted systems.(Citation: Secureworks BRONZE PRESIDENT December 2019)"
     },
     {
-      "technique_id": "T1003",
-      "name": "OS Credential Dumping",
-      "tactic": "credential-access",
-      "description": "Adversaries may attempt to dump credentials to obtain account login and credential material, normally in the form of a hash or a clear text password. Credentials can be obtained from OS caches, memory, or structures.(Citation: Brining MimiKatz to Unix) Credentials can then be used to perform [Lateral Movement](https://attack.mitre.org/tactics/TA0008) and access restricted information.\n\nSeveral of the tools mentioned in associated sub-techniques may be used by both adversaries and professional security testers. Additional custom tools likely exist as well.\n",
-      "url": "https://attack.mitre.org/techniques/T1003",
-      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) utilized “Hdump” to dump credentials from memory.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
-    },
-    {
-      "technique_id": "T1003.006",
-      "name": "DCSync",
-      "tactic": "credential-access",
-      "description": "Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API)(Citation: Microsoft DRSR Dec 2017) (Citation: Microsoft GetNCCChanges) (Citation: Samba DRSUAPI) (Citation: Wine API samlib.dll) to simulate the replication process from a remote domain controller using a technique called DCSync.\n\nMembers of the Administrators, Domain Admins, and Enterprise Admin groups or computer accounts on the domain controller are able to run DCSync to pull password data(Citation: ADSecurity Mimikatz DCSync) from Active Directory, which may include current and historical hashes of potentially useful accounts such as KRBTGT and Administrators. The hashes can then in turn be used to create a [Golden Ticket](https://attack.mitre.org/techniques/T1558/001) for use in [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003)(Citation: Harmj0y Mimikatz and DCSync) or change an account's password as noted in [Account Manipulation](https://attack.mitre.org/techniques/T1098).(Citation: InsiderThreat ChangeNTLM July 2017)\n\nDCSync functionality has been included in the \"lsadump\" module in [Mimikatz](https://attack.mitre.org/software/S0002).(Citation: GitHub Mimikatz lsadump Module) Lsadump also includes NetSync, which performs DCSync over a legacy replication protocol.(Citation: Microsoft NRPC Dec 2017)",
-      "url": "https://attack.mitre.org/techniques/T1003/006",
-      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has leveraged [Mimikatz](https://attack.mitre.org/software/S0002) DCSync feature to obtain user credentials.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
-    },
-    {
       "technique_id": "T1218.004",
       "name": "InstallUtil",
       "tactic": "stealth",
@@ -679,6 +663,22 @@
       "description": "Adversaries may smuggle commands to download malicious payloads past content filters by hiding them within otherwise seemingly benign windows shortcut files. Windows shortcut files (.LNK) include many metadata fields, including an icon location field (also known as the `IconEnvironmentDataBlock`) designed to specify the path to an icon file that is to be displayed for the LNK file within a host directory. \n\nAdversaries may abuse this LNK metadata to download malicious payloads. For example, adversaries have been observed using LNK files as phishing payloads to deliver malware. Once invoked (e.g., [Malicious File](https://attack.mitre.org/techniques/T1204/002)), payloads referenced via external URLs within the LNK icon location field may be downloaded. These files may also then be invoked by [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059)/[System Binary Proxy Execution](https://attack.mitre.org/techniques/T1218) arguments within the target path field of the LNK.(Citation: Unprotect Shortcut)(Citation: Booby Trap Shortcut 2017)\n\nLNK Icon Smuggling may also be utilized post compromise, such as malicious scripts executing an LNK on an infected host to download additional malicious payloads. \n",
       "url": "https://attack.mitre.org/techniques/T1027/012",
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has utilized LNK files to hide malicious scripts for execution.(Citation: Cisco Talos MUSTANG PANDA PLUGX PUBLOAD MAY 2022)(Citation: Sophos Mustang Panda PLUGX) [Mustang Panda](https://attack.mitre.org/groups/G0129) has also leveraged LNK files that were programmed to display a PDF icon to entice the victim to click on the file to execute an office.exe binary.(Citation: CSIRT CTI MUSTANG PANDA PUBLOAD TONESHELL JAN 2024)"
+    },
+    {
+      "technique_id": "T1003",
+      "name": "OS Credential Dumping",
+      "tactic": "credential-access",
+      "description": "Adversaries may attempt to dump credentials to obtain account login and credential material, normally in the form of a hash or a clear text password. Credentials can be obtained from OS caches, memory, or structures.(Citation: Brining MimiKatz to Unix) Credentials can then be used to perform [Lateral Movement](https://attack.mitre.org/tactics/TA0008) and access restricted information.\n\nSeveral of the tools mentioned in associated sub-techniques may be used by both adversaries and professional security testers. Additional custom tools likely exist as well.\n",
+      "url": "https://attack.mitre.org/techniques/T1003",
+      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) utilized “Hdump” to dump credentials from memory.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
+    },
+    {
+      "technique_id": "T1003.006",
+      "name": "DCSync",
+      "tactic": "credential-access",
+      "description": "Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API)(Citation: Microsoft DRSR Dec 2017) (Citation: Microsoft GetNCCChanges) (Citation: Samba DRSUAPI) (Citation: Wine API samlib.dll) to simulate the replication process from a remote domain controller using a technique called DCSync.\n\nMembers of the Administrators, Domain Admins, and Enterprise Admin groups or computer accounts on the domain controller are able to run DCSync to pull password data(Citation: ADSecurity Mimikatz DCSync) from Active Directory, which may include current and historical hashes of potentially useful accounts such as KRBTGT and Administrators. The hashes can then in turn be used to create a [Golden Ticket](https://attack.mitre.org/techniques/T1558/001) for use in [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003)(Citation: Harmj0y Mimikatz and DCSync) or change an account's password as noted in [Account Manipulation](https://attack.mitre.org/techniques/T1098).(Citation: InsiderThreat ChangeNTLM July 2017)\n\nDCSync functionality has been included in the \"lsadump\" module in [Mimikatz](https://attack.mitre.org/software/S0002).(Citation: GitHub Mimikatz lsadump Module) Lsadump also includes NetSync, which performs DCSync over a legacy replication protocol.(Citation: Microsoft NRPC Dec 2017)",
+      "url": "https://attack.mitre.org/techniques/T1003/006",
+      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has leveraged [Mimikatz](https://attack.mitre.org/software/S0002) DCSync feature to obtain user credentials.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
     }
   ],
   "software": [

@@ -205,27 +205,59 @@
   "otx_pulses": [],
   "relations": [
     {
-      "group_name": "APT3",
-      "group_slug": "apt3",
+      "group_name": "APT10",
+      "group_slug": "apt10",
       "shared_tools": [],
       "shared_techniques": [
         {
-          "technique_id": "T1110.002",
-          "name": "Password Cracking",
-          "tactic": "credential-access",
-          "url": "https://attack.mitre.org/techniques/T1110/002"
+          "technique_id": "T1021.004",
+          "name": "SSH",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/004"
+        },
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        },
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
         }
       ],
       "shared_sectors": [
-        "energy",
         "government",
         "technology",
-        "transportation",
-        "telecommunications"
+        "telecommunications",
+        "energy"
       ],
       "shared_regions": [
+        "Australia",
+        "Canada",
         "United States"
       ]
+    },
+    {
+      "group_name": "BRONZE BUTER",
+      "group_slug": "bronze-buter",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "technology",
+        "energy"
+      ],
+      "shared_regions": []
     },
     {
       "group_name": "GALLIUM",
@@ -246,10 +278,10 @@
         }
       ],
       "shared_sectors": [
-        "technology",
         "government",
-        "military",
-        "telecommunications"
+        "technology",
+        "telecommunications",
+        "military"
       ],
       "shared_regions": [
         "Australia"
@@ -280,27 +312,21 @@
         }
       ],
       "shared_sectors": [
-        "energy",
         "government",
-        "technology",
         "transportation",
-        "telecommunications"
+        "energy",
+        "telecommunications",
+        "technology"
       ],
       "shared_regions": [
         "United States"
       ]
     },
     {
-      "group_name": "APT10",
-      "group_slug": "apt10",
+      "group_name": "APT41",
+      "group_slug": "apt41",
       "shared_tools": [],
       "shared_techniques": [
-        {
-          "technique_id": "T1021.004",
-          "name": "SSH",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/004"
-        },
         {
           "technique_id": "T1190",
           "name": "Exploit Public-Facing Application",
@@ -315,15 +341,96 @@
         }
       ],
       "shared_sectors": [
-        "technology",
-        "energy",
         "government",
-        "telecommunications"
+        "transportation",
+        "energy",
+        "telecommunications",
+        "technology",
+        "hospitality"
       ],
       "shared_regions": [
         "Australia",
-        "United States",
-        "Canada"
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT15",
+      "group_slug": "apt15",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        },
+        {
+          "technique_id": "T1587.001",
+          "name": "Malware",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1587/001"
+        },
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "technology",
+        "military"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT5",
+      "group_slug": "apt5",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1021.004",
+          "name": "SSH",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/004"
+        },
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "technology",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "Lotus Blossom",
+      "group_slug": "lotus-blossom",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "technology",
+        "telecommunications",
+        "military"
+      ],
+      "shared_regions": [
+        "Australia"
       ]
     },
     {
@@ -358,88 +465,31 @@
       ],
       "shared_sectors": [
         "government",
-        "military",
-        "telecommunications"
+        "telecommunications",
+        "military"
       ],
       "shared_regions": [
         "United States"
       ]
     },
     {
-      "group_name": "APT15",
-      "group_slug": "apt15",
+      "group_name": "APT3",
+      "group_slug": "apt3",
       "shared_tools": [],
       "shared_techniques": [
         {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        },
-        {
-          "technique_id": "T1587.001",
-          "name": "Malware",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1587/001"
-        },
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
+          "technique_id": "T1110.002",
+          "name": "Password Cracking",
+          "tactic": "credential-access",
+          "url": "https://attack.mitre.org/techniques/T1110/002"
         }
       ],
       "shared_sectors": [
-        "technology",
         "government",
-        "military"
-      ],
-      "shared_regions": []
-    },
-    {
-      "group_name": "Lotus Blossom",
-      "group_slug": "lotus-blossom",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
-        }
-      ],
-      "shared_sectors": [
-        "technology",
-        "government",
-        "military",
-        "telecommunications"
-      ],
-      "shared_regions": [
-        "Australia"
-      ]
-    },
-    {
-      "group_name": "APT5",
-      "group_slug": "apt5",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1021.004",
-          "name": "SSH",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/004"
-        },
-        {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        }
-      ],
-      "shared_sectors": [
-        "technology",
-        "government",
-        "telecommunications"
+        "transportation",
+        "energy",
+        "telecommunications",
+        "technology"
       ],
       "shared_regions": [
         "United States"
@@ -470,47 +520,16 @@
         }
       ],
       "shared_sectors": [
-        "energy",
         "government",
-        "technology",
-        "military",
         "transportation",
-        "telecommunications"
+        "energy",
+        "telecommunications",
+        "technology",
+        "military"
       ],
       "shared_regions": [
         "Australia",
-        "United States",
-        "Canada"
-      ]
-    },
-    {
-      "group_name": "APT41",
-      "group_slug": "apt41",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        },
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
-        }
-      ],
-      "shared_sectors": [
-        "energy",
-        "government",
-        "hospitality",
-        "technology",
-        "transportation",
-        "telecommunications"
-      ],
-      "shared_regions": [
-        "Australia",
+        "Canada",
         "United States"
       ]
     },
@@ -527,67 +546,13 @@
         }
       ],
       "shared_sectors": [
-        "technology",
-        "energy",
-        "government",
-        "telecommunications"
-      ],
-      "shared_regions": [
-        "United States",
-        "Canada"
-      ]
-    },
-    {
-      "group_name": "APT27",
-      "group_slug": "apt27",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        },
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
-        }
-      ],
-      "shared_sectors": [
-        "energy",
         "government",
         "technology",
-        "transportation",
-        "telecommunications"
+        "telecommunications",
+        "energy"
       ],
       "shared_regions": [
-        "Australia",
-        "United States",
-        "Canada"
-      ]
-    },
-    {
-      "group_name": "APT19",
-      "group_slug": "apt19",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
-        }
-      ],
-      "shared_sectors": [
-        "technology",
-        "energy",
-        "government",
-        "telecommunications"
-      ],
-      "shared_regions": [
-        "Australia",
+        "Canada",
         "United States"
       ]
     },
@@ -616,12 +581,66 @@
         }
       ],
       "shared_sectors": [
-        "technology",
         "government",
+        "technology",
         "telecommunications"
       ],
       "shared_regions": [
         "Australia",
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT19",
+      "group_slug": "apt19",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "technology",
+        "telecommunications",
+        "energy"
+      ],
+      "shared_regions": [
+        "Australia",
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT27",
+      "group_slug": "apt27",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        },
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ],
+      "shared_sectors": [
+        "government",
+        "transportation",
+        "energy",
+        "telecommunications",
+        "technology"
+      ],
+      "shared_regions": [
+        "Australia",
+        "Canada",
         "United States"
       ]
     },
@@ -638,34 +657,15 @@
         }
       ],
       "shared_sectors": [
-        "technology",
-        "energy",
         "government",
-        "telecommunications"
+        "technology",
+        "telecommunications",
+        "energy"
       ],
       "shared_regions": [
         "Australia",
         "United States"
       ]
-    },
-    {
-      "group_name": "BRONZE BUTER",
-      "group_slug": "bronze-buter",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
-        }
-      ],
-      "shared_sectors": [
-        "technology",
-        "energy",
-        "government"
-      ],
-      "shared_regions": []
     }
   ]
 }
