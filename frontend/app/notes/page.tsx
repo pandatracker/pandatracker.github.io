@@ -3,7 +3,7 @@ import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 
 export const metadata = {
-  title: "About — pandatracker",
+  title: "Notes — pandatracker",
 };
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
             <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
             <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
             <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
-            <Link href="/about" className="text-gray-800 font-medium">About</Link>
+            <Link href="/notes" className="text-gray-800 font-medium">Notes</Link>
           </nav>
           <div className="flex-1 flex justify-end">
             <Suspense>
@@ -33,30 +33,31 @@ export default function AboutPage() {
             <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
             <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
             <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
-            <Link href="/about" className="text-gray-800 font-medium">About</Link>
+            <Link href="/notes" className="text-gray-800 font-medium">Notes</Link>
           </div>
         </nav>
       </header>
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-10">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">About</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">Notes</h1>
           <p className="text-gray-500 leading-relaxed">
-            pandatracker is first and foremost a pet project that grew out of a long-standing interest in China’s activities 
+            pandatracker is first and foremost a pet project that grew out of a long-standing interest in China’s offensive activities 
             in cyberspace and a personal need for a unified reference.
-            It tries to address the fragmentation of threat intelligence across vendors, researchers, 
+            It attempts to address the fragmentation of threat intelligence across vendors, researchers, 
             and investigative groups by providing a single source that brings together group identities, 
             aliases, attribution evidence, campaigns, and tooling in one place.
           </p>
         </div>
 
         <section>
-          <h2 className="text-lg font-semibold text-gray-900 mb-3">Methodology</h2>
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Methods</h2>
           <div className="space-y-3 text-sm text-gray-500 leading-relaxed">
             <p>
-              Core data is human-reviewed.
-              Each group file covers identity, attribution evidence, timeline, targeting, malware,
-              and campaigns. Data is only added when supported by publicly available sources.
+              All reports are manually built and reviewed against the primary sources. 
+              AI was utilized for data collection and for text improvement. 
+              
+              Data is only added when supported by publicly available sources.
               This project does not produce new assessments and does not aim to do so. 
             </p>
             <p>
@@ -84,8 +85,8 @@ export default function AboutPage() {
               <li><span className="text-orange-600 font-medium">Suspected</span> — assessed based on targeting patterns, infrastructure, or TTPs consistent with known entities.</li>
             </ul>
             <p>
-              Mistakes or inconsistencies may (and do) occur. Attribution claims should always be verified against the primary sources.
-              Do not treat pandatracker as a definitive authority (or as any authority for that matter).
+              Mistakes or inconsistencies may (and do) occur. 
+              Attribution claims should always be verified against the primary sources.
             </p>
           </div>
 
@@ -163,9 +164,6 @@ export default function AboutPage() {
           <h2 className="text-lg font-semibold text-gray-900 mb-3">Licensing</h2>
           <div className="text-sm text-gray-500 leading-relaxed space-y-2">
             <p>
-              Do whatever you like with the data you find here. No credit needed. This project does not invent anything new, it simply collects and organizes publicly available references.
-            </p>
-            <p>
               MITRE ATT&CK® data is used under the{" "}
               <a href="https://attack.mitre.org/resources/terms-of-use/" target="_blank"
                 rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
@@ -173,13 +171,29 @@ export default function AboutPage() {
               </a>
               . © The MITRE Corporation. Reproduced and distributed with permission.
             </p>
+            <p>
+              OTX pulse data is retrieved from{" "}
+              <a href="https://otx.alienvault.com" target="_blank" rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700">
+                AlienVault OTX
+              </a>{" "}
+              via its public API and is subject to the{" "}
+              <a href="https://otx.alienvault.com/api" target="_blank" rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700">
+                OTX Terms of Service
+              </a>
+              . Pulse content belongs to the respective authors who published it on the platform.
+            </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-gray-900 mb-3">Contributing</h2>
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Contributing etc.</h2>
           <p className="text-sm text-gray-500 leading-relaxed">
-            Contributions are welcomed. Contact via email pandatrckr@proton.me.
+            Contributions are welcomed. Contact via email pandatrckr@proton.me or send a pull request.
+          </p>
+          <p className="text-sm text-gray-500 leading-relaxed mt-4">
+            Do whatever you like with the data you find here. No credit needed. This project does not invent anything new, it simply collects and organizes publicly available references.
           </p>
         </section>
       </main>

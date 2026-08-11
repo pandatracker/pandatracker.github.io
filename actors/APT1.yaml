@@ -30,6 +30,18 @@ affiliation_unit: Unit 61398
 entity_name: null
 associated_address: 208 Datong Road, Pudong District, Shanghai, P.R. China
 coordinates: [31.349000, 121.574000]
+affiliation_detail: >
+  Mandiant's February 2013 report provided "evidence linking APT1 to
+  China's 2nd Bureau of the People's Liberation Army (PLA) General Staff
+  Department's (GSD) 3rd Department," unit 61398.
+ 
+  In May 2014, the DOJ indicted five Unit 61398 officers — Wang Dong
+  (王东, aka "UglyGorilla"), Sun Kailiang (孙凯亮, aka "Jack Sun"), Wen Xinyu
+  (文新宇, aka "WinXYHappy"), Huang Zhenyu (黄振宇), and Gu Chunhui (顾春晖,
+  aka "KandyGoo") — on 31 criminal counts including economic espionage,
+  theft of trade secrets, and computer fraud. This was the first-ever
+  U.S. indictment of known state actors for cyber espionage. (DOJ, 2014)
+
 affiliation_confidence: high
 attribution_evidence:
 - type: vendor-report
@@ -42,8 +54,7 @@ attribution_evidence:
     for Commercial Advantage"
   publisher: U.S. Department of Justice
   date: 2014-05-19
-  url: 
-    https://www.justice.gov/archives/opa/pr/us-charges-five-chinese-military-hackers-cyber-espionage-against-us-corporations-and-labor
+  url: https://www.justice.gov/archives/opa/pr/us-charges-five-chinese-military-hackers-cyber-espionage-against-us-corporations-and-labor
 - type: government-advisory
   title: "Potential for China Cyber Response to Heightened U.S.–China Tensions"
   publisher: CISA
@@ -51,24 +62,34 @@ attribution_evidence:
   url: https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-275a
 
 # ---- Timeline ----
-first_seen: 2006                  # Per Mandiant report and DOJ indictment; WEBC2 compile timestamps suggest development as early as 2004
-first_described: 2013-02          # Mandiant APT1 report publication
-last_seen: 2014                  # Infrastructure dismantled after 2013 exposure and 2014 indictment; CrowdStrike confirmed infrastructure disappeared post-indictment
+first_seen: 2006                  
+first_described: 2013-02         
+last_seen: 2014                  t
 
 # ---- Overview ----
 description: >
   APT1 is a Chinese state-sponsored cyber espionage group attributed to PLA Unit 61398, the 2nd Bureau of the
-  PLA General Staff Department's 3rd Department, based in Shanghai's Pudong district. 
+  PLA General Staff Department's 3rd Department, based in Shanghai's Pudong district. The group is the subject of the
+  first-ever U.S. criminal indictment against state actors for cyber espionage.
 
-  Active from at least 2006,the group conducted sustained intrusions against at least 141 organizations across 20 major industries,  with
-  a primary focus on English-speaking targets, particularly in the United States. 
+  Between 2006 and 2013, Mandiant observed APT1 compromise at least 141
+  organizations across 20 major industries, "systematically stolen hundreds
+  of terabytes of data," with the capability "to steal from dozens of
+  organizations simultaneously." The group maintained persistent access
+  for an average of 356 days per victim, with the longest single intrusion
+  lasting 1,764 days (four years and ten months). The largest observed
+  single theft was 6.5 terabytes of compressed data from one organization
+  over ten months. Of the 141 known victims, 87% were headquartered in
+  English-speaking countries, with 115 in the United States. Targeted
+  industries aligned with China's 12th Five-Year Plan strategic
+  priorities. (Mandiant, 2013)
 
-  APT1 was notable for its economic espionage operations, stealing hundreds of terabytes of data including trade
-  secrets, business plans, and proprietary technology. The group maintained persistence in victim networks for an average
-  of one year, with the longest known access lasting four years and ten months. 
+  The aliases including "comment" were derived from the group's utilization
+  of C2 instructions embedded in HTML comment tags on legitimate-looking web pages. 
+  Later, APT1 also utilized other tags. (Mandiant, 2013)
 
-  The 2013 Mandiant report publicly linked the group to the PLA, followed by the 2014 DOJ indictment of five Unit 61398 officers
-  — the first-ever U.S. criminal charges against known state actors for cyber espionage.
+  APT1 infrastructure was largely dismantled following the February 2013
+  Mandiant report.
 
 # ---- Key References ----
 assessment_basis:
@@ -80,8 +101,7 @@ assessment_basis:
 - title: "U.S. Charges Five Chinese Military Hackers for Cyber Espionage"
   publisher: U.S. Department of Justice
   date: 2014-05-19
-  url: 
-    https://www.justice.gov/archives/opa/pr/us-charges-five-chinese-military-hackers-cyber-espionage-against-us-corporations-and-labor
+  url: https://www.justice.gov/archives/opa/pr/us-charges-five-chinese-military-hackers-cyber-espionage-against-us-corporations-and-labor
   notes: First-ever U.S. indictment of nation-state hackers; officially confirmed Mandiant's attribution to Unit 61398
 - title: "Five Chinese Military Hackers Charged with Cyber Espionage Against U.S."
   publisher: FBI
@@ -91,8 +111,7 @@ assessment_basis:
 - title: "The PLA and the 800am-500pm Work Day"
   publisher: FireEye
   date: 2014-05
-  url: 
-    https://web.archive.org/web/20210417085454/https://www.fireeye.com/blog/threat-research/2014/05/the-pla-and-the-800am-500pm-work-day-fireeye-confirms-dojs-findings-on-apt1-intrusion-activity.html
+  url: https://web.archive.org/web/20210417085454/https://www.fireeye.com/blog/threat-research/2014/05/the-pla-and-the-800am-500pm-work-day-fireeye-confirms-dojs-findings-on-apt1-intrusion-activity.html
   notes: Corroborated DOJ findings with additional operational pattern analysis
 - title: "MITRE ATT&CK - APT1 (G0006)"
   publisher: MITRE
@@ -150,7 +169,7 @@ campaigns:
     title: "Five Chinese Military Hackers Charged with Cyber Espionage Against U.S."
     publisher: FBI
 
-- name: Broad economic espionage campaign (Mandiant-tracked)
+- name: Broad economic espionage campaign
   year_published: null
   description: >
     Over seven years, APT1 systematically compromised at least 141 organizations across 20 industries,

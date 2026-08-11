@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { fetchGroups, GroupListItem } from "@/lib/api";
+import { fetchGroups, loadToolsIndex, GroupListItem } from "@/lib/api";
 import GroupCard from "@/components/GroupCard";
 import FilterBar, { Filters, FilterOptions } from "@/components/FilterBar";
 import SearchBar from "@/components/SearchBar";
@@ -14,6 +14,7 @@ function filtersFromParams(params: URLSearchParams): Filters {
     actor_type:  params.get("actor_type")  ?? "",
     sector:      params.get("sector")      ?? "",
     sort:        params.get("sort")        ?? "name",
+    tools:       params.getAll("tool"),
   };
 }
 
@@ -26,13 +27,13 @@ function GroupsContent() {
   );
   const [groups, setGroups] = useState<GroupListItem[]>([]);
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
-    affiliations: [], actorTypes: [], sectors: [],
+    affiliations: [], actorTypes: [], sectors: [], tools: [],
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchGroups({}).then((all) => {
+    Promise.all([fetchGroups({}), loadToolsIndex()]).then(([all, toolsIndex]) => {
       const uniq = (arr: (string | null | undefined)[]) =>
         [...new Set(arr.filter(Boolean) as string[])].sort();
       const affiliationSet = new Set<string>();
@@ -43,6 +44,7 @@ function GroupsContent() {
         affiliations: [...affiliationSet].sort(),
         actorTypes:   uniq(all.map((g) => g.actor_type)),
         sectors:      uniq(all.flatMap((g) => g.target_sectors)),
+        tools:        Object.keys(toolsIndex).sort(),
       });
     });
   }, []);
@@ -50,9 +52,11 @@ function GroupsContent() {
   const applyFilters = useCallback((f: Filters) => {
     setFilters(f);
     const params = new URLSearchParams();
-    for (const [k, v] of Object.entries(f)) {
-      if (v && !(k === "sort" && v === "name")) params.set(k, v);
-    }
+    if (f.affiliation) params.set("affiliation", f.affiliation);
+    if (f.actor_type)  params.set("actor_type",  f.actor_type);
+    if (f.sector)      params.set("sector",       f.sector);
+    if (f.sort && f.sort !== "name") params.set("sort", f.sort);
+    for (const tool of f.tools) params.append("tool", tool);
     router.replace(`/groups?${params}`);
   }, [router]);
 
@@ -125,7 +129,7 @@ export default function GroupsPage() {
             <Link href="/groups" className="text-gray-800 font-medium">APT Directory</Link>
             <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
             <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
-            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
+            <Link href="/notes" className="hover:text-gray-800 transition-colors">Notes</Link>
           </nav>
           <div className="flex-1 flex justify-end">
             <Suspense>
@@ -139,7 +143,7 @@ export default function GroupsPage() {
             <Link href="/groups" className="text-gray-800 font-medium">APT Directory</Link>
             <Link href="/visualize" className="hover:text-gray-800 transition-colors">Visualize</Link>
             <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
-            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
+            <Link href="/notes" className="hover:text-gray-800 transition-colors">Notes</Link>
           </div>
         </nav>
       </header>

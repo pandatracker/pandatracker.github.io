@@ -890,7 +890,7 @@ export default function VisualizePage() {
             <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
             <Link href="/visualize" className="text-gray-800 font-medium">Visualize</Link>
             <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
-            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
+            <Link href="/notes" className="hover:text-gray-800 transition-colors">Notes</Link>
           </nav>
 
           <div className="flex-1 flex justify-end">
@@ -905,7 +905,7 @@ export default function VisualizePage() {
             <Link href="/groups" className="hover:text-gray-800 transition-colors">APT Directory</Link>
             <Link href="/visualize" className="text-gray-800 font-medium">Visualize</Link>
             <Link href="/news" className="hover:text-gray-800 transition-colors">News Feed</Link>
-            <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
+            <Link href="/notes" className="hover:text-gray-800 transition-colors">Notes</Link>
           </div>
         </nav>
       </header>

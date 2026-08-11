@@ -41,6 +41,14 @@ async function loadGroups(): Promise<GroupListItem[]> {
   return _groupsCache;
 }
 
+let _toolsIndexCache: Record<string, string[]> | null = null;
+
+export async function loadToolsIndex(): Promise<Record<string, string[]>> {
+  if (_toolsIndexCache) return _toolsIndexCache;
+  _toolsIndexCache = await loadJson<Record<string, string[]>>("/data/tools-index.json");
+  return _toolsIndexCache;
+}
+
 function naturalSortKey(name: string): [string, number] {
   const m = name.match(/^(.*?)(\d+)$/);
   return m ? [m[1].toLowerCase(), parseInt(m[2], 10)] : [name.toLowerCase(), 0];
@@ -73,6 +81,7 @@ export async function fetchGroups(params: {
   actor_type?: string;
   sector?: string;
   sort?: string;
+  tools?: string[];
 }): Promise<GroupListItem[]> {
   let groups = await loadGroups();
 
@@ -99,6 +108,14 @@ export async function fetchGroups(params: {
 
   if (params.sector) {
     groups = groups.filter((g) => g.target_sectors.includes(params.sector!));
+  }
+
+  if (params.tools && params.tools.length > 0) {
+    const toolsIndex = await loadToolsIndex();
+    // AND logic: group must use every selected tool
+    groups = groups.filter((g) =>
+      params.tools!.every((tool) => (toolsIndex[tool] ?? []).includes(g.slug))
+    );
   }
 
   return sortGroups(groups, params.sort ?? "name");

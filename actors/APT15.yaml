@@ -30,9 +30,9 @@ aliases:
   source: https://www.microsoft.com/en-us/security/security-insider/threat-landscape/nylon-typhoon
 
 # ---- Attribution ----
-actor_type: unknown
-affiliation: unknown
-affiliation_unit: null
+actor_type: state-associated
+affiliation: PLA
+affiliation_unit: Unit 61046
 entity_name: null
 associated_address: null
 coordinates: [null, null]
@@ -43,6 +43,9 @@ affiliation_detail: >
   Microsoft described NICKEL as a "China-based threat actor" and stated there is "often a
   correlation between Nickel's targets and China's geopolitical interests." 
   FireEye originally described Ke3chang operators as "Chinese-speaking APT actors." 
+
+  In July 2026, Intrusion Truth attributed APT15 to PLA 8th Technical Reconnaissance Base (Unit 61046), 
+  based on their investigation into RedRelay anonymization network, which they observed being sold to Unit 61046.
 attribution_evidence:
 - type: vendor-report
   title: "Operation Ke3chang: Targeted Attacks Against Ministries of Foreign Affairs"
@@ -88,6 +91,19 @@ description: >
   commands and tools for reconnaissance and lateral movement rather than deploying extensive
   custom malware. Moreover, APT15 is notable for its persistence — NCC Group documented the group regaining access to a compromised UK government contractor
   within two weeks of remediation via a stolen VPN certificate. 
+
+  In July 2026, Intrusion Truth linked APT15 to PLA's "Unit 61046 ... otherwise known as the 8th TRB," through the investigation of anonymization tool RedRelay
+  and subsequent leaked documents from a notetaking tool, which mentioned IP address hosting infrastructure "believed to be used exclusively by APT15."
+
+  Side note:
+  
+  It is worth noting that Unit 61046 was pre-2015 known as the 8th Operational Bureau of the General Staff Department (GSD) Third Department. 
+  Technical Reconnaissance Bueraus (TRB) were distinct from Operational Bureaus and were assigned to respective Military Regions (pre-reform).
+  According to Project2049, "Third Department likely provides TRBs with policy guidance and tasking for collection and analysis."
+  Notes investigated by Intrusion Truth mention 8th TRB of Strategic Support Force (SSF) and do not provide any dating. 
+  However, SSF existed between 2015 and 2024, when it was replaced by Cyber Space Force (CSF). SSF 8th TRB was not previously noticed in open sources, 
+  which however does not mean it did not exist. Moreover, 8th TRB was not observed as a part of CSF post-2024 reform. Again, not meaning it does not exist,
+  given the secrecy of PLA.
 
 # ---- Key References ----
 assessment_basis:

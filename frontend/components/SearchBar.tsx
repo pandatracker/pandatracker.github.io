@@ -58,9 +58,14 @@ export default function SearchBar() {
     if (r.match_field === "entity_name") return (
       <span className="text-xs text-gray-400 ml-1">entity</span>
     );
+    const fieldLabel: Record<string, string> = {
+      alias: "alias:",
+      malware: "malware:",
+      description: "desc:",
+    };
     return (
       <span className="text-xs text-gray-400 ml-1">
-        {r.match_field === "alias" ? "alias:" : "malware:"}{" "}
+        {fieldLabel[r.match_field] ?? `${r.match_field}:`}{" "}
         <span className="text-gray-500">{r.match_value}</span>
       </span>
     );
