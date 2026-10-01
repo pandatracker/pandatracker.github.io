@@ -314,8 +314,183 @@
   "otx_pulses": [],
   "relations": [
     {
-      "group_name": "APT1",
-      "group_slug": "apt1",
+      "group_name": "APT40",
+      "group_slug": "apt40",
+      "shared_tools": [
+        {
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
+        },
+        {
+          "name": "Cobalt Strike",
+          "software_id": "S0154",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0154"
+        },
+        {
+          "name": "PowerSploit",
+          "software_id": "S0194",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0194"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1021.001",
+          "name": "Remote Desktop Protocol",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/001"
+        },
+        {
+          "technique_id": "T1021.004",
+          "name": "SSH",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/004"
+        },
+        {
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
+        },
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
+        },
+        {
+          "technique_id": "T1059.001",
+          "name": "PowerShell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        },
+        {
+          "technique_id": "T1074.001",
+          "name": "Local Data Staging",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1074/001"
+        },
+        {
+          "technique_id": "T1074.002",
+          "name": "Remote Data Staging",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1074/002"
+        },
+        {
+          "technique_id": "T1078",
+          "name": "Valid Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1553.002",
+          "name": "Code Signing",
+          "tactic": "defense-impairment",
+          "url": "https://attack.mitre.org/techniques/T1553/002"
+        },
+        {
+          "technique_id": "T1560",
+          "name": "Archive Collected Data",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1560"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        }
+      ],
+      "shared_sectors": [
+        "healthcare",
+        "technology",
+        "maritime",
+        "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
+        "education",
+        "energy",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "Switzerland",
+        "Canada",
+        "South Korea",
+        "Australia",
+        "United States",
+        "United Kingdom",
+        "Japan",
+        "South Africa",
+        "Norway"
+      ]
+    },
+    {
+      "group_name": "APT12",
+      "group_slug": "apt12",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "finance",
+        "defense",
+        "government",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Japan"
+      ]
+    },
+    {
+      "group_name": "APT5",
+      "group_slug": "apt5",
       "shared_tools": [
         {
           "name": "Mimikatz",
@@ -324,22 +499,10 @@
           "url": "https://attack.mitre.org/software/S0002"
         },
         {
-          "name": "pwdump",
-          "software_id": "S0006",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0006"
-        },
-        {
           "name": "PoisonIvy",
           "software_id": "S0012",
           "software_type": "malware",
           "url": "https://attack.mitre.org/software/S0012"
-        },
-        {
-          "name": "PsExec",
-          "software_id": "S0029",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0029"
         },
         {
           "name": "Net",
@@ -350,22 +513,22 @@
       ],
       "shared_techniques": [
         {
-          "technique_id": "T1005",
-          "name": "Data from Local System",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1005"
-        },
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
+          "technique_id": "T1003.002",
+          "name": "Security Account Manager",
+          "tactic": "credential-access",
+          "url": "https://attack.mitre.org/techniques/T1003/002"
         },
         {
           "technique_id": "T1021.001",
           "name": "Remote Desktop Protocol",
           "tactic": "lateral-movement",
           "url": "https://attack.mitre.org/techniques/T1021/001"
+        },
+        {
+          "technique_id": "T1021.004",
+          "name": "SSH",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/004"
         },
         {
           "technique_id": "T1036.005",
@@ -380,22 +543,155 @@
           "url": "https://attack.mitre.org/techniques/T1049"
         },
         {
+          "technique_id": "T1056.001",
+          "name": "Keylogging",
+          "tactic": "collection, credential-access",
+          "url": "https://attack.mitre.org/techniques/T1056/001"
+        },
+        {
+          "technique_id": "T1059.001",
+          "name": "PowerShell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        },
+        {
           "technique_id": "T1059.003",
           "name": "Windows Command Shell",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1059/003"
         },
         {
-          "technique_id": "T1119",
-          "name": "Automated Collection",
+          "technique_id": "T1070.003",
+          "name": "Clear Command History",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/003"
+        },
+        {
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/004"
+        },
+        {
+          "technique_id": "T1074.001",
+          "name": "Local Data Staging",
           "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1119"
+          "url": "https://attack.mitre.org/techniques/T1074/001"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
         },
         {
           "technique_id": "T1560.001",
           "name": "Archive via Utility",
           "tactic": "collection",
           "url": "https://attack.mitre.org/techniques/T1560/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "finance",
+        "defense",
+        "aerospace",
+        "government",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT22",
+      "group_slug": "apt22",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1078",
+          "name": "Valid Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        },
+        {
+          "technique_id": "T1553.002",
+          "name": "Code Signing",
+          "tactic": "defense-impairment",
+          "url": "https://attack.mitre.org/techniques/T1553/002"
+        }
+      ],
+      "shared_sectors": [
+        "healthcare",
+        "technology",
+        "government",
+        "finance"
+      ],
+      "shared_regions": [
+        "India",
+        "United States",
+        "South Korea"
+      ]
+    },
+    {
+      "group_name": "APT19",
+      "group_slug": "apt19",
+      "shared_tools": [
+        {
+          "name": "Cobalt Strike",
+          "software_id": "S0154",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0154"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
+        },
+        {
+          "technique_id": "T1059.001",
+          "name": "PowerShell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
         },
         {
           "technique_id": "T1566.001",
@@ -404,10 +700,10 @@
           "url": "https://attack.mitre.org/techniques/T1566/001"
         },
         {
-          "technique_id": "T1583.001",
-          "name": "Domains",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1583/001"
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
         },
         {
           "technique_id": "T1588.002",
@@ -417,25 +713,88 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "maritime",
-        "energy",
-        "finance",
-        "government",
-        "healthcare",
         "technology",
-        "legal",
+        "finance",
+        "NGOs",
         "defense",
-        "aerospace",
+        "manufacturing",
         "education",
-        "manufacturing"
+        "government",
+        "energy",
+        "telecommunications",
+        "legal"
       ],
       "shared_regions": [
-        "India",
-        "United Kingdom",
-        "Canada",
-        "Israel",
+        "Australia",
+        "Norway",
         "United States"
+      ]
+    },
+    {
+      "group_name": "APT31",
+      "group_slug": "apt31",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1036",
+          "name": "Masquerading",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "finance",
+        "NGOs",
+        "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
+        "education",
+        "energy",
+        "telecommunications",
+        "legal"
+      ],
+      "shared_regions": [
+        "Canada",
+        "South Korea",
+        "Australia",
+        "United States",
+        "France",
+        "United Kingdom",
+        "Finland",
+        "Norway",
+        "India"
       ]
     },
     {
@@ -530,134 +889,87 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "finance",
         "healthcare",
+        "technology",
+        "finance",
         "NGOs",
-        "technology",
-        "legal",
         "defense",
-        "education"
-      ],
-      "shared_regions": [
-        "United States",
-        "Japan",
-        "Australia",
-        "United Kingdom"
-      ]
-    },
-    {
-      "group_name": "Salt Typhoon",
-      "group_slug": "salt-typhoon",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1021.004",
-          "name": "SSH",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/004"
-        },
-        {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        },
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
-        }
-      ],
-      "shared_sectors": [
         "government",
-        "technology",
+        "education",
+        "energy",
         "telecommunications",
-        "energy"
+        "legal"
       ],
       "shared_regions": [
-        "United States",
         "Australia",
-        "Canada"
+        "United States",
+        "United Kingdom",
+        "Japan"
       ]
     },
     {
-      "group_name": "Tonto Team",
-      "group_slug": "tonto-team",
+      "group_name": "APT18",
+      "group_slug": "apt18",
       "shared_tools": [
         {
-          "name": "Mimikatz",
-          "software_id": "S0002",
+          "name": "cmd",
+          "software_id": "S0106",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0002"
+          "url": "https://attack.mitre.org/software/S0106"
         }
       ],
       "shared_techniques": [
         {
-          "technique_id": "T1056.001",
-          "name": "Keylogging",
-          "tactic": "collection, credential-access",
-          "url": "https://attack.mitre.org/techniques/T1056/001"
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
         },
         {
-          "technique_id": "T1059.001",
-          "name": "PowerShell",
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
           "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/001"
+          "url": "https://attack.mitre.org/techniques/T1059/003"
         },
         {
-          "technique_id": "T1090.002",
-          "name": "External Proxy",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1090/002"
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/004"
+        },
+        {
+          "technique_id": "T1078",
+          "name": "Valid Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
         },
         {
           "technique_id": "T1105",
           "name": "Ingress Tool Transfer",
           "tactic": "command-and-control",
           "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1210",
-          "name": "Exploitation of Remote Services",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1210"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        },
-        {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
         }
       ],
       "shared_sectors": [
-        "energy",
-        "government",
-        "finance",
         "healthcare",
         "technology",
+        "NGOs",
         "defense",
-        "education"
+        "manufacturing",
+        "aerospace",
+        "government",
+        "education",
+        "energy",
+        "telecommunications"
       ],
       "shared_regions": [
-        "South Korea",
-        "United States",
-        "Japan"
+        "United States"
       ]
     },
     {
@@ -806,18 +1118,18 @@
         }
       ],
       "shared_sectors": [
-        "government",
         "oil-and-gas",
+        "technology",
         "NGOs",
-        "technology"
+        "government"
       ],
       "shared_regions": [
         "India"
       ]
     },
     {
-      "group_name": "APT5",
-      "group_slug": "apt5",
+      "group_name": "BRONZE BUTER",
+      "group_slug": "bronze-buter",
       "shared_tools": [
         {
           "name": "Mimikatz",
@@ -826,24 +1138,213 @@
           "url": "https://attack.mitre.org/software/S0002"
         },
         {
-          "name": "PoisonIvy",
-          "software_id": "S0012",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0012"
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
+        },
+        {
+          "name": "cmd",
+          "software_id": "S0106",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0106"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1005",
+          "name": "Data from Local System",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1005"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1036",
+          "name": "Masquerading",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036"
+        },
+        {
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1039",
+          "name": "Data from Network Shared Drive",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1039"
+        },
+        {
+          "technique_id": "T1053.005",
+          "name": "Scheduled Task",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
+        },
+        {
+          "technique_id": "T1059.001",
+          "name": "PowerShell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/004"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1087.002",
+          "name": "Domain Account",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1087/002"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1560.001",
+          "name": "Archive via Utility",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1560/001"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        },
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "finance",
+        "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
+        "energy"
+      ],
+      "shared_regions": [
+        "Japan",
+        "South Korea"
+      ]
+    },
+    {
+      "group_name": "Volt Typhoon",
+      "group_slug": "volt-typhoon",
+      "shared_tools": [
+        {
+          "name": "Mimikatz",
+          "software_id": "S0002",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0002"
+        },
+        {
+          "name": "PsExec",
+          "software_id": "S0029",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0029"
         },
         {
           "name": "Net",
           "software_id": "S0039",
           "software_type": "tool",
           "url": "https://attack.mitre.org/software/S0039"
+        },
+        {
+          "name": "Ping",
+          "software_id": "S0097",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0097"
+        },
+        {
+          "name": "cmd",
+          "software_id": "S0106",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0106"
+        },
+        {
+          "name": "certutil",
+          "software_id": "S0160",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0160"
+        },
+        {
+          "name": "Impacket",
+          "software_id": "S0357",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0357"
         }
       ],
       "shared_techniques": [
         {
-          "technique_id": "T1003.002",
-          "name": "Security Account Manager",
+          "technique_id": "T1003.003",
+          "name": "NTDS",
           "tactic": "credential-access",
-          "url": "https://attack.mitre.org/techniques/T1003/002"
+          "url": "https://attack.mitre.org/techniques/T1003/003"
+        },
+        {
+          "technique_id": "T1005",
+          "name": "Data from Local System",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1005"
+        },
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
         },
         {
           "technique_id": "T1021.001",
@@ -852,16 +1353,22 @@
           "url": "https://attack.mitre.org/techniques/T1021/001"
         },
         {
-          "technique_id": "T1021.004",
-          "name": "SSH",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/004"
-        },
-        {
           "technique_id": "T1036.005",
           "name": "Match Legitimate Resource Name or Location",
           "tactic": "stealth",
           "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        },
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
         },
         {
           "technique_id": "T1049",
@@ -888,12 +1395,6 @@
           "url": "https://attack.mitre.org/techniques/T1059/003"
         },
         {
-          "technique_id": "T1070.003",
-          "name": "Clear Command History",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/003"
-        },
-        {
           "technique_id": "T1070.004",
           "name": "File Deletion",
           "tactic": "stealth",
@@ -904,274 +1405,6 @@
           "name": "Local Data Staging",
           "tactic": "collection",
           "url": "https://attack.mitre.org/techniques/T1074/001"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        },
-        {
-          "technique_id": "T1560.001",
-          "name": "Archive via Utility",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1560/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "government",
-        "finance",
-        "technology",
-        "defense",
-        "aerospace"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "APT31",
-      "group_slug": "apt31",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1036",
-          "name": "Masquerading",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036"
-        },
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1140",
-          "name": "Deobfuscate/Decode Files or Information",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1140"
-        },
-        {
-          "technique_id": "T1583.001",
-          "name": "Domains",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1583/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "finance",
-        "NGOs",
-        "technology",
-        "legal",
-        "defense",
-        "aerospace",
-        "education",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "India",
-        "France",
-        "United Kingdom",
-        "Finland",
-        "South Korea",
-        "Australia",
-        "Norway",
-        "Canada",
-        "United States"
-      ]
-    },
-    {
-      "group_name": "Tropic Trooper",
-      "group_slug": "tropic-trooper",
-      "shared_tools": [
-        {
-          "name": "PoisonIvy",
-          "software_id": "S0012",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0012"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
-        },
-        {
-          "technique_id": "T1049",
-          "name": "System Network Connections Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1049"
-        },
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1106",
-          "name": "Native API",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1106"
-        },
-        {
-          "technique_id": "T1119",
-          "name": "Automated Collection",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1119"
-        },
-        {
-          "technique_id": "T1140",
-          "name": "Deobfuscate/Decode Files or Information",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1140"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        },
-        {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "technology",
-        "energy",
-        "healthcare"
-      ],
-      "shared_regions": [
-        "South Korea",
-        "Japan",
-        "Hong Kong"
-      ]
-    },
-    {
-      "group_name": "APT2",
-      "group_slug": "apt2",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "government",
-        "technology",
-        "defense",
-        "aerospace"
-      ],
-      "shared_regions": [
-        "United States",
-        "Japan",
-        "Canada"
-      ]
-    },
-    {
-      "group_name": "APT18",
-      "group_slug": "apt18",
-      "shared_tools": [
-        {
-          "name": "cmd",
-          "software_id": "S0106",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0106"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        },
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
         },
         {
           "technique_id": "T1078",
@@ -1186,152 +1419,59 @@
           "url": "https://attack.mitre.org/techniques/T1083"
         },
         {
+          "technique_id": "T1087.002",
+          "name": "Domain Account",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1087/002"
+        },
+        {
           "technique_id": "T1105",
           "name": "Ingress Tool Transfer",
           "tactic": "command-and-control",
           "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        },
+        {
+          "technique_id": "T1560.001",
+          "name": "Archive via Utility",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1560/001"
+        },
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "healthcare",
-        "government",
-        "NGOs",
+        "maritime",
         "technology",
         "defense",
-        "aerospace",
+        "manufacturing",
+        "government",
         "education",
-        "manufacturing"
+        "energy",
+        "telecommunications"
       ],
       "shared_regions": [
         "United States"
       ]
     },
     {
-      "group_name": "Naikon",
-      "group_slug": "naikon",
-      "shared_tools": [
-        {
-          "name": "PsExec",
-          "software_id": "S0029",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0029"
-        },
-        {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
-        },
-        {
-          "name": "Ping",
-          "software_id": "S0097",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0097"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
-        },
-        {
-          "technique_id": "T1047",
-          "name": "Windows Management Instrumentation",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1047"
-        },
-        {
-          "technique_id": "T1053.005",
-          "name": "Scheduled Task",
-          "tactic": "execution, persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1053/005"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        },
-        {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "technology",
-        "telecommunications",
-        "defense"
-      ],
-      "shared_regions": [
-        "India",
-        "Australia",
-        "Thailand"
-      ]
-    },
-    {
-      "group_name": "APT30",
-      "group_slug": "apt30",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "government",
-        "NGOs",
-        "defense",
-        "aerospace"
-      ],
-      "shared_regions": [
-        "South Korea",
-        "Thailand"
-      ]
-    },
-    {
-      "group_name": "Mustang Panda",
-      "group_slug": "mustang-panda",
+      "group_name": "Charcoal Typhoon",
+      "group_slug": "charcoal-typhoon",
       "shared_tools": [
         {
           "name": "Mimikatz",
@@ -1340,43 +1480,25 @@
           "url": "https://attack.mitre.org/software/S0002"
         },
         {
-          "name": "PoisonIvy",
-          "software_id": "S0012",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0012"
-        },
-        {
-          "name": "PlugX",
-          "software_id": "S0013",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0013"
-        },
-        {
           "name": "Cobalt Strike",
           "software_id": "S0154",
           "software_type": "malware",
           "url": "https://attack.mitre.org/software/S0154"
         },
         {
-          "name": "Impacket",
-          "software_id": "S0357",
+          "name": "certutil",
+          "software_id": "S0160",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0357"
+          "url": "https://attack.mitre.org/software/S0160"
         },
         {
-          "name": "AdFind",
-          "software_id": "S0552",
+          "name": "PowerSploit",
+          "software_id": "S0194",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0552"
+          "url": "https://attack.mitre.org/software/S0194"
         }
       ],
       "shared_techniques": [
-        {
-          "technique_id": "T1003.003",
-          "name": "NTDS",
-          "tactic": "credential-access",
-          "url": "https://attack.mitre.org/techniques/T1003/003"
-        },
         {
           "technique_id": "T1016",
           "name": "System Network Configuration Discovery",
@@ -1394,12 +1516,6 @@
           "name": "Match Legitimate Resource Name or Location",
           "tactic": "stealth",
           "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
         },
         {
           "technique_id": "T1047",
@@ -1426,58 +1542,16 @@
           "url": "https://attack.mitre.org/techniques/T1059/001"
         },
         {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
-        },
-        {
-          "technique_id": "T1074.001",
-          "name": "Local Data Staging",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1074/001"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1087.002",
-          "name": "Domain Account",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1087/002"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1106",
-          "name": "Native API",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1106"
-        },
-        {
-          "technique_id": "T1119",
-          "name": "Automated Collection",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1119"
-        },
-        {
           "technique_id": "T1140",
           "name": "Deobfuscate/Decode Files or Information",
           "tactic": "stealth",
           "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1190"
         },
         {
           "technique_id": "T1204.002",
@@ -1486,28 +1560,16 @@
           "url": "https://attack.mitre.org/techniques/T1204/002"
         },
         {
-          "technique_id": "T1218.004",
-          "name": "InstallUtil",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1218/004"
-        },
-        {
-          "technique_id": "T1553.002",
-          "name": "Code Signing",
-          "tactic": "defense-impairment",
-          "url": "https://attack.mitre.org/techniques/T1553/002"
+          "technique_id": "T1210",
+          "name": "Exploitation of Remote Services",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1210"
         },
         {
           "technique_id": "T1560.001",
           "name": "Archive via Utility",
           "tactic": "collection",
           "url": "https://attack.mitre.org/techniques/T1560/001"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
         },
         {
           "technique_id": "T1574.001",
@@ -1529,17 +1591,122 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "maritime",
-        "government",
+        "healthcare",
+        "technology",
         "NGOs",
-        "education"
+        "education",
+        "government",
+        "telecommunications"
       ],
       "shared_regions": [
+        "Australia",
+        "United States",
         "France",
         "Hong Kong",
-        "United Kingdom",
-        "United States",
+        "Thailand",
+        "United Arab Emirates"
+      ]
+    },
+    {
+      "group_name": "Lotus Blossom",
+      "group_slug": "lotus-blossom",
+      "shared_tools": [
+        {
+          "name": "Ping",
+          "software_id": "S0097",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0097"
+        },
+        {
+          "name": "certutil",
+          "software_id": "S0160",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0160"
+        },
+        {
+          "name": "Impacket",
+          "software_id": "S0357",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0357"
+        },
+        {
+          "name": "AdFind",
+          "software_id": "S0552",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0552"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        },
+        {
+          "technique_id": "T1047",
+          "name": "Windows Management Instrumentation",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1047"
+        },
+        {
+          "technique_id": "T1049",
+          "name": "System Network Connections Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1049"
+        },
+        {
+          "technique_id": "T1074.001",
+          "name": "Local Data Staging",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1074/001"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1087.002",
+          "name": "Domain Account",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1087/002"
+        },
+        {
+          "technique_id": "T1560.001",
+          "name": "Archive via Utility",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1560/001"
+        },
+        {
+          "technique_id": "T1588.002",
+          "name": "Tool",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "telecommunications",
+        "manufacturing",
+        "government"
+      ],
+      "shared_regions": [
+        "Australia",
+        "Hong Kong",
         "Thailand"
       ]
     },
@@ -1761,157 +1928,48 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "finance",
         "healthcare",
-        "NGOs",
         "technology",
+        "finance",
+        "NGOs",
         "defense",
+        "manufacturing",
         "aerospace",
+        "government",
         "education",
-        "manufacturing"
+        "energy",
+        "telecommunications"
       ],
       "shared_regions": [
-        "India",
-        "France",
-        "United Kingdom",
-        "Hong Kong",
-        "Japan",
-        "South Korea",
-        "Turkey",
-        "Australia",
         "Canada",
+        "Turkey",
+        "South Korea",
+        "Australia",
+        "United States",
+        "United Kingdom",
+        "France",
+        "Japan",
+        "Hong Kong",
         "Israel",
-        "United States"
+        "India"
       ]
     },
     {
-      "group_name": "BRONZE BUTER",
-      "group_slug": "bronze-buter",
-      "shared_tools": [
-        {
-          "name": "Mimikatz",
-          "software_id": "S0002",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0002"
-        },
-        {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
-        },
-        {
-          "name": "cmd",
-          "software_id": "S0106",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0106"
-        }
-      ],
+      "group_name": "Salt Typhoon",
+      "group_slug": "salt-typhoon",
+      "shared_tools": [],
       "shared_techniques": [
         {
-          "technique_id": "T1005",
-          "name": "Data from Local System",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1005"
+          "technique_id": "T1021.004",
+          "name": "SSH",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/004"
         },
         {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1036",
-          "name": "Masquerading",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036"
-        },
-        {
-          "technique_id": "T1036.005",
-          "name": "Match Legitimate Resource Name or Location",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1036/005"
-        },
-        {
-          "technique_id": "T1039",
-          "name": "Data from Network Shared Drive",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1039"
-        },
-        {
-          "technique_id": "T1053.005",
-          "name": "Scheduled Task",
-          "tactic": "execution, persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1053/005"
-        },
-        {
-          "technique_id": "T1059.001",
-          "name": "PowerShell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/001"
-        },
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1087.002",
-          "name": "Domain Account",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1087/002"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1140",
-          "name": "Deobfuscate/Decode Files or Information",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1140"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1560.001",
-          "name": "Archive via Utility",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1560/001"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
+          "technique_id": "T1190",
+          "name": "Exploit Public-Facing Application",
           "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        },
-        {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
+          "url": "https://attack.mitre.org/techniques/T1190"
         },
         {
           "technique_id": "T1588.002",
@@ -1921,37 +1979,29 @@
         }
       ],
       "shared_sectors": [
-        "energy",
-        "government",
-        "finance",
         "technology",
-        "defense",
-        "aerospace",
-        "manufacturing"
+        "energy",
+        "telecommunications",
+        "government"
       ],
       "shared_regions": [
-        "South Korea",
-        "Japan"
+        "Australia",
+        "United States",
+        "Canada"
       ]
     },
     {
-      "group_name": "APT3",
-      "group_slug": "apt3",
+      "group_name": "Tropic Trooper",
+      "group_slug": "tropic-trooper",
       "shared_tools": [
         {
-          "name": "PlugX",
-          "software_id": "S0013",
+          "name": "PoisonIvy",
+          "software_id": "S0012",
           "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0013"
+          "url": "https://attack.mitre.org/software/S0012"
         }
       ],
       "shared_techniques": [
-        {
-          "technique_id": "T1005",
-          "name": "Data from Local System",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1005"
-        },
         {
           "technique_id": "T1016",
           "name": "System Network Configuration Discovery",
@@ -1959,40 +2009,28 @@
           "url": "https://attack.mitre.org/techniques/T1016"
         },
         {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
         },
         {
-          "technique_id": "T1021.001",
-          "name": "Remote Desktop Protocol",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/001"
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
+        },
+        {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
         },
         {
           "technique_id": "T1049",
           "name": "System Network Connections Discovery",
           "tactic": "discovery",
           "url": "https://attack.mitre.org/techniques/T1049"
-        },
-        {
-          "technique_id": "T1053.005",
-          "name": "Scheduled Task",
-          "tactic": "execution, persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1053/005"
-        },
-        {
-          "technique_id": "T1056.001",
-          "name": "Keylogging",
-          "tactic": "collection, credential-access",
-          "url": "https://attack.mitre.org/techniques/T1056/001"
-        },
-        {
-          "technique_id": "T1059.001",
-          "name": "PowerShell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/001"
         },
         {
           "technique_id": "T1059.003",
@@ -2007,22 +2045,10 @@
           "url": "https://attack.mitre.org/techniques/T1070/004"
         },
         {
-          "technique_id": "T1074.001",
-          "name": "Local Data Staging",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1074/001"
-        },
-        {
           "technique_id": "T1083",
           "name": "File and Directory Discovery",
           "tactic": "discovery",
           "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1090.002",
-          "name": "External Proxy",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1090/002"
         },
         {
           "technique_id": "T1105",
@@ -2031,10 +2057,34 @@
           "url": "https://attack.mitre.org/techniques/T1105"
         },
         {
-          "technique_id": "T1560.001",
-          "name": "Archive via Utility",
+          "technique_id": "T1106",
+          "name": "Native API",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1106"
+        },
+        {
+          "technique_id": "T1119",
+          "name": "Automated Collection",
           "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1560/001"
+          "url": "https://attack.mitre.org/techniques/T1119"
+        },
+        {
+          "technique_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
         },
         {
           "technique_id": "T1574.001",
@@ -2044,173 +2094,20 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "finance",
-        "NGOs",
-        "technology",
-        "legal",
-        "defense",
-        "aerospace",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "Hong Kong",
-        "United Kingdom",
-        "Italy",
-        "United States",
-        "Sweden"
-      ]
-    },
-    {
-      "group_name": "APT40",
-      "group_slug": "apt40",
-      "shared_tools": [
-        {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
-        },
-        {
-          "name": "Cobalt Strike",
-          "software_id": "S0154",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0154"
-        },
-        {
-          "name": "PowerSploit",
-          "software_id": "S0194",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0194"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1021.001",
-          "name": "Remote Desktop Protocol",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/001"
-        },
-        {
-          "technique_id": "T1021.004",
-          "name": "SSH",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/004"
-        },
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        },
-        {
-          "technique_id": "T1047",
-          "name": "Windows Management Instrumentation",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1047"
-        },
-        {
-          "technique_id": "T1059.001",
-          "name": "PowerShell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/001"
-        },
-        {
-          "technique_id": "T1074.001",
-          "name": "Local Data Staging",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1074/001"
-        },
-        {
-          "technique_id": "T1074.002",
-          "name": "Remote Data Staging",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1074/002"
-        },
-        {
-          "technique_id": "T1078",
-          "name": "Valid Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1140",
-          "name": "Deobfuscate/Decode Files or Information",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1140"
-        },
-        {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
-          "technique_id": "T1553.002",
-          "name": "Code Signing",
-          "tactic": "defense-impairment",
-          "url": "https://attack.mitre.org/techniques/T1553/002"
-        },
-        {
-          "technique_id": "T1560",
-          "name": "Archive Collected Data",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1560"
-        },
-        {
-          "technique_id": "T1566.001",
-          "name": "Spearphishing Attachment",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1566/001"
-        },
-        {
-          "technique_id": "T1583.001",
-          "name": "Domains",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1583/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "maritime",
-        "energy",
-        "government",
         "healthcare",
         "technology",
-        "defense",
-        "aerospace",
-        "education",
-        "manufacturing"
+        "energy",
+        "government"
       ],
       "shared_regions": [
-        "South Africa",
-        "United Kingdom",
-        "Switzerland",
         "Japan",
-        "South Korea",
-        "Australia",
-        "Canada",
-        "Norway",
-        "United States"
+        "Hong Kong",
+        "South Korea"
       ]
     },
     {
-      "group_name": "APT12",
-      "group_slug": "apt12",
+      "group_name": "APT30",
+      "group_slug": "apt30",
       "shared_tools": [],
       "shared_techniques": [
         {
@@ -2227,47 +2124,59 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
+        "NGOs",
+        "defense",
+        "aerospace",
         "government",
-        "finance",
-        "technology",
-        "defense"
+        "telecommunications"
       ],
       "shared_regions": [
-        "United States",
-        "Japan"
+        "Thailand",
+        "South Korea"
       ]
     },
     {
-      "group_name": "Lotus Blossom",
-      "group_slug": "lotus-blossom",
+      "group_name": "APT1",
+      "group_slug": "apt1",
       "shared_tools": [
         {
-          "name": "Ping",
-          "software_id": "S0097",
+          "name": "Mimikatz",
+          "software_id": "S0002",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0097"
+          "url": "https://attack.mitre.org/software/S0002"
         },
         {
-          "name": "certutil",
-          "software_id": "S0160",
+          "name": "pwdump",
+          "software_id": "S0006",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0160"
+          "url": "https://attack.mitre.org/software/S0006"
         },
         {
-          "name": "Impacket",
-          "software_id": "S0357",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0357"
+          "name": "PoisonIvy",
+          "software_id": "S0012",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0012"
         },
         {
-          "name": "AdFind",
-          "software_id": "S0552",
+          "name": "PsExec",
+          "software_id": "S0029",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0552"
+          "url": "https://attack.mitre.org/software/S0029"
+        },
+        {
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
         }
       ],
       "shared_techniques": [
+        {
+          "technique_id": "T1005",
+          "name": "Data from Local System",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1005"
+        },
         {
           "technique_id": "T1016",
           "name": "System Network Configuration Discovery",
@@ -2275,22 +2184,16 @@
           "url": "https://attack.mitre.org/techniques/T1016"
         },
         {
-          "technique_id": "T1018",
-          "name": "Remote System Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1018"
+          "technique_id": "T1021.001",
+          "name": "Remote Desktop Protocol",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/001"
         },
         {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
-        },
-        {
-          "technique_id": "T1047",
-          "name": "Windows Management Instrumentation",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1047"
+          "technique_id": "T1036.005",
+          "name": "Match Legitimate Resource Name or Location",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
         },
         {
           "technique_id": "T1049",
@@ -2299,22 +2202,16 @@
           "url": "https://attack.mitre.org/techniques/T1049"
         },
         {
-          "technique_id": "T1074.001",
-          "name": "Local Data Staging",
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1119",
+          "name": "Automated Collection",
           "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1074/001"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1087.002",
-          "name": "Domain Account",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1087/002"
+          "url": "https://attack.mitre.org/techniques/T1119"
         },
         {
           "technique_id": "T1560.001",
@@ -2323,77 +2220,16 @@
           "url": "https://attack.mitre.org/techniques/T1560/001"
         },
         {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "technology",
-        "telecommunications",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "Thailand",
-        "Australia",
-        "Hong Kong"
-      ]
-    },
-    {
-      "group_name": "APT19",
-      "group_slug": "apt19",
-      "shared_tools": [
-        {
-          "name": "Cobalt Strike",
-          "software_id": "S0154",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0154"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1016",
-          "name": "System Network Configuration Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        },
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        },
-        {
-          "technique_id": "T1059.001",
-          "name": "PowerShell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/001"
-        },
-        {
-          "technique_id": "T1140",
-          "name": "Deobfuscate/Decode Files or Information",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1140"
-        },
-        {
-          "technique_id": "T1204.002",
-          "name": "Malicious File",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1204/002"
-        },
-        {
           "technique_id": "T1566.001",
           "name": "Spearphishing Attachment",
           "tactic": "initial-access",
           "url": "https://attack.mitre.org/techniques/T1566/001"
         },
         {
-          "technique_id": "T1574.001",
-          "name": "DLL",
-          "tactic": "stealth, execution",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
         },
         {
           "technique_id": "T1588.002",
@@ -2403,21 +2239,25 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "finance",
-        "government",
-        "NGOs",
+        "healthcare",
         "technology",
-        "legal",
+        "maritime",
+        "finance",
         "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
         "education",
-        "manufacturing"
+        "energy",
+        "telecommunications",
+        "legal"
       ],
       "shared_regions": [
+        "Canada",
         "United States",
-        "Australia",
-        "Norway"
+        "United Kingdom",
+        "Israel",
+        "India"
       ]
     },
     {
@@ -2584,27 +2424,152 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "government",
-        "finance",
         "technology",
-        "defense"
+        "finance",
+        "defense",
+        "government",
+        "telecommunications"
       ],
       "shared_regions": [
-        "South Africa",
-        "Australia"
+        "Australia",
+        "South Africa"
       ]
     },
     {
-      "group_name": "APT22",
-      "group_slug": "apt22",
-      "shared_tools": [],
+      "group_name": "Tonto Team",
+      "group_slug": "tonto-team",
+      "shared_tools": [
+        {
+          "name": "Mimikatz",
+          "software_id": "S0002",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0002"
+        }
+      ],
       "shared_techniques": [
         {
-          "technique_id": "T1046",
-          "name": "Network Service Discovery",
+          "technique_id": "T1056.001",
+          "name": "Keylogging",
+          "tactic": "collection, credential-access",
+          "url": "https://attack.mitre.org/techniques/T1056/001"
+        },
+        {
+          "technique_id": "T1059.001",
+          "name": "PowerShell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
+        },
+        {
+          "technique_id": "T1090.002",
+          "name": "External Proxy",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1090/002"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1210",
+          "name": "Exploitation of Remote Services",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1210"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        }
+      ],
+      "shared_sectors": [
+        "healthcare",
+        "technology",
+        "finance",
+        "defense",
+        "government",
+        "education",
+        "energy"
+      ],
+      "shared_regions": [
+        "United States",
+        "Japan",
+        "South Korea"
+      ]
+    },
+    {
+      "group_name": "APT3",
+      "group_slug": "apt3",
+      "shared_tools": [
+        {
+          "name": "PlugX",
+          "software_id": "S0013",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0013"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1005",
+          "name": "Data from Local System",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1005"
+        },
+        {
+          "technique_id": "T1016",
+          "name": "System Network Configuration Discovery",
           "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1046"
+          "url": "https://attack.mitre.org/techniques/T1016"
+        },
+        {
+          "technique_id": "T1018",
+          "name": "Remote System Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1018"
+        },
+        {
+          "technique_id": "T1021.001",
+          "name": "Remote Desktop Protocol",
+          "tactic": "lateral-movement",
+          "url": "https://attack.mitre.org/techniques/T1021/001"
+        },
+        {
+          "technique_id": "T1049",
+          "name": "System Network Connections Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1049"
+        },
+        {
+          "technique_id": "T1053.005",
+          "name": "Scheduled Task",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
+        },
+        {
+          "technique_id": "T1056.001",
+          "name": "Keylogging",
+          "tactic": "collection, credential-access",
+          "url": "https://attack.mitre.org/techniques/T1056/001"
+        },
+        {
+          "technique_id": "T1059.001",
+          "name": "PowerShell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/001"
         },
         {
           "technique_id": "T1059.003",
@@ -2613,57 +2578,114 @@
           "url": "https://attack.mitre.org/techniques/T1059/003"
         },
         {
-          "technique_id": "T1078",
-          "name": "Valid Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078"
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/004"
         },
         {
-          "technique_id": "T1553.002",
-          "name": "Code Signing",
-          "tactic": "defense-impairment",
-          "url": "https://attack.mitre.org/techniques/T1553/002"
+          "technique_id": "T1074.001",
+          "name": "Local Data Staging",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1074/001"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1090.002",
+          "name": "External Proxy",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1090/002"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1560.001",
+          "name": "Archive via Utility",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1560/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
         }
       ],
       "shared_sectors": [
-        "government",
-        "finance",
         "technology",
-        "healthcare"
+        "finance",
+        "NGOs",
+        "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
+        "energy",
+        "telecommunications",
+        "legal"
       ],
       "shared_regions": [
-        "South Korea",
-        "India",
-        "United States"
+        "United States",
+        "United Kingdom",
+        "Hong Kong",
+        "Italy",
+        "Sweden"
       ]
     },
     {
-      "group_name": "Charcoal Typhoon",
-      "group_slug": "charcoal-typhoon",
+      "group_name": "APT2",
+      "group_slug": "apt2",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "defense",
+        "aerospace",
+        "government",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States",
+        "Canada",
+        "Japan"
+      ]
+    },
+    {
+      "group_name": "Naikon",
+      "group_slug": "naikon",
       "shared_tools": [
         {
-          "name": "Mimikatz",
-          "software_id": "S0002",
+          "name": "PsExec",
+          "software_id": "S0029",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0002"
+          "url": "https://attack.mitre.org/software/S0029"
         },
         {
-          "name": "Cobalt Strike",
-          "software_id": "S0154",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0154"
+          "name": "Net",
+          "software_id": "S0039",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0039"
         },
         {
-          "name": "certutil",
-          "software_id": "S0160",
+          "name": "Ping",
+          "software_id": "S0097",
           "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0160"
-        },
-        {
-          "name": "PowerSploit",
-          "software_id": "S0194",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0194"
+          "url": "https://attack.mitre.org/software/S0097"
         }
       ],
       "shared_techniques": [
@@ -2686,16 +2708,16 @@
           "url": "https://attack.mitre.org/techniques/T1036/005"
         },
         {
+          "technique_id": "T1046",
+          "name": "Network Service Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1046"
+        },
+        {
           "technique_id": "T1047",
           "name": "Windows Management Instrumentation",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1047"
-        },
-        {
-          "technique_id": "T1049",
-          "name": "System Network Connections Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1049"
         },
         {
           "technique_id": "T1053.005",
@@ -2704,75 +2726,34 @@
           "url": "https://attack.mitre.org/techniques/T1053/005"
         },
         {
-          "technique_id": "T1059.001",
-          "name": "PowerShell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/001"
-        },
-        {
-          "technique_id": "T1140",
-          "name": "Deobfuscate/Decode Files or Information",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1140"
-        },
-        {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
-        },
-        {
           "technique_id": "T1204.002",
           "name": "Malicious File",
           "tactic": "execution",
           "url": "https://attack.mitre.org/techniques/T1204/002"
         },
         {
-          "technique_id": "T1210",
-          "name": "Exploitation of Remote Services",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1210"
-        },
-        {
-          "technique_id": "T1560.001",
-          "name": "Archive via Utility",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1560/001"
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
         },
         {
           "technique_id": "T1574.001",
           "name": "DLL",
           "tactic": "stealth, execution",
           "url": "https://attack.mitre.org/techniques/T1574/001"
-        },
-        {
-          "technique_id": "T1583.001",
-          "name": "Domains",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1583/001"
-        },
-        {
-          "technique_id": "T1588.002",
-          "name": "Tool",
-          "tactic": "resource-development",
-          "url": "https://attack.mitre.org/techniques/T1588/002"
         }
       ],
       "shared_sectors": [
+        "technology",
         "telecommunications",
         "government",
-        "healthcare",
-        "NGOs",
-        "technology",
-        "education"
+        "defense"
       ],
       "shared_regions": [
-        "France",
-        "Hong Kong",
-        "Thailand",
-        "United Arab Emirates",
         "Australia",
-        "United States"
+        "India",
+        "Thailand"
       ]
     },
     {
@@ -2993,38 +2974,38 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "finance",
         "healthcare",
         "technology",
+        "finance",
         "defense",
+        "manufacturing",
         "aerospace",
+        "government",
         "education",
-        "manufacturing"
+        "energy",
+        "telecommunications"
       ],
       "shared_regions": [
-        "India",
-        "South Africa",
-        "France",
-        "United Kingdom",
-        "Hong Kong",
-        "Thailand",
         "Switzerland",
-        "Japan",
-        "South Korea",
-        "Italy",
         "Turkey",
-        "Brazil",
+        "South Korea",
         "Australia",
+        "United Kingdom",
         "United States",
-        "Sweden"
+        "France",
+        "Japan",
+        "Thailand",
+        "Italy",
+        "South Africa",
+        "Hong Kong",
+        "Brazil",
+        "Sweden",
+        "India"
       ]
     },
     {
-      "group_name": "Volt Typhoon",
-      "group_slug": "volt-typhoon",
+      "group_name": "Mustang Panda",
+      "group_slug": "mustang-panda",
       "shared_tools": [
         {
           "name": "Mimikatz",
@@ -3033,40 +3014,34 @@
           "url": "https://attack.mitre.org/software/S0002"
         },
         {
-          "name": "PsExec",
-          "software_id": "S0029",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0029"
+          "name": "PoisonIvy",
+          "software_id": "S0012",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0012"
         },
         {
-          "name": "Net",
-          "software_id": "S0039",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0039"
+          "name": "PlugX",
+          "software_id": "S0013",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0013"
         },
         {
-          "name": "Ping",
-          "software_id": "S0097",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0097"
-        },
-        {
-          "name": "cmd",
-          "software_id": "S0106",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0106"
-        },
-        {
-          "name": "certutil",
-          "software_id": "S0160",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0160"
+          "name": "Cobalt Strike",
+          "software_id": "S0154",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0154"
         },
         {
           "name": "Impacket",
           "software_id": "S0357",
           "software_type": "tool",
           "url": "https://attack.mitre.org/software/S0357"
+        },
+        {
+          "name": "AdFind",
+          "software_id": "S0552",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0552"
         }
       ],
       "shared_techniques": [
@@ -3075,12 +3050,6 @@
           "name": "NTDS",
           "tactic": "credential-access",
           "url": "https://attack.mitre.org/techniques/T1003/003"
-        },
-        {
-          "technique_id": "T1005",
-          "name": "Data from Local System",
-          "tactic": "collection",
-          "url": "https://attack.mitre.org/techniques/T1005"
         },
         {
           "technique_id": "T1016",
@@ -3093,12 +3062,6 @@
           "name": "Remote System Discovery",
           "tactic": "discovery",
           "url": "https://attack.mitre.org/techniques/T1018"
-        },
-        {
-          "technique_id": "T1021.001",
-          "name": "Remote Desktop Protocol",
-          "tactic": "lateral-movement",
-          "url": "https://attack.mitre.org/techniques/T1021/001"
         },
         {
           "technique_id": "T1036.005",
@@ -3125,10 +3088,10 @@
           "url": "https://attack.mitre.org/techniques/T1049"
         },
         {
-          "technique_id": "T1056.001",
-          "name": "Keylogging",
-          "tactic": "collection, credential-access",
-          "url": "https://attack.mitre.org/techniques/T1056/001"
+          "technique_id": "T1053.005",
+          "name": "Scheduled Task",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/005"
         },
         {
           "technique_id": "T1059.001",
@@ -3155,12 +3118,6 @@
           "url": "https://attack.mitre.org/techniques/T1074/001"
         },
         {
-          "technique_id": "T1078",
-          "name": "Valid Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078"
-        },
-        {
           "technique_id": "T1083",
           "name": "File and Directory Discovery",
           "tactic": "discovery",
@@ -3179,22 +3136,64 @@
           "url": "https://attack.mitre.org/techniques/T1105"
         },
         {
+          "technique_id": "T1106",
+          "name": "Native API",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1106"
+        },
+        {
+          "technique_id": "T1119",
+          "name": "Automated Collection",
+          "tactic": "collection",
+          "url": "https://attack.mitre.org/techniques/T1119"
+        },
+        {
           "technique_id": "T1140",
           "name": "Deobfuscate/Decode Files or Information",
           "tactic": "stealth",
           "url": "https://attack.mitre.org/techniques/T1140"
         },
         {
-          "technique_id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "initial-access",
-          "url": "https://attack.mitre.org/techniques/T1190"
+          "technique_id": "T1204.002",
+          "name": "Malicious File",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1204/002"
+        },
+        {
+          "technique_id": "T1218.004",
+          "name": "InstallUtil",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1218/004"
+        },
+        {
+          "technique_id": "T1553.002",
+          "name": "Code Signing",
+          "tactic": "defense-impairment",
+          "url": "https://attack.mitre.org/techniques/T1553/002"
         },
         {
           "technique_id": "T1560.001",
           "name": "Archive via Utility",
           "tactic": "collection",
           "url": "https://attack.mitre.org/techniques/T1560/001"
+        },
+        {
+          "technique_id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "initial-access",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        },
+        {
+          "technique_id": "T1574.001",
+          "name": "DLL",
+          "tactic": "stealth, execution",
+          "url": "https://attack.mitre.org/techniques/T1574/001"
+        },
+        {
+          "technique_id": "T1583.001",
+          "name": "Domains",
+          "tactic": "resource-development",
+          "url": "https://attack.mitre.org/techniques/T1583/001"
         },
         {
           "technique_id": "T1588.002",
@@ -3204,17 +3203,18 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
         "maritime",
-        "energy",
+        "NGOs",
         "government",
-        "technology",
-        "defense",
         "education",
-        "manufacturing"
+        "telecommunications"
       ],
       "shared_regions": [
-        "United States"
+        "United Kingdom",
+        "United States",
+        "France",
+        "Hong Kong",
+        "Thailand"
       ]
     }
   ]

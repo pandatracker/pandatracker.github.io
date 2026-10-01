@@ -200,86 +200,28 @@
   "otx_pulses": [],
   "relations": [
     {
-      "group_name": "APT1",
-      "group_slug": "apt1",
-      "shared_tools": [],
-      "shared_techniques": [
+      "group_name": "APT40",
+      "group_slug": "apt40",
+      "shared_tools": [
         {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
+          "name": "gh0st RAT",
+          "software_id": "S0032",
+          "software_type": "malware",
+          "url": "https://attack.mitre.org/software/S0032"
         }
       ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "healthcare",
-        "government",
-        "technology",
-        "defense",
-        "aerospace",
-        "education",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "Naikon",
-      "group_slug": "naikon",
-      "shared_tools": [],
       "shared_techniques": [
         {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "technology",
-        "telecommunications",
-        "defense"
-      ],
-      "shared_regions": []
-    },
-    {
-      "group_name": "Mustang Panda",
-      "group_slug": "mustang-panda",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
           "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
+          "url": "https://attack.mitre.org/techniques/T1027/013"
         },
         {
-          "technique_id": "T1071.001",
-          "name": "Web Protocols",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1071/001"
-        },
-        {
-          "technique_id": "T1082",
-          "name": "System Information Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1082"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
+          "technique_id": "T1078",
+          "name": "Valid Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078"
         },
         {
           "technique_id": "T1105",
@@ -288,6 +230,12 @@
           "url": "https://attack.mitre.org/techniques/T1105"
         },
         {
+          "technique_id": "T1133",
+          "name": "External Remote Services",
+          "tactic": "persistence, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1133"
+        },
+        {
           "technique_id": "T1547.001",
           "name": "Registry Run Keys / Startup Folder",
           "tactic": "persistence, privilege-escalation",
@@ -295,10 +243,17 @@
         }
       ],
       "shared_sectors": [
+        "healthcare",
+        "technology",
+        "defense",
+        "manufacturing",
+        "transportation",
+        "energy",
+        "aerospace",
         "government",
-        "telecommunications",
         "education",
-        "NGOs"
+        "biotechnology",
+        "telecommunications"
       ],
       "shared_regions": [
         "United States"
@@ -378,405 +333,21 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
+        "healthcare",
+        "technology",
+        "NGOs",
+        "defense",
+        "manufacturing",
         "transportation",
-        "healthcare",
-        "government",
-        "NGOs",
-        "technology",
-        "defense",
         "aerospace",
+        "government",
         "education",
-        "manufacturing"
+        "energy",
+        "telecommunications"
       ],
       "shared_regions": [
         "United States"
       ]
-    },
-    {
-      "group_name": "Hafnium",
-      "group_slug": "hafnium",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1071.001",
-          "name": "Web Protocols",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1071/001"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "biotechnology",
-        "healthcare",
-        "NGOs",
-        "technology",
-        "defense",
-        "education"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "BRONZE BUTER",
-      "group_slug": "bronze-buter",
-      "shared_tools": [
-        {
-          "name": "cmd",
-          "software_id": "S0106",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0106"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1053.002",
-          "name": "At",
-          "tactic": "execution, persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1053/002"
-        },
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
-        },
-        {
-          "technique_id": "T1071.001",
-          "name": "Web Protocols",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1071/001"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "energy",
-        "government",
-        "biotechnology",
-        "technology",
-        "defense",
-        "aerospace",
-        "manufacturing"
-      ],
-      "shared_regions": []
-    },
-    {
-      "group_name": "APT10",
-      "group_slug": "apt10",
-      "shared_tools": [
-        {
-          "name": "cmd",
-          "software_id": "S0106",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0106"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        },
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
-        },
-        {
-          "technique_id": "T1078",
-          "name": "Valid Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "healthcare",
-        "government",
-        "NGOs",
-        "technology",
-        "defense",
-        "aerospace",
-        "education",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "Tonto Team",
-      "group_slug": "tonto-team",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        }
-      ],
-      "shared_sectors": [
-        "energy",
-        "government",
-        "healthcare",
-        "technology",
-        "defense",
-        "education"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "APT3",
-      "group_slug": "apt3",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1070.004",
-          "name": "File Deletion",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1070/004"
-        },
-        {
-          "technique_id": "T1082",
-          "name": "System Information Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1082"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "transportation",
-        "government",
-        "NGOs",
-        "technology",
-        "defense",
-        "aerospace",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "APT40",
-      "group_slug": "apt40",
-      "shared_tools": [
-        {
-          "name": "gh0st RAT",
-          "software_id": "S0032",
-          "software_type": "malware",
-          "url": "https://attack.mitre.org/software/S0032"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        },
-        {
-          "technique_id": "T1078",
-          "name": "Valid Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1133",
-          "name": "External Remote Services",
-          "tactic": "persistence, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1133"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "transportation",
-        "healthcare",
-        "government",
-        "biotechnology",
-        "technology",
-        "defense",
-        "aerospace",
-        "education",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "APT15",
-      "group_slug": "apt15",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1071.001",
-          "name": "Web Protocols",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1071/001"
-        },
-        {
-          "technique_id": "T1071.004",
-          "name": "DNS",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1071/004"
-        },
-        {
-          "technique_id": "T1078",
-          "name": "Valid Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078"
-        },
-        {
-          "technique_id": "T1082",
-          "name": "System Information Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1082"
-        },
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1133",
-          "name": "External Remote Services",
-          "tactic": "persistence, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1133"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "technology",
-        "NGOs"
-      ],
-      "shared_regions": []
     },
     {
       "group_name": "APT5",
@@ -810,124 +381,15 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "government",
         "technology",
         "defense",
-        "aerospace"
+        "aerospace",
+        "government",
+        "telecommunications"
       ],
       "shared_regions": [
         "United States"
       ]
-    },
-    {
-      "group_name": "Lotus Blossom",
-      "group_slug": "lotus-blossom",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1083"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "technology",
-        "telecommunications",
-        "manufacturing"
-      ],
-      "shared_regions": []
-    },
-    {
-      "group_name": "APT19",
-      "group_slug": "apt19",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
-          "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
-        },
-        {
-          "technique_id": "T1071.001",
-          "name": "Web Protocols",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1071/001"
-        },
-        {
-          "technique_id": "T1082",
-          "name": "System Information Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1082"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "NGOs",
-        "technology",
-        "defense",
-        "education",
-        "manufacturing"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "GALLIUM",
-      "group_slug": "gallium",
-      "shared_tools": [
-        {
-          "name": "cmd",
-          "software_id": "S0106",
-          "software_type": "tool",
-          "url": "https://attack.mitre.org/software/S0106"
-        }
-      ],
-      "shared_techniques": [
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1078",
-          "name": "Valid Accounts",
-          "tactic": "stealth, persistence, privilege-escalation, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1078"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1133",
-          "name": "External Remote Services",
-          "tactic": "persistence, initial-access",
-          "url": "https://attack.mitre.org/techniques/T1133"
-        }
-      ],
-      "shared_sectors": [
-        "government",
-        "technology",
-        "telecommunications",
-        "defense"
-      ],
-      "shared_regions": []
     },
     {
       "group_name": "APT22",
@@ -948,55 +410,10 @@
         }
       ],
       "shared_sectors": [
-        "government",
+        "healthcare",
+        "technology",
         "biotechnology",
-        "technology",
-        "healthcare"
-      ],
-      "shared_regions": [
-        "United States"
-      ]
-    },
-    {
-      "group_name": "APT31",
-      "group_slug": "apt31",
-      "shared_tools": [],
-      "shared_techniques": [
-        {
-          "technique_id": "T1059.003",
-          "name": "Windows Command Shell",
-          "tactic": "execution",
-          "url": "https://attack.mitre.org/techniques/T1059/003"
-        },
-        {
-          "technique_id": "T1082",
-          "name": "System Information Discovery",
-          "tactic": "discovery",
-          "url": "https://attack.mitre.org/techniques/T1082"
-        },
-        {
-          "technique_id": "T1105",
-          "name": "Ingress Tool Transfer",
-          "tactic": "command-and-control",
-          "url": "https://attack.mitre.org/techniques/T1105"
-        },
-        {
-          "technique_id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "persistence, privilege-escalation",
-          "url": "https://attack.mitre.org/techniques/T1547/001"
-        }
-      ],
-      "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "government",
-        "NGOs",
-        "technology",
-        "defense",
-        "aerospace",
-        "education",
-        "manufacturing"
+        "government"
       ],
       "shared_regions": [
         "United States"
@@ -1063,11 +480,479 @@
         }
       ],
       "shared_sectors": [
-        "energy",
+        "healthcare",
+        "technology",
         "transportation",
         "government",
+        "energy"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT1",
+      "group_slug": "apt1",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        }
+      ],
+      "shared_sectors": [
         "healthcare",
-        "technology"
+        "technology",
+        "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
+        "education",
+        "energy",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "GALLIUM",
+      "group_slug": "gallium",
+      "shared_tools": [
+        {
+          "name": "cmd",
+          "software_id": "S0106",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0106"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1078",
+          "name": "Valid Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1133",
+          "name": "External Remote Services",
+          "tactic": "persistence, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1133"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "telecommunications",
+        "government",
+        "defense"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT19",
+      "group_slug": "apt19",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
+        },
+        {
+          "technique_id": "T1071.001",
+          "name": "Web Protocols",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "NGOs",
+        "defense",
+        "manufacturing",
+        "education",
+        "government",
+        "energy",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "Tonto Team",
+      "group_slug": "tonto-team",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        }
+      ],
+      "shared_sectors": [
+        "healthcare",
+        "technology",
+        "defense",
+        "government",
+        "education",
+        "energy"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT31",
+      "group_slug": "apt31",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "NGOs",
+        "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
+        "education",
+        "energy",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "Hafnium",
+      "group_slug": "hafnium",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1071.001",
+          "name": "Web Protocols",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        }
+      ],
+      "shared_sectors": [
+        "healthcare",
+        "technology",
+        "NGOs",
+        "defense",
+        "biotechnology",
+        "government",
+        "education",
+        "energy",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT3",
+      "group_slug": "apt3",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/004"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "NGOs",
+        "defense",
+        "manufacturing",
+        "transportation",
+        "aerospace",
+        "government",
+        "energy",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT10",
+      "group_slug": "apt10",
+      "shared_tools": [
+        {
+          "name": "cmd",
+          "software_id": "S0106",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0106"
+        }
+      ],
+      "shared_techniques": [
+        {
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/004"
+        },
+        {
+          "technique_id": "T1078",
+          "name": "Valid Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        }
+      ],
+      "shared_sectors": [
+        "healthcare",
+        "technology",
+        "NGOs",
+        "defense",
+        "manufacturing",
+        "aerospace",
+        "government",
+        "education",
+        "energy",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "APT15",
+      "group_slug": "apt15",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1071.001",
+          "name": "Web Protocols",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        },
+        {
+          "technique_id": "T1071.004",
+          "name": "DNS",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1071/004"
+        },
+        {
+          "technique_id": "T1078",
+          "name": "Valid Accounts",
+          "tactic": "stealth, persistence, privilege-escalation, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1078"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1133",
+          "name": "External Remote Services",
+          "tactic": "persistence, initial-access",
+          "url": "https://attack.mitre.org/techniques/T1133"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "NGOs",
+        "government"
+      ],
+      "shared_regions": []
+    },
+    {
+      "group_name": "APT2",
+      "group_slug": "apt2",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1027.013",
+          "name": "Encrypted/Encoded File",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1027/013"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "defense",
+        "aerospace",
+        "government",
+        "telecommunications"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "Naikon",
+      "group_slug": "naikon",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "telecommunications",
+        "government",
+        "defense"
       ],
       "shared_regions": []
     },
@@ -1145,31 +1030,68 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
-        "transportation",
         "healthcare",
-        "government",
         "technology",
         "defense",
+        "manufacturing",
+        "transportation",
         "aerospace",
+        "government",
         "education",
-        "manufacturing"
+        "energy",
+        "telecommunications"
       ],
       "shared_regions": [
         "United States"
       ]
     },
     {
-      "group_name": "APT2",
-      "group_slug": "apt2",
-      "shared_tools": [],
+      "group_name": "BRONZE BUTER",
+      "group_slug": "bronze-buter",
+      "shared_tools": [
+        {
+          "name": "cmd",
+          "software_id": "S0106",
+          "software_type": "tool",
+          "url": "https://attack.mitre.org/software/S0106"
+        }
+      ],
       "shared_techniques": [
         {
-          "technique_id": "T1027.013",
-          "name": "Encrypted/Encoded File",
+          "technique_id": "T1053.002",
+          "name": "At",
+          "tactic": "execution, persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1053/002"
+        },
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
           "tactic": "stealth",
-          "url": "https://attack.mitre.org/techniques/T1027/013"
+          "url": "https://attack.mitre.org/techniques/T1070/004"
+        },
+        {
+          "technique_id": "T1071.001",
+          "name": "Web Protocols",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
         },
         {
           "technique_id": "T1547.001",
@@ -1179,15 +1101,15 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "government",
         "technology",
         "defense",
-        "aerospace"
+        "manufacturing",
+        "biotechnology",
+        "aerospace",
+        "government",
+        "energy"
       ],
-      "shared_regions": [
-        "United States"
-      ]
+      "shared_regions": []
     },
     {
       "group_name": "Volt Typhoon",
@@ -1239,19 +1161,97 @@
         }
       ],
       "shared_sectors": [
-        "telecommunications",
-        "energy",
+        "technology",
+        "defense",
+        "manufacturing",
         "transportation",
         "government",
-        "technology",
-        "construction",
-        "defense",
         "education",
-        "manufacturing"
+        "construction",
+        "energy",
+        "telecommunications"
       ],
       "shared_regions": [
         "United States"
       ]
+    },
+    {
+      "group_name": "Mustang Panda",
+      "group_slug": "mustang-panda",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1059.003",
+          "name": "Windows Command Shell",
+          "tactic": "execution",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        },
+        {
+          "technique_id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "stealth",
+          "url": "https://attack.mitre.org/techniques/T1070/004"
+        },
+        {
+          "technique_id": "T1071.001",
+          "name": "Web Protocols",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        },
+        {
+          "technique_id": "T1082",
+          "name": "System Information Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1082"
+        },
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        },
+        {
+          "technique_id": "T1105",
+          "name": "Ingress Tool Transfer",
+          "tactic": "command-and-control",
+          "url": "https://attack.mitre.org/techniques/T1105"
+        },
+        {
+          "technique_id": "T1547.001",
+          "name": "Registry Run Keys / Startup Folder",
+          "tactic": "persistence, privilege-escalation",
+          "url": "https://attack.mitre.org/techniques/T1547/001"
+        }
+      ],
+      "shared_sectors": [
+        "education",
+        "telecommunications",
+        "NGOs",
+        "government"
+      ],
+      "shared_regions": [
+        "United States"
+      ]
+    },
+    {
+      "group_name": "Lotus Blossom",
+      "group_slug": "lotus-blossom",
+      "shared_tools": [],
+      "shared_techniques": [
+        {
+          "technique_id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "discovery",
+          "url": "https://attack.mitre.org/techniques/T1083"
+        }
+      ],
+      "shared_sectors": [
+        "technology",
+        "telecommunications",
+        "manufacturing",
+        "government"
+      ],
+      "shared_regions": []
     }
   ]
 }
