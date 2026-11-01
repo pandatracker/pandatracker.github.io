@@ -36,7 +36,7 @@
       "technique_id": "T1573.001",
       "name": "Symmetric Cryptography",
       "tactic": "command-and-control",
-      "description": "Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Symmetric encryption algorithms use the same key for plaintext encryption and ciphertext decryption. Common symmetric encryption algorithms include AES, DES, 3DES, Blowfish, and RC4.",
+      "description": "Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Symmetric encryption algorithms use the same key for plaintext encryption and ciphertext decryption. Common symmetric encryption algorithms include AES, DES, 3DES, Blowfish, and RC4.(Citation: Destination Certification)(Citation: Symmetric vs Asymmetric Cryptography)",
       "url": "https://attack.mitre.org/techniques/T1573/001",
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has encrypted C2 communications with RC4.(Citation: Eset PlugX Korplug Mustang Panda March 2022)(Citation: Recorded Future REDDELTA July 2020) [Mustang Panda](https://attack.mitre.org/groups/G0129) has also leveraged encryption and compression algorithms to obfuscate the traffic between the system and C2 server, methods observed included RC4, AES, XOR with 0x5a, and LZO.(Citation: Unit42 Bookworm Nov2015)"
     },
@@ -177,6 +177,22 @@
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has installed TeamViewer on targeted systems.(Citation: Secureworks BRONZE PRESIDENT December 2019)"
     },
     {
+      "technique_id": "T1003",
+      "name": "OS Credential Dumping",
+      "tactic": "credential-access",
+      "description": "Adversaries may attempt to dump credentials to obtain account login and credential material, normally in the form of a hash or a clear text password. Credentials can be obtained from OS caches, memory, or structures.(Citation: Brining MimiKatz to Unix) Credentials can then be used to perform [Lateral Movement](https://attack.mitre.org/tactics/TA0008) and access restricted information.\n\nSeveral of the tools mentioned in associated sub-techniques may be used by both adversaries and professional security testers. Additional custom tools likely exist as well.\n",
+      "url": "https://attack.mitre.org/techniques/T1003",
+      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) utilized “Hdump” to dump credentials from memory.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
+    },
+    {
+      "technique_id": "T1003.006",
+      "name": "DCSync",
+      "tactic": "credential-access",
+      "description": "Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API)(Citation: Microsoft DRSR Dec 2017) (Citation: Microsoft GetNCCChanges) (Citation: Samba DRSUAPI) (Citation: Wine API samlib.dll) to simulate the replication process from a remote domain controller using a technique called DCSync.\n\nMembers of the Administrators, Domain Admins, and Enterprise Admin groups or computer accounts on the domain controller are able to run DCSync to pull password data(Citation: ADSecurity Mimikatz DCSync) from Active Directory, which may include current and historical hashes of potentially useful accounts such as KRBTGT and Administrators. The hashes can then in turn be used to create a [Golden Ticket](https://attack.mitre.org/techniques/T1558/001) for use in [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003)(Citation: Harmj0y Mimikatz and DCSync) or change an account's password as noted in [Account Manipulation](https://attack.mitre.org/techniques/T1098).(Citation: InsiderThreat ChangeNTLM July 2017)\n\nDCSync functionality has been included in the \"lsadump\" module in [Mimikatz](https://attack.mitre.org/software/S0002).(Citation: GitHub Mimikatz lsadump Module) Lsadump also includes NetSync, which performs DCSync over a legacy replication protocol.(Citation: Microsoft NRPC Dec 2017)",
+      "url": "https://attack.mitre.org/techniques/T1003/006",
+      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has leveraged [Mimikatz](https://attack.mitre.org/software/S0002) DCSync feature to obtain user credentials.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
+    },
+    {
       "technique_id": "T1218.004",
       "name": "InstallUtil",
       "tactic": "stealth",
@@ -260,7 +276,7 @@
       "technique_id": "T1041",
       "name": "Exfiltration Over C2 Channel",
       "tactic": "exfiltration",
-      "description": "Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.",
+      "description": "Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.(Citation: C2 FRAMEWORKS)",
       "url": "https://attack.mitre.org/techniques/T1041",
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has exfiltrated stolen data and files to its C2 server.(Citation: Cisco Talos MUSTANG PANDA PLUGX PUBLOAD MAY 2022)(Citation: EclecticIQ Mustang Panda PlugX)(Citation: Sophos PlugX September 2022)"
     },
@@ -324,7 +340,7 @@
       "technique_id": "T1052.001",
       "name": "Exfiltration over USB",
       "tactic": "exfiltration",
-      "description": "Adversaries may attempt to exfiltrate data over a USB connected physical device. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a USB device introduced by a user. The USB device could be used as the final exfiltration point or to hop between otherwise disconnected systems.",
+      "description": "Adversaries may attempt to exfiltrate data over a USB connected physical device. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a USB device introduced by a user. The USB device could be used as the final exfiltration point or to hop between otherwise disconnected systems.(Citation: A USB data exfiltration case study)",
       "url": "https://attack.mitre.org/techniques/T1052/001",
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has used a customized [PlugX](https://attack.mitre.org/software/S0013) variant which could exfiltrate documents from air-gapped networks.(Citation: Avira Mustang Panda January 2020)"
     },
@@ -572,7 +588,7 @@
       "technique_id": "T1059.001",
       "name": "PowerShell",
       "tactic": "execution",
-      "description": "Adversaries may abuse PowerShell commands and scripts for execution. PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system.(Citation: TechNet PowerShell) Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code. Examples include the <code>Start-Process</code> cmdlet which can be used to run an executable and the <code>Invoke-Command</code> cmdlet which runs a command locally or on a remote computer (though administrator permissions are required to use PowerShell to connect to remote systems).\n\nPowerShell may also be used to download and run executables from the Internet, which can be executed from disk or in memory without touching disk.\n\nA number of PowerShell-based offensive testing tools are available, including [Empire](https://attack.mitre.org/software/S0363),  [PowerSploit](https://attack.mitre.org/software/S0194), [PoshC2](https://attack.mitre.org/software/S0378), and PSAttack.(Citation: Github PSAttack)\n\nPowerShell commands/scripts can also be executed without directly invoking the <code>powershell.exe</code> binary through interfaces to PowerShell's underlying <code>System.Management.Automation</code> assembly DLL exposed through the .NET framework and Windows Common Language Interface (CLI).(Citation: Sixdub PowerPick Jan 2016)(Citation: SilentBreak Offensive PS Dec 2015)(Citation: Microsoft PSfromCsharp APR 2014)",
+      "description": "Adversaries may abuse PowerShell commands and scripts for execution. PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system.(Citation: TechNet PowerShell) PowerShell can also be installed on Linux and macOS.(Citation: Powershell installation) Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code. Examples include the <code>Start-Process</code> cmdlet which can be used to run an executable and the <code>Invoke-Command</code> cmdlet which runs a command locally or on a remote computer (though administrator permissions are required to use PowerShell to connect to remote systems).\n\nPowerShell may also be used to download and run executables from the Internet, which can be executed from disk or in memory without touching disk.\n\nA number of PowerShell-based offensive testing tools are available, including [Empire](https://attack.mitre.org/software/S0363),  [PowerSploit](https://attack.mitre.org/software/S0194), [PoshC2](https://attack.mitre.org/software/S0378), and PSAttack.(Citation: Github PSAttack)\n\nPowerShell commands/scripts can also be executed without directly invoking the <code>powershell.exe</code> binary through interfaces to PowerShell's underlying <code>System.Management.Automation</code> assembly DLL exposed through the .NET framework and Windows Common Language Interface (CLI).(Citation: Sixdub PowerPick Jan 2016)(Citation: SilentBreak Offensive PS Dec 2015)(Citation: Microsoft PSfromCsharp APR 2014)",
       "url": "https://attack.mitre.org/techniques/T1059/001",
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has used malicious PowerShell scripts to enable execution.(Citation: Anomali MUSTANG PANDA October 2019)(Citation: Crowdstrike MUSTANG PANDA June 2018)(Citation: Unit42 Chinese VSCode 06 September 2024)"
     },
@@ -663,22 +679,6 @@
       "description": "Adversaries may smuggle commands to download malicious payloads past content filters by hiding them within otherwise seemingly benign windows shortcut files. Windows shortcut files (.LNK) include many metadata fields, including an icon location field (also known as the `IconEnvironmentDataBlock`) designed to specify the path to an icon file that is to be displayed for the LNK file within a host directory. \n\nAdversaries may abuse this LNK metadata to download malicious payloads. For example, adversaries have been observed using LNK files as phishing payloads to deliver malware. Once invoked (e.g., [Malicious File](https://attack.mitre.org/techniques/T1204/002)), payloads referenced via external URLs within the LNK icon location field may be downloaded. These files may also then be invoked by [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059)/[System Binary Proxy Execution](https://attack.mitre.org/techniques/T1218) arguments within the target path field of the LNK.(Citation: Unprotect Shortcut)(Citation: Booby Trap Shortcut 2017)\n\nLNK Icon Smuggling may also be utilized post compromise, such as malicious scripts executing an LNK on an infected host to download additional malicious payloads. \n",
       "url": "https://attack.mitre.org/techniques/T1027/012",
       "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has utilized LNK files to hide malicious scripts for execution.(Citation: Cisco Talos MUSTANG PANDA PLUGX PUBLOAD MAY 2022)(Citation: Sophos Mustang Panda PLUGX) [Mustang Panda](https://attack.mitre.org/groups/G0129) has also leveraged LNK files that were programmed to display a PDF icon to entice the victim to click on the file to execute an office.exe binary.(Citation: CSIRT CTI MUSTANG PANDA PUBLOAD TONESHELL JAN 2024)"
-    },
-    {
-      "technique_id": "T1003",
-      "name": "OS Credential Dumping",
-      "tactic": "credential-access",
-      "description": "Adversaries may attempt to dump credentials to obtain account login and credential material, normally in the form of a hash or a clear text password. Credentials can be obtained from OS caches, memory, or structures.(Citation: Brining MimiKatz to Unix) Credentials can then be used to perform [Lateral Movement](https://attack.mitre.org/tactics/TA0008) and access restricted information.\n\nSeveral of the tools mentioned in associated sub-techniques may be used by both adversaries and professional security testers. Additional custom tools likely exist as well.\n",
-      "url": "https://attack.mitre.org/techniques/T1003",
-      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) utilized “Hdump” to dump credentials from memory.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
-    },
-    {
-      "technique_id": "T1003.006",
-      "name": "DCSync",
-      "tactic": "credential-access",
-      "description": "Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API)(Citation: Microsoft DRSR Dec 2017) (Citation: Microsoft GetNCCChanges) (Citation: Samba DRSUAPI) (Citation: Wine API samlib.dll) to simulate the replication process from a remote domain controller using a technique called DCSync.\n\nMembers of the Administrators, Domain Admins, and Enterprise Admin groups or computer accounts on the domain controller are able to run DCSync to pull password data(Citation: ADSecurity Mimikatz DCSync) from Active Directory, which may include current and historical hashes of potentially useful accounts such as KRBTGT and Administrators. The hashes can then in turn be used to create a [Golden Ticket](https://attack.mitre.org/techniques/T1558/001) for use in [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003)(Citation: Harmj0y Mimikatz and DCSync) or change an account's password as noted in [Account Manipulation](https://attack.mitre.org/techniques/T1098).(Citation: InsiderThreat ChangeNTLM July 2017)\n\nDCSync functionality has been included in the \"lsadump\" module in [Mimikatz](https://attack.mitre.org/software/S0002).(Citation: GitHub Mimikatz lsadump Module) Lsadump also includes NetSync, which performs DCSync over a legacy replication protocol.(Citation: Microsoft NRPC Dec 2017)",
-      "url": "https://attack.mitre.org/techniques/T1003/006",
-      "use_description": "[Mustang Panda](https://attack.mitre.org/groups/G0129) has leveraged [Mimikatz](https://attack.mitre.org/software/S0002) DCSync feature to obtain user credentials.(Citation: Palo Alto Unit42 STATELY TAURUS TONESHELL September 2023)"
     }
   ],
   "software": [
