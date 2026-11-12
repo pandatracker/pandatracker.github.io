@@ -75,11 +75,17 @@ function sortGroups(groups: GroupListItem[], sort: string): GroupListItem[] {
   return sorted;
 }
 
+// Strip editorial qualifiers, e.g. "China (Suzhou — French aerospace subsidiary)" → "China".
+export function normalizeRegion(region: string): string {
+  return region.replace(/\s*\(.*\)\s*$/, "").trim();
+}
+
 export async function fetchGroups(params: {
   search?: string;
   affiliation?: string;
   actor_type?: string;
   sector?: string;
+  region?: string;
   sort?: string;
   tools?: string[];
 }): Promise<GroupListItem[]> {
@@ -108,6 +114,12 @@ export async function fetchGroups(params: {
 
   if (params.sector) {
     groups = groups.filter((g) => g.target_sectors.includes(params.sector!));
+  }
+
+  if (params.region) {
+    groups = groups.filter((g) =>
+      g.target_regions.some((r) => normalizeRegion(r) === params.region)
+    );
   }
 
   if (params.tools && params.tools.length > 0) {

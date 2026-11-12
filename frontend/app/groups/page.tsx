@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { fetchGroups, loadToolsIndex, GroupListItem } from "@/lib/api";
+import { fetchGroups, loadToolsIndex, normalizeRegion, GroupListItem } from "@/lib/api";
 import GroupCard from "@/components/GroupCard";
 import FilterBar, { Filters, FilterOptions } from "@/components/FilterBar";
 import SearchBar from "@/components/SearchBar";
@@ -13,6 +13,7 @@ function filtersFromParams(params: URLSearchParams): Filters {
     affiliation: params.get("affiliation") ?? "",
     actor_type:  params.get("actor_type")  ?? "",
     sector:      params.get("sector")      ?? "",
+    region:      params.get("region")      ?? "",
     sort:        params.get("sort")        ?? "name",
     tools:       params.getAll("tool"),
   };
@@ -27,7 +28,7 @@ function GroupsContent() {
   );
   const [groups, setGroups] = useState<GroupListItem[]>([]);
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
-    affiliations: [], actorTypes: [], sectors: [], tools: [],
+    affiliations: [], actorTypes: [], sectors: [], regions: [], tools: [],
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -44,6 +45,7 @@ function GroupsContent() {
         affiliations: [...affiliationSet].sort(),
         actorTypes:   uniq(all.map((g) => g.actor_type)),
         sectors:      uniq(all.flatMap((g) => g.target_sectors)),
+        regions:      uniq(all.flatMap((g) => g.target_regions.map(normalizeRegion))),
         tools:        Object.keys(toolsIndex).sort(),
       });
     });
@@ -55,6 +57,7 @@ function GroupsContent() {
     if (f.affiliation) params.set("affiliation", f.affiliation);
     if (f.actor_type)  params.set("actor_type",  f.actor_type);
     if (f.sector)      params.set("sector",       f.sector);
+    if (f.region)      params.set("region",       f.region);
     if (f.sort && f.sort !== "name") params.set("sort", f.sort);
     for (const tool of f.tools) params.append("tool", tool);
     router.replace(`/groups?${params}`);

@@ -6,6 +6,7 @@ export interface Filters {
   affiliation: string;
   actor_type: string;
   sector: string;
+  region: string;
   sort: string;
   tools: string[];
 }
@@ -14,6 +15,7 @@ export interface FilterOptions {
   affiliations: string[];
   actorTypes: string[];
   sectors: string[];
+  regions: string[];
   tools: string[];
 }
 
@@ -179,6 +181,7 @@ export default function FilterBar({ filters, options, onChange }: Props) {
   if (filters.affiliation) activeFilters.push({ label: `affiliation: ${filters.affiliation}`, clear: () => set("affiliation")("") });
   if (filters.actor_type)  activeFilters.push({ label: `type: ${filters.actor_type}`,         clear: () => set("actor_type")("") });
   if (filters.sector)      activeFilters.push({ label: `sector: ${filters.sector}`,            clear: () => set("sector")("") });
+  if (filters.region)      activeFilters.push({ label: `target: ${filters.region}`,            clear: () => set("region")("") });
   for (const tool of filters.tools) {
     activeFilters.push({ label: tool, clear: () => onChange({ ...filters, tools: filters.tools.filter((t) => t !== tool) }) });
   }
@@ -189,6 +192,7 @@ export default function FilterBar({ filters, options, onChange }: Props) {
         <Select label="Affiliation" value={filters.affiliation} options={options.affiliations} onChange={set("affiliation")} />
         <Select label="Actor type"  value={filters.actor_type}  options={options.actorTypes}   onChange={set("actor_type")} />
         <Select label="Sector"      value={filters.sector}      options={options.sectors}       onChange={set("sector")} />
+        <Select label="Target country / region" value={filters.region} options={options.regions} onChange={set("region")} />
         <ToolMultiSelect
           selected={filters.tools}
           options={options.tools}
@@ -224,7 +228,7 @@ export default function FilterBar({ filters, options, onChange }: Props) {
             </button>
           ))}
           <button
-            onClick={() => onChange({ affiliation: "", actor_type: "", sector: "", sort: "name", tools: [] })}
+            onClick={() => onChange({ affiliation: "", actor_type: "", sector: "", region: "", sort: "name", tools: [] })}
             className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
           >
             Clear all
