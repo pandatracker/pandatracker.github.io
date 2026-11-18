@@ -10,6 +10,15 @@
       "affiliation_confidence": "suspected"
     },
     {
+      "name": "Mustang Panda",
+      "slug": "mustang-panda",
+      "last_seen": "2026",
+      "affiliation": [
+        "unknown"
+      ],
+      "affiliation_confidence": "high"
+    },
+    {
       "name": "Salt Typhoon",
       "slug": "salt-typhoon",
       "last_seen": "2026",
@@ -17,6 +26,15 @@
         "MSS"
       ],
       "affiliation_confidence": "high"
+    },
+    {
+      "name": "Tropic Trooper",
+      "slug": "tropic-trooper",
+      "last_seen": "2026",
+      "affiliation": [
+        "unknown"
+      ],
+      "affiliation_confidence": "suspected"
     },
     {
       "name": "APT27",
@@ -54,24 +72,6 @@
         "MSS"
       ],
       "affiliation_confidence": "high"
-    },
-    {
-      "name": "Mustang Panda",
-      "slug": "mustang-panda",
-      "last_seen": "2025",
-      "affiliation": [
-        "unknown"
-      ],
-      "affiliation_confidence": "high"
-    },
-    {
-      "name": "APT17",
-      "slug": "apt17",
-      "last_seen": "2024",
-      "affiliation": [
-        "MSS"
-      ],
-      "affiliation_confidence": "likely"
     }
   ],
   "recent_campaigns": [
@@ -121,6 +121,34 @@
       ],
       "group_name": "Salt Typhoon",
       "group_slug": "salt-typhoon"
+    },
+    {
+      "name": "Trojanized SumatraPDF / AdaptixC2 Campaign",
+      "year_published": "2026",
+      "description": "Zscaler ThreatLabz identified Tropic Trooper distributing trojanized SumatraPDF installers bundled with military-themed decoy documents to target Chinese-speaking individuals in Taiwan and individuals in South Korea and Japan. The group used GitHub as a C2 platform for custom AdaptixC2 Beacons. Itochu researchers additionally discovered an exposed S3 bucket containing 48 files with new malware and phishing pages mimicking Signal authentication. (Zscaler, 2026; Itochu via Dark Reading, 2026)\n",
+      "target_sectors": [
+        "government",
+        "military"
+      ],
+      "target_regions": [
+        "Taiwan",
+        "Japan",
+        "South Korea"
+      ],
+      "sources": [
+        {
+          "url": "https://www.zscaler.com/blogs/security-research/tropic-trooper-pivots-adaptixc2-and-custom-beacon-listener",
+          "title": "Tropic Trooper Uses Trojanized SumatraPDF and GitHub to Deploy AdaptixC2",
+          "publisher": "Zscaler ThreatLabz"
+        },
+        {
+          "url": "https://www.darkreading.com/threat-intelligence/tropic-trooper-apt-takes-aim-home-routers-japanese-targets",
+          "title": "Tropic Trooper APT Takes Aim at Home Routers, Japanese Targets",
+          "publisher": "Dark Reading (reporting on Itochu Cyber & Intelligence)"
+        }
+      ],
+      "group_name": "Tropic Trooper",
+      "group_slug": "tropic-trooper"
     },
     {
       "name": "US Treasury Department Breach (Silk Typhoon / BeyondTrust)",
@@ -188,30 +216,6 @@
           "url": "https://www.crowdstrike.com/en-us/blog/murky-panda-trusted-relationship-threat-in-cloud/",
           "title": "MURKY PANDA: A Trusted-Relationship Threat in the Cloud",
           "publisher": "CrowdStrike"
-        }
-      ],
-      "group_name": "Hafnium",
-      "group_slug": "hafnium"
-    },
-    {
-      "name": "IT Supply Chain Campaign",
-      "year_published": "2025",
-      "description": "Microsoft documented HAFNIUM/Silk Typhoon's shift toward IT supply chain targeting, compromising IT services providers, RMM companies, and MSPs to reach downstream customer environments. The group used stolen API keys, compromised OAuth applications, and service principal abuse for lateral movement and data exfiltration. Victims included state and local government, IT services, and financial institutions.\n",
-      "target_sectors": [
-        "IT-services",
-        "managed-service-providers",
-        "government",
-        "financial"
-      ],
-      "target_regions": [
-        "United States",
-        "global"
-      ],
-      "sources": [
-        {
-          "url": "https://www.microsoft.com/en-us/security/blog/2025/03/05/silk-typhoon-targeting-it-supply-chain/",
-          "title": "Silk Typhoon Targeting IT Supply Chain",
-          "publisher": "Microsoft Threat Intelligence"
         }
       ],
       "group_name": "Hafnium",
